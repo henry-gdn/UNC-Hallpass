@@ -74,7 +74,7 @@
 				<table class="table">
 					<tr>
 						<td>
-							<input tabindex="0" type="text" data-role="none" data-enhance="false" aria-label='Enter class name or course number' aria-labelledby="Enter class name or course number" class="form-control search-box" placeholder="Class name or course number" />
+							<input tabindex="0" type="text" data-role="none" data-enhance="false" aria-label='Enter class name or course number' aria-labelledby="Enter class name or course number" class="form-control search-box" placeholder="Enter class name or course number" />
 						</td>
 						<td>
 							<button aria-labelledby="search button" aria-label='search button' id="searchBtn" tabindex="0" class="btn btn-outline-search" type="button">
@@ -86,7 +86,7 @@
 			</div>
 			
 			<div class="clearfix"></div>
-			<div id="SearchResults" class="p-3 pt-1 mb-5">
+			<!-- <div id="SearchResults" class="p-3 pt-1 mb-5">
 				<a href="searchDetails.html">
 					<p aria-label='Subject code' class='subject-code-search p-0'>COMP 110.001</p>
 					<p aria-label='Subject name' class='subject-name-search p-0'>Intro to programming</p>
@@ -105,7 +105,7 @@
 					</div>
 					<hr class='border-hr mt-4'>
 				</a>
-			</div>
+			</div> -->
 
         </div>
     </section>
@@ -156,7 +156,7 @@ $( ".search-box" )
   })
   .autocomplete({
 	source: function( request, response ) {
-	  $.getJSON( "http://192.168.43.117:8080/AOMS/searchClassData?format=json&d=", {
+	  $.getJSON( "http://192.168.43.122:8080/AOMS/searchClassData?format=json&d=", {
 		q: extractLast( request.term )
 	  }, response );
 	},
@@ -194,13 +194,12 @@ $( ".search-box" )
 		return $( "<li class='ui-state-disabled'>" ).append( "No matches found" ).appendTo( ul );
 	}else{
 		return $( "<li>" )
-			.append("<span><span style='float:left'>" + item.subject_code + "</span> <span class='instructor-details' style='float:right'>" + item.instructor + "</span>" 				)
+			.append("<span><span style='float:left'>" + item.subject_code + "</span> <span class='instructor-details-search' style='float:right'>" + item.instructor + "</span>" 				)
 			.appendTo( ul );
 	}
   }
   
   function gotoSelected(val) {
-	alert();
 	//saveRecentSearch(JSON.parse(val));
 	localStorage.removeItem("RESDATA");
 	localStorage.setItem("RESDATA", val);

@@ -39,12 +39,33 @@
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-                <li><a href="myTestingCompliants.html">MY TESTING</a></li>
-                <li><a href="schedule-expanded.html">MY SCHEDULE</a></li>
+				<li><a href="#">LOGIN</a></li>
+				<li class="has-submenu">
+					<a href="#">MY TESTING</a>
+					<ul class="submenu megamenu">
+						<li>
+							<ul>
+								<li><a href="#">TESTING HOW TO <i class="feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="#">FIND TEST SITE <i class="feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="#">START NEW TEST <i class="feather icon-chevron-right arrow-menu"></i></a></li>     
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li class="has-submenu">
+					<a href="#">MY SCHEDULE</a><span class="menu-arrow"></span>
+					<ul class="submenu megamenu">
+						<li>
+							<ul>
+								<li><a href="#">MY CLASS SCHEDULE</a></li>
+								<li><a href="#">CLASS SEARCH</a></li>        
+							</ul>
+						</li>
+					</ul>
+				</li>
 				<li><a href="#">ACCESSIBILITY</a></li>
 				<li><a href="#">SUPPORT</a></li>
 				<li><a href="#">CONTACT</a></li>
-				<li><a href="#">LOGIN</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -148,10 +169,10 @@ var schedlueOnHtml = "",appHtml="" ,totHtml = "";
 var member = "", pid="" , status = "";
 
     $(document).ready(function() {       
-			//here needs to change the server URL			
+		//here needs to change the server URL			
         $("body").tooltip({ selector: '.hallModal, .hallTooltip, .enterDoor, .exitDoor, .subject-code' , boundary: 'window' });
 		
-		$.post("http://192.168.43.117:8080/AOMS/getContentData", {
+		$.post("http://192.168.43.122:8080/AOMS/getContentData", {
 					user_id: "roll_no/login_id",
 					sso_ticket: "SSO124232ACD"
 				},
@@ -191,7 +212,7 @@ var member = "", pid="" , status = "";
 			console.log( curDay );
 			var d = curDay.substring(0,3).toLowerCase();
                 //$.get("/secure/getdata.php?d="+d, 
-				$.post("http://192.168.43.117:8080/AOMS/getMyScheduleData", {
+				$.post("http://192.168.43.122:8080/AOMS/getMyScheduleData", {
 					user_id: "roll_no/login_id",
 					sso_ticket: "SSO124232ACD",
 					
