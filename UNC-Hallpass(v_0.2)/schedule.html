@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>UNC Hall Pass - Home </title>
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <meta name="autdor" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="shortcut icon" type="image/png" href="images/apple-touch-icon.png" />
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/UNC-style.css">
+    <!-- <link rel="stylesheet" href="css/nav.css"> -->
+</head>
+<body class="">
+    <!-- HEADER START -->
+    <header id="topnav" class="defaultscroll sticky bg-header">
+        <div>
+            <a class="logo" href="#">
+                <div class="align-self-center custom-logo-link">
+                    <img src="images/header_logo.png" width="180" height="30" class="logoImg" />
+                </div>
+            </a>
+        </div>
+        <div class="menu-extras">
+            <div class="menu-item">
+                <a class="navbar-toggle">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+                <!-- End mobile menu toggle-->
+            </div>
+        </div>
+        <div id="navigation">
+            <ul class="navigation-menu">
+				<li><a href="#">LOGIN</a></li>
+				<li class="has-submenu">
+					<a href="#">MY TESTING</a>
+					<ul class="submenu megamenu">
+						<li>
+							<ul>
+								<li><a href="#">TESTING HOW TO <i class="feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="#">FIND TEST SITE <i class="feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="#">START NEW TEST <i class="feather icon-chevron-right arrow-menu"></i></a></li>     
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li class="has-submenu">
+					<a href="#">MY SCHEDULE</a><span class="menu-arrow"></span>
+					<ul class="submenu megamenu">
+						<li>
+							<ul>
+								<li><a href="schedule.html">MY CLASS SCHEDULE <i class="feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="search.html">CLASS SEARCH <i class="feather icon-chevron-right arrow-menu"></i></a></li>        
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="#">ACCESSIBILITY</a></li>
+				<li><a href="#">SUPPORT</a></li>
+				<li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+		<div class="headTab-blue">
+			<table class="table table-sm">
+				<tr>
+					<td>
+						SCHEDULE 
+					</td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+    </header>
+    <!-- HEADER END -->
+	<!-- UNC CONTENT - START -->
+    <section class="mobile-view-home p-2 ">
+        <div class="container">
+            <!-- <div class="row pt-2">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
+					<h3 class="testing-title">Member : Steven King</h3>
+					<h3 class="testing-title">PID : 7203-11076</h3>
+					<h3 class="testing-title">Status : Compliant</h3>
+                </div>
+			</div> -->
+			<div class="row pt-2">
+				<a class="welcomeLink" aria-labelledby="Registration > Mobile Number >" aria-label="Registration > Mobile Number >" href="">Home > My Schedule </a>	
+			</div>
+			<br/>
+			
+			<div class="schedule-header p-0">
+				<table class="table table-sm">
+					<tr>
+						<td>
+							<h2 class="schedule-title">Member : <span id="member"></span> </h2>
+							<h2 class="schedule-title">PID : <span id="pid"></span></h2>
+							<h2 class="schedule-title">Status : <span id="testStatus"></span> </h2>
+						</td>
+						<td>
+							<div class="class-search-btn">
+								<a href="#"><button aria-label="Class Search" class="btn">CLASS DETAILS <i class="feather icon-chevron-right btn-arrow-details"></i></button></a>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			
+			<!-- <div class="row p-0">
+                <div class="col-7 mb-0">
+					<h2 class="schedule-title">Member : Steven King Michael Arockia Doss</h2>
+					<h2 class="schedule-title">PID : 7203-11076</h2>
+					<h2 class="schedule-title">Status : Compliant</h2>
+                </div>
+				<div class="col-5 mt-0 p-0 class-search-btn">
+					<a href="#"><button aria-label="Class Search" class="btn">CLASS DETAILS <i class="feather icon-chevron-right btn-arrow-details"></i></button></a>
+				</div>
+            </div> -->
+			
+			
+			
+			<!-- schedule data append here... -->
+            <div class="accordion-content mt-0 pt-3 mb-5 pb-3">
+                <div class="accordion scheduleData" id="scheduleDetails">
+					<!-- dynamically schedule data append here -->
+				</div>
+            </div>
+
+        </div>
+    </section>
+	<!-- UNC CONTENT - END -->
+	<!-- FOOTER CONTENT  - START -->
+    <footer class="footer-content footer-table">
+        <table class="table" cellspacing="5" border="0">
+            <tr>
+                <td>
+					<a href="home.html"><img aria-label="home" aria-labelledby="home" src="images/home_black.png" width="45" alt="home" /></a>
+					<div>HOME</div>
+				</td>
+                <td>
+					<a href="myTestingCompliants.html"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_black.png" width="45" alt="My Testing" /></a>
+					<div>MY TESTING</div>
+				</td>
+                <td>
+					<a href="schedule.html"><img aria-label="Class Schedule" aria-labelledby="Class Schedule" src="images/schedule_blue.png" width="45" alt="Class Schedule" /></a>
+					<div>CLASS SCHEDULE</div>
+				</td>
+            </tr>
+        </table>
+    </footer>
+    <!-- FOOTER CONTENT - END -->
+    <!-- javascript -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrollspy.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+<script>
+var schedlueOnHtml = "",appHtml="" ,totHtml = "";
+
+var member = "", pid="" , status = "";
+
+    $(document).ready(function() {       
+		//here needs to change the server URL			
+        $("body").tooltip({ selector: '.hallModal, .hallTooltip, .enterDoor, .exitDoor, .subject-code' , boundary: 'window' });
+		
+		$.post("http://192.168.43.122:8080/AOMS/getContentData", {
+					user_id: "roll_no/login_id",
+					sso_ticket: "SSO124232ACD"
+				},
+				function(data, status) {	
+						if( status == "success" ){	
+							$("#member").html(data.member);
+							$("#pid").html(data.pid);
+							$("#testStatus").html(data.status);	
+						}						  	
+		}); 	
+		//As per current day schedule will be loaded
+        var arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday" ];
+        var day = new Date().getDay();	
+        /*for (var i = 0 ;i <day; i++) {		           
+            arr.push(arr.shift());			
+        }*/	
+		var str = arr.slice(0, 7).join(",");
+        var aryDays = str.split(",");			
+		for (var j = 0; j < aryDays.length; j++) {  
+			 var curDay = aryDays[j];
+			 var classHide = (j == 0) ? "show" : "" ;
+			 var classCollapse = (j == 0) ? "" : "collapsed";
+			 var startHtml = "<div class='card border shadow mb-3 dayCollapse' cur-day='"+curDay+"'><a data-toggle='collapse' href='#"+curDay+"' class='faq position-relative "+classCollapse+" ' aria-expanded='false' aria-controls='"+curDay+"'><div class='card-header p-2'  ><h4 class='title mb-0 faq-question'> "+curDay+" </h4></div></a> <div id='"+curDay+"' class='collapse "+classHide+"' aria-labelledby='"+curDay+"' data-parent='#scheduleDetails'><div class='card-body mb-3' style='padding-top:0;'>";
+			 var endHtml = "</div></div></div>";
+			 if(j == 0){
+				 getDayActivity(curDay,startHtml,endHtml,0);		
+			 }else{
+				totHtml += startHtml+endHtml;				
+			 }	
+		}      
+		$(document).on('click', '.dayCollapse', function() {           
+            var curDay  = $(this).attr("cur-day");					
+           getDayActivity(curDay,"","",1);		
+        });	
+        function getDayActivity(appDay,startHtml,endHtml,type) {				
+			var curDay = appDay;
+			console.log( curDay );
+			var d = curDay.substring(0,3).toLowerCase();
+                //$.get("/secure/getdata.php?d="+d, 
+				$.post("http://192.168.43.122:8080/AOMS/getMyScheduleData", {
+					user_id: "roll_no/login_id",
+					sso_ticket: "SSO124232ACD",
+					
+					current_day: curDay
+				},
+				function(data, status) {	
+						if( status == "success" ){																						
+							schedlueOnHtml = "",appHtml="";	
+							var hrBorder = "<hr class='border-hr-schedule'>";
+							if (data.length != 0 ) {
+									for (var i = 0; i < data.length; i++) {
+										schedlueOnHtml += "<div class='col-sm-12 col-xs-12 col-md-8 col-lg-8 justify-content-start mt-3'><p aria-label='Subject code ' class='subject-code p-0' title=''>"+data[i].subject_code+"</p><p aria-label='Subject name : ' class='subject-name'><span class='hallTooltip' title=''>"+data[i].subject_name+"</span></p> <a href='searchDetails.html'><button class='btn mt-3 mb-2'>CLASS DETAILS <i class='feather icon-chevron-right btn-arrow-content'></i></button></a><p aria-label='Instructor Name :' title='' class='instructor-schedule pt-3'> <span>"+data[i].instructer_name+"</span></p><p class='location'> <span aria-label='Location :' title=''>"+data[i].location+"</span></p><p aria-label='class time :' class='classtime-table mt-2'> <span>"+data[i].class_time+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start mt-3'><p class='entry-text'>ENTRY: <span class='entry-time' aria-label='entry time :'>"+data[i].entry_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door:'>"+data[i].entry_sug_door+"</span></p><p class='suggested-door-name-acc'>Accessible Door: <span aria-label='Accessible Door:'>"+data[i].entry_acc_door+"</span></p><p class='exit-text pt-3'>EXIT: <span class='exit-time' aria-label='Exit Time:'>"+data[i].exit_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door:'>"+data[i].exit_sug_door+"</span></p><p class='suggested-door-name-acc'>Accessible Door: <span aria-label='Accessible Door:'>"+data[i].exit_acc_door+"</span></p></div>";
+										if ( i != data.length-1 ) {
+											schedlueOnHtml += hrBorder;
+										}			
+									}														
+								appHtml += startHtml+schedlueOnHtml+endHtml;	
+							}else{
+								appHtml += "<div class='container'><div class='noData'>NO DATA AVAILABLE</div></div>";
+							}
+																											
+							display(appHtml,type,curDay);
+						}						  	
+				}); 			
+		}		
+    });	
+function display(appHtml,type,id){	
+	if( type == 0 )
+	{
+		$(".scheduleData").append( appHtml+totHtml );	
+	}else{		
+		$("#"+id+" .card-body").empty().append( appHtml);	
+	}
+	
+}	
+</script>
+</html>
