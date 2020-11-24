@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>UNC Hall Pass - Home </title>
-    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -13,7 +13,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Main css -->
     <link rel="stylesheet" href="css/UNC-style.css">
-    <!-- <link rel="stylesheet" href="css/nav.css"> -->
 </head>
 <body class="">
     <!-- HEADER START -->
@@ -81,7 +80,7 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 ">
+    <section class="mobile-view-home p-2 mb-5" style="overflow-y:scroll !important;height:100vh;">
         <div class="container">
             <div class="row pt-2">
 				<a class="welcomeLink" aria-labelledby="Home > My Schedule > Class Search " aria-label="Home > My Schedule > Class Search " href="">Home > My Schedule > Class Search </a>
@@ -90,8 +89,7 @@
 			<div class="col content-p p-0 mb-0 mt-4">
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
 			</div>
-			
-			<div class="searchButton mt-0">
+			<div class="searchButton mt-0 mb-0">
 				<table class="table">
 					<tr>
 						<td>
@@ -104,30 +102,16 @@
 						</td>
 					</tr>
 				</table> 
-			</div>
-			
+			</div>			
 			<div class="clearfix"></div>
-			<!-- <div id="SearchResults" class="p-3 pt-1 mb-5">
-				<a href="searchDetails.html">
-					<p aria-label='Subject code' class='subject-code-search p-0'>COMP 110.001</p>
-					<p aria-label='Subject name' class='subject-name-search p-0'>Intro to programming</p>
-					<p aria-label='Instructor name' class='instructor-search p-0'>Kristopher Jordan</p>
-					<div class="class-search-results-btn mt-3">
-						<a href="#"><button aria-label="Class Search" class="btn">CLASS DETAILS &nbsp;<i class="feather icon-chevron-right arrow-icon"></i>&nbsp;</button></a>
-					</div>
-					<hr class='border-hr mt-4'>
-				</a>
-				<a href="searchDetails.html">
-					<p aria-label='Subject code' class='subject-code-search p-0'>COMP 110.001</p>
-					<p aria-label='Subject name' class='subject-name-search p-0'>Intro to programming</p>
-					<p aria-label='Instructor name' class='instructor-search p-0'>Kristopher Jordan</p>
-					<div class="class-search-results-btn mt-3">
-						<a href="#"><button aria-label="Class Search" class="btn">CLASS DETAILS &nbsp;<i class="feather icon-chevron-right arrow-icon"></i>&nbsp;</button></a>
-					</div>
-					<hr class='border-hr mt-4'>
-				</a>
-			</div> -->
-
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="no-results" style="display:none;">
+				<div class="no-results-content">Sorry, No classes found matching your search criteria</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-0">
+				<!-- <div class="resultsTitle"></div> -->
+				<div class="results"></div>
+				<div class="recent"></div>
+			</div>
         </div>
     </section>
 	<!-- UNC CONTENT - END -->
@@ -157,7 +141,6 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
-	
 	<script src="plugins/search/jquery-ui.js"></script>
 </body>
 <script>
@@ -167,6 +150,16 @@ function split( val ) {
 function extractLast( term ) {
   return split( term ).pop();
 }
+
+function gotoSelected(val) {
+	saveRecentSearch(JSON.parse(val));
+	localStorage.removeItem("RESDATA");
+	localStorage.setItem("RESDATA", val);
+	document.location.href = "searchDetails.html";
+}
+
+loadRecentSearch();
+
 $( ".search-box" )
   // don't navigate away from the field on tab when selecting an item
   .on( "keydown", function( event ) {
@@ -177,7 +170,8 @@ $( ".search-box" )
   })
   .autocomplete({
 	source: function( request, response ) {
-	  $.getJSON( "http://192.168.43.122:8080/AOMS/searchClassData?format=json&d=", {
+	  $.getJSON( "http://192.168.43.117:8080/AOMS/searchClassData?format=json&d=", {
+	  //$.getJSON( "/api/search?format=json&d=", {
 		q: extractLast( request.term )
 	  }, response );
 	},
@@ -219,12 +213,82 @@ $( ".search-box" )
 			.appendTo( ul );
 	}
   }
-  
-  function gotoSelected(val) {
-	//saveRecentSearch(JSON.parse(val));
+
+function onSelect(val){
+	var val = $(this).find('.search-val').val();
+	saveRecentSearch(JSON.parse(val));
 	localStorage.removeItem("RESDATA");
 	localStorage.setItem("RESDATA", val);
 	document.location.href = "searchDetails.html";
+}
+
+function onRecentSelect(){
+	var v = $(this).find('.search-val').val();
+	localStorage.removeItem("RESDATA");
+	localStorage.setItem("RESDATA", v);
+	document.location.href = "searchDetails.html";
+}
+
+function buildResultHtml(data, result){
+	var htmStr = "<br><div class='resultsText'> RESULTS </div>";
+	for(var i=0;i<data.length;i++){
+		console.log(data[i]);
+		//this is json data we are going to use autocomplete
+		subjects.push({label:data[i].subject_code,instructor:data[i].instructor,days:data[i].days});
+		var title = JSON.stringify(data[i]);
+		if(result){
+			htmStr += "<span class='search-results'><a href='#'><table class='recent-result-table table' style='width:100% !important;border-bottom:1px solid #DDDDDD;'><tr><td><input type='hidden' class='search-val' " +
+                             "value='" + title + "'><img class='recent-img' src='images/results-img.png' /></td><td><div class='row recent-results'><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-subject-code'><p>" + data[i].subject_code + "</p></div><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-instructor'><p>Instructor : <span>" + data[i].instructor + "</span></p></div></div></td></tr></table></a></span>";
+
+		}
+	}	
+	$(".results").empty();
+	$(".results").append(htmStr);
+	$(document).on('click', '.search-results', onSelect);
+}
+
+function saveRecentSearch(searchData) {
+    var selectedData = JSON.parse(localStorage.getItem("search_data"));
+    if(selectedData == null) {
+        var resArray = [];
+	resArray.push(searchData);
+        localStorage.setItem("search_data",JSON.stringify(resArray));
+    }
+    else {
+	// push records down in list
+	var resArray = [];
+	var addnew = true;
+	for (i=0; i<selectedData.length; i++){
+	  if (selectedData[i].subject_code == searchData.subject_code && selectedData[i].instructor == searchData.instructor){
+	     addnew = false;
+	     break;
+	   }
+
+	 }
+	 if (addnew){
+	     resArray.push(searchData); 
+	     for (i=0;i<selectedData.length; i++){
+                 resArray.push(selectedData[i]);
+                 if (i==5)
+                    break;
+	     }
+	     localStorage.setItem("search_data",JSON.stringify(resArray));
+	}
+    }
+}
+
+function loadRecentSearch(){
+    var recentSearch = localStorage.getItem("search_data");
+    if (recentSearch != null) {
+        var selectedData = JSON.parse(recentSearch);
+        var resHtml = "<div class='resultsText'> RECENTLY SELECTED </div>";
+        var len = selectedData.length - 1;
+        for (var k = len; k >= 0; k--) {
+		resHtml += "<a href='#' class='rslink'><table class='recent-result-table table' style='width:100% !important;border-bottom:1px solid #DDDDDD;'><tr><td><img class='recent-img' src='images/recent-icon.png' /></td><td><div class='row recent-results'><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-subject-code'><p>" + selectedData[k].subject_code + "</p></div><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-instructor'><p>Instructor : <span>" + selectedData[k].instructor + "</span><input type='hidden' class='search-val' value='"+JSON.stringify(selectedData[k])+"'></p></div></div></td></tr></table></a>";
+         }
+        $(".results").html(resHtml);
+	$('.rslink').on("click", onRecentSelect);
+    }
 }
 </script>
 </html>
