@@ -1263,23 +1263,29 @@ td {
 }
 ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #4F4F4F !important;
+    color: #13294B !important;
     font-size: 18px !important;
     position: relative;
     opacity: 1;
+	vertical-align:middle;
+	font-family: "OpenSans Regular";
     /* Firefox */
 }
 :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: #4F4F4F !important;
+    color: #13294B !important;
     font-size: 18px !important;
     position: relative;
+	vertical-align:middle !important;
+	font-family: "OpenSans Regular";
 }
 ::-ms-input-placeholder {
     /* Microsoft Edge */
-    color: #4F4F4F !important;
+    color: #13294B !important;
     font-size: 18px !important;
     position: relative;
+	vertical-align:middle !important;
+	font-family: "OpenSans Regular";
 }
 body {
     font-family: "OpenSans Regular";
@@ -1530,7 +1536,7 @@ a {
     top: 34px;
 	font-family: feather;
 	content: "\e8b1"; */
-	/* display: block;
+	display: block;
     padding: 2px;
 	right:-5px;
 	color:#13294B !important;
@@ -1540,7 +1546,7 @@ a {
     top: 22px;
 	font-size:30px;
 	font-family: feather; 
-	content: '\e8b1'; */
+	content: '\e8b1';
 }
 #topnav .has-submenu.active.active .menu-arrow {
     border-color: #6dc77a;
@@ -1896,7 +1902,7 @@ a {
 }
 .custom-logo-link {
     position: relative;
-    display: -webkit-box;
+    /* display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: horizontal;
@@ -1911,12 +1917,13 @@ a {
     align-items: flex-start;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
+    align-items: center; */
     width: 190px;
     height: auto;
-    left: 10%;
-    margin-top: 11%;
+    margin-top: 10%;
+    margin-left: 8%;
 }
+
 .nav-tabs {
     border: none !important;
     box-shadow: none !important;
@@ -1999,7 +2006,7 @@ a {
 	padding-bottom:7px;
 	padding-left:25px;
 	padding-right:25px;
-	width:90%;
+	width:60%;
 	background:#4B9CD3;
 	border-top-left-radius:15px;
 	border-top-right-radius:15px;
@@ -2009,7 +2016,7 @@ a {
 	/* border-bottom:5px solid #4B9CD3; */
 }
 .headTab-blue table tr td:last-child {
-	width:10%;
+	width:40%;
 	border:none;
 	/* border-bottom:5px solid #4B9CD3; */
 }
@@ -2262,7 +2269,7 @@ a {
 	position:relative;
 	margin-left:10px;
 	top:-20px;
-	text-align:left;
+	text-align:justify;
 	font-family: "OpenSans Regular";
 	color:#13294B;
 	font-size:11pt !important;
@@ -2275,13 +2282,6 @@ a {
 	font-family: "OpenSans Regular";
 	color:#13294B;
 	font-size:11pt !important;
-}
-.head-title {
-	font-family: "ITC Franklin Gothic LT Demi Compressed";
-	color:#13294B;
-	letter-spacing:0px;
-	font-size:41px;
-	font-weight:bold;
 }
 .head-confirm {
 	font-family: "OpenSans Regular";
@@ -2337,7 +2337,7 @@ a {
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
 	color:#13294B;
 	letter-spacing:0px;
-	font-size:35px;
+	font-size:30px;
 	font-weight:bold;
 	width:100%;
 	/* border-radius:25px; */
@@ -2357,6 +2357,12 @@ a {
 	width:100%;
 	padding-left:10px;
 	padding-right:10px;
+	height:19vh;
+	position:relative;
+}
+.thxImg img {
+	margin:0 auto;
+	width:100%;
 	height:19vh;
 	position:relative;
 }
@@ -2389,7 +2395,7 @@ a {
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
 	color:#13294B;
 	letter-spacing:0px;
-	font-size:35px;
+	font-size:30px;
 	font-weight:bold;
 	width:100%;
 	/* border-radius:25px; */
@@ -2899,6 +2905,7 @@ a {
 .test-content-date-time {
 	position:relative;
 	top:-5px;
+	text-transform:uppercase;
 	font-size: 25px;
 	color:#13294B;
 	margin:0 auto;
@@ -3491,7 +3498,7 @@ RECENTLY SELECTED RESULTS STYLE
 	left:20px;
 }
 .scan-btn button:hover {
-	background:transparent;
+	background:#C4D600;
 	color:#13294B;
 	box-shadow:none !important;
 	-webkit-box-shadow: none !important;
@@ -3881,6 +3888,33 @@ RECENTLY SELECTED RESULTS STYLE
 					MOBILE VIEW IN PORTRAIT 
 **************************************************************** */
 @media only screen and (min-width: 320px) and (max-width: 768px) {
+	.breadcrumb {
+		font-family: "OpenSans Regular";
+		color:#13294B !important;
+		position:relative;
+		/* margin-top:10px;
+		margin-left:10px; */
+		/* padding-bottom: 3px;
+		padding: 0 0 .75rem 0rem; */
+		background-color: transparent;
+		margin: 0 auto;
+		padding: 0;
+		border-radius:none !important;
+	}
+	.breadcrumb li {
+		font-size:12px;
+		border-bottom:1px solid #13294B;
+	}
+	.breadcrumb>li+li::before {
+		/* padding-right: 0;
+		padding-left: 0; */
+		font-family: "OpenSans Regular";
+	}
+	.breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+		content: '>';
+	}
+	
+
     .mobile-view-top {
         position: relative;
         margin-top: 74px !important;
@@ -3894,9 +3928,118 @@ RECENTLY SELECTED RESULTS STYLE
         margin-top: 125px !important;
     }	
     .logoImg {
-        width: auto;
-        height: 30px;
+        width: 120px;
+		height: auto;
+		position:relative;
+		left:0;
     }
+	.head-wrapper {
+		position:relative;
+		padding:10px 15px 10px 15px;
+	}
+	.head-h2 {
+		font-family: "OpenSans Bold";
+		color:#13294B;
+		letter-spacing:0px;
+		font-size:35px;
+		font-weight:bold;
+	}
+	.head-title {
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color:#13294B;
+		letter-spacing:0px;
+		font-size:41px;
+		font-weight:bold;
+	}
+	.head-h3 {
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color:#13294B;
+		letter-spacing:0px;
+		font-size:20px;
+		font-weight:bold;
+	}
+	.head-wrapper label {
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color:#13294B;
+		letter-spacing:0px;
+		font-size:20px;
+		font-weight:bold;
+	}
+	.head-wrapper input {
+		font-family: "OpenSans Bold";
+		border:2px solid #13294B;
+		letter-spacing:0px;
+		font-size:18px;
+		font-weight:bold;
+		height:50px;
+		border-radius:10px;
+		position:relative;
+		margin:0 auto;
+		vertical-align:middle;
+	}
+	.head-wrapper select {
+		font-family: "OpenSans Bold";
+		border:2px solid #13294B;
+		letter-spacing:0px;
+		font-size:18px;
+		font-weight:bold;
+		height:50px;
+		width:100% !important;
+		border-radius:10px;
+		position:relative;
+		margin:0 auto;
+		vertical-align:middle;
+	}
+	.head-wrapper  .select-wrapper {
+		position:relative;
+		margin:0 auto;
+		width:100% !important;
+	}
+	.head-wrapper p {
+		position:relative;
+		text-align:justify;
+		font-family: "OpenSans Regular";
+		color:#13294B;
+		font-size:11pt !important;
+	}
+	.login-btn {
+		position:relative;
+		margin:0 auto;
+		width:100% !important;
+		top:-10px;
+	}
+	.btn-add {
+		background:#C4D600;
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color:#13294B;
+		letter-spacing:0px;
+		font-size:35px;
+		font-weight:bold;
+		width:100%;
+		/* border-radius:25px; */
+	}
+	.contentHead {
+		font-size: 19px;
+		font-family: "OpenSans Regular"; 
+		color: #13294B !important;
+		margin-bottom:10px;
+	}
+	.getTest h5 {
+		font-size: 17px;
+		font-family: "OpenSans Regular"; 
+		color: #13294B !important;
+		margin-bottom:10px;
+	}
+	.getTest h4 {
+		position:relative;
+		top:-10px;
+		font-size: 37px;
+		color:#13294B;
+		margin:0 auto;
+		letter-spacing:0px;
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+	}
+
     /* Let's get this party started */
     ::-webkit-scrollbar {
         width: 4px !important;
@@ -4242,16 +4385,30 @@ RECENTLY SELECTED RESULTS STYLE
 	/* **************************************
 		SCHEDULE EXPANDED PAGE STYLES
 	***************************************** */
-	.time button {
-		padding:5px 10px;
-		background:#EDEDEA;
+	.openSlotBtn button {
+		padding:3px 7px;
+		background:#13294B;
+		color:#FFFFFF;
+		border:1px solid #13294B;
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		font-size:16px;
+		border-radius:7px;
+		display:block;
+		/* width:80%; */
+		text-align:center;
+		position:relative;
+		margin:0 auto;
+	}
+    .fillSlotBtn button {
+		padding:3px 7px;
+		background:#EDEDEA !important;
 		color:#13294B;
 		border:1px solid #13294B;
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		font-size:20px;
-		border-radius:10px;
+		font-size:16px;
+		border-radius:7px;
 		display:block;
-		width:80%;
+		/* width:80%; */
 		text-align:center;
 		position:relative;
 		margin:0 auto;
