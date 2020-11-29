@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - Registration </title>
+    <title>UNC Hall Pass - Find Test Site </title>
     <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
@@ -71,7 +71,7 @@
 			<table class="table table-sm">
 				<tr>
 					<td>
-						REGISTRATION 
+						FIND TEST SITE 
 					</td>
 					<td></td>
 				</tr>
@@ -81,54 +81,54 @@
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
     <section class="mobile-view-home p-2 mb-5">
-        <div class="container mb-5">
+        <div class="container">
 			<div class="row pt-2">
-				<div class="breadcrumb-wrapper col-12">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="registration.html">Registration</a></li>
-						<li class="breadcrumb-item">Mobile Number</li>
-					</ol>
-				</div>
+				<a class="Breadcrumb" aria-labelledby="My Testing > Find Test Site" aria-label="My Testing > Find Test Site" href="">My Testing > Find Test Site</a>	
 			</div>
-            <div class="row pt-2">
-				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 head-content mt-2 mb-0">
-					<h2 aria-labelledby="Registration" aria-label="Registration" class="head-title">Mobile Number</h2>
-                </div>
-				<div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
-					<h3 class="testing-title">Member : Steven King</h3>
-					<h3 class="testing-title">PID : 7203-11076</h3>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-p mb-1 mt-4">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                </div>	
-
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-					<div class="form-group reg-input">
-						<label>PLEASE ENTER PREFERRED EMAIL ADDRESS</label>
-						<input name="phone number" id="phone" type="text" class="form-control mt-2" value="" placeholder="">
-					</div>
-				</div>
-				
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-					<div class="form-group reg-input">
-						<label>ENTER 10-DIGIT PHONE NUMBER</label>
-						<input name="phone number" id="phone" type="password" class="form-control mt-2" value="" placeholder="XXX-XXX-XXXX">
-					</div>
-				</div>
-				
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-p mb-1 mt-4">
-					<p>You will be asked to enter a 5-digit code send to your mobile number. Please enter the code texted on the next page.</p>
-                </div>	
-				
-				<div class="login-btn mt-0 p-0 mr-1 mt-5 ml-1">
-					<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log">
-					CONTINUE
-					<i class="feather icon-chevron-right btn-arrow"></i>
+			<br/>
+			<div class="col-12 content-p mt-4 p-0">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+			</div>
+			<div id="siteContent">
+				<!-- Find test site dynamic data append here... -->
+			</div>
+			<!-- <div class="col-12 content-p mt-2 mb-3 p-0 reserveContent">
+				<img src="images/reserve_img/1.png" />
+			</div>
+			<div class="col-12 head-content mb-0 p-0">
+				<h2 aria-labelledby="Frank Porter Graham Student Union" aria-label="Frank Porter Graham Student Union" class="content-title">Frank Porter Graham Student Union</h2>
+			</div>
+			<div class="col-12 mb-0 p-0 mt-2">
+				<h3 class="testing-title">Hours: M-F 8 AM - 5 PM</h3>
+				<h3 class="testing-title">People in line: 8</h3>
+			</div>
+			<div class="col-12 reserve-btn p-0 mt-3">
+				<a href="find_test_site_student_union.html">
+					<button aria-label="RESERVE TIME" aria-labelledby="RESERVE TIME" class="btn btn-block">
+					RESERVE TIME
+					<i class="feather icon-chevron-right"></i>
 					</button>
-				</div>
-            </div>
+				</a>
+			</div> 
+			<br/> -->
+			<!-- <div class="col-12 content-p mt-2 mb-3 p-0 reserveContent">
+				<img src="images/reserve_img/1.png" />
+			</div>
+			<div class="col-12 head-content mb-0 p-0">
+				<h2 aria-labelledby="Frank Porter Graham Student Union" aria-label="Frank Porter Graham Student Union" class="content-title">Frank Porter Graham Student Union</h2>
+			</div>
+			<div class="col-12 mb-0 p-0 mt-2">
+				<h3 class="testing-title">Hours: M-F 8 AM - 5 PM</h3>
+				<h3 class="testing-title">People in line: 8</h3>
+			</div>
+			<div class="col-12 reserve-btn p-0 mt-3">
+				<button aria-label="RESERVE TIME" aria-labelledby="RESERVE TIME" class="btn btn-block">
+				RESERVE TIME
+				<i class="feather icon-chevron-right"></i>
+				</button>
+			</div> -->
         </div>
-    </section>
+    </section><br/><br/>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
     <footer class="footer-content footer-table">
@@ -157,4 +157,28 @@
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
 </body>
+<script>
+    $(document).ready(function() {       
+		//here needs to change the server URL				
+		$.post("http://192.168.43.117:8080/AOMS/findTestSiteData", {
+			pid: "pid",
+		},
+		function(data, status) {
+			var contentHtml = '';
+			for(var i=0;i<data.length;i++){
+				contentHtml += "<div class='col-12 content-p mt-2 mb-3 p-0 reserveContent'><img src='"+data[i].site_img+"' /></div><div class='col-12 head-content mb-0 p-0'><h2 aria-labelledby='"+data[i].site_name+"' aria-label='"+data[i].site_name+"' class='content-title'>"+data[i].site_name+"</h2></div><div class='col-12 mb-0 p-0 mt-2'><h3 aria-labelledby='"+data[i].hours+"' aria-label='"+data[i].hours+"' class='testing-title'>Hours: "+data[i].hours+"</h3><h3 aria-labelledby='"+data[i].People_in_line+"' aria-label='"+data[i].People_in_line+"' class='testing-title'>People in line: "+data[i].People_in_line+"</h3></div><div class='col-12 reserve-btn p-0 mt-3' data-location='"+data[i].site_name+"#"+data[i].hours+"#"+data[i].People_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME' aria-labelledby='RESERVE TIME' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div> <br/>";
+			}
+			$('#siteContent').append(contentHtml);
+		}); 
+
+		//click event
+		//$('.btn').click(function() {
+		$(document).on('click','.reserve-btn',function(){
+			var location = $(this).attr("data-location");
+			localStorage.removeItem("ite-location");
+			localStorage.setItem("site-location", location);
+			window.location.href = "find_test_site_student_union.html";
+		});
+    });		
+</script>
 </html>
