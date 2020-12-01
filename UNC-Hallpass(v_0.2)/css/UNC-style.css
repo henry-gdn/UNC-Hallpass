@@ -3913,7 +3913,12 @@ RECENTLY SELECTED RESULTS STYLE
 	.breadcrumb .breadcrumb-item+.breadcrumb-item::before {
 		content: '>';
 	}
-	
+	.testing-title-1 {
+		font-size: 19px;
+		font-family: "OpenSans Regular"; 
+		color: #13294B !important;
+		margin-bottom:10px;
+	}
 
     .mobile-view-top {
         position: relative;
@@ -3943,6 +3948,14 @@ RECENTLY SELECTED RESULTS STYLE
 		letter-spacing:0px;
 		font-size:35px;
 		font-weight:bold;
+	}
+	.head-h2-1 {
+		font-family: "OpenSans Bold";
+		color:#13294B;
+		letter-spacing:0px;
+		font-size:35px;
+		font-weight:bold;
+		padding-left:5px;
 	}
 	.head-title {
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -4039,7 +4052,82 @@ RECENTLY SELECTED RESULTS STYLE
 		letter-spacing:0px;
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
 	}
-
+	.headTab-blueTest table {
+		position:relative;
+		margin:0 auto;
+		padding:0px !important;
+		width:100% !important;
+		z-index:-1;
+		top:3px;
+	}
+	.headTab-blueTest table tr td {
+		line-height:40px;
+	}
+	.headTab-blueTest table tr td:first-child {
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color:#FFFFFF !important;
+		width:100%;
+		padding-left:15px;
+		font-size:32px;
+		background:#4B9CD3;
+		border-top:none;
+		border-left:none;
+		border-right:none;	
+	}
+	.testContentBlue {
+		position:relative;
+		top:-3px;
+	}
+	.testContentBlue table {
+		position:relative;
+		margin:0 auto;
+		top:0px;
+		padding:0px !important;
+		width:100% !important;
+		border-top:none !important;
+		border-bottom:5px solid #4B9CD3;
+		border-left:5px solid #4B9CD3;
+		border-right:5px solid #4B9CD3;
+	}
+	.testContentBlue table tr td {
+		border-top:none !important;
+		vertical-align:middle;
+	}
+	.testContentBlue table tr td:first-child {
+		position:relative;
+		width:60%;
+		margin:0 auto;
+		padding:10px 10px;
+	}
+	.testContentBlue table tr td:last-child {
+		position:relative;
+		width:40%;
+	}
+	.testContentBlue table tr td:last-child img {
+		position:relative;
+		width:100%;
+		padding:5px 0px 0px 0px;
+		height:auto;
+	}
+	.testContentBlue-title {
+		font-size: 16px;
+		font-family: "OpenSans Regular"; 
+		color: #13294B !important;
+		margin-bottom:0px;
+	}
+	.errMsg i {
+		position:relative;
+		font-size:27px;
+		top:4px;
+		color:#EF426F;
+	}
+	.errMsg {
+		position:relative;
+		font-size:16px;
+		top:10px;
+		font-family: "OpenSans Regular"; 
+		color:#EF426F;
+	}
     /* Let's get this party started */
     ::-webkit-scrollbar {
         width: 4px !important;
