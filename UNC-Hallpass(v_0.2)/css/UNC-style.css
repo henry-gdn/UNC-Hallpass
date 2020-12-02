@@ -3919,7 +3919,12 @@ RECENTLY SELECTED RESULTS STYLE
 		color: #13294B !important;
 		margin-bottom:10px;
 	}
-
+	.proImg img {
+		margin:0 auto;
+		width:100%;
+		height:auto;
+		position:relative;
+	}
     .mobile-view-top {
         position: relative;
         margin-top: 74px !important;
@@ -4035,7 +4040,7 @@ RECENTLY SELECTED RESULTS STYLE
 		font-size: 19px;
 		font-family: "OpenSans Regular"; 
 		color: #13294B !important;
-		margin-bottom:10px;
+		margin-bottom:5px;
 	}
 	.getTest h5 {
 		font-size: 17px;
