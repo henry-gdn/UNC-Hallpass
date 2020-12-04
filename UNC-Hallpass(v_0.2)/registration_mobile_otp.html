@@ -13,6 +13,24 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Main css -->
     <link rel="stylesheet" href="css/UNC-style.css">
+    <script>
+	    function getUserInfo() {
+			var theCookies = document.cookie.split(';');
+			var userInfoCookie=theCookies[theCookies.length-1];
+			var parts = userInfoCookie.split('=')[1].split('%2C');
+			return { 'name': parts[0], 'pid': parts[1] };
+	    }
+	    function checkOTP() {
+		    var otp = document.cookie.substr(8,5);
+		    if ($('#phone').val() == otp){
+			    alert('otp validated successfully');
+		    }
+		    else {
+			    alert('invalid otp entered, please retry!');
+		    }
+		    window.location.replace("/hallpassv3/ui/reg_local_address.html");
+	    }
+    </script>
 </head>
 <body class="">
     <!-- HEADER START -->
@@ -45,8 +63,8 @@
 						<li>
 							<ul>
 								<li><a href="#">TESTING HOW TO <i class="feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="#">FIND TEST SITE <i class="feather icon-chevron-right arrow-menu"></i></a></li>     
-								<li><a href="#">START NEW TEST <i class="feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="#">FIND TEST SITE <i class="feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="#">START NEW TEST <i class="feather icon-chevron-right arrow-menu"></i></a></li>
 							</ul>
 						</li>
 					</ul>
@@ -57,7 +75,7 @@
 						<li>
 							<ul>
 								<li><a href="schedule.html">MY CLASS SCHEDULE <i class="feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="search.html">CLASS SEARCH <i class="feather icon-chevron-right arrow-menu"></i></a></li>        
+								<li><a href="search.html">CLASS SEARCH <i class="feather icon-chevron-right arrow-menu"></i></a></li>
 							</ul>
 						</li>
 					</ul>
@@ -71,7 +89,7 @@
 			<table class="table table-sm">
 				<tr>
 					<td>
-						REGISTRATION 
+						REGISTRATION
 					</td>
 					<td></td>
 				</tr>
@@ -88,8 +106,8 @@
 					<h2 aria-labelledby="Mobile Number" aria-label="Mobile Number" class="head-title">Mobile Number</h2>
                 </div>
 				<div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
-					<h3 class="testing-title">Member : Steven King</h3>
-					<h3 class="testing-title">PID : 7203-11076</h3>
+					<h3 class="testing-title">Member : <span id="member_name"></span></h3>
+					<h3 class="testing-title">PID : <span id="member_pid"></span></h3>
                 </div>
 
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mb-0">
@@ -98,11 +116,11 @@
 						<input name="phone number" id="phone" type="password" class="form-control mt-2" value="" placeholder="XXXXX">
 					</div>
 				</div>
-				
+
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-1">
 					<a class="sendOtp" aria-labelledby="Send another text" aria-label="Send another text" href="">Send another text</a>
 				</div>
-			</div>					
+			</div>
 			<div class="row pt-5 mb-2">
 				<div class="col-5 mt-0">
 					<div class="login-btn mt-0 p-0 mt-5">
@@ -114,21 +132,21 @@
 				</div>
 				<div class="col-7 mt-0">
 					<div class="login-btn mt-0 p-0 mr-1 mt-5 mr-1">
-						<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log">
+						<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log" onclick="checkOTP()">
 						CONTINUE
 						<i class="feather icon-chevron-right btn-arrow"></i>
 						</button>
 					</div>
 				</div>
 			</div>
-				
+
 			<!-- <div class="login-btn mt-0 p-0 mr-1 mt-5 ml-1">
-				<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log">
+				<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log" onclick="checkOTP()">
 				CONTINUE
 				<i class="feather icon-chevron-right btn-arrow"></i>
 				</button>
 			</div> -->
-            
+
         </div>
     </section>
 	<!-- UNC CONTENT - END -->
@@ -158,5 +176,12 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        $(document).ready(function(){
+           var u = getUserInfo();
+           $('#member_name').html(u.name);
+           $('#member_pid').html(u.pid);
+        });
+    </script>
 </body>
 </html>
