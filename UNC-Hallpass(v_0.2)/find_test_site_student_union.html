@@ -178,12 +178,16 @@
 			var availTime = $(this).attr('avail-slot');
 			//alert(availTime);
 			if(availTime == "NO"){
-				alert("All slots are booked.Please try other times!");
+				localStorage.removeItem('location-name');
+				localStorage.setItem("avail-time",$(this).attr('data-time'));
+				localStorage.setItem("available",'NO');
+				localStorage.setItem('location-name',locationName);
+				window.location.href = "fast_pass_reserve_time.html";
 			}else{
 				localStorage.removeItem("avail-slot");
 				localStorage.removeItem('location-name');
+				localStorage.setItem("available",'YES');
 				localStorage.setItem("avail-slot",availTime);
-				
 				localStorage.setItem('location-name',locationName);
 				window.location.href = "fast_pass_reserve_time.html";
 			}			
@@ -207,9 +211,9 @@
 							for (var i = 0; i < data.length; i++) {
 								var slot = data[i].split('#');
 								if(slot[1] == "YES"){
-									availSlot += '<div class="col-3 p-0 openSlotBtn availTime" avail-slot="'+slot[0]+'#'+curDay+'"><button class="btn btn-default btn-sm"> '+slot[0]+' </button></div>';
+									availSlot += '<div class="col-3 p-0 fillSlotBtn availTime" avail-slot="'+slot[0]+'#'+curDay+'"><button class="btn btn-default btn-sm"> '+slot[0]+' </button></div>';
 								}else{
-									availSlot += '<div class="col-3 p-0 fillSlotBtn availTime" avail-slot="NO"><button class="btn btn-default btn-sm"> '+slot[0]+' </button></div>';
+									availSlot += '<div class="col-3 p-0 fillSlotBtn availTime" avail-slot="NO" data-time="'+slot[0]+'"><button class="btn btn-default btn-sm"> '+slot[0]+' </button></div>';
 								}
 							}		
 							availSlot +="</div>";

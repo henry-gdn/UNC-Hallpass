@@ -129,6 +129,7 @@
 </body>
 <script>
 $(document).ready(function() {
+	$("body").css({visibility:'visible'})
     var  confirmSlot = localStorage.getItem("confirm-slot").split('#');
 	$('.slot-time').text(confirmSlot[1]);
 	$('.locationName').text(confirmSlot[0]);
