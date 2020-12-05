@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - 404 ERROR </title>
-    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>UNC Hall Pass - Welcome </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -14,12 +14,12 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
-<body class="">
+<body>
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="#">
-                <div class="align-self-center custom-logo-link">
+                <div class="custom-logo-link">
                     <img src="images/header_logo.png" width="180" height="30" class="logoImg" />
                 </div>
             </a>
@@ -71,7 +71,7 @@
 			<table class="table table-sm">
 				<tr>
 					<td>
-						404 ERROR
+						HOME 
 					</td>
 					<td></td>
 				</tr>
@@ -80,40 +80,29 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 ">
+    <section class="mobile-view-home p-2">
         <div class="container">
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index.html" aria-labelledby="Home" aria-label="Home">Home</a></li>
+						<li class="breadcrumb-item"><a href="index.html" aria-labelledby="Welcome" aria-label="Welcome">Welcome</a></li>
 					</ol>
 				</div>
 			</div>
             <div class="pt-2 head-wrapper">
-				<div class="mt-2 mb-0">
-					<h2 aria-labelledby="Page Not Found" aria-label="Page Not Found" class="head-h2">Page Not Found</h2>
+				<div class="mt-2 mb-1">
+					<h2 aria-labelledby="Welcome" aria-label="Welcome" class="head-h2">Welcome</h2>
                 </div>
-				<div class="p-0 mt-4">
-					<div class="row">
-						<div class="col-3">
-							<div class="btn-err-pink"><span class="fs-50">!</span></div>
-						</div>
-						<div class="col-9">
-							<p>The page you are trying to access does not exist or another error occurred. Go back or <b style="text-decoration:underline;">Home.</b></p>
-						</div>
-					</div> 
+                <div class="mb-1 mt-0">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+				<div class="login-btn mt-5 p-0">
+					<button aria-label="Login With ONYEN" aria-labelledby="Login With ONYEN" class="btn btn-block btn-log">
+					LOGIN WITH ONYEN 
+					<i class="feather icon-chevron-right btn-arrow"></i>
+					</button>
 				</div>
-				<div class="row pt-5 mt-4 mb-2">
-					<div class="col-5 mt-0">
-						<div class="login-btn mt-0 p-0 mt-5">
-							<a href="index.html"><button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-back-1">
-							<i class="feather icon-chevron-left"></i>
-							BACK
-							</button></a>
-						</div>
-					</div>
-				</div> 
-			</div>     
+            </div>
         </div>
     </section>
 	<!-- UNC CONTENT - END -->
@@ -142,6 +131,13 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
     <script src="js/app.js"></script>
+	
 </body>
+<script>
+$(document).ready(function(){ 
+	$("body").css({visibility:'visible'})
+});
+</script>
 </html>

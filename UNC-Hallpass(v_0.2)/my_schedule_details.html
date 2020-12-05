@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - 404 ERROR </title>
-    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>UNC Hall Pass - MY SCHEDULE DETAILS </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -71,7 +71,7 @@
 			<table class="table table-sm">
 				<tr>
 					<td>
-						404 ERROR
+						DETAILS 
 					</td>
 					<td></td>
 				</tr>
@@ -80,42 +80,24 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 ">
-        <div class="container">
-			<div class="row pt-2">
+    <section class="mobile-view-custom mb-5">
+        <div class="container mb-5">
+			<div class="row pt-1">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index.html" aria-labelledby="Home" aria-label="Home">Home</a></li>
+						<li class="breadcrumb-item"><a href="home_no_auth.html" aria-labelledby="Home" aria-label="Home">Home</a></li>
+						<li class="breadcrumb-item"><a href="my_schedule.html" aria-labelledby="My Schedule" aria-label="My Schedule">My Schedule</a></li>
+						<li class="breadcrumb-item"><a href="search.html" aria-labelledby="Search" aria-label="Search">Search</a></li>
+						<li class="breadcrumb-item" aria-labelledby="Class Details" aria-label="Class Details">Class Details</li>
 					</ol>
 				</div>
 			</div>
-            <div class="pt-2 head-wrapper">
-				<div class="mt-2 mb-0">
-					<h2 aria-labelledby="Page Not Found" aria-label="Page Not Found" class="head-h2">Page Not Found</h2>
-                </div>
-				<div class="p-0 mt-4">
-					<div class="row">
-						<div class="col-3">
-							<div class="btn-err-pink"><span class="fs-50">!</span></div>
-						</div>
-						<div class="col-9">
-							<p>The page you are trying to access does not exist or another error occurred. Go back or <b style="text-decoration:underline;">Home.</b></p>
-						</div>
-					</div> 
-				</div>
-				<div class="row pt-5 mt-4 mb-2">
-					<div class="col-5 mt-0">
-						<div class="login-btn mt-0 p-0 mt-5">
-							<a href="index.html"><button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-back-1">
-							<i class="feather icon-chevron-left"></i>
-							BACK
-							</button></a>
-						</div>
-					</div>
-				</div> 
-			</div>     
-        </div>
-    </section>
+			<!-- DYNAMIC DATA APPEND HERE -->
+			<div class="p-3 pt-4 resData">
+				
+			</div>
+        </div>				
+    </section><br/><br/><br/>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
     <footer class="footer-content footer-table">
@@ -142,6 +124,18 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
+    <!-- Main Js -->
     <script src="js/app.js"></script>
 </body>
+<script>
+    $(document).ready(function() {
+        var result = JSON.parse(localStorage.getItem("RESDATA"));
+			var resHtml = "<p aria-label='Subject code' class='subject-code-details p-0'>" + result.subject_code + "</p><p aria-label='Subject name' class='subject-name-details p-0'>" + result.subject_name + "</p><p aria-label='Instructor name' class='instructor-details p-0'>" + result.instructor + "</p><p aria-label='location name' class='location-details p-0'>" + result.location + "</p><p aria-label='class time : '+ result.class_time +'' class='classtime-details mt-3'> <span>" + result.class_time + "</span></p><hr class='border-hr mt-4'><div class='mt-4'><p class='entry-text-details'>ENTRY : <span class='entry-time-details' aria-label='entry time : '+ result.entry_time +''>" + result.entry_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '+ result.entry_sug_door +''>"+ result.entry_sug_door +"</span></p><p class='suggested-door-name-acc-details'>Accessible Door : <span aria-label='Accessible Door: '+ result.entry_acc_door +''>"+ result.entry_acc_door +"</span></p><p class='exit-text-details pt-4'>EXIT : <span class='exit-time-details' aria-label='Exit Time: '+ result.exit_time +''>" + result.exit_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '+ result.exit_sug_door +''>"+ result.exit_sug_door +"</span></p><p class='suggested-door-name-acc-details'> Accessible Door : <span aria-label='Accessible Door: '+ result.exit_acc_door +''>"+ result.exit_acc_door +"</span></p></div> <br/><div class='search-details-btn mt-2'> <a href='search.html'><button aria-label='Class Search' class='btn btn-block'>CLASS SEARCH &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='search-details-btn mt-4'> <a href='my_schedule.html'><button aria-label='Class Search' class='btn btn-block'>MY SCHEDULE &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='row pt-4 mb-5'><div class='col mt-0 p-0 ml-1 justify-content-start'><p class='doorMap' aria-label='DOOR MAP'>DOOR MAP</p><div class='doorMapImg resDataImg mt-3 pr-1'> <img class='map-img' src='" + result.image_src + "' /></div></div></div>";
+        $(".resData").append(resHtml);
+		//var imgHtml = "";
+        //$(".resDataImg").append(imgHtml);
+        //$(".resDataImg").append('<img class="hall-img" src="' + result.image_src + '" />');
+        //$(".resDataImg").append('<img class="hall-img" src="images/Manning-Hall.png" alt="Building Maps Images" />');
+    });
+</script>		
 </html>

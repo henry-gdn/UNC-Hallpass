@@ -14,12 +14,12 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
-<body class="">
+<body>
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="#">
-                <div class="align-self-center custom-logo-link">
+                <div class="custom-logo-link">
                     <img src="images/header_logo.png" width="180" height="30" class="logoImg" />
                 </div>
             </a>
@@ -44,9 +44,9 @@
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
-								<li><a href="test_procedure.html">TESTING HOW TO <i class="feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="test_how_to.html">TESTING HOW TO <i class="feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="find_test_site.html">FIND TEST SITE <i class="feather icon-chevron-right arrow-menu"></i></a></li>     
-								<li><a href="scan_new_test.html">START NEW TEST <i class="feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="scan_new_test_1.html">START NEW TEST <i class="feather icon-chevron-right arrow-menu"></i></a></li>     
 							</ul>
 						</li>
 					</ul>
@@ -56,8 +56,8 @@
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
-								<li><a href="schedule.html">MY CLASS SCHEDULE <i class="feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="search.html">CLASS SEARCH <i class="feather icon-chevron-right arrow-menu"></i></a></li>        
+								<li><a href="my_schedule.html">MY CLASS SCHEDULE <i class="feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="class_search.html">CLASS SEARCH <i class="feather icon-chevron-right arrow-menu"></i></a></li>        
 							</ul>
 						</li>
 					</ul>
@@ -81,17 +81,25 @@
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
     <section class="mobile-view-home p-2 mb-5">
-        <div class="container">
+        <div class="container mb-5">
 			<div class="row pt-2">
-				<a class="Breadcrumb" aria-labelledby="My Testing > Find Test Site" aria-label="My Testing > Find Test Site" href="">My Testing > Find Test Site</a>	
+				<div class="breadcrumb-wrapper col-12">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a aria-labelledby="My Testing" aria-label="My Testing" href="my_testing_compliants.html">My Testing</a></li>
+						<li class="breadcrumb-item" aria-labelledby="Find Test Site" aria-label="Find Test Site">Find Test Site</li>
+					</ol>
+				</div>
 			</div>
-			<br/>
-			<div class="col-12 content-p mt-4 p-0">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+			<div class="pt-2">
+				<!-- <a class="Breadcrumb" aria-labelledby="My Testing > Find Test Site" aria-label="My Testing > Find Test Site" href="">My Testing > Find Test Site</a> -->
+				<div class="mt-4 mb-4 p-0">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+				</div>
+				<div id="siteContent">
+					<!-- Find test site dynamic data append here... -->
+				</div>				
 			</div>
-			<div id="siteContent">
-				<!-- Find test site dynamic data append here... -->
-			</div>
+			
 			<!-- <div class="col-12 content-p mt-2 mb-3 p-0 reserveContent">
 				<img src="images/reserve_img/1.png" />
 			</div>
@@ -103,7 +111,7 @@
 				<h3 class="testing-title">People in line: 8</h3>
 			</div>
 			<div class="col-12 reserve-btn p-0 mt-3">
-				<a href="find_test_site_student_union.html">
+				<a href="find_test_site_1.html">
 					<button aria-label="RESERVE TIME" aria-labelledby="RESERVE TIME" class="btn btn-block">
 					RESERVE TIME
 					<i class="feather icon-chevron-right"></i>
@@ -128,22 +136,22 @@
 				</button>
 			</div> -->
         </div>
-    </section><br/><br/>
+    </section>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
     <footer class="footer-content footer-table">
-        <table class="table" cellspacing="5" border="0">
+        <table class="table">
             <tr>
                 <td>
-					<a href="home.html"><img aria-label="home" aria-labelledby="home" src="images/home_black.png" width="45" alt="home" /></a>
+					<a href="home_post_auth.html"><img aria-label="home" aria-labelledby="home" src="images/home_black.png" width="45" alt="home" /></a>
 					<div>HOME</div>
 				</td>
                 <td>
-					<a href="myTestingCompliants.html"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_black.png" width="45" alt="My Testing" /></a>
+					<a href="my_testing_compliants.html"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_black.png" width="45" alt="My Testing" /></a>
 					<div>MY TESTING</div>
 				</td>
                 <td>
-					<a href="schedule.html"><img aria-label="Class Schedule" aria-labelledby="Class Schedule" src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
+					<a href="my_schedule.html"><img aria-label="Class Schedule" aria-labelledby="Class Schedule" src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
 					<div>CLASS SCHEDULE</div>
 				</td>
             </tr>
@@ -166,7 +174,7 @@
 		function(data, status) {
 			var contentHtml = '';
 			for(var i=0;i<data.length;i++){
-				contentHtml += "<div class='col-12 content-p mt-2 mb-3 p-0 reserveContent'><img src='"+data[i].site_img+"' /></div><div class='col-12 head-content mb-0 p-0'><h2 aria-labelledby='"+data[i].site_name+"' aria-label='"+data[i].site_name+"' class='content-title'>"+data[i].site_name+"</h2></div><div class='col-12 mb-0 p-0 mt-2'><h3 aria-labelledby='"+data[i].hours+"' aria-label='"+data[i].hours+"' class='testing-title'>Hours: "+data[i].hours+"</h3><h3 aria-labelledby='"+data[i].People_in_line+"' aria-label='"+data[i].People_in_line+"' class='testing-title'>People in line: "+data[i].People_in_line+"</h3></div><div class='col-12 reserve-btn p-0 mt-3' data-location='"+data[i].site_name+"#"+data[i].hours+"#"+data[i].People_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME' aria-labelledby='RESERVE TIME' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div> <br/>";
+				contentHtml += "<div class='mt-2 mb-3 p-0 reserveContent'><img src='"+data[i].site_img+"' /></div><div class='head-content mb-0 p-0'><h2 aria-labelledby='"+data[i].site_name+"' aria-label='"+data[i].site_name+"' class='content-title'>"+data[i].site_name+"</h2></div><div class='mb-0 p-0 mt-2'><h3 aria-labelledby='"+data[i].hours+"' aria-label='"+data[i].hours+"' class='findTestSite'>Hours: "+data[i].hours+"</h3><h3 aria-labelledby='"+data[i].People_in_line+"' aria-label='"+data[i].People_in_line+"' class='findTestSite'>People in line: "+data[i].People_in_line+"</h3></div><div class='reserve-btn p-0 mt-3' data-location='"+data[i].site_name+"#"+data[i].hours+"#"+data[i].People_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME' aria-labelledby='RESERVE TIME' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div> <br/>";
 			}
 			$('#siteContent').append(contentHtml);
 		}); 
@@ -177,7 +185,7 @@
 			var location = $(this).attr("data-location");
 			localStorage.removeItem("ite-location");
 			localStorage.setItem("site-location", location);
-			window.location.href = "find_test_site_student_union.html";
+			window.location.href = "find_test_site_1.html";
 		});
     });		
 </script>

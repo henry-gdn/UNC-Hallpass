@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - 404 ERROR </title>
-    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>UNC Hall Pass - Registration > Mobile Number > Local Address </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -71,7 +71,7 @@
 			<table class="table table-sm">
 				<tr>
 					<td>
-						404 ERROR
+						REGISTRATION 
 					</td>
 					<td></td>
 				</tr>
@@ -80,40 +80,68 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 ">
-        <div class="container">
+    <section class="mobile-view-home p-2 mb-5">
+        <div class="container mb-5">
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index.html" aria-labelledby="Home" aria-label="Home">Home</a></li>
+						<li class="breadcrumb-item"><a href="registration.html">Registration</a></li>
+						<li class="breadcrumb-item"><a href="registration_mobile_number">Mobile Number</a></li>
+						<li class="breadcrumb-item">Local Address</li>
 					</ol>
 				</div>
 			</div>
             <div class="pt-2 head-wrapper">
 				<div class="mt-2 mb-0">
-					<h2 aria-labelledby="Page Not Found" aria-label="Page Not Found" class="head-h2">Page Not Found</h2>
+					<h2 aria-labelledby="Local Address" aria-label="Local Address" class="head-h2">Local Address</h2>
                 </div>
-				<div class="p-0 mt-4">
-					<div class="row">
-						<div class="col-3">
-							<div class="btn-err-pink"><span class="fs-50">!</span></div>
-						</div>
-						<div class="col-9">
-							<p>The page you are trying to access does not exist or another error occurred. Go back or <b style="text-decoration:underline;">Home.</b></p>
-						</div>
-					</div> 
+				<div class="mt-4 mb-0">
+					<h3 aria-labelledby="PLEASE ENTER LOCAL ADDRESS" aria-label="PLEASE ENTER LOCAL ADDRESS" class="head-h3">PLEASE ENTER LOCAL ADDRESS</h3>
+                </div>
+                <div class="mb-3 mt-1">
+					<p>Your local address is where you are staying on campus, during the semester.</p>
+                </div>	
+
+				<div class="form-group mb-0">
+					<label>STREET 1</label>
+					<input name="street_1" id="street_1" type="text" class="form-control" value="" placeholder="Street 1">
 				</div>
-				<div class="row pt-5 mt-4 mb-2">
-					<div class="col-5 mt-0">
-						<div class="login-btn mt-0 p-0 mt-5">
-							<a href="index.html"><button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-back-1">
-							<i class="feather icon-chevron-left"></i>
-							BACK
-							</button></a>
-						</div>
+
+				<div class="form-group mb-0 pt-1">
+					<label>STREET 2 (OPT.)</label>
+					<input name="street_2_opt" id="street_2_opt" type="text" class="form-control" value="" placeholder="Street 2">
+				</div>
+	
+				<div class="form-group mb-0 pt-1">
+					<label>CITY</label>
+					<input name="city" id="city" type="password" class="form-control" value="" placeholder="City">
+				</div>
+				
+				<div class="form-group mb-0 pt-1">
+					<label>ZIPCODE</label>
+					<input name="zipcode" id="zipcode" type="password" class="form-control" value="" placeholder="Zipcode">
+				</div>
+								
+				<div class="select-wrapper">
+					<div class="form-group mb-0 pt-1">
+						<label>SELECT STATE</label>
+						<select class="form-control">
+							<option>South Carolina</option>
+							<option>Maryland</option>
+							<option>Georgia</option>
+							<option>California</option>
+							<option>Nevada</option>
+						</select>
 					</div>
-				</div> 
-			</div>     
+				</div>
+
+				<div class="login-btn p-0 mt-5">
+					<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log" onclick="savelocaladdress()">
+					CONTINUE
+					<i class="feather icon-chevron-right"></i>
+					</button>
+				</div>
+            </div>
         </div>
     </section>
 	<!-- UNC CONTENT - END -->
@@ -144,4 +172,13 @@
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
 </body>
+<script>
+function savelocaladdress(){
+	/* just added link for action flow */
+	window.location.href = "registration_mailing_address.html";
+}
+$(document).ready(function(){
+	
+});
+</script>
 </html>
