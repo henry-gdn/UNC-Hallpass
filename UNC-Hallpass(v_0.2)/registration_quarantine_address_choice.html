@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - Registration > Mobile Number > </title>
+    <title>UNC Hall Pass - Registration > Mobile Number > Local Address > Mailing Address > Quarantine Address </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
@@ -19,7 +19,7 @@
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="#">
-                <div class="align-self-center custom-logo-link">
+                <div class="custom-logo-link">
                     <img src="images/header_logo.png" width="180" height="30" class="logoImg" />
                 </div>
             </a>
@@ -71,7 +71,7 @@
 			<table class="table table-sm">
 				<tr>
 					<td>
-						REGISTRATION
+						REGISTRATION 
 					</td>
 					<td></td>
 				</tr>
@@ -80,40 +80,44 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 ">
+    <section class="mobile-view-home p-2 mb-5">
         <div class="container mb-5">
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="registration.html">Registration</a></li>
-						<li class="breadcrumb-item">Mobile Number</li>
+						<li class="breadcrumb-item"><a href="reg_local_address.html">Local Address</a></li>
+						<li class="breadcrumb-item"><a href="reg_mail_address.html">Mobile Number</a></li>
+						<li class="breadcrumb-item">Quarantine Address</li>
 					</ol>
 				</div>
 			</div>
             <div class="pt-2 head-wrapper">
 				<div class="mt-2 mb-0">
-					<h2 aria-labelledby="Mobile Number" aria-label="Mobile Number" class="head-h2">Mobile Number</h2>
+					<h2 aria-labelledby="Quarantine Address" aria-label="Quarantine Address" class="head-h2">Quarantine Address</h2>
                 </div>
-				<!-- <div class="mt-3 mb-3">
-					<h3 class="testing-title-1">Member : <span id="member_name"></span></h3>
-					<h3 class="testing-title-1">PID : <span id="member_pid"></span></h3>
-                </div> -->
-				<div class="mb-4 mt-4">
-					<div class="form-group">
-						<label>ENTER THE 5-DIGIT CODE</label>
-						<input name="5_digit_code" id="5_digit_code" type="password" class="form-control mt-2" value="" placeholder="12345">
-						<span class="errMsg"><i class="feather icon-alert-circle"></i>&nbsp;Incorrect code. Try again or send another text.</span>
+				<div class="mt-4 mb-0">
+					<h3 aria-labelledby="PLEASE ENTER QUARANTINE ADDRESS" aria-label="PLEASE ENTER QUARANTINE ADDRESS" class="head-h3">PLEASE ENTER QUARANTINE ADDRESS</h3>
+                </div>
+                <div class="mb-3 mt-1">
+					<p>In the event you are asked to quarantine where will you be quarantining?</p>
+                </div>	
+
+				<div class="select-wrapper">
+					<div class="form-group mb-0 pt-1">
+						<label>SELECT LOCATION</label>
+						<select id="quarantine_address" class="form-control">
+							<option value="school">Local Address</option>
+							<option value="mailing">Mailing Address</option>
+							<option value="campus">Campus Housing</option>
+							<option value="other">Other</option>
+						</select>
 					</div>
 				</div>
 
-				<div class="mt-1">
-					<a class="sendOtp" aria-labelledby="Send another text" aria-label="Send another text" href="">Send another text</a>
-				</div>
-			
 				<div class="row mt-4 mb-2">
 					<div class="col-5">
 						<div class="p-0">
-							<button aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back" onclick="goBack()">
+							<button aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back">
 							<i class="feather icon-chevron-left"></i>
 							BACK
 							</button>
@@ -121,14 +125,14 @@
 					</div>
 					<div class="col-7">
 						<div class="p-0">
-							<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log" onclick="checkOTP()">
+							<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log" onclick="reg_step_5()">
 							CONTINUE
 							<i class="feather icon-chevron-right"></i>
 							</button>
 						</div>
 					</div>
 				</div>
-			</div>
+            </div>
         </div>
     </section>
 	<!-- UNC CONTENT - END -->
