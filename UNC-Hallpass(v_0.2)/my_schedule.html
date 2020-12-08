@@ -80,7 +80,7 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 ">
+    <section class="mobile-view-home p-2 mb-3">
         <div class="container">
             <!-- <div class="row pt-2">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
@@ -102,13 +102,13 @@
 				<table class="table table-sm">
 					<tr>
 						<td>
-							<h2 class="schedule-title">Member : <span id="member"></span> </h2>
-							<h2 class="schedule-title">PID : <span id="pid"></span></h2>
-							<h2 class="schedule-title">Status : <span id="testStatus"></span> </h2>
+							<h2>Member : <span id="member"></span></h2>
+							<h2>PID : <span id="pid"></span></h2>
+							<h2>Status : <span id="testStatus"></span></h2>
 						</td>
 						<td>
 							<div class="class-search-btn">
-								<a href="#"><button aria-label="Class Search" class="btn">CLASS DETAILS <i class="feather icon-chevron-right"></i></button></a>
+								<a href="class_search.html"><button aria-label="Class Search" class="btn">class search <i class="feather icon-chevron-right"></i></button></a>
 							</div>
 						</td>
 					</tr>
@@ -171,7 +171,8 @@ var schedlueOnHtml = "",appHtml="" ,totHtml = "";
 
 var member = "", pid="" , status = "";
 
-    $(document).ready(function() {       
+    $(document).ready(function() {    
+		$("body").css({visibility:'visible'});
 		//here needs to change the server URL			
         $("body").tooltip({ selector: '.hallModal, .hallTooltip, .enterDoor, .exitDoor, .subject-code' , boundary: 'window' });
 		
@@ -209,7 +210,14 @@ var member = "", pid="" , status = "";
 		$(document).on('click', '.dayCollapse', function() {           
             var curDay  = $(this).attr("cur-day");					
            getDayActivity(curDay,"","",1);		
-        });	
+        });
+		$(document).on('click','.class-search',function(){
+			var res = $(this).attr("data-serVal");
+			console.log(res);
+			localStorage.removeItem("RESDATA");
+			localStorage.setItem("RESDATA", res);
+			document.location.href = "class_details.html?param=schedule";
+		});
         function getDayActivity(appDay,startHtml,endHtml,type) {				
 			var curDay = appDay;
 			console.log( curDay );
@@ -227,7 +235,7 @@ var member = "", pid="" , status = "";
 							var hrBorder = "<hr class='border-hr-schedule'>";
 							if (data.length != 0 ) {
 									for (var i = 0; i < data.length; i++) {
-										schedlueOnHtml += "<div class='col-sm-12 col-xs-12 col-md-8 col-lg-8 justify-content-start mt-3'><p aria-label='Subject code ' class='subject-code p-0' title=''>"+data[i].subject_code+"</p><p aria-label='Subject name : ' class='subject-name'><span class='hallTooltip' title=''>"+data[i].subject_name+"</span></p> <a href='my_schedule_details.html'><button class='btn mt-3 mb-2'>CLASS DETAILS <i class='feather icon-chevron-right btn-arrow-content'></i></button></a><p aria-label='Instructor Name :' title='' class='instructor-schedule pt-3'> <span>"+data[i].instructer_name+"</span></p><p class='location'> <span aria-label='Location :' title=''>"+data[i].location+"</span></p><p aria-label='class time :' class='classtime-table mt-2'> <span>"+data[i].class_time+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start mt-3'><p class='entry-text'>ENTRY: <span class='entry-time' aria-label='entry time :'>"+data[i].entry_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door:'>"+data[i].entry_sug_door+"</span></p><p class='suggested-door-name-acc'>Accessible Door: <span aria-label='Accessible Door:'>"+data[i].entry_acc_door+"</span></p><p class='exit-text pt-3'>EXIT: <span class='exit-time' aria-label='Exit Time:'>"+data[i].exit_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door:'>"+data[i].exit_sug_door+"</span></p><p class='suggested-door-name-acc'>Accessible Door: <span aria-label='Accessible Door:'>"+data[i].exit_acc_door+"</span></p></div>";
+										schedlueOnHtml += "<div class='col-sm-12 col-xs-12 col-md-8 col-lg-8 justify-content-start mt-3'><p aria-label='Subject code ' class='subject-code p-0' title=''>"+data[i].subject_code+"</p><p aria-label='Subject name : ' class='subject-name'><span class='hallTooltip' title=''>"+data[i].subject_name+"</span></p> <div class='class-search' data-serVal='"+JSON.stringify(data[i])+"'><button class='btn mt-3 mb-2'>CLASS DETAILS <i class='feather icon-chevron-right btn-arrow-content'></i></button></div><p aria-label='class time :' class='classtime-table mt-2'> <span>"+data[i].class_time+"</span></p><p aria-label='Instructor Name :' title='' class='instructor-schedule pt-3'> <span>"+data[i].instructer_name+"</span></p><p class='location'> <span aria-label='Location :' title=''>"+data[i].location+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start mt-3'><p class='entry-text'>ENTRY: <span class='entry-time' aria-label='entry time :'>"+data[i].entry_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door:'>"+data[i].entry_sug_door+"</span></p><p class='suggested-door-name-acc'>Accessible Door: <span aria-label='Accessible Door:'>"+data[i].entry_acc_door+"</span></p><p class='exit-text pt-3'>EXIT: <span class='exit-time' aria-label='Exit Time:'>"+data[i].exit_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door:'>"+data[i].exit_sug_door+"</span></p><p class='suggested-door-name-acc'>Accessible Door: <span aria-label='Accessible Door:'>"+data[i].exit_acc_door+"</span></p></div>";
 										if ( i != data.length-1 ) {
 											schedlueOnHtml += hrBorder;
 										}			

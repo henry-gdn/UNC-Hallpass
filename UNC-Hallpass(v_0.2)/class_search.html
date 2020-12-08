@@ -225,14 +225,14 @@ function onSelect(val){
 	saveRecentSearch(JSON.parse(val));
 	localStorage.removeItem("RESDATA");
 	localStorage.setItem("RESDATA", val);
-	document.location.href = "class_details.html";
+	document.location.href = "class_details.html?param=search";
 }
 
 function onRecentSelect(){
 	var v = $(this).find('.search-val').val();
 	localStorage.removeItem("RESDATA");
 	localStorage.setItem("RESDATA", v);
-	document.location.href = "class_details.html";
+	document.location.href = "class_details.html?param=search";
 }
 
 function buildResultHtml(data, result){

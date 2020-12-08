@@ -68,6 +68,32 @@ function reg_step_2(){
     //$pid = getPID();
     $email = $('#preferred_email_address').val();
     $mobile = $('#phone_number').val();
+
+	/* ***********************************************************************
+		phone number validation scripts for registration mobile number 
+	*********************************************************************** */
+	var phoneNumber = /^\d*(?:\.\d{1,2})?$/;	
+	if (phoneNumber.test($mobile)) {
+		if($mobile.length==10){
+			alert("validate successfully");
+			$("#errMsg").addClass("hideErr");
+            $("#errMsg_1").addClass("hideErr");
+		} else {
+			alert('Please put 10  digit mobile number');
+			$("#errMsg").removeClass("hideErr");
+            $("#errMsg_1").addClass("hideErr");
+			return false;
+		}
+	}
+	else {
+		alert('Not a valid number');
+		$("#errMsg").removeClass("hideErr");
+        $("#errMsg_1").addClass("hideErr");
+		return false;
+	}
+	/* End of validation scripts */   
+	/* *********************************************************************** */
+	
     $.ajax({
 	    url: '/secure/apip',
 	    type: 'POST',
@@ -92,9 +118,34 @@ function reg_step_2(){
 
 function checkOTP() {
     var otp = document.cookie.substr(8,5);
+	
+	
+	
+	
+	/* ***********************************************************************
+		OTP validation scripts for registration mobile number 
+	*********************************************************************** */
+	$otp = $('#5_digit_code').val();
+	//var phoneNumber = /^\d*(?:\.\d{1,2})?$/;	
+	if ($otp.length==5) {
+		alert("otp validate successfully");
+		$("#otpErrMsg").addClass("hideOtpErr");
+		$("#otpErrMsg_1").addClass("hideOtpErr");
+	}
+	else {
+		alert('Not a valid number');
+		$("#otpErrMsg").removeClass("hideOtpErr");
+        $("#otpErrMsg_1").addClass("hideOtpErr");
+		return false;
+	}
+	/* End of validation scripts */   
+	/* *********************************************************************** */
+	
+	
+	
     if ($('#5_digit_code').val() == otp){
         console.log('otp validated successfully');
-   	/* just added link for action flow */
+   	    /* just added link for action flow */
         window.location.href = "registration_local_address.html";
     }
     else {

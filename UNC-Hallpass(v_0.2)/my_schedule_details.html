@@ -129,13 +129,35 @@
 </body>
 <script>
     $(document).ready(function() {
-        var result = JSON.parse(localStorage.getItem("RESDATA"));
-			var resHtml = "<p aria-label='Subject code' class='subject-code-details p-0'>" + result.subject_code + "</p><p aria-label='Subject name' class='subject-name-details p-0'>" + result.subject_name + "</p><p aria-label='Instructor name' class='instructor-details p-0'>" + result.instructor + "</p><p aria-label='location name' class='location-details p-0'>" + result.location + "</p><p aria-label='class time : '+ result.class_time +'' class='classtime-details mt-3'> <span>" + result.class_time + "</span></p><hr class='border-hr mt-4'><div class='mt-4'><p class='entry-text-details'>ENTRY : <span class='entry-time-details' aria-label='entry time : '+ result.entry_time +''>" + result.entry_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '+ result.entry_sug_door +''>"+ result.entry_sug_door +"</span></p><p class='suggested-door-name-acc-details'>Accessible Door : <span aria-label='Accessible Door: '+ result.entry_acc_door +''>"+ result.entry_acc_door +"</span></p><p class='exit-text-details pt-4'>EXIT : <span class='exit-time-details' aria-label='Exit Time: '+ result.exit_time +''>" + result.exit_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '+ result.exit_sug_door +''>"+ result.exit_sug_door +"</span></p><p class='suggested-door-name-acc-details'> Accessible Door : <span aria-label='Accessible Door: '+ result.exit_acc_door +''>"+ result.exit_acc_door +"</span></p></div> <br/><div class='search-details-btn mt-2'> <a href='search.html'><button aria-label='Class Search' class='btn btn-block'>CLASS SEARCH &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='search-details-btn mt-4'> <a href='my_schedule.html'><button aria-label='Class Search' class='btn btn-block'>MY SCHEDULE &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='row pt-4 mb-5'><div class='col mt-0 p-0 ml-1 justify-content-start'><p class='doorMap' aria-label='DOOR MAP'>DOOR MAP</p><div class='doorMapImg resDataImg mt-3 pr-1'> <img class='map-img' src='" + result.image_src + "' /></div></div></div>";
+		var tech = getUrlParameter('param');
+		var result = JSON.parse(localStorage.getItem("RESDATA"));
+		var resHtml = "";
+		if(tech == "search"){
+			resHtml = "<p aria-label='Subject code' class='subject-code-details p-0'>" + result.subject_code + "</p><p aria-label='Subject name' class='subject-name-details p-0'>" + result.subject_name + "</p><p aria-label='class time : '+ result.class_time +'' class='classtime-table mt-3'> <span>" + result.class_time + "</span></p><p aria-label='Instructor name' class='instructor-schedule p-0'>" + result.instructor + "</p><p aria-label='location name' class='instructor-schedule p-0'>" + result.location + "</p><div class='mt-4'><p class='entry-text'>ENTRY : <span class='entry-time' aria-label='entry time : '+ result.entry_time +''>" + result.entry_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '+ result.entry_sug_door +''>"+ result.entry_sug_door +"</span></p><p class='suggested-door-name-acc-details'>Accessible Door : <span aria-label='Accessible Door: '+ result.entry_acc_door +''>"+ result.entry_acc_door +"</span></p><p class='exit-text pt-4'>EXIT : <span class='exit-time' aria-label='Exit Time: '+ result.exit_time +''>" + result.exit_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '+ result.exit_sug_door +''>"+ result.exit_sug_door +"</span></p><p class='suggested-door-name-acc-details'> Accessible Door : <span aria-label='Accessible Door: '+ result.exit_acc_door +''>"+ result.exit_acc_door +"</span></p></div> <br/><div class='search-details-btn mt-2'> <a href='class_search.html'><button aria-label='Class Search' class='btn btn-block'>CLASS SEARCH &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='search-details-btn mt-4'> <a href='my_schedule.html'><button aria-label='Class Search' class='btn btn-block'>MY SCHEDULE &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='row pt-4 mb-5'><div class='col mt-0 p-0 ml-1 justify-content-start'><p class='doorMap' aria-label='DOOR MAP'>DOOR MAP</p><div class='doorMapImg resDataImg mt-3 pr-1'> <img class='map-img' src='" + result.image_src + "' /></div></div></div>";
+		}else{
+		
+		}
+        
+			
         $(".resData").append(resHtml);
 		//var imgHtml = "";
         //$(".resDataImg").append(imgHtml);
         //$(".resDataImg").append('<img class="hall-img" src="' + result.image_src + '" />');
         //$(".resDataImg").append('<img class="hall-img" src="images/Manning-Hall.png" alt="Building Maps Images" />');
     });
+	var getUrlParameter = function getUrlParameter(sParam) {
+		var sPageURL = window.location.search.substring(1),
+			sURLVariables = sPageURL.split('&'),
+			sParameterName,
+			i;
+
+		for (i = 0; i < sURLVariables.length; i++) {
+			sParameterName = sURLVariables[i].split('=');
+
+			if (sParameterName[0] === sParam) {
+				return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+			}
+		}
+	};
 </script>		
 </html>

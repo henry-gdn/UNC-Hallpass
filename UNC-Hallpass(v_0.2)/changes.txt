@@ -1,0 +1,36 @@
+
+*****************
+   08/12/2020
+*****************
+-------
+SEARCH
+-------
+1. Class search and class details
+
+------------
+MY SCHEDULE
+------------
+1. Schedule and schedule details
+
+---------------
+FIND TEST SITE
+---------------
+1.Removed people in line data
+
+--------------
+REGISTRATION
+--------------
+1.Registration mobile invalid number - Page created
+2. All 50 states placed in select state dropdown field
+
+-----------
+FLOW.JS
+-----------
+1. Placed phone number validation scripts for registration mobile number in flow.js ( Line no from 75 - 93 )
+2. Placed OTP validation scripts for registration mobile number ( Line no from 128 - 140 )
+------
+CSS
+------
+1. Updated css files.
+
+***************************************************************************************************************************

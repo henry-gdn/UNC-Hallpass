@@ -14,6 +14,10 @@
  *     03.  Sticky Menu     *
  *     03.  Back to top     *
  ===========================*/
+ 
+ $(document).ready(function(){
+	$("body").css({visibility:'visible'});
+ });
 
 ! function($) {
     "use strict"; 

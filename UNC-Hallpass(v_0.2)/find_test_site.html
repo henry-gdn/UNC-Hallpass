@@ -174,7 +174,7 @@
 		function(data, status) {
 			var contentHtml = '';
 			for(var i=0;i<data.length;i++){
-				contentHtml += "<div class='mt-2 mb-3 p-0 reserveContent'><img src='"+data[i].site_img+"' /></div><div class='head-content mb-0 p-0'><h2 aria-labelledby='"+data[i].site_name+"' aria-label='"+data[i].site_name+"' class='content-title'>"+data[i].site_name+"</h2></div><div class='mb-0 p-0 mt-2'><h3 aria-labelledby='"+data[i].hours+"' aria-label='"+data[i].hours+"' class='findTestSite'>Hours: "+data[i].hours+"</h3><h3 aria-labelledby='"+data[i].People_in_line+"' aria-label='"+data[i].People_in_line+"' class='findTestSite'>People in line: "+data[i].People_in_line+"</h3></div><div class='reserve-btn p-0 mt-3' data-location='"+data[i].site_name+"#"+data[i].hours+"#"+data[i].People_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME' aria-labelledby='RESERVE TIME' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div> <br/>";
+				contentHtml += "<div class='mt-2 mb-3 p-0 reserveContent'><img src='"+data[i].site_img+"' /></div><div class='head-content mb-0 p-0'><h2 aria-labelledby='"+data[i].site_name+"' aria-label='"+data[i].site_name+"' class='content-title'>"+data[i].site_name+"</h2></div><div class='mb-0 p-0 mt-2'><h3 aria-labelledby='"+data[i].hours+"' aria-label='"+data[i].hours+"' class='findTestSite'>Hours: "+data[i].hours+"</h3></div><div class='reserve-btn p-0 mt-3' data-location='"+data[i].site_name+"#"+data[i].hours+"#"+data[i].People_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME' aria-labelledby='RESERVE TIME' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div> <br/>";
 			}
 			$('#siteContent').append(contentHtml);
 		}); 
