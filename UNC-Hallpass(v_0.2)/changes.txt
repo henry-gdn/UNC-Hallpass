@@ -23,7 +23,7 @@ REGISTRATION
 1.Registration mobile invalid number - Page created
 2. All 50 states placed in select state dropdown field
 
------------
+------------
 FLOW.JS
 -----------
 1. Placed phone number validation scripts for registration mobile number in flow.js ( Line no from 75 - 93 )
