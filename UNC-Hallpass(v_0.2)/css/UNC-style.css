@@ -1,28 +1,33 @@
+
+
+
+
+
+
 @font-face {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
-    font-display: block !important;
     src: url("../fonts/itc-franklin-gothic-lt-demi-compressed.ttf") format("truetype");
+    src: url("../fonts/ITC Franklin Gothic Demi Compressed.otf") format("truetype");
 }
 @font-face {
     font-family: "OpenSans Regular";
-    font-display: block !important;
-    src: url("../fonts/OpenSans-Regular.ttf") format("truetype");
+    src: url("../fonts/OpenSans-Regular.ttf");
 }
 /* @font-face {
     font-family: "ITC Franklin Gothic LT Pro Demi Compressed";
-    src: url("../fonts/itc-franklin-gothic-lt-demi-extra-compressed.ttf") format("truetype");
+    src: url("../fonts/itc-franklin-gothic-lt-demi-extra-compressed.ttf") format("ttf");
 } */
 @font-face {
     font-family: "OpenSans Bold";
-    src: url("../fonts/OpenSans-Bold.ttf") format("truetype");
+    src: url("../fonts/OpenSans-Bold.ttf");
 }
 @font-face {
     font-family: "OpenSans Semi Bold";
-    src: url("../fonts/OpenSans-SemiBold.ttf") format("truetype");
+    src: url("../fonts/OpenSans-SemiBold.ttf");
 }
 @font-face {
     font-family: "OpenSans Light";
-    src: url("../fonts/OpenSans-Light.ttf") format("truetype");
+    src: url("../fonts/OpenSans-Light.ttf");
 }
 /* @font-face {
     font-family: "ITC Franklin Gothic LT W01 Bk";
@@ -1015,10 +1020,13 @@ td {
 }
 body {
     visibility: hidden;
-    /* display:block !important; */
+    display:block !important;
     width: 100%;
     height: 100%;
     -webkit-box-shadow: none !important;
+}
+html {
+    visibility: hidden;
 }
 ol,
 ul {
@@ -2276,7 +2284,7 @@ a {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294B;
     letter-spacing: 0px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     width: 100%;
     /* border-radius:25px; */
@@ -2287,14 +2295,14 @@ a {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294B !important;
     letter-spacing: 0px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     width: 100%;
 }
 .btn-log i {
     position: relative;
-	font-size:32px;
-	top:2px;
+	font-size:26px !important;
+	top:0px;
     float: right;
 }
 .btn-log-1 {
@@ -2302,7 +2310,7 @@ a {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294B;
     letter-spacing: 0px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     width: 100%;
 }
@@ -2312,7 +2320,7 @@ a {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294B !important;
     letter-spacing: 0px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     width: 100%;
 }
@@ -2357,7 +2365,7 @@ a {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294B;
     letter-spacing: 0px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     width: 100%;
     /* border-radius:25px; */
@@ -2368,7 +2376,7 @@ a {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294B !important;
     letter-spacing: 0px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     width: 100%;
 }
@@ -2377,7 +2385,7 @@ a {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294B;
     letter-spacing: 0px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     width: 100%;
 }
@@ -2387,7 +2395,7 @@ a {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #FFFFFF;
     letter-spacing: 0px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     width: 100%;
 }
@@ -2396,7 +2404,17 @@ a {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294B;
     letter-spacing: 0px;
-    font-size: 27px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    /* border-radius:25px; */
+}
+.btn-back-1:hover {
+    background: #13294B;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #FFFFFF;
+    letter-spacing: 0px;
+    font-size: 20px;
     font-weight: bold;
     width: 100%;
     /* border-radius:25px; */
@@ -3598,17 +3616,18 @@ RECENTLY SELECTED RESULTS STYLE
     /* border:8px solid #13294B; */
     display: flex;
     align-items: center !important;
-    border: 8px solid #000000;
+    /* border: 8px solid #000000; */
     /* border-top-left-radius:     4px 2px;
 	border-top-right-radius:    3px 4px;
 	border-bottom-right-radius: 6px 2px;
 	border-bottom-left-radius:  3px 4px; */
 }
-.scannerImg img {
+.scannerImg video {
     position: relative;
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: 0 auto;
+	border: 1px solid #000000;
 }
 .scannerImg:before {
     /* content:'';
@@ -3724,6 +3743,51 @@ RECENTLY SELECTED RESULTS STYLE
     display: flex;
     text-align: center !important;
 }
+/* ***************************************
+		SCAN TRY AGAIN PAGE STYLES
+****************************************** */
+#scanTryLayout {
+    /* position:relative;
+	background-size:cover;
+	background:#EF426F;
+	width:100%;
+	height:100vh; */
+}
+#scanTryLayout.show {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    z-index: 9999999;
+    background-color: #EF426F;
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center !important;
+}
+#scanTryLayout.show h2 {
+    position: relative;
+    margin: 0 auto;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #13294B;
+    text-align: center !important;
+    letter-spacing: 0px;
+    font-size: 50px;
+}
+#scanTryLayout.show img {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    text-align: center !important;
+}
+/* ***************************************
+		AUTOCOMPLETE PAGE STYLES
+****************************************** */
 .autocomplete {
     width: 100% !important;
     position: relative;
@@ -4090,7 +4154,7 @@ RECENTLY SELECTED RESULTS STYLE
         font-family: "ITC Franklin Gothic LT Demi Compressed";
         color: #13294B;
         letter-spacing: 0px;
-        font-size: 35px;
+        font-size: 20px;
         font-weight: bold;
         width: 100%;
         /* border-radius:25px; */
@@ -4834,3 +4898,4 @@ RECENTLY SELECTED RESULTS STYLE
         white-space: nowrap;
     }
 }
+

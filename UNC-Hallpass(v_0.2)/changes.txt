@@ -34,3 +34,15 @@ CSS
 1. Updated css files.
 
 ***************************************************************************************************************************
+
+*****************
+   14/12/2020
+*****************
+1. Completed to create scan bar code with ZXING library (scan_new_test_1.html, scanner.html, scan_complete.html, scan_fail.html)
+2. Back button issue fixed.
+
+
+
+
+
+

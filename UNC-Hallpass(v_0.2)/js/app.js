@@ -15,9 +15,12 @@
  *     03.  Back to top     *
  ===========================*/
  
- $(document).ready(function(){
-	$("body").css({visibility:'visible'});
- });
+$(document).ready(function(){
+	setTimeout(function(){ 
+		$("html").css({visibility:'visible'});
+		$("body").css({visibility:'visible'});
+	}, 10);
+});
 
 ! function($) {
     "use strict"; 

@@ -82,11 +82,51 @@
 	<!-- UNC CONTENT - START -->
     <section class="mobile-view-home p-2 ">
         <div class="container mt-4 mb-4">
-			<div class="scannerImg ">
-				<img aria-labelledby="scanner" aria-label="scanner" src="images/scanner.png" alt="scanner image" />   
+			<div class="scannerImg">
+				<video id="video"></video>  
 			</div>
         </div>
     </section>
+	
+	<div id="scanCompleteLayout" style="display:none;">
+		<h2 aria-labelledby="scan complete" aria-label="scan complete" class="head-title">
+			<img src="images/tick.png" alt="tick" width="100" height="100" />
+			SCAN <br/> COMPLETE
+		</h2>
+	</div>
+	
+	<div id="scanTryLayout" style="display:none;">
+		<h2 aria-labelledby="scan complete" aria-label="scan complete" class="head-title">
+			<img src="images/tick.png" alt="tick" width="100" height="100" />
+			TRY <br/> AGAIN
+		</h2>
+	</div>
+		
+		
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-body head-wrapper">
+					<div class="searchButton p-0" style="margin-left:-10px;margin-right:-10px;">
+						<table class="table p-0">
+							<tr>
+								<td>
+									<label class="mb-0">PLEASE ENTER BARCODE MANUALLY</label>
+									<input tabindex="0" type="text" data-role="none" data-enhance="false" aria-label='' aria-labelledby="" class="form-control search-box" placeholder="" />
+								</td>
+								<td>
+									<button aria-labelledby="search button" aria-label='search button' id="barcodeBtn" tabindex="0" class="btn btn-outline-search" type="button" style="position:relative;top:15px;">
+										<i class="feather icon-chevron-right"></i>
+									</button>
+								</td>
+							</tr>
+						</table> 
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
     <footer class="footer-content footer-table">
@@ -114,5 +154,57 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
+	
+	
+	<script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script>
 </body>
+<script>
+$(document).ready(function(){
+	let selectedDeviceId;
+	const codeReader = new ZXing.BrowserBarcodeReader()
+	console.log('ZXing code reader initialized')
+	codeReader.getVideoInputDevices()
+		.then((videoInputDevices) => {
+			selectedDeviceId = videoInputDevices[0].deviceId;
+			if (videoInputDevices.length > 1) {
+				selectedDeviceId = videoInputDevices[1].deviceId;
+			}
+			codeReader.decodeOnceFromVideoDevice(selectedDeviceId, 'video').then((result) => {
+				
+				var txtVal = $("#manualBarCodeValue").val();
+				localStorage.setItem("scanValue",result);
+				$("#scanCompleteLayout").addClass("show").show();
+				//localStorage.setItem("scantext", result);
+				setTimeout(function() { 
+					window.location.href = "scan_complete.html";
+				}, 1000);
+				//document.getElementById('result').textContent = result.text
+			}).catch((err) => {
+				console.error(err)
+				
+				$('#myModal').modal({
+					show: true,
+					backdrop: 'static',
+					keyboard: false
+				});
+				//document.getElementById('result').textContent = err
+			})
+			setTimeout(function() { 
+				$("#scanTryLayout").addClass("show").show();
+				setTimeout(function() { 
+					window.location.href = "scan_fail.html";
+				}, 1000);
+			}, 15000);
+		})
+		.catch((err) => {
+			console.error(err)
+			//alert(err);
+		})
+		
+	$("#barcodeBtn").click(function(){
+		window.location.href = "scan_complete.html";
+	});
+	
+});
+</script>
 </html>
