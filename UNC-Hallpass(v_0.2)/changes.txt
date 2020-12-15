@@ -39,10 +39,14 @@ CSS
    14/12/2020
 *****************
 1. Completed to create scan bar code with ZXING library (scan_new_test_1.html, scanner.html, scan_complete.html, scan_fail.html)
-2. Back button issue fixed.
+2. Back button alignment issue fixed.
 
+***************************************************************************************************************************
 
-
-
+*****************
+   15/12/2020
+*****************
+1. my testing latest screen pages completed ( 5 screens )
+2. css files updated
 
 

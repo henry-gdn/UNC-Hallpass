@@ -2825,7 +2825,7 @@ button {
 .test-date-time {
     position: relative;
     top: -10px;
-    font-size: 45px;
+    font-size: 40px;
     color: #13294B;
     margin: 0 auto;
     letter-spacing: 0px;
@@ -2918,11 +2918,11 @@ button {
     text-align: center;
     margin: 0 auto;
 }
-.testContent {
+.testContentGreen {
     position: relative;
     top: -3px;
 }
-.testContent table {
+.testContentGreen table {
     position: relative;
     margin: 0 auto;
     top: 0px;
@@ -2933,21 +2933,21 @@ button {
     border-left: 5px solid #C4D600;
     border-right: 5px solid #C4D600;
 }
-.testContent table tr td {
+.testContentGreen table tr td {
     border-top: none !important;
     vertical-align: middle;
 }
-.testContent table tr td:first-child {
+.testContentGreen table tr td:first-child {
     position: relative;
     width: 60%;
     margin: 0 auto;
     padding: 10px 10px;
 }
-.testContent table tr td:last-child {
+.testContentGreen table tr td:last-child {
     position: relative;
     width: 40%;
 }
-.testContent table tr td:last-child img {
+.testContentGreen table tr td:last-child img {
     position: relative;
     width: 100%;
     padding: 5px 0px 0px 0px;

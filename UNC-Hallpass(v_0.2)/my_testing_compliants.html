@@ -83,9 +83,14 @@
     <section class="mobile-view-home">
         <div class="p-2">
         <div class="container">
-            <div class="row pt-2">
-				<a class="Breadcrumb" aria-labelledby="Home > My Testing" aria-label="Home > My Testing" href="" >Home > My Testing</a>
-            </div>
+			<div class="row pt-1">
+				<div class="breadcrumb-wrapper col-12">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index.html" aria-labelledby="Home" aria-label="Home">Home</a></li>
+						<li class="breadcrumb-item" aria-labelledby="My Testing" aria-label="My Testing">My Testing</li>
+					</ol>
+				</div>
+			</div>
 			<div class="row pt-3">
                 <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
 					<h6 class="schedule-title">Member : <span id="member_name"></span></h6>
@@ -93,14 +98,23 @@
 					<h6 class="schedule-title">Status: <span class="status"></span></h6>
                 </div>
             </div>
+			<p class="myTestContent pt-4"><!-- my test content append here... --></p>
 			<div class="row pt-4">
                 <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
 					<h6 class="get-test-title">Get next test before : </h6>
-					<h6 class='test-date-time get_next_test_before'></h6>
+					<h6 class='test-date-time get_next_test_before_title'></h6>
                 </div>
             </div>
+			<div class="my-reservations-btn mt-3 mb-1 p-1">
+				<a href="find_test_site_thx.html">
+					<button aria-labelledby="SMY RESERVATIONS" aria-label="MY RESERVATIONS" class="btn btn-block">
+						<span>MY RESERVATIONS</span>
+						<i class="feather icon-chevron-right"></i>
+					</button>
+				</a>
+			</div>
 			<div class="myTest-btn mt-3 mb-1 p-1">
-				<a href="scanner.html">
+				<a href="#">
 					<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block">
 						<img aria-labelledby="scan button" aria-label="scan button" alt="scan button" width="55" src="images/test.png" />
 						<span>TESTING HOW TO</span>
@@ -109,7 +123,7 @@
 				</a>
 			</div>
 			<div class="myTest-btn mt-1 mb-1 p-1">
-				<a href="scanner.html">
+				<a href="#">
 					<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block">
 						<img aria-labelledby="scan button" aria-label="scan button" alt="scan button" width="55" src="images/location.png" />
 						<span>FIND A TEST SITE</span>
@@ -118,7 +132,7 @@
 				</a>
 			</div>
 			<div class="myTest-btn mt-1 mb-1 p-1">
-				<a href="scanner.html">
+				<a href="#">
 					<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block">
 						<img aria-labelledby="scan button" aria-label="scan button" alt="scan button" width="57" src="images/NewTest_1.png" />
 						<span>START NEW TEST</span>
@@ -131,63 +145,34 @@
 		<div class="clearfix"></div>
 		
 		<!-- HALL PASS - COMPLIANT -->
-		<div id="hallPassCompliant" style="display:none;">
-			<div class="headTab-green">
+			<div id="hallpass-hcolor" class="headTab-green">
 				<table class="table table-sm">
 					<tr>
 						<td>
 							HALL PASS 
 						</td>
-					</tr>
+					</tr>  
 				</table>
 			</div>
-			<div class="testContent">
+			<div id="hallpass-bcolor" class="testContentGreen">
 				<table class="table table-sm">
 					<tr>
 						<td>
 							<p class="testContent-title">Member status :</p> 
 							<p class='test-content-date-time status'></p> 
-							<p class="testContent-title">Valid until :</p> 
-							<p class='test-content-date-time get_next_test_before'></p>
+							<p class="testContent-title validUntil"></p> 
+							<p id="asap" class='test-content-date-time get_next_test_before_content asap'></p>
 						</td>
 						<td>
-							<img src="images/testBarcode.png" width="100" height="100"  />
+							<img class="myTestQrImg" src="" width="100" height="100"  />
 						</td>
 					</tr>
 				</table>
 			</div>
-		</div>
-		<!-- HALL PASS - TEST NEEDED -->
-		<div id="hallPassTestNeeded" style="display:none;">
-			<div class="headTab-pink">
-				<table class="table table-sm">
-					<tr>
-						<td>
-							HALL PASS 
-						</td>
-					</tr>
-				</table>
-			</div>
-			<div class="testContentPink">
-				<table class="table table-sm">
-					<tr>
-						<td>
-							<p class="testContent-title">Member status :</p> 
-							<p class='test-content-date-time'>TEST NEEDED</p> 
-							<p class="testContent-title-pink">Go to Testing</p> 
-							<p class="testContent-title-pink">Site ASAP</p> 
-						</td>
-						<td>
-							<img src="images/testBarcode.png" width="100" height="100"  />
-						</td>
-					</tr>
-				</table>
-			</div>
-		</div>
     </section><br/><br/><br/>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
-    <footer class="footer-content footer-table">
+    <footer class="footer-content footer-table" style="bottom:2px !important;">
         <table class="table">
             <tr>
                 <td>
@@ -195,7 +180,7 @@
 					<div>HOME</div>
 				</td>
                 <td>
-					<a href="my_testing_compliants.html"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_black.png" width="45" alt="My Testing" /></a>
+					<a href="my_testing_compliants.html"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_blue.png" width="45" alt="My Testing" /></a>
 					<div>MY TESTING</div>
 				</td>
                 <td>
@@ -226,19 +211,36 @@
 			$("#member_name").text(data.member_name);
 			$("#pid").text(data.pid);
 			$(".status").text(data.my_status);
-			$(".get_next_test_before").text(data.get_next_test_before);
-			//$("#hallPassTestNeeded").hide();
-			//$("#hallPassCompliant").hide();
-			if(curStatus.toUpperCase() != 'COMPLIANT'){
-				$("#hallPassTestNeeded").hide();
-				$("#hallPassCompliant").show();
-				// += "<div class='headTab-green'><table class='table table-sm'><tr><td>HALL PASS </td></tr></table></div><div class='testContent'><table class='table table-sm'><tr><td><p class='testContent-title'>Member status :</p> <p class='test-content-date-time status'></p> <p class='testContent-title'>Valid until :</p> <p class='test-content-date-time get_next_test_before'></p></td><td><img src='images/testBarcode.png' width='100' height='100' /></td></tr></table></div>";
-			}else{
-				$("#hallPassTestNeeded").show();
-				$("#hallPassCompliant").hide();
-				//curHtml += "<div class='headTab-pink'><table class='table table-sm'><tr><td>HALL PASS </td></tr></table></div><div class='testContentPink'><table class='table table-sm'><tr><td><p class='testContent-title'>Member status :</p> <p class='test-content-date-time status'></p> <p class='testContent-title-pink'>Go to Testing</p> <p class='testContent-title-pink'>Site ASP</p> </td><td><img src='images/testBarcode.png' width='100' height='100' /></td></tr></table></div>";
+			$(".myTestContent").text(data.mytest_content);
+			$(".get_next_test_before_title").text(data.get_next_test_before);
+			
+			var valid = data.valid_through;
+			console.log(valid);
+			if(typeof valid != 'undefined'){
+				$('.validUntil').text('Valid through');
+				$(".get_next_test_before_content").text(data.valid_through);
 			}
-			$('#hallPassContent').append(curHtml);
+			else{
+				$('.validUntil').text('Go to testing site');
+				$('#asap').removeClass('test-content-date-time').addClass('testContent-title');			
+				$(".asap").text('As soon As possible');
+			}	
+			console.log(curStatus);
+			if(curStatus.toUpperCase() == 'NON-COMPLIANT'){
+				$("#hallpass-hcolor").removeClass();
+				$("#hallpass-hcolor").addClass('headTab-pink');
+				$("#hallpass-bcolor").removeClass();
+				$("#hallpass-bcolor").addClass('testContentPink');
+			}else if(curStatus.toUpperCase() == 'EXEMPT'){
+				$("#hallpass-hcolor").removeClass();
+				$("#hallpass-hcolor").addClass('headTab-blueTest');
+				$("#hallpass-bcolor").removeClass();
+				$("#hallpass-bcolor").addClass('testContentBlue');
+			}else{
+			
+			}
+			$(".myTestQrImg").attr("src",data.qrImage);
+			
 		}); 		
     });		
 </script>
