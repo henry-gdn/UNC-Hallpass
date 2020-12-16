@@ -2793,20 +2793,18 @@ button {
     color: #13294B !important;
     margin-bottom: 10px;
 }
+.findTestSite span {
+    font-size: 18px;
+    font-family: "OpenSans Regular";
+    color: #13294B !important;
+    margin-bottom: 10px;
+}
 .testing-title span {
     font-size: 22px;
     font-weight: bold;
     font-family: "OpenSans Regular";
     color: #13294B !important;
     margin-bottom: 10px;
-}
-.schedule-header table tr td h2 {
-    font-size: 18px !important;
-    font-family: "OpenSans Regular" !important;
-    font-weight: 550 !important;
-    color: #13294B !important;
-    margin-bottom: 3px;
-    text-overflow: ellipsis !important;
 }
 .schedule-title {
     font-size: 18px !important;
@@ -2841,6 +2839,14 @@ button {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
 }
 
+.schedule-header table tr td h2 {
+    font-size: 18px !important;
+    font-family: "OpenSans Regular" !important;
+    font-weight: 550 !important;
+    color: #13294B !important;
+    margin-bottom: 3px;
+    text-overflow: ellipsis !important;
+}
 .schedule-header table {
     width: 100%;
     padding: 0;
@@ -2855,6 +2861,14 @@ button {
 }
 .schedule-header table tr td:last-child {
     width: 35%;
+}
+
+/* **************************************
+	SWITCH CAMERA PAGE STYLES
+***************************************** */
+.switchCamera button {
+	position:relative;
+	float:right;
 }
 /* **************************************
 	MY TESTING PAGE STYLES
@@ -3607,10 +3621,8 @@ RECENTLY SELECTED RESULTS STYLE
 }
 .scannerImg {
     position: relative;
-    width: 95%;
     top: 30px;
     margin: 0 auto;
-    height: 62vh;
     /* line-height: 155px; */
     background: #FFFFFF;
     /* border:8px solid #13294B; */
@@ -3625,9 +3637,9 @@ RECENTLY SELECTED RESULTS STYLE
 .scannerImg video {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100% !important;
     margin: 0 auto;
-	border: 1px solid #000000;
+	
 }
 .scannerImg:before {
     /* content:'';
@@ -3979,7 +3991,7 @@ RECENTLY SELECTED RESULTS STYLE
 }
 @media only screen and (min-width: 768px) and (max-width: 1100px) {}
 /* ****************************************************************
-					MOBILE VIEW IN PORTRAIT 
+					MOBILE VIEW IN ORIENTATION PORTRAIT 
 **************************************************************** */
 @media only screen and (min-width: 320px) and (max-width: 768px) {
     .breadcrumb {
@@ -4050,6 +4062,13 @@ RECENTLY SELECTED RESULTS STYLE
         color: #13294B;
         letter-spacing: 0px;
         font-size: 30px;
+        font-weight: bold;
+    }
+	.head_h2 {
+        font-family: "OpenSans Regular";
+        color: #13294B;
+        letter-spacing: 0px;
+        font-size: 24px;
         font-weight: bold;
     }
     .head-h2-1 {
@@ -4295,6 +4314,11 @@ RECENTLY SELECTED RESULTS STYLE
         font-family: "OpenSans Regular";
         color: #EF426F;
     }
+	.alertErr i {
+		position: relative;
+        font-size: 32px;
+        color: #EF426F;
+	}
 	.hideErr {
 		display: none;
 	}
@@ -4493,6 +4517,40 @@ RECENTLY SELECTED RESULTS STYLE
 		border:2px solid #4B9CD3;
 		border-radius: 20px !important;
 	} */
+	
+	.switchCameraBtn button {
+		position: relative;
+		background: #13294B;
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #FFFFFF;
+		text-transform:uppercase !important;
+		letter-spacing: 0px;
+		font-weight: bold;
+		font-size: 18px;
+		border-radius: 5px;
+		padding: 5px 0px 5px 10px !important;
+	}
+	.switchCameraBtn button:hover {
+		position: relative;
+		background: #13294B;
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #FFFFFF;
+		text-transform:uppercase !important;
+		letter-spacing: 0px;
+		font-weight: bold;
+		font-size: 15px;
+		border-radius: 5px;
+		padding: 5px 0px 5px 5px !important;
+	}
+	.switchCameraBtn button i {
+		position: relative;
+		top:1px;
+		font-size: 18px !important;
+		margin-left:3px;
+		margin-right:3px;
+	}
+
+
     .subject-name-details {
         margin-top: -5px;
         font-size: 26px;

@@ -82,6 +82,15 @@
 	<!-- UNC CONTENT - START -->
     <section class="mobile-view-home p-2 ">
         <div class="container mt-4 mb-4">
+			<div class="switchCamera p-0 mt-4" style="display:none;">
+				<div class="row">
+					<div class="col">
+						<div class="switchCameraBtn">
+							<a href="#"><button aria-labelledby="Switch Camera" aria-label="Switch Camera" class="cameraSwitch btn btn-md">Switch Camera &nbsp;<i class="feather icon-camera"></i>&nbsp;&nbsp;</button></a>
+						</div>	
+					</div>	
+				</div>	
+			</div>
 			<div class="scannerImg">
 				<video id="video"></video>  
 			</div>
@@ -103,7 +112,7 @@
 	</div>
 		
 		
-	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+	<!-- <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-body head-wrapper">
@@ -123,9 +132,11 @@
 						</table> 
 					</div>
 				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
+			</div>
+		</div>
+	</div> -->
+	
+	
 
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
@@ -159,36 +170,25 @@
 	<script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script>
 </body>
 <script>
+var codeReader = "";
+var frontCamera = "", backCamera = "";
+var camera = "back";
 $(document).ready(function(){
 	let selectedDeviceId;
-	const codeReader = new ZXing.BrowserBarcodeReader()
+	codeReader = new ZXing.BrowserBarcodeReader()
 	console.log('ZXing code reader initialized')
 	codeReader.getVideoInputDevices()
 		.then((videoInputDevices) => {
 			selectedDeviceId = videoInputDevices[0].deviceId;
+			frontCamera = videoInputDevices[0].deviceId;
 			if (videoInputDevices.length > 1) {
+				$(".switchCamera").show();
+				frontCamera = videoInputDevices[0].deviceId;
+				backCamera = videoInputDevices[1].deviceId
 				selectedDeviceId = videoInputDevices[1].deviceId;
-			}
-			codeReader.decodeOnceFromVideoDevice(selectedDeviceId, 'video').then((result) => {
-				
-				var txtVal = $("#manualBarCodeValue").val();
-				localStorage.setItem("scanValue",result);
-				$("#scanCompleteLayout").addClass("show").show();
-				//localStorage.setItem("scantext", result);
-				setTimeout(function() { 
-					window.location.href = "scan_complete.html";
-				}, 1000);
-				//document.getElementById('result').textContent = result.text
-			}).catch((err) => {
-				console.error(err)
-				
-				$('#myModal').modal({
-					show: true,
-					backdrop: 'static',
-					keyboard: false
-				});
-				//document.getElementById('result').textContent = err
-			})
+				openCamera(backCamera);
+			}else
+				openCamera(frontCamera);
 			setTimeout(function() { 
 				$("#scanTryLayout").addClass("show").show();
 				setTimeout(function() { 
@@ -201,10 +201,40 @@ $(document).ready(function(){
 			//alert(err);
 		})
 		
+	$(".cameraSwitch").click(function(){
+		if(camera == "back"){
+			openCamera(frontCamera);
+			camera = "front";
+		}else{
+			openCamera(backCamera);
+			camera = "back";
+		}
+		//window.location.href = "scan_complete.html";
+	});
 	$("#barcodeBtn").click(function(){
 		window.location.href = "scan_complete.html";
 	});
 	
 });
+function openCamera(selectedDeviceId){
+	codeReader.decodeOnceFromVideoDevice(selectedDeviceId, 'video').then((result) => {
+		var txtVal = $("#manualBarCodeValue").val();
+		localStorage.setItem("scanValue",result);
+		$("#scanCompleteLayout").addClass("show").show();
+		setTimeout(function() { 
+			window.location.href = "scan_complete.html";
+		}, 1000);
+		//document.getElementById('result').textContent = result.text
+	}).catch((err) => {
+		console.error(err)
+		
+		$('#myModal').modal({
+			show: true,
+			backdrop: 'static',
+			keyboard: false
+		});
+		//document.getElementById('result').textContent = err
+	})
+}
 </script>
 </html>
