@@ -147,14 +147,12 @@
 	var appHtml ="", totHtml ="", locationName = "";
 	$(document).ready(function() {
 		var siteArray = localStorage.getItem("site-location").split("#");
-		//alert(siteArray[0]);
 		locationName = siteArray[0];
 		$(".content-title").text(siteArray[0]);
 		$(".testing-hour").text(siteArray[1]);
 		$(".testing-line").text("People in line : "+siteArray[2]);
 		var imgUrl = "<img src='"+siteArray[3]+"'/>";
 		$(".reserveContent").append(imgUrl);
-		//alert(siteArray.length);
 	
 		//As per current day schedule will be loaded
         var arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -164,10 +162,9 @@
         }	
 		var str = arr.slice(0, 7).join(",");
         var aryDays = str.split(",");	
-		//alert(aryDays.length);
 		for (var j = 0; j < aryDays.length; j++) {
 			 var curDay = aryDays[j];
-			 console.log(curDay);
+			 //console.log(curDay);
 			 var classHide = (j == 0) ? "show" : "" ;
 			 var classCollapse = (j == 0) ? "" : "collapsed";
 			 var startHtml = '<div class="card border shadow mb-3 dayCollapse " cur-day="'+j+'#'+curDay+'"><a data-toggle="collapse" href="#'+curDay+'" class="faq position-relative '+classCollapse+' " aria-expanded="false" aria-controls="'+curDay+'"><div class="card-header p-2"><h2 class="title mb-0 faq-question"> '+curDay+' </h2></div></a><div id="'+curDay+'" class="collapse '+classHide+'" aria-labelledby="'+curDay+'" data-parent="#scheduleDetails"><div class="card-body p-4">';
@@ -177,26 +174,15 @@
 			 }else{
 				totHtml += startHtml+endHtml;				
 			 }
-			 //';		 
-			 //
 		}      
 		$(document).on('click','.availTime',function(){
 			var availTime = $(this).attr('avail-slot');
-			//alert(availTime);
-			if(availTime == "NO"){
-				localStorage.removeItem('location-name');
-				localStorage.setItem("avail-time",$(this).attr('data-time'));
-				localStorage.setItem("available",'NO');
-				localStorage.setItem('location-name',locationName);
-				window.location.href = "find_test_site_confirmtime.html";
-			}else{
-				localStorage.removeItem("avail-slot");
-				localStorage.removeItem('location-name');
-				localStorage.setItem("available",'YES');
-				localStorage.setItem("avail-slot",availTime);
-				localStorage.setItem('location-name',locationName);
-				window.location.href = "find_test_site_confirmtime.html";
-			}			
+			localStorage.removeItem("avail-slot");
+			localStorage.removeItem('location-name');
+			localStorage.setItem("available",'YES');
+			localStorage.setItem("avail-slot",availTime);
+			localStorage.setItem('location-name',locationName);
+			window.location.href = "find_test_site_confirmtime.html";		
 		});
 		$(document).on('click', '.dayCollapse', function() {         
             var curIndx  = $(this).attr("cur-day").split('#');
@@ -205,7 +191,8 @@
         });	
         function getDayActivity(appDay,startHtml,endHtml,type,currentDay) {				
 			var curDay = appDay;
-			console.log( curDay );
+			//console.log( curDay );
+			//here needs to change the server URL	
 			$.post("http://192.168.43.117:8080/AOMS/getReserveTimeData", {
 					pid: "7203-11076",
 					current_day: currentDay,
@@ -216,25 +203,23 @@
 							var availSlot = "<div class='row time'>" , appHtml = "";
 							for (var i = 0; i < data.length; i++) {
 								var slot = data[i].split('#');
-								if(slot[1] == "YES"){
-									availSlot += '<div class="col-3 p-0 fillSlotBtn availSlotBtn availTime" avail-slot="'+slot[0]+'#'+curDay+'"><button class="btn btn-default btn-sm"> '+slot[0]+' </button></div>';
+								availSlot += '<div class="col-3 p-0 fillSlotBtn availSlotBtn availTime" avail-slot="'+slot[0]+'#'+curDay+'"><button class="btn btn-default btn-sm"> '+slot[0]+' </button></div>';
+								/*if(slot[1] == "YES"){
+									
 								}else{
 									availSlot += '<div class="col-3 p-0 fillSlotBtn availTime" avail-slot="NO" data-time="'+slot[0]+'"><button class="btn btn-default btn-sm"> '+slot[0]+' </button></div>';
-								}
+								}*/
 							}		
 							availSlot +="</div>";
 							appHtml += startHtml+availSlot+endHtml;	
-							console.log(appHtml);
-							//alert(curDay)
-							display(appHtml,type,currentDay);
-						//}						  	
+							//console.log(appHtml);
+							display(appHtml,type,currentDay);					  	
 				}); 			
 		}
 	
 	});
 	
 	function display(appHtml,type,id){	
-		//alert("-"+type+"-"+id);
 		if( type == 0 )
 		{
 			$(".scheduleData").append( appHtml+totHtml );	
@@ -257,7 +242,7 @@
 			dd='0'+dd;
 		if(mm<10) 
 			mm='0'+mm;
-		console.log();
+		//console.log();
 		return mm+'/'+dd+'/'+yyyy;
 	}
 	</script>

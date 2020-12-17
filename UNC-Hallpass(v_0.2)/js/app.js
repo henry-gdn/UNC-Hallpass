@@ -17,9 +17,8 @@
  
 $(document).ready(function(){
 	setTimeout(function(){ 
-		$("html").css({visibility:'visible'});
 		$("body").css({visibility:'visible'});
-	}, 10);
+	}, 1000);
 });
 
 ! function($) {

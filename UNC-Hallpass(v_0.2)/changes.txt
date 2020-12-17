@@ -57,26 +57,33 @@ CSS
 
 1. switch camera toggle button added to switch front and back camera
 2. css file updated 
-
 ------------------------
-
 1. my testing -> header title added
 2. my schedule -> header title added
 3. find test site -> header title added
 3. find test site - 1 -> find test site name rearranged
 4. class details -> header title added
 5. class search -> header title added
-
 6. find_test_site_thx.html  -> reservation date added
 7. find_test_site_thx_1.html -> page created with reservation date
-
 8. find_test_site.html -> removed people in line
-
-
 9. registration_mobile_number.html -> content added
 9. registration_mobile_error.html -> page created and content added
 10. registration_mobile_number_invalid.html -> page modified and content added
-
 11. registration_mobile_2Stepverify.html -> content added
+
+
+
+
+***************************************************************************************************************************
+
+*****************
+   17/12/2020
+*****************
+1. Find test flow pages completed ( 5 pages )
+2. updated css files
+
+
+
 
 

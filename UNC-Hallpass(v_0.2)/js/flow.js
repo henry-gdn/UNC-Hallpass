@@ -291,6 +291,7 @@ function reg_step_7(){
 /* common func on all pages */
 $(document).ready(function(){
     var u = getUserInfo();
+	
     console.log('updating user info');
     $('#member_name').length ? $('#member_name').html(u.name) : '';
     $('#member_pid').length ? $('#member_pid').html(u.pid) : '';

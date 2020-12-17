@@ -86,10 +86,10 @@
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="my_testing_compliants.html" aria-labelledby="My Testing" aria-label="My Testing">My Testing</a></li>
-						<li class="breadcrumb-item"><a href="#" aria-labelledby="My Testing" aria-label="My Testing">Find Test Site</a></li>
-						<li class="breadcrumb-item"><a href="#" aria-labelledby="My Testing" aria-label="My Testing">Student Union</a></li>
-						<li class="breadcrumb-item"><a href="#" aria-labelledby="My Testing" aria-label="My Testing">Reserve Time</a></li>
-						<li class="breadcrumb-item" aria-labelledby="My Reservations" aria-label="My Reservations">Thank You</li>
+						<li class="breadcrumb-item"><a href="find_test_site.html" aria-labelledby="Find Test Site" aria-label="Find Test Site">Find Test Site</a></li>
+						<li class="breadcrumb-item"><a href="find_test_site_1.html" aria-labelledby="Student Union" aria-label="Student Union">Student Union</a></li>
+						<li class="breadcrumb-item"><a href="find_test_site_confirmtime.html" aria-labelledby="Reserve Time" aria-label="Reserve Time">Reserve Time</a></li>
+						<li class="breadcrumb-item" aria-labelledby="Thank You" aria-label="Thank You">Thank You</li>
 					</ol>
 				</div>
 			</div>
@@ -103,7 +103,7 @@
 				<div class="border-hr"></div>
 				<div class="pt-4 mb-4">
 					<h6 class="get-test-title">Reservation date: </h6>
-					<h6 class='test-date-time'>12/25/20</h6>
+					<h6 class='bookdate test-date-time'></h6>
 				</div>
 				<h6 class="get-test-title">Valid through:</h6>
 				<h3 class="mt-2 slot-time" aria-labelledby="" aria-label=""> </h3>
@@ -141,10 +141,13 @@
 </body>
 <script>
 $(document).ready(function() {
-	$("body").css({visibility:'visible'})
+	var availSlot = localStorage.getItem("avail-slot").split('#');
+	var locationName = localStorage.getItem('location-name');
     var  confirmSlot = localStorage.getItem("confirm-slot").split('#');
+	
 	$('.slot-time').text(confirmSlot[1]);
-	$('.locationName').text(confirmSlot[0]);   
+	$('.locationName').text(confirmSlot[0]);  
+	$('.bookdate').text(availSlot[1]);
 });	 
 </script>
 </html>

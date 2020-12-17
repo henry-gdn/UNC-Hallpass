@@ -80,7 +80,7 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 ">
+    <section class="mobile-view-home p-2 mb-5">
         <div class="container">
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
@@ -93,28 +93,21 @@
 				</div>
 			</div>
 			<div class="head-wrapper">
-				<div class="pt-2 reserveTime reserveYes" style="display:none !important;">
+				<div class="pt-2 reserveTime reserveYes">
 					<div class="mt-2 mb-0">
 						<h2 aria-labelledby="Confirm Time" aria-label="Confirm Time" class="head-h2">Confirm Time</h2>
 					</div>
-					<div class="mt-4">
+					<div class="mt-3">
 						<p>You are reserving the time below for the selected testing site. After you reserve this time, you will be able to arrive at the site on the given time and skip any line that exists at the time.</p>
 					</div>
-					<div class="resDataYes mt-4">
-						<!-- reserve time and location data append here... -->
+					<div class="mt-3 mb-3">
+						<button class="btn btn-lg btn-time-blue booktime"></button>
 					</div>
-				</div>
-
-				<div class="pt-2 reserveTime reserveNo" style="display:none !important;">
-					<div class="mt-2 mb-0">
-						<h2 aria-labelledby="Confirm Time" aria-label="Confirm Time" class="head-confirm">Oh No!</h2>
+					<div class="pt-1 mb-1">
+						<h6 class="get-test-title">Reservation date: </h6>
+						<h6 class='bookdate test-date-time'></h6>
 					</div>
-					<div class="mt-4">
-						<p>Unfortunately the time you are trying to reserve for the selected testing site is booked. Please select another time or location to receive a test.</p>
-					</div>
-					<div class="resDataNo mt-4">
-						<!-- reserve time and location data append here... -->
-					</div>
+					<h3 class="mt-1 pb-1 locationname" aria-labelledby="" aria-label=""></h3>
 				</div>
 
 				<div class="row mt-4 mb-2">
@@ -128,37 +121,18 @@
 							</a>
 						</div>
 					</div>
-					<div id="reserveBtn" class="col-7" style="display:none;">
+					<div id="reserveBtn" class="col-7">
 						<div class="p-0">
-							<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log reserve-time">
-							CONTINUE
+							<button aria-label="RESERVE TIME" aria-labelledby="RESERVE TIME" class="btn btn-block btn-log reserve-time">
+							RESERVE TIME
 							<i class="feather icon-chevron-right"></i>
 							</button>
 						</div>
 					</div>
 				</div>
-			</div>
-				
-			<!-- <div class="row pt-5 mt-4 mb-2">
-				<div class="col-5 mt-0">
-					<div class="login-btn p-0 mt-5">
-						<a href="find_test_site_1.html"><button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block">
-						<i class="feather icon-chevron-left"></i>
-						BACK
-						</button></a>
-					</div>
-				</div>
-				<div id="reserveBtn" class="col-7 mt-0" style="display:none;">
-					<div class="login-btn p-0 mt-5">
-						<button aria-label="CONTINUE" aria-labelledby="CONTINUE" data-reserve = "" class="btn btn-block reserve-time">
-						RESERVE TIME 
-						<i class="feather icon-chevron-right"></i>
-						</button>
-					</div>
-				</div>
-			</div>  -->           
+			</div>           
         </div>
-    </section>
+    </section><br><br>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
     <footer class="footer-content footer-table">
@@ -191,36 +165,14 @@
 $(document).ready(function() {
 	var availSlot = localStorage.getItem("avail-slot").split('#');
 	var locationName = localStorage.getItem('location-name');
-	var available = localStorage.getItem("available");
+	//var available = localStorage.getItem("available");
 	var resHtml = '';
-	if(available == "YES"){
-		$(".reserveYes").show();
-		$.post("http://192.168.43.117:8080/AOMS/getReserveConfirmTimeData", {
-		pid: "7203-11076",
-		current_day: availSlot[0],
-		current_date: availSlot[1],
-		slot_time : availSlot[0],
-		location_name : locationName
-		},
-		function(data, status) {
-			if(data.status == "success"){
-				resHtml = '<button class="btn btn-lg btn-time-blue">'+availSlot[0]+'</button><h3 class="mt-4" aria-labelledby="" aria-label="">'+locationName+'</h3>';	
-				$(".reserve-time").attr('data-reserve',availSlot+"#"+locationName);
-				
-				$("#reserveBtn").show();
-			}else{
-				alert("Time slots are booked. Please try with some other times!.");
-			}
-			$(".resDataYes").append(resHtml);			
-		});
-	}else{
-		$(".reserveNo").show();
-		resHtml = '<button class="btn btn-lg btn-time-pink">'+localStorage.getItem("avail-time")+'</button><h3 class="mt-4" aria-labelledby="" aria-label="">'+locationName+'</h3>';	
-				$(".reserve-time").attr('data-reserve',availSlot+"#"+locationName);
-		$(".resDataNo").append(resHtml);
-	} 
+	$('.booktime').text(availSlot[0]);
+	$('.bookdate').text(availSlot[1]);
+	$('.locationname').text(locationName);
 
 	$(document).on('click','.reserve-time',function(){
+		//here needs to change the server URL	
 		$.post("http://192.168.43.117:8080/AOMS/getReserveConfirmTimeThxData", {
 			pid: "7203-11076",
 			current_day: availSlot[0],
@@ -234,7 +186,7 @@ $(document).ready(function() {
 				localStorage.setItem("confirm-slot",com);
 				window.location.href = "find_test_site_thx.html";
 			}else{
-				alert("Time slots are booked. Please try with some other times!.");
+				window.location.href = "find_fest_site_slot_full.html";
 			}			
 		});
 	});	

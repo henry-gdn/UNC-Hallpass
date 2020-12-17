@@ -91,7 +91,6 @@
 				</div>
 			</div>
 			<div class="pt-2">
-				<!-- <a class="Breadcrumb" aria-labelledby="My Testing > Find Test Site" aria-label="My Testing > Find Test Site" href="">My Testing > Find Test Site</a> -->
 				<div class="pt-2">
 					<h2 aria-labelledby="Testing Sites" aria-label="Testing Sites" class="head-h2">Testing Sites</h2>
 				</div>
@@ -102,42 +101,6 @@
 					<!-- Find test site dynamic data append here... -->
 				</div>				
 			</div>
-			
-			<!-- <div class="col-12 content-p mt-2 mb-3 p-0 reserveContent">
-				<img src="images/reserve_img/1.png" />
-			</div>
-			<div class="col-12 head-content mb-0 p-0">
-				<h2 aria-labelledby="Frank Porter Graham Student Union" aria-label="Frank Porter Graham Student Union" class="content-title">Frank Porter Graham Student Union</h2>
-			</div>
-			<div class="col-12 mb-0 p-0 mt-2">
-				<h3 class="testing-title">Hours: M-F 8 AM - 5 PM</h3>
-				<h3 class="testing-title">People in line: 8</h3>
-			</div>
-			<div class="col-12 reserve-btn p-0 mt-3">
-				<a href="find_test_site_1.html">
-					<button aria-label="RESERVE TIME" aria-labelledby="RESERVE TIME" class="btn btn-block">
-					RESERVE TIME
-					<i class="feather icon-chevron-right"></i>
-					</button>
-				</a>
-			</div> 
-			<br/> -->
-			<!-- <div class="col-12 content-p mt-2 mb-3 p-0 reserveContent">
-				<img src="images/reserve_img/1.png" />
-			</div>
-			<div class="col-12 head-content mb-0 p-0">
-				<h2 aria-labelledby="Frank Porter Graham Student Union" aria-label="Frank Porter Graham Student Union" class="content-title">Frank Porter Graham Student Union</h2>
-			</div>
-			<div class="col-12 mb-0 p-0 mt-2">
-				<h3 class="testing-title">Hours: M-F 8 AM - 5 PM</h3>
-				<h3 class="testing-title">People in line: 8</h3>
-			</div>
-			<div class="col-12 reserve-btn p-0 mt-3">
-				<button aria-label="RESERVE TIME" aria-labelledby="RESERVE TIME" class="btn btn-block">
-				RESERVE TIME
-				<i class="feather icon-chevron-right"></i>
-				</button>
-			</div> -->
         </div>
     </section>
 	<!-- UNC CONTENT - END -->
@@ -181,9 +144,6 @@
 			}
 			$('#siteContent').append(contentHtml);
 		}); 
-
-		//click event
-		//$('.btn').click(function() {
 		$(document).on('click','.reserve-btn',function(){
 			var location = $(this).attr("data-location");
 			localStorage.removeItem("ite-location");
