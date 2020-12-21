@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - Find Test Site </title>
+    <title>UNC Hall Pass - HOME </title>
     <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
@@ -13,13 +13,16 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Main css -->
     <link rel="stylesheet" href="css/UNC-style.css">
+	
+	
+	
 </head>
-<body>
+<body class="">
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="#">
-                <div class="custom-logo-link">
+                <div class="align-self-center custom-logo-link">
                     <img src="images/header_logo.png" width="180" height="30" class="logoImg" />
                 </div>
             </a>
@@ -71,7 +74,7 @@
 			<table class="table table-sm">
 				<tr>
 					<td>
-						FIND TEST SITE 
+						HOME
 					</td>
 					<td></td>
 				</tr>
@@ -85,22 +88,57 @@
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a aria-labelledby="My Testing" aria-label="My Testing" href="my_testing">My Testing</a></li>
-						<li class="breadcrumb-item" aria-labelledby="Find Test Site" aria-label="Find Test Site">Find Test Site</li>
+						<li class="breadcrumb-item"><a href="home">Home</a></li>
 					</ol>
 				</div>
 			</div>
-			<div class="pt-2">
-				<div class="pt-2">
-					<h2 aria-labelledby="Testing Sites" aria-label="Testing Sites" class="head-h2">Testing Sites</h2>
+            <div class="pt-2 head-wrapper">
+				<div class="mt-2 mb-0">
+					<h2 aria-labelledby="Thank You" aria-label="Thank You" class="head-h2">Welcome</h2>
+                </div>
+				<div class="mt-3 mb-4">
+					<h3 class="contentHead">Member : <span id="member_name"></span></h3>
+                                        <h3 class="contentHead">PID : <span id="member_pid"></span></h3>
+					<h3 class="contentHead">Status: Compliant</h3>
+                </div>
+                <div class="mb-4 mt-1">
+					<p><b style="text-decoration:underline;">If your mobile number or address information changes, update it below.</b></p>
+                </div>
+				<div class="login-btn mt-3 mb-3">
+				<a href="registration_mobile_number">
+					<button aria-label="UPDATE INFORMATION" aria-labelledby="UPDATE INFORMATION" class="btn btn-block btn-log text-left">
+					UPDATE INFORMATION
+					<i class="feather icon-chevron-right btn-arrow"></i>
+					</button>
+				</a>
 				</div>
-				<div class="mt-3 mb-4 p-0">
-					<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+				<div class="mb-3 mt-1">
+					<p>You need a COVID19- test every 84 hours to be compliant with the University’s standards. This site will help you keep track of your status, find test site locations on campus, and scan in new tests at testing sites.</p>
+                </div>
+				
+				
+				<div class='pt-4 mb-5 thxImg'><img src='images/11.png' /></div>
+				
+				<div class="myTest-btn mt-3 mb-1">
+					<a href="testing_how_to">
+						<button aria-labelledby="TESTING HOW TO" aria-label="TESTING HOW TO" class="btn btn-block">
+							<img aria-labelledby="TESTING HOW TO" aria-label="TESTING HOW TO" alt="scan button" width="55" src="images/test.png" />
+							<span>TESTING HOW TO</span>
+							<i class="feather icon-chevron-right"></i>
+						</button>
+					</a>
 				</div>
-				<div id="siteContent">
-					<!-- Find test site dynamic data append here... -->
-				</div>				
-			</div>
+				
+				<div class="myTest-btn mt-3 mb-1">
+					<a href="find_test_site">
+						<button aria-labelledby="FIND A TEST SITE" aria-label="FIND A TEST SITE" class="btn btn-block">
+							<img aria-labelledby="FIND A TEST SITE" aria-label="FIND A TEST SITE" alt="scan button" width="55" src="images/location.png" />
+							<span>FIND A TEST SITE</span>
+							<i class="feather icon-chevron-right"></i>
+						</button>
+					</a>
+				</div>
+            </div>
         </div>
     </section>
 	<!-- UNC CONTENT - END -->
@@ -132,27 +170,4 @@
     <script src="js/app.js"></script>
     <script src="js/flow.js"></script>
 </body>
-<script>
-    $(document).ready(function() {    
-	    /*
-		//here needs to change the server URL				
-		$.post("http://192.168.43.117:8080/AOMS/findTestSiteData", {
-			pid: "pid",
-		},
-		function(data, status) {
-			var contentHtml = '';
-			for(var i=0;i<data.length;i++){
-				contentHtml += "<div class='mt-2 mb-3 p-0 reserveContent'><img src='"+data[i].site_img+"' /></div><div class='head-content mb-0 p-0'><h2 aria-labelledby='"+data[i].site_name+"' aria-label='"+data[i].site_name+"' class='content-title'>"+data[i].site_name+"</h2></div><div class='mb-0 p-0 mt-2'><h3 aria-labelledby='"+data[i].hours+"' aria-label='"+data[i].hours+"' class='findTestSite'>Hours: "+data[i].hours+"</h3></div><div class='reserve-btn p-0 mt-3' data-location='"+data[i].site_name+"#"+data[i].hours+"#"+data[i].People_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME' aria-labelledby='RESERVE TIME' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div> <br/>";
-			}
-			$('#siteContent').append(contentHtml);
-		}); 
-		$(document).on('click','.reserve-btn',function(){
-			var location = $(this).attr("data-location");
-			localStorage.removeItem("ite-location");
-			localStorage.setItem("site-location", location);
-			window.location.href = "find_test_site_1.html";
-		});
-		*/
-    });		
-</script>
 </html>

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - My Testing > Find Test Site > Student Union > Reserve Time </title>
-    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>UNC Hall Pass - START NEW TEST </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -14,12 +14,12 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
-<body>
+<body class="">
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="#">
-                <div class="custom-logo-link">
+                <div class="align-self-center custom-logo-link">
                     <img src="images/header_logo.png" width="180" height="30" class="logoImg" />
                 </div>
             </a>
@@ -71,7 +71,7 @@
 			<table class="table table-sm">
 				<tr>
 					<td>
-						RESERVATION 
+						START NEW TEST
 					</td>
 					<td></td>
 				</tr>
@@ -80,59 +80,69 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 mb-5">
+    <section class="mobile-view-home p-2 ">
         <div class="container">
-			<div class="row pt-2">
+			<div class="row pt-1">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="my_testing" aria-labelledby="My Testing" aria-label="My Testing">My Testing</a></li>
-						<li class="breadcrumb-item"><a href="find_test_site" aria-labelledby="Find Test Site" aria-label="Find Test Site">Find Test Site</a></li>
-						<li class="breadcrumb-item"><a href="find_test_site_slots" aria-labelledby="Student Union" aria-label="Student Union">Student Union</a></li>
-						<li class="breadcrumb-item" aria-labelledby="Reserve Time" aria-label="Reserve Time">Reserve Time</li>
+						<li class="breadcrumb-item" aria-labelledby="Class Details" aria-label="Class Details">Class Details</li>
 					</ol>
 				</div>
 			</div>
-			<div class="head-wrapper">
-				<div class="pt-2 reserveTime reserveYes">
-					<div class="mt-2 mb-0">
-						<h2 aria-labelledby="Confirm Time" aria-label="Confirm Time" class="head-h2">Confirm Time</h2>
-					</div>
-					<div class="mt-3">
-						<p>You are reserving the time below for the selected testing site. After you reserve this time, you will be able to arrive at the site on the given time and skip any line that exists at the time.</p>
-					</div>
-					<div class="mt-3 mb-3">
-						<button class="btn btn-lg btn-time-blue booktime"></button>
-					</div>
-					<div class="pt-1 mb-1">
-						<h6 class="get-test-title">Reservation date: </h6>
-						<h6 class='bookdate test-date-time'></h6>
-					</div>
-					<h3 class="mt-1 pb-1 locationname" aria-labelledby="" aria-label=""></h3>
+            <div class="pt-2 head-wrapper">
+				<div class="mt-2 mb-0">
+					<h2 aria-labelledby="Scan New Test" aria-label="Scan New Test" class="head-h2">Scan New Test</h2>
+                </div>
+				<div class="mt-3 mb-3">
+					<h3 class="testing-title-1">Member : <span id="member_name"></span></h3>
+                                        <h3 class="testing-title-1">PID : <span id="member_pid"></span></h3>
+					<h3 class="testing-title-1">Status: Compliant</h3>
+                </div>
+				<div class="mt-4 mb-4">
+					<p>In order to scan new test, the app will use the camera on your mobile device. The barcode of your test must be scanned on site and in the presence of a medical professional.</p>
 				</div>
-
-				<div class="row mt-4 mb-2">
-					<div class="col-5">
-						<div class="p-0">
-							<a href="find_test_site_slots">
-								<button aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1">
-								<i class="feather icon-chevron-left btn-arrow-left-1"></i>
-								BACK
-								</button>
-							</a>
-						</div>
-					</div>
-					<div id="reserveBtn" class="col-7">
-						<div class="p-0">
-							<button aria-label="RESERVE TIME" aria-labelledby="RESERVE TIME" class="btn btn-block btn-log reserve-time">
-							RESERVE TIME
+				<div class="scan-btn scanBarCode mt-4 mb-4 p-0">
+					<a href="scan_new_test">
+						<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block">
+							<img aria-labelledby="SCAN BARCODE" aria-label="SCAN BARCODE" alt="SCAN BARCODE" width="65" src="images/scanImg.png" />
+							<span>SCAN BARCODE</span>
 							<i class="feather icon-chevron-right"></i>
-							</button>
-						</div>
+						</button>
+					</a>
+				</div>
+				<div class="searchButton mannualBarCode p-0" style="margin-left:-10px;margin-right:-10px;display:none;">
+					<table class="table p-0">
+						<tr>
+							<td>
+								<label class="mb-0">PLEASE ENTER BARCODE MANUALLY</label>
+								<input id="manualBarCodeValue" tabindex="0" type="text" data-role="none" data-enhance="false" aria-label='' aria-labelledby="" class="form-control search-box" placeholder="" />
+							</td>
+							<td>
+								<button id="barcodeBtn" aria-labelledby="search button" aria-label='search button' id="searchBtn" tabindex="0" class="btn btn-outline-search" type="button" style="position:relative;top:15px;">
+									<i class="feather icon-chevron-right"></i>
+								</button>
+							</td>
+						</tr>
+					</table> 
+				</div>
+			
+				<hr class="border-hr">
+				<div class="pt-3 mb-0">
+					<div class="mb-0">
+						<h5 aria-labelledby="Member name" aria-label="Member name" class="testing-title-head">Last test scanned : </h5>
+						<h6 aria-labelledby="Member name" aria-label="Member name" class="testing-content-date">12/15/20 @ 11:25 AM</h6>
+						<h6 aria-labelledby="pid number" aria-label="pid number" class="testing-content mt-3">Student Union Art Gallery</h6>
+						<h6 aria-labelledby="test status" aria-label="test status" class="testing-content mt-0">Status : Active </h6>
+					</div>
+					<div class="mt-4 mb-4">
+						<h5 aria-labelledby="Member name" aria-label="Member name" class="testing-title-head">Get next test before : </h5>
+						<h6 aria-labelledby="Member name" aria-label="Member name" class="testing-content-date">12/25/20 @ 11:25 AM</h6>
 					</div>
 				</div>
-			</div>           
+			</div>	
         </div>
-    </section><br><br>
+    </section><br/><br/><br/>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
     <footer class="footer-content footer-table">

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - CLASS SEARCH </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNC Hall Pass - MY TESTING </title>
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -14,7 +14,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
-<body>
+<body class="">
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
@@ -58,7 +58,7 @@
 							<ul>
 								<li><a href="my_schedule">MY CLASS SCHEDULE <i class="feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="class_search">CLASS SEARCH <i class="feather icon-chevron-right arrow-menu"></i></a></li>        
-							
+							</ul>
 						</li>
 					</ul>
 				</li>
@@ -71,7 +71,7 @@
 			<table class="table table-sm">
 				<tr>
 					<td>
-						SEARCH 
+						MY TESTING 
 					</td>
 					<td></td>
 				</tr>
@@ -80,51 +80,102 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 mb-5" style="overflow-y:scroll !important;height:90vh;">
+    <section class="mobile-view-home">
+        <div class="p-2">
         <div class="container">
 			<div class="row pt-1">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="home_no_auth" aria-labelledby="Home" aria-label="Home">Home</a></li>
-						<li class="breadcrumb-item"><a href="my_schedule" aria-labelledby="My Schedule" aria-label="My Schedule">My Schedule</a></li>
-						<li class="breadcrumb-item" aria-labelledby="Class Search" aria-label="Class Search">Class Search</li>
+						<li class="breadcrumb-item"><a href="index" aria-labelledby="Home" aria-label="Home">Home</a></li>
+						<li class="breadcrumb-item" aria-labelledby="My Testing" aria-label="My Testing">My Testing</li>
 					</ol>
 				</div>
 			</div>
-			<div class="pt-3 pb-1 pl-1">
-				<h2 aria-labelledby="Class Search" aria-label="Class Search" class="head-h2">Class Search</h2>
-			</div>			
-			<div class="col content-p p-0 mb-0 mt-4">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+			<div class="pt-3 pb-1">
+				<h2 aria-labelledby="My Testing" aria-label="My Testing" class="head-h2">My Testing</h2>
 			</div>
-			<div class="searchButton mt-0 mb-0">
-				<table class="table">
-					<tr>
-						<td>
-							<input tabindex="0" type="text" data-role="none" data-enhance="false" aria-label='Enter class name or course number' aria-labelledby="Enter class name or course number" class="form-control search-box" placeholder="Enter class name or course number" />
-						</td>
-						<td>
-							<button aria-labelledby="search button" aria-label='search button' id="searchBtn" tabindex="0" class="btn btn-outline-search" type="button">
-								<i class="feather icon-chevron-right"></i>
-							</button>
-						</td>
-					</tr>
-				</table> 
-			</div>			
-			<div class="clearfix"></div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="no-results" style="display:none;">
-				<div class="no-results-content">Sorry, No classes found matching your search criteria</div>
+			<div class="row pt-3">
+                <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
+			 		<h6 class="schedule-title">Member : <span id="member_name"></span></h3>
+                                        <h6 class="schedule-title">PID : <span id="member_pid"></span></h3>
+					<h6 class="schedule-title">Status: <span class="status"></span></h6>
+                </div>
+            </div>
+			<p class="myTestContent pt-4"><!-- my test content append here... --></p>
+			<div class="row pt-4">
+                <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
+					<h6 class="get-test-title">Get next test before : </h6>
+					<h6 class='test-date-time get_next_test_before_title'></h6>
+                </div>
+            </div>
+			<div class="my-reservations-btn mt-3 mb-1 p-1">
+				<a href="find_test_site_thx">
+					<button aria-labelledby="SMY RESERVATIONS" aria-label="MY RESERVATIONS" class="btn btn-block">
+						<span>MY RESERVATIONS</span>
+						<i class="feather icon-chevron-right"></i>
+					</button>
+				</a>
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-0">
-				<!-- <div class="resultsTitle"></div> -->
-				<div class="results"></div>
-				<div class="recent"></div>
+			<div class="myTest-btn mt-3 mb-1 p-1">
+				<a href="testing_how_to">
+					<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block">
+						<img aria-labelledby="scan button" aria-label="scan button" alt="scan button" width="55" src="images/test.png" />
+						<span>TESTING HOW TO</span>
+						<i class="feather icon-chevron-right"></i>
+					</button>
+				</a>
+			</div>
+			<div class="myTest-btn mt-1 mb-1 p-1">
+				<a href="find_test_site">
+					<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block">
+						<img aria-labelledby="scan button" aria-label="scan button" alt="scan button" width="55" src="images/location.png" />
+						<span>FIND A TEST SITE</span>
+						<i class="feather icon-chevron-right"></i>
+					</button>
+				</a>
+			</div>
+			<div class="myTest-btn mt-1 mb-1 p-1">
+				<a href="start_new_test">
+					<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block">
+						<img aria-labelledby="scan button" aria-label="scan button" alt="scan button" width="57" src="images/NewTest_1.png" />
+						<span>START NEW TEST</span>
+						<i class="feather icon-chevron-right"></i>
+					</button>
+				</a>
 			</div>
         </div>
-    </section>
+        </div>
+		<div class="clearfix"></div>
+		
+		<!-- HALL PASS - COMPLIANT -->
+			<div id="hallpass-hcolor" class="headTab-green">
+				<table class="table table-sm">
+					<tr>
+						<td>
+							HALL PASS 
+						</td>
+					</tr>  
+				</table>
+			</div>
+			<div id="hallpass-bcolor" class="testContentGreen">
+				<table class="table table-sm">
+					<tr>
+						<td>
+							<p class="testContent-title">Member status :</p> 
+							<p class='test-content-date-time status'></p> 
+							<p class="testContent-title validUntil"></p> 
+							<p id="asap" class='test-content-date-time get_next_test_before_content asap'></p>
+						</td>
+						<td>
+							<img class="myTestQrImg" src="" width="100" height="100"  />
+						</td>
+					</tr>
+				</table>
+			</div>
+    </section><br/><br/><br/>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
-    <footer class="footer-content footer-table">
+    <footer class="footer-content footer-table" style="bottom:2px !important;">
         <table class="table">
             <tr>
                 <td>
@@ -132,7 +183,7 @@
 					<div>HOME</div>
 				</td>
                 <td>
-					<a href="my_testing"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_black.png" width="45" alt="My Testing" /></a>
+					<a href="my_testing"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_blue.png" width="45" alt="My Testing" /></a>
 					<div>MY TESTING</div>
 				</td>
                 <td>
@@ -149,7 +200,6 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="plugins/search/jquery-ui.js"></script>
     <script src="js/flow.js"></script>
 </body>
 </html>

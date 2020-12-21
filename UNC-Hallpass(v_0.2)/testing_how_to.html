@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - Find Test Site </title>
+    <title>UNC Hall Pass - TEST PROCEDURE </title>
     <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
@@ -14,12 +14,12 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
-<body>
+<body class="">
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="#">
-                <div class="custom-logo-link">
+                <div class="align-self-center custom-logo-link">
                     <img src="images/header_logo.png" width="180" height="30" class="logoImg" />
                 </div>
             </a>
@@ -71,7 +71,7 @@
 			<table class="table table-sm">
 				<tr>
 					<td>
-						FIND TEST SITE 
+						TESTING HOW TO
 					</td>
 					<td></td>
 				</tr>
@@ -80,27 +80,28 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 mb-5">
-        <div class="container mb-5">
+    <section class="mobile-view-home p-2 ">
+        <div class="container">
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a aria-labelledby="My Testing" aria-label="My Testing" href="my_testing">My Testing</a></li>
-						<li class="breadcrumb-item" aria-labelledby="Find Test Site" aria-label="Find Test Site">Find Test Site</li>
+						<li class="breadcrumb-item"><a href="my_testing">My Testing</a></li>
+						<li class="breadcrumb-item">Testing How To</li>
 					</ol>
 				</div>
 			</div>
-			<div class="pt-2">
-				<div class="pt-2">
-					<h2 aria-labelledby="Testing Sites" aria-label="Testing Sites" class="head-h2">Testing Sites</h2>
+            <div class="pt-2 head-wrapper">
+				<div class="mt-2 mb-0">
+					<h2 aria-labelledby="Testing Procedure" aria-label="Testing Procedure" class="head-h2">Testing Procedure</h2>
+                </div>
+				<div class="mt-3">
+					<p>Every student and faculty member will be required to have a self-administered COVID-19 test on file every 84 hours.<p>
+					<p class="pt-4">You can view on-campus testing sites and plan accordingly to keep your status compliant with the university’s standards.<p>
+					<p class="pt-4">Once you find a site, you have the option of walking in during regular hours, or book a fast pass to skip any line on site. At the testing site you will be required to self-administer a COVID-19 saliva test.</p>
 				</div>
-				<div class="mt-3 mb-4 p-0">
-					<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-				</div>
-				<div id="siteContent">
-					<!-- Find test site dynamic data append here... -->
-				</div>				
-			</div>
+				<div class='pt-4 pb-5 mb-5 proImg'><img src='images/testing_how_to.png' /></div>
+			</div>	
+			
         </div>
     </section>
 	<!-- UNC CONTENT - END -->
@@ -130,29 +131,5 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/flow.js"></script>
 </body>
-<script>
-    $(document).ready(function() {    
-	    /*
-		//here needs to change the server URL				
-		$.post("http://192.168.43.117:8080/AOMS/findTestSiteData", {
-			pid: "pid",
-		},
-		function(data, status) {
-			var contentHtml = '';
-			for(var i=0;i<data.length;i++){
-				contentHtml += "<div class='mt-2 mb-3 p-0 reserveContent'><img src='"+data[i].site_img+"' /></div><div class='head-content mb-0 p-0'><h2 aria-labelledby='"+data[i].site_name+"' aria-label='"+data[i].site_name+"' class='content-title'>"+data[i].site_name+"</h2></div><div class='mb-0 p-0 mt-2'><h3 aria-labelledby='"+data[i].hours+"' aria-label='"+data[i].hours+"' class='findTestSite'>Hours: "+data[i].hours+"</h3></div><div class='reserve-btn p-0 mt-3' data-location='"+data[i].site_name+"#"+data[i].hours+"#"+data[i].People_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME' aria-labelledby='RESERVE TIME' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div> <br/>";
-			}
-			$('#siteContent').append(contentHtml);
-		}); 
-		$(document).on('click','.reserve-btn',function(){
-			var location = $(this).attr("data-location");
-			localStorage.removeItem("ite-location");
-			localStorage.setItem("site-location", location);
-			window.location.href = "find_test_site_1.html";
-		});
-		*/
-    });		
-</script>
 </html>
