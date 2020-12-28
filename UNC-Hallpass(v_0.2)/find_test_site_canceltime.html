@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - My Testing > Find Test Site > Student Union </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNC Hall Pass - My Testing > Find Test Site > Student Union > Reserve Time </title>
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -72,7 +72,7 @@
 			<table class="table table-sm">
 				<tr>
 					<td>
-						FIND TEST SITE 
+						RESERVATION 
 					</td>
 					<td></td>
 				</tr>
@@ -81,42 +81,56 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2">
+    <section class="mobile-view-home p-2 mb-5">
         <div class="container">
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a aria-labelledby="My Testing" aria-label="My Testing" href="my_testing">My Testing</a></li>
-						<li class="breadcrumb-item"><a aria-labelledby="Find Test Site" aria-label="Find Test Site" href="find_test_site">Find Test Site</a></li>
-						<li class="breadcrumb-item" aria-labelledby="Student Union" aria-label="Student Union">Student Union</li>
+						<li class="breadcrumb-item"><a href="my_testing" aria-labelledby="My Testing" aria-label="My Testing">My Testing</a></li>
+						<li class="breadcrumb-item"><a href="find_test_site" aria-labelledby="Find Test Site" aria-label="Find Test Site">Find Test Site</a></li>
+						<li class="breadcrumb-item" aria-labelledby="location name" aria-label="location name"><span class="locationname"></span></li>
 					</ol>
 				</div>
 			</div>
-			<div class="head-content mb-0 p-0">
-				<h2 aria-labelledby="" aria-label="" class="content-title head_h2 pt-2">
-				<!-- name will append here --> 
-				</h2>
-			</div>
-			<div class="mt-3 mb-3 p-0 reserveContent">
-				
-			</div>
-			
-			<div class="mb-0 p-0 mt-2">
-				<h3 class="findTestSite">Hours : <span class="testing-hour"></span> </h3>
-				<!-- <h3 class="findTestSite testing-line"></h3> -->
-			</div>
-			<div class="mt-3 mb-4 p-0">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
-			</div>
-			<!-- find test site student union data append here... -->
-            <div class="accordion-content mt-0 pt-3 mb-5 pb-3">
-                <div class="accordion scheduleData" id="scheduleDetails">
-					<!-- dynamically student union data append here -->
+			<div class="head-wrapper">
+				<div class="pt-2 reserveTime reserveYes">
+					<div class="mt-2 mb-0">
+						<h2 aria-labelledby="Confirm Time" aria-label="Confirm Time" class="head-h2">Confirm Cancellation</h2>
+					</div>
+					<div class="mt-3">
+						<p>You are cancelling the time below for the selected testing site. After you confirm this cancellation your spot is no longer saved for this time and location.</p>
+					</div>
+					<div class="mt-3 mb-3">
+						<button class="btn btn-lg btn-time-blue booktime"></button>
+					</div>
+					<div class="pt-1 mb-1">
+						<h6 class="get-test-title">Reservation date: </h6>
+						<h6 class='bookdate test-date-time'></h6>
+					</div>
+					<h3 class="mt-1 pb-1 locationname" aria-labelledby="" aria-label=""></h3>
 				</div>
-            </div>
-            <!-- -->
+
+				<div class="row mt-4 mb-2">
+					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
+						<div class="p-0">
+							<button aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1" onclick="goBack()">
+							<i class="feather icon-chevron-left"></i>
+							BACK
+							</button>
+						</div>
+					</div>
+					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
+						<div class="p-0">
+							<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1">
+							CONTINUE
+							<i class="feather icon-chevron-right"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>           
         </div>
-    </section><br/><br/>
+    </section><br><br>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
     <footer class="hidden-lg-up footer-content footer-table">

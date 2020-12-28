@@ -20,7 +20,7 @@
         <div>
             <a class="logo" href="#">
                 <div class="align-self-center custom-logo-link">
-                    <img src="images/header_logo.png" width="180" height="30" class="logoImg" />
+                    <img src="images/header_logo.png" class="logoImg" />
                 </div>
             </a>
         </div>
@@ -38,15 +38,16 @@
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-				<li><a href="#">LOGIN</a></li>
+				<li><a href="index">HOME</a></li>
+				<li><a href="Home_post_auth">LOGIN</a></li>
 				<li class="has-submenu">
 					<a href="#">MY TESTING</a>
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
-								<li><a href="testing_how_to">TESTING HOW TO <i class="feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="find_test_site">FIND TEST SITE <i class="feather icon-chevron-right arrow-menu"></i></a></li>     
-								<li><a href="start_new_test">START NEW TEST <i class="feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 							</ul>
 						</li>
 					</ul>
@@ -56,8 +57,8 @@
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
-								<li><a href="my_schedule">MY CLASS SCHEDULE <i class="feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="class_search">CLASS SEARCH <i class="feather icon-chevron-right arrow-menu"></i></a></li>        
+								<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>        
 							</ul>
 						</li>
 					</ul>
@@ -110,7 +111,7 @@
             </div>
 			<div class="my-reservations-btn mt-3 mb-1 p-1">
 				<a href="find_test_site_thx">
-					<button aria-labelledby="SMY RESERVATIONS" aria-label="MY RESERVATIONS" class="btn btn-block">
+					<button aria-labelledby="MY RESERVATIONS" aria-label="MY RESERVATIONS" class="btn btn-block">
 						<span>MY RESERVATIONS</span>
 						<i class="feather icon-chevron-right"></i>
 					</button>
@@ -118,8 +119,8 @@
 			</div>
 			<div class="myTest-btn mt-3 mb-1 p-1">
 				<a href="testing_how_to">
-					<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block">
-						<img aria-labelledby="scan button" aria-label="scan button" alt="scan button" width="55" src="images/test.png" />
+					<button aria-labelledby="TESTING HOW TO" aria-label="TESTING HOW TO" class="btn btn-block">
+						<img aria-labelledby="TESTING HOW TO" aria-label="TESTING HOW TO" alt="TESTING HOW TO" width="40" src="images/test.png" />
 						<span>TESTING HOW TO</span>
 						<i class="feather icon-chevron-right"></i>
 					</button>
@@ -127,8 +128,8 @@
 			</div>
 			<div class="myTest-btn mt-1 mb-1 p-1">
 				<a href="find_test_site">
-					<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block">
-						<img aria-labelledby="scan button" aria-label="scan button" alt="scan button" width="55" src="images/location.png" />
+					<button aria-labelledby="FIND A TEST SITE" aria-label="FIND A TEST SITE" class="btn btn-block">
+						<img aria-labelledby="FIND A TEST SITE" aria-label="FIND A TEST SITE" alt="FIND A TEST SITE" width="40" src="images/location.png" />
 						<span>FIND A TEST SITE</span>
 						<i class="feather icon-chevron-right"></i>
 					</button>
@@ -136,8 +137,8 @@
 			</div>
 			<div class="myTest-btn mt-1 mb-1 p-1">
 				<a href="start_new_test">
-					<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block">
-						<img aria-labelledby="scan button" aria-label="scan button" alt="scan button" width="57" src="images/NewTest_1.png" />
+					<button aria-labelledby="SSTART NEW TEST" aria-label="START NEW TEST" class="START NEW TEST">
+						<img aria-labelledby="scan button" aria-label="scan button" alt="scan button" width="42" src="images/NewTest_1.png" />
 						<span>START NEW TEST</span>
 						<i class="feather icon-chevron-right"></i>
 					</button>
@@ -175,7 +176,7 @@
     </section><br/><br/><br/>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
-    <footer class="footer-content footer-table" style="bottom:2px !important;">
+    <footer class="hidden-lg-up footer-content footer-table" style="bottom:2px !important;">
         <table class="table">
             <tr>
                 <td>
@@ -190,6 +191,37 @@
 					<a href="my_schedule"><img aria-label="Class Schedule" aria-labelledby="Class Schedule" src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
 					<div>CLASS SCHEDULE</div>
 				</td>
+            </tr>
+        </table>
+    </footer>
+	<footer class="hidden-xs-down hidden-sm-down hidden-md-down footer-content-1">
+		<table class="table p-2 ml-1 footerMenu">
+			<tr>
+				<td>
+					<p><a href="index">Home</a></p>
+					<p><a href="Home_post_auth">Login</a></p>
+				</td>
+				<td>
+					<p><a href="#">My Testing</a></p>
+					<p><a href="testing_how_to">Testing How To</a></p>
+					<p><a href="find_test_site">Find Test Site</a></p>
+				</td>
+				<td>
+					<p><a href="my_schedule">My Class Schedule</a></p>
+					<p><a href="class_search">Class Search</a></p>
+				</td>
+				<td>
+					<p><a href="">Accessibility</a></p>
+					<p><a href="">Support</a></p>
+					<p><a href="">Contact</a></p>
+				</td>
+			</tr>
+		</table>
+        <table class="footer-table-1 table">
+            <tr>
+                <td><a href="https://www.unc.edu/" target="_blank" ><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a href="https://when-dev.unc.edu/" target="_blank" ><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a href="https://reeseinnovate.com/" target="_blank"><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>

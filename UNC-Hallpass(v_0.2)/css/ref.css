@@ -995,8 +995,7 @@ td {
 ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #13294B !important;
-    font-size: 16px !important;
-    font-weight: normal !important;
+    font-size: 18px !important;
     position: relative;
     opacity: 1;
     vertical-align: middle;
@@ -1006,8 +1005,7 @@ td {
 :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: #13294B !important;
-    font-size: 16px !important;
-	font-weight: normal !important;
+    font-size: 18px !important;
     position: relative;
     vertical-align: middle !important;
     font-family: "OpenSans Regular";
@@ -1015,8 +1013,7 @@ td {
 ::-ms-input-placeholder {
     /* Microsoft Edge */
     color: #13294B !important;
-    font-size: 16px !important;
-	font-weight: normal !important;
+    font-size: 18px !important;
     position: relative;
     vertical-align: middle !important;
     font-family: "OpenSans Regular";
@@ -1025,10 +1022,8 @@ body {
     visibility: hidden;
     display:block !important;
     width: 100%;
-    height:100% !important;
+    height: 100%;
     -webkit-box-shadow: none !important;
-	overflow-y:scroll !important;
-	/* margin-bottom:85px; */
 }
 html {
     visibility: hidden;
@@ -1222,71 +1217,63 @@ a {
 	TOP NAVIGATION MENUS STYLES
 ************************************** */
 #topnav {
-  position: fixed;
-  right: 0;
-  left: 0;
-  top: 0;
-  z-index: 1030;
-  background-color: transparent;
-  border: 0;
-  -webkit-transition: all .5s ease;ss
-  transition: all .5s ease;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1030;
+    background-color: transparent;
+    border: 0 !important;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    -webkit-box-shadow: none !important;
 }
-
 #topnav .logo {
-  float: left;
-  color: #35404e !important;
+    float: left;
+    color: #35404e !important;
 }
-
 #topnav .has-submenu.active a {
-  color: #ffffff;
+    color: #ffffff;
 }
-
-#topnav .has-submenu.active .submenu li.active > a {
-  color: #FFFFFF !important;
+#topnav .has-submenu.active .submenu li.active>a {
+    color: #6dc77a;
 }
-
 #topnav .has-submenu.active.active .menu-arrow {
-  border-color: #6dc77a;
+    border-color: #6dc77a;
 }
-
 #topnav .has-submenu {
-  position: relative;
+    position: relative;
 }
-
 #topnav .has-submenu .submenu .submenu-arrow {
-  border: solid #35404e;
-  border-radius: 0.5px;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 2px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  position: absolute;
-  right: 20px;
-  top: 14px;
+    border: solid #35404e;
+    border-radius: 0.5px;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 2px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: absolute;
+    right: 20px;
+    top: 14px;
 }
-
 #topnav .navbar-toggle {
-  border: 0;
-  position: relative;
-  width: 60px;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
+    border: 0;
+    position: relative;
+    width: 60px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
 }
-
 #topnav .navbar-toggle .lines {
-	width: 25px;
+    width: 25px;
     display: block;
     position: relative;
     margin: 32px 20px 24px;
     height: 18px;
     z-index: 1100;
 }
-
 #topnav .navbar-toggle span {
-	height: 2px;
+    height: 2px;
     color: #FFFFFF !important;
     width: 100%;
     background-color: #ffffff;
@@ -1297,71 +1284,61 @@ a {
     transition: transform .5s ease;
     transition: transform .5s ease, -webkit-transform .5s ease;
 }
-
 #topnav .navbar-toggle span:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
-
+/* #topnav .buy-button {
+    float: right;
+    line-height: 68px;
+    padding: 3px 0;
+} */
 #topnav .navbar-toggle.open span {
     position: absolute;
     color: #13294B !important;
     background-color: #13294B !important;
 }
-
 #topnav .navbar-toggle.open span:first-child {
-  top: 6px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+    top: 6px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
-
 #topnav .navbar-toggle.open span:nth-child(2) {
-  visibility: hidden;
+    visibility: hidden;
 }
-
 #topnav .navbar-toggle.open span:last-child {
-  width: 100%;
-  top: 6px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+    width: 100%;
+    top: 6px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
-
 #topnav .navbar-toggle.open span:hover {
-  background-color: #6dc77a;
+    background-color: #6dc77a;
 }
-
-#topnav .navbar-toggle:hover, #topnav .navbar-toggle:focus,
-#topnav .navbar-toggle .navigation-menu > li > a:hover, #topnav .navbar-toggle:focus {
-  background-color: transparent;
+#topnav .navbar-toggle:hover,
+#topnav .navbar-toggle:focus,
+#topnav .navbar-toggle .navigation-menu>li>a:hover,
+#topnav .navbar-toggle:focus {
+    background-color: transparent;
 }
-
 #topnav .navigation-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+    border: none !important;
+    /* margin-top: 80px; */
+    /* background: #C4D600; */
+	margin-top: 40px;
 }
-
-#topnav .navigation-menu > li {
-  float: left;
-  display: block;
-  position: relative;
-  margin: 0 10px;
+#topnav .navigation-menu>li {
+    /* float: left; */
+    text-align: left;
+    display: block;
+    position: relative;
+    margin: 0 10px;
+    border: none !important;
 }
-
-#topnav .navigation-menu > li > a {
-	/* display: block;
-	color: #35404e;
-	font-size: 16px;
-	background-color: transparent !important;
-	font-weight: 600;
-	letter-spacing: 0.8px;
-	line-height: 24px;
-	-webkit-transition: all 0.5s;
-	transition: all 0.5s;
-	font-family: "Nunito Sans", sans-serif;
-	padding-left: 10px;
-	padding-right: 10px;
-	font-family: "ITC Franklin Gothic LT Demi Compressed"; */
-	display: block;
+#topnav .navigation-menu>li>a {
+    display: block;
     border: none !important;
     color: #FFFFFF !important;
     /* text-decoration: underline !important; */
@@ -1370,7 +1347,7 @@ a {
     font-size: 20px !important;
     background-color: transparent !important;
     font-weight: 500;
-    letter-spacing: 0px;
+    letter-spacing: 1px;
     /* line-height: 24px; */
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
@@ -1380,410 +1357,277 @@ a {
     transition: transform .5s ease, -webkit-transform .5s ease;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     /* margin-top: 3px; */
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-bottom:0px !important;
 }
-
-#topnav .navigation-menu > li > a:hover, #topnav .navigation-menu > li > a:active {
-  color: #FFFFFF !important;
+#topnav .navigation-menu>li>a:hover,
+#topnav .navigation-menu>li>a:active {
+    color: #FFFFFF !important;
 }
-
-#topnav .navigation-menu > li:hover > a,
-#topnav .navigation-menu > li.active > a {
-  color: #FFFFFF !important;
+#topnav .navigation-menu>li.active>a {
+    color: #FFFFFF !important;
 }
-
 #topnav .navigation-menu .has-submenu .menu-arrow {
-  border: solid #35404e;
-  border-radius: 0.5px;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 2px;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  position: absolute;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  right: -5px;
-  top: 34px;
-}
-
-#topnav .menu-extras {
-  float: right;
-}
-
-#topnav.scroll {
-  background-color: #ffffff;
-  border: none;
-  -webkit-box-shadow: 0 0 3px rgba(53, 64, 78, 0.2);
-          box-shadow: 0 0 3px rgba(53, 64, 78, 0.2);
-}
-
-#topnav.scroll .navigation-menu > li > a {
-  color: #35404e;
-}
-
-#topnav.scroll .navigation-menu > li > .menu-arrow {
-  border-color: #35404e;
-}
-
-#topnav.scroll .navigation-menu > li:hover > a, #topnav.scroll .navigation-menu > li.active > a {
-  color: #6dc77a;
-}
-
-#topnav.scroll .navigation-menu > li:hover > .menu-arrow, #topnav.scroll .navigation-menu > li.active > .menu-arrow {
-  border-color: #6dc77a;
-}
-
-#topnav.defaultscroll.dark-menubar .logo {
-  line-height: 70px;
-}
-
-#topnav.defaultscroll.scroll .logo {
-  line-height: 62px;
-}
-
-#topnav.defaultscroll.scroll.dark-menubar .logo {
-  line-height: 62px;
-}
-
-#topnav.nav-sticky {
-  background: #ffffff;
-  -webkit-box-shadow: 0 0 3px rgba(53, 64, 78, 0.2);
-          box-shadow: 0 0 3px rgba(53, 64, 78, 0.2);
-}
-
-.logo {
-	font-weight: 700;
-	font-size: 22px;
-	padding: 3px 0;
-	letter-spacing: 1px;
-	line-height: 68px;
-}
-
-
-
-.headTab-blue table {
-	position: relative;
-	margin: 0 auto;
-	padding: 0px !important;
-	width: 100% !important;
-	z-index: -1;
-}
-.headTab-blue table tr td {
-	line-height: 27px;
-}
-.headTab-blue table tr td:first-child {
-	font-family: "ITC Franklin Gothic LT Demi Compressed";
-	color: #FFFFFF !important;
-	font-size: 27px;
-	padding-top: 7px;
-	padding-bottom: 7px;
-	padding-left: 25px;
-	padding-right: 25px;
-	width: 20%;
-	background: #4B9CD3;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	/* border-bottom:5px solid #4B9CD3; */
-}
-.headTab-blue table tr td:last-child {
-	width: 80%;
-	border: none;
-	/* border-bottom:5px solid #4B9CD3; */
-}
-.head-h3 {
-	font-family: "ITC Franklin Gothic LT Demi Compressed";
-	color: #13294B;
-	letter-spacing: 0px;
-	font-size: 20px;
-	font-weight: bold;
-}
-/* **************************************
-	UNC TESTING APP HOME STYLES
-***************************************** */
-.agreeCheck {
-    position: relative;
-    margin: 0 auto;
-	text-align: left;
-}
-.agreeCheck input[type="checkbox"] {
-    position: absolute;
-    left: -999px;
-}
-.agreeCheck span {
-    color: #13294B;
-    font-size: 20px;
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-}
-.agreeCheck input[type="checkbox"]:focus+span {
-    color: #4B9CD3;
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-}
-.agreeCheck label {
-    cursor: pointer;
-}
-.agreeCheck label input[type="checkbox"]+span:before {
-    font-family: feather;
-    content: "\e8cb";
+    /*  border: solid #35404e;
+    border-radius: 0.5px;
+    border-width: 0 2px 2px 0;
     display: inline-block;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.5em;
-    top: 4px;
-    position: relative;
-}
-.agreeCheck label input[type="checkbox"]:checked+span:before {
-    content: "\e840";
-}
-/* checked icon */
-.agreeCheck label input[type="checkbox"]:indeterminate+span:before {
-    content: "\e8cb";
-}
-/* ***********************
-	BREADCRUMB
-*********************** */
-.breadcrumb {
-	font-family: "OpenSans Regular";
-	color: #13294B !important;
-	position: relative;
-	/* margin-top:10px;
-	margin-left:10px; */
-	/* padding-bottom: 3px;
-	padding: 0 0 .75rem 0rem; */
-	background-color: transparent;
-	margin: 0 auto;
-	padding: 0;
-	border-radius: none !important;
-}
-.breadcrumb li {
-	font-size: 12px;
-	border-bottom: 1px solid #13294B;
-}
-.breadcrumb li a {
-	color: #13294B !important;
-}
-.breadcrumb>li+li::before {
-	/* padding-right: 0;
-	padding-left: 0; */
-	font-family: "OpenSans Regular";
-}
-.breadcrumb .breadcrumb-item+.breadcrumb-item::before {
-	content: '>';
-}
-.mobile-view-top {
-	position: relative;
-	margin-top: 74px !important;
-}
-.mobile-view-home {
-	position: relative;
-	margin-top: 95px !important;
-}
-.head-h2 {
-	font-family: "OpenSans Regular";
-	color: #13294B;
-	letter-spacing: 0px;
-	font-size: 35px;
-	font-weight: bold;
-}
-.contentHead {
-	font-size: 17px;
-	font-family: "OpenSans Regular";
-	color: #13294B !important;
-	margin-bottom: 5px;
-}
-.getTest h5 {
-	font-size: 17px;
-	font-family: "OpenSans Regular";
-	color: #13294B !important;
-	margin-bottom: 10px;
-}
-.getTest h4 {
-	position: relative;
-	top: -10px;
-	font-size: 37px;
-	color: #13294B;
-	margin: 0 auto;
-	letter-spacing: 0px;
-	font-family: "ITC Franklin Gothic LT Demi Compressed";
-}
-/* ******************************************************************************************************************************************
-   ****************************************************************************************************************************************** */
-	
-@media (min-width: 992px) {
-  #topnav .navigation-menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-  }
-  #topnav .navigation-menu > .has-submenu > .submenu > .has-submenu > .submenu::before {
-    top: 20px;
-    margin-left: -35px;
-    -webkit-box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.15);
-            box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.15);
-    border-color: transparent #ffffff #ffffff transparent;
-  }
-  #topnav .navigation-menu > li .submenu {
-    position: absolute; 
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    padding: 10px 0;
-    list-style: none;
-    min-width: 170px;
-    visibility: hidden;
-    opacity: 0;
-    margin-top: 10px;
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
-    border-radius: 5px;
-    background-color: #EFEFEF;
-    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-  }
-  #topnav .navigation-menu > li .submenu:before {
-    content: "";
+    padding: 2px;
+	color:#13294B !important;
     position: absolute;
-    top: 2px;
-    left: 45px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    border: 7px solid #495057;
-    border-color: transparent transparent #EFEFEF #EFEFEF;
-    -webkit-transform-origin: 0 0;
-            transform-origin: 0 0;
-    -webkit-transform: rotate(135deg);
-            transform: rotate(135deg);
-    -webkit-box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, 0.15);
-            box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, 0.15);
-			
-  }
-  #topnav .navigation-menu > li .submenu > li .submenu {
-    left: 106%;
-    top: 0;
-    margin-left: 10px;
-    margin-top: -1px;
-  }
-  #topnav .navigation-menu > li > a {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    min-height: 62px;
-  }
-  #topnav .navigation-menu > li:hover > .menu-arrow {
-    border-color: #6dc77a;
-  }
-  #topnav .navigation-menu > li .submenu li {
-    position: relative;
-  }
-  #topnav .navigation-menu > li .submenu li a {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    right: -5px;
+    top: 34px;
+	font-family: feather;
+	content: "\e8b1"; */
     display: block;
-    padding: 7px 20px;
-    clear: both;
-    white-space: nowrap;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    font-weight: 600;
+    padding: 2px;
+    right: -5px;
     color: #13294B !important;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-	letter-spacing:1px;
-	font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
-  }
-  #topnav .navigation-menu > li .submenu li a:hover {
-    color: #13294B;
-  }
-  #topnav .navigation-menu > li .submenu li ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-  }
-  #topnav .navigation-menu > li .submenu.megamenu {
-    white-space: nowrap;
-    width: auto;
-  }
-  #topnav .navigation-menu > li .submenu.megamenu > li {
-    overflow: hidden;
-    min-width: 180px;
-    display: inline-block;
-    vertical-align: top;
-  }
-  #topnav .navigation-menu > li .submenu.megamenu > li .submenu {
-    left: 100%;
-    top: 0;
-    margin-left: 10px;
-    margin-top: -1px;
-  }
-  #topnav .navigation-menu > li.last-elements .submenu {
-    left: auto;
-    right: 0;
-	
-  }
-  #topnav .navigation-menu > li.last-elements .submenu:before {
-    left: auto;
-    right: 10px;
-  }
-  #topnav .navigation-menu > li.last-elements .submenu > li.has-submenu .submenu {
-    left: auto;
-    right: 100%;
-    margin-left: 0;
-    margin-right: 10px;
-	
-  }
-  #topnav .navbar-toggle {
-    display: none;
-  }
-  #topnav #navigation {
-    display: block !important;
-  }
-  #topnav.scroll {
-    top: 0;
-  }
-  #topnav.scroll .navigation-menu > li > a {
-    /* padding-top: 20px;
-    padding-bottom: 20px; */
-  }
-  #topnav.scroll-active .navigation-menu > li > a {
-    /* padding-top: 25px;
-    padding-bottom: 25px; */
-  }
-	/* #topnav .navigation-menu>li.has-submenu:before {
-        color: #FFFFFF !important;
-        position: absolute;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-        top: 22px;
-        text-align: right;
-        font-weight: bold;
-        font-size: 30px;
-        font-family: feather;
-        content: "\e8b1";
-		display: block;
-		z-index:-1 !important;
-    }
-    #topnav .navigation-menu>li.has-submenu.active.open:before {
-        font-size: 30px;
-        color: #FFFFFF !important;
-        position: absolute;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-        top: 22px;
-        font-weight: bold;
-        font-family: feather;
-        content: "\e897";
-		display: block;
-		z-index:-1 !important;
-    } */
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    font-size: 30px;
+    font-family: feather;
+    content: '';
 }
-
+#topnav .navigation-menu .has-submenu .menu-arrow {
+    /*  border: solid #35404e;
+    border-radius: 0.5px;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 2px;
+	color:#13294B !important;
+    position: absolute;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    right: -5px;
+    top: 34px;
+	font-family: feather;
+	content: "\e8b1"; */
+}
+#topnav .navigation-menu .has-submenu .menu-arrow:before {
+    /*  border: solid #35404e;
+    border-radius: 0.5px;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 2px;
+	color:#13294B !important;
+    position: absolute;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    right: -5px;
+    top: 34px;
+	font-family: feather;
+	content: "\e8b1"; */
+    display: block;
+    padding: 2px;
+    right: -5px;
+    color: #13294B !important;
+    position: absolute;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    top: 22px;
+    font-size: 30px;
+    font-family: feather;
+    content: '\e8b1';
+}
+#topnav .has-submenu.active.active .menu-arrow {
+    border-color: #6dc77a;
+}
+#topnav.scroll .navigation-menu>li.active>.menu-arrow {
+    /* display: block;
+    padding: 2px;
+	color:#13294B !important;
+    position: absolute;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    top: 34px;
+	font-family: feather; 
+	content: '\e897'; */
+    font-family: feather;
+    content: '\e897';
+}
+#topnav .menu-extras {
+    margin-top: -4px;
+    float: right;
+}
+#topnav.scroll {
+    /* background-color: #ffffff;
+    border: none;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); */
+}
+#topnav.scroll .navigation-menu>li>a {
+    /* color: #35404e; */
+}
+#topnav.scroll .navigation-menu>li>.menu-arrow {
+    /* border-color: #35404e; */
+}
+#topnav.scroll .navigation-menu>li:hover>a,
+#topnav.scroll .navigation-menu>li.active>a {
+    /* color: #6dc77a; */
+}
+/* #topnav.scroll .navigation-menu>li:hover>.menu-arrow,
+#topnav.scroll .navigation-menu>li.active>.menu-arrow { */
+/* border-color: #6dc77a; */
+/* } */
+/* #topnav.defaultscroll.dark-menubar .logo {
+    line-height: 70px;
+}
+#topnav.defaultscroll.scroll .logo {
+    line-height: 62px;
+}
+#topnav.defaultscroll.scroll.dark-menubar .logo {
+    line-height: 62px;
+} */
+#topnav.nav-sticky {
+    /* background: #ffffff;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); */
+}
+.logo {
+    font-weight: 700;
+    font-size: 22px;
+    padding: 3px 0;
+    letter-spacing: 1px;
+    line-height: 68px;
+}
+@media (min-width: 992px) {
+    #topnav .navigation-menu {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+    }
+    /* #topnav .navigation-menu>.has-submenu>.submenu>.has-submenu>.submenu::before {
+        top: 20px;
+        margin-left: -35px;
+        -webkit-box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.15);
+        box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.15);
+        border-color: transparent #ffffff #ffffff transparent;
+    }
+    #topnav .navigation-menu>li .submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        padding: 10px 0;
+        list-style: none;
+        min-width: 170px;
+        visibility: hidden;
+        opacity: 0;
+        margin-top: 10px;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        border-radius: 5px;
+        background-color: #ffffff;
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    }
+    #topnav .navigation-menu>li .submenu:before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 45px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 7px solid #495057;
+        border-color: transparent transparent #ffffff #ffffff;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+        -webkit-box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, 0.15);
+        box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, 0.15);
+    }
+    #topnav .navigation-menu>li .submenu>li .submenu {
+        left: 106%;
+        top: 0;
+        margin-left: 10px;
+        margin-top: -1px;
+    }
+    #topnav .navigation-menu>li>a {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        min-height: 62px;
+    }
+    #topnav .navigation-menu>li:hover>.menu-arrow {
+        border-color: #FFFFFF;
+    }
+    #topnav .navigation-menu>li .submenu li {
+        position: relative;
+    } */
+    /* #topnav .navigation-menu>li .submenu li a {
+        display: block;
+        padding: 7px 20px;
+        clear: both;
+        white-space: nowrap;
+        font-size: 14px;
+        letter-spacing: 0.04em;
+        font-weight: 500;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    } */
+    #topnav .navigation-menu>li .submenu li a:hover {
+        /* color: #6dc77a; */
+    }
+    /* #topnav .navigation-menu>li .submenu li ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    #topnav .navigation-menu>li .submenu.megamenu {
+        white-space: nowrap;
+        width: auto;
+    }
+    #topnav .navigation-menu>li .submenu.megamenu>li {
+        overflow: hidden;
+        min-width: 180px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    #topnav .navigation-menu>li .submenu.megamenu>li .submenu {
+        left: 100%;
+        top: 0;
+        margin-left: 10px;
+        margin-top: -1px;
+    }
+    #topnav .navigation-menu>li.last-elements .submenu {
+        left: auto;
+        right: 0;
+    }
+    #topnav .navigation-menu>li.last-elements .submenu:before {
+        left: auto;
+        right: 10px;
+    }
+    #topnav .navigation-menu>li.last-elements .submenu>li.has-submenu .submenu {
+        left: auto;
+        right: 100%;
+        margin-left: 0;
+        margin-right: 10px;
+    } */
+    #topnav .navbar-toggle {
+        /* display: block !important; */
+        display: none;
+    }
+    #topnav #navigation {
+        display: block !important;
+    }
+    #topnav.scroll {
+        top: 0;
+    }
+    #topnav.scroll .navigation-menu>li>a {
+        /* padding-top: 20px;
+        padding-bottom: 20px; */
+    }
+    #topnav.scroll-active .navigation-menu>li>a {
+        /* padding-top: 25px;
+        padding-bottom: 25px; */
+    }
+}
 @media (max-width: 991px) {
-  #topnav {
+    #topnav {
         /*  background-color: none !important;
         -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
@@ -1813,7 +1657,7 @@ a {
         position: relative;
         padding: 7px 15px;
         text-transform: uppercase;
-        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+        font-family: "ITC Franklin Gothic LT Demi Compressed";
         color: #13294B !important;
         letter-spacing: 0px;
         font-size: 25px;
@@ -1843,11 +1687,9 @@ a {
         font-size: 12px;
         letter-spacing: 2px;
         color: #13294B !important;
-		font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
     }
     #topnav .navigation-menu>li>a {
         padding: 10px 20px;
-		font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
     }
     #topnav .navigation-menu>li>a:after {
         position: absolute;
@@ -1856,8 +1698,7 @@ a {
     #topnav .navigation-menu>li>a:hover,
     #topnav .navigation-menu>li .submenu li a:hover,
     #topnav .navigation-menu>li.has-submenu.open>a {
-        color: #13294B !important;
-		font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+        color: #C4D600;
     }
     #topnav .menu-extras .menu-item {
         border-color: #FFFFFF;
@@ -1874,7 +1715,7 @@ a {
         top: 12px;
     }
     #topnav .has-submenu.active a {
-        color: #13294B !important;
+        color: #C4D600;
     }
     #navigation {
         position: absolute;
@@ -1894,30 +1735,28 @@ a {
         overflow-y: hidden;
     }
 }
-
 @media (max-width: 768px) {
-  /* #topnav .navigation-menu .has-submenu .menu-arrow {
-    right: 16px;
-    top: 16px;
-  } */
-  #topnav .navbar-toggle .lines {
+    /* #topnav .navigation-menu .has-submenu .menu-arrow {
+        right: 16px;
+        top: 16px;
+    } */
+    #topnav .navbar-toggle .lines {
         margin-right: 20px !important;
     }
 }
-
 @media (min-width: 768px) {
-  #topnav .navigation-menu > li.has-submenu:hover > .submenu {
-    visibility: visible;
-    opacity: 1;
-    margin-top: 0;
-  }
-  #topnav .navigation-menu > li.has-submenu:hover > .submenu > li.has-submenu:hover > .submenu {
-    visibility: visible;
-    opacity: 1;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .navbar-toggle {
+    /* #topnav .navigation-menu>li.has-submenu:hover>.submenu {
+        visibility: visible;
+        opacity: 1;
+        margin-top: 0;
+    }
+    #topnav .navigation-menu>li.has-submenu:hover>.submenu>li.has-submenu:hover>.submenu {
+        visibility: visible;
+        opacity: 1;
+        margin-left: 0;
+        margin-right: 0;
+    } */
+    .navbar-toggle {
         display: block;
         color: #FFFFFF !important;
     }
@@ -1925,25 +1764,23 @@ a {
         margin-right: 20px !important;
     }
 }
-
-/* @media (max-width: 375px) {
-  #topnav .navbar-toggle .lines {
-    margin-right: 0 !important;
-  }
-} */
-
-
 .navbar-toggle {
     display: block !improtant;
     color: #FFFFFF !important;
 }
-
+/* @media (max-width: 375px) {
+    #topnav .buy-button {
+        display: none;
+    }
+    #topnav .navbar-toggle .lines {
+        margin-right: 20px !important;
+    }
+} */
 .bg-header {
     background: #13294B !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     position: relative;
-	height:auto;
 }
 .custom-logo-link {
     position: relative;
@@ -2031,6 +1868,38 @@ a {
     border-top-right-radius: 15px;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
+}
+.headTab-blue table {
+    position: relative;
+    margin: 0 auto;
+    padding: 0px !important;
+    width: 100% !important;
+    z-index: -1;
+}
+.headTab-blue table tr td {
+    line-height: 27px;
+}
+.headTab-blue table tr td:first-child {
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #FFFFFF !important;
+    font-size: 27px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 60%;
+    background: #4B9CD3;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    /* border-bottom:5px solid #4B9CD3; */
+}
+.headTab-blue table tr td:last-child {
+    width: 40%;
+    border: none;
+    /* border-bottom:5px solid #4B9CD3; */
 }
 .headTab-green table {
     position: relative;
@@ -2186,13 +2055,8 @@ a {
 }
 .btn-back-1 i {
     position: relative;
-    top: 1px;
+    top: 5px;
     float: left;
-	vertical-align: middle !important;
-	margin:0 auto;
-	font-size:25px;
-	align-items:center !important;
-	text-align:center !important;
 }
 .btn-back i {
     position: relative;
@@ -2202,10 +2066,8 @@ a {
 }
 .btn-log-1 i {
     position: relative;
-    top: 0px;
-	font-size:29px;
+    top: 5px;
     float: right;
-	text-align:center !important;
 }
 .btn-arrow-left {
     position: relative;
@@ -2226,7 +2088,7 @@ a {
 }
 .btn-arrow-content {
     position: relative;
-    top: 1px;
+    top: 2px;
     font-size: 20px !important;
     float: right;
 }
@@ -2235,7 +2097,47 @@ a {
     top: 4px;
     font-size: 25px !important;
 }
-
+/* **************************************
+	UNC TESTING APP HOME STYLES
+***************************************** */
+.agreeCheck {
+    position: relative;
+    margin: 0 auto;
+	text-align: center;
+}
+.agreeCheck input[type="checkbox"] {
+    position: absolute;
+    left: -999px;
+}
+.agreeCheck span {
+    color: #13294B;
+    font-size: 20px;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+}
+.agreeCheck input[type="checkbox"]:focus+span {
+    color: #4B9CD3;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+}
+.agreeCheck label {
+    cursor: pointer;
+}
+.agreeCheck label input[type="checkbox"]+span:before {
+    font-family: feather;
+    content: "\e8cb";
+    display: inline-block;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5em;
+    top: 4px;
+    position: relative;
+}
+.agreeCheck label input[type="checkbox"]:checked+span:before {
+    content: "\e840";
+}
+/* checked icon */
+.agreeCheck label input[type="checkbox"]:indeterminate+span:before {
+    content: "\e8cb";
+}
 /* **************************************
 	UNC TESTING APP HOME STYLES
 ***************************************** */
@@ -2313,174 +2215,15 @@ a {
     font-size: 24px;
     font-weight: bold;
 }
-.location_name_1 {
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #13294B;
-    letter-spacing: 0px;
-    font-size: 40px;
-    font-weight: bold;
-}
 .head-content h3:nth-child(2) {
     position: relative;
     top: -20px;
 }
-.head-wrapper {
-	position:relative;
-	padding-bottom:40px;
-}
-.head-wrapper label {
-	font-family: "ITC Franklin Gothic LT Demi Compressed";
-	color: #13294B;
-	letter-spacing: 0px;
-	font-size: 20px;
-	font-weight: bold;
-	margin-top: 10px;
-}
-.head-wrapper input {
-	font-family: "OpenSans Bold";
-	border: 1px solid #13294B;
-	letter-spacing: 0px;
-	font-size: 18px;
-	font-weight: bold;
-	height: 35px;
-	border-radius: 10px;
-	position: relative;
-	vertical-align: middle;
-	width:100%;
-	left:0;
-}
-.head-wrapper select {
-	font-family: "OpenSans Bold";
-	border: 1px solid #13294B;
-	letter-spacing: 0px;
-	font-size: 18px;
-	font-weight: bold;
-	height: 35px;
-	width: 100% !important;
-	border-radius: 10px;
-	position: relative;
-	margin: 0 auto;
-	vertical-align: middle;
-	background:#EFEFEF;
-}
-.head-wrapper .select-wrapper {
-	position: relative;
-	margin: 0 auto;
-	width: 100% !important;
-}
-select {
-	color: #13294B !important;
-	font-size: 18px !important;
-	font-weight: normal !important;
-	position: relative;
-	vertical-align: middle;
-	font-family: "OpenSans Regular" !important;
-	width:100%;
-}
-
-
-
-/*To remove button from IE11, thank you Matt */
-select::-ms-expand {
-     display: none;
-}
-
-.selectUi:after {
-	content: '\e842';
-	display: block;
-	font-family: 'Feather';
-	color: #13294B !important;
-	position: absolute;
-	color: #13294B;
-	right: 11px;
-	top:43px;
-	font-size:27px;
-}
-
-.selectUi select {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
-
-
-
-.head-wrapper p {
-	position: relative;
-	text-align: justify;
-	font-family: "OpenSans Regular";
-	color: #13294B;
-	font-size: 14px !important;
-}
-#errMsg i {
-	position: relative;
-	font-size: 27px;
-	top: 4px;
-	color: #EF426F;
-}
-#errMsg {
-	position: relative;
-	font-size: 16px;
-	top: 10px;
-	font-family: "OpenSans Regular";
-	color: #EF426F;
-}
-#errMsg_1 i {
-	position: relative;
-	font-size: 27px;
-	top: 4px;
-	color: #EF426F;
-}
-#errMsg_1 {
-	position: relative;
-	font-size: 16px;
-	top: 10px;
-	font-family: "OpenSans Regular";
-	color: #EF426F;
-}
-#otpErrMsg i {
-	position: relative;
-	font-size: 27px;
-	top: 4px;
-	color: #EF426F;
-}
-#otpErrMsg {
-	position: relative;
-	font-size: 16px;
-	top: 10px;
-	font-family: "OpenSans Regular";
-	color: #EF426F;
-}
-#otpErrMsg_1 i {
-	position: relative;
-	font-size: 27px;
-	top: 4px;
-	color: #EF426F;
-}
-#otpErrMsg_1 {
-	position: relative;
-	font-size: 16px;
-	top: 10px;
-	font-family: "OpenSans Regular";
-	color: #EF426F;
-}
-.alertErr i {
-	position: relative;
-	font-size: 32px;
-	color: #EF426F;
-}
-.hideErr {
-	display: none;
-}
-.hideOtpErr {
-	display: none;
-}
 .login-btn {
     position: relative;
     margin: 0 auto;
-    width: auto !important;
+    width: 100% !important;
     top: -10px;
-	display:inline-block;
 }
 .btn-time-blue {
     background: #4B9CD3;
@@ -2518,16 +2261,11 @@ select::-ms-expand {
     font-weight: bold;
     padding: 10px 30px;
 }
-.errTab table tr td {
-	position: relative;
-	padding:0;
-	margin:0;
-}
 .btn-err-pink {
     background: #EF426F;
     font-family: "OpenSans";
     color: #FFFFFF;
-	margin:0;
+	margin:0 auto;
 	vertical-align:middle;
 	text-align:center;
     letter-spacing: 0px;
@@ -2542,29 +2280,6 @@ select::-ms-expand {
 	box-shadow:none !important;
 	-webkit-box-shadow: none !important;
 }
-/* .btn-log {
-    background: #C4D600;
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #13294B;
-    letter-spacing: 0px;
-    font-size: 20px;
-    font-weight: bold;
-    width: 100%;
-}
-.btn-log:hover {
-	background: #FFFFFF !important;
-    border:3px solid #C4D600;
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #13294B !important;
-    letter-spacing: 0px;
-    font-size: 20px;
-    font-weight: bold;
-    width: 100%;
-} */
-button {
-	position:relative;
-	/* text-align:center !important; */
-}
 .btn-log {
     background: #C4D600;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -2572,17 +2287,10 @@ button {
     letter-spacing: 0px;
     font-size: 20px;
     font-weight: bold;
-    width: auto;
-	display:block;
-	border:3px solid #C4D600;
-	/* padding-left:20px;
-	padding-right:20px;
-	position:relative; */
+    width: 100%;
     /* border-radius:25px; */
-	text-align:center !important;
 }
 .btn-log:hover {
-	text-align:center !important;
 	background: #FFFFFF !important;
     border:3px solid #C4D600;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -2590,104 +2298,43 @@ button {
     letter-spacing: 0px;
     font-size: 20px;
     font-weight: bold;
-    width: auto;
-	display:block;
-}
-.btn-log:before {
-	/* content: '\e897';
-    display: block;
-    font-family: 'Feather';
-    color: #13294B !important;
-    position: absolute;
-	right:0px; */
+    width: 100%;
 }
 .btn-log i {
     position: relative;
 	font-size:26px !important;
-	top:1px;
-    text-align:center !important;
+	top:0px;
+    float: right;
 }
 .btn-log-1 {
-	border:3px solid #C4D600;
     background: #C4D600;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294B;
     letter-spacing: 0px;
     font-size: 20px;
     font-weight: bold;
-    width: auto;
-	display:block;
-	/* float:left; */
-	text-align:center;
-	position:relative;
+    width: 100%;
 }
 .btn-log-1:hover {
-    background: #FFFFFF !important;
+   background: #FFFFFF !important;
     border:3px solid #C4D600;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294B !important;
     letter-spacing: 0px;
     font-size: 20px;
     font-weight: bold;
-    width: auto;
-	display:block;
-}
-/* **************************************
-	SCHEDULE EXPANDED PAGE STYLES
-***************************************** */
-.fillSlotBtn button {
-	
-	background: #EDEDEA !important;
-	color: #13294B !important;
-	border: 1px solid #13294B;
-	font-family: "OpenSans Bold";
-	font-size: 13px;
-	border-radius: 7px;
-	display: block;
-	/* width:80%; */
-	text-align: center;
-	position: relative;
-	margin: 0 auto;
-}
-.availSlotBtn button:hover {
-	
-	background: #13294B !important;
-	color: #FFFFFF !important;
-	border: 1px solid #13294B !important;
-	font-family: "OpenSans Bold" !important;
-	font-size: 13px !important;
-	border-radius: 7px !important;
-	display: block !important;
-	/* width:80%; */
-	text-align: center !important;
-	position: relative !important;
-	margin: 0 auto !important;
-}
-.time div {
-	margin-bottom: 20px;
+    width: 100%;
 }
 .reserveContent img {
     margin: 0 auto;
     width: 100%;
-    height: 40vh;
-    position: relative;
-}
-.reserveContent-1 img {
-    margin: 0 auto;
-    width: 100%;
-    height: 30vh;
+    height: 19vh;
     position: relative;
 }
 .thxImg img {
     margin: 0 auto;
     width: 100%;
-    height: 35vh;
-    position: relative;
-}
-.proImg img {
-	margin: 0 auto;
-	width: 40vh;
-    height: 62vh;
+    height: 19vh;
     position: relative;
 }
 .reserve-btn {
@@ -2713,9 +2360,27 @@ button {
     font-size: 30px !important;
     float: right;
     right: 15px;
-	text-align:center !important;
 }
-
+.btn-log {
+    background: #C4D600;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #13294B;
+    letter-spacing: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    /* border-radius:25px; */
+}
+.btn-log:hover {
+	background: #FFFFFF !important;
+    border:3px solid #C4D600;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #13294B !important;
+    letter-spacing: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+}
 .btn-back {
     background: #EDEDEA;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -2723,9 +2388,7 @@ button {
     letter-spacing: 0px;
     font-size: 20px;
     font-weight: bold;
-	border:3px solid #EDEDEA;
-	width: auto;
-	/* display:block; */
+    width: 100%;
 }
 .btn-back:hover {
 	border:3px solid #13294B;
@@ -2735,43 +2398,26 @@ button {
     letter-spacing: 0px;
     font-size: 20px;
     font-weight: bold;
-	width: auto;
-	/* display:block; */
+    width: 100%;
 }
 .btn-back-1 {
-	border:3px solid #EDEDEA;
     background: #EDEDEA;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294B;
     letter-spacing: 0px;
     font-size: 20px;
     font-weight: bold;
-	width: auto;
-	/* display:block; */
-	text-align:center !important;
+    width: 100%;
     /* border-radius:25px; */
 }
-.btn-back-1:before { 
-	/* content: "\e843";
-    font-family: 'Feather';
-	vertical-align: middle !important;
-	margin:0 auto;
-	position:relative;
-	float:left;
-	left:0px;
-    color: #13294B !important;
-	margin-right: -5px; */
-}
 .btn-back-1:hover {
-	border:3px solid #13294B;
     background: #13294B;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #FFFFFF !important;
+    color: #FFFFFF;
     letter-spacing: 0px;
     font-size: 20px;
     font-weight: bold;
-	width: auto;
-	display:block;
+    width: 100%;
     /* border-radius:25px; */
 }
 .testTube {
@@ -2941,7 +2587,7 @@ button {
     position: relative;
     background: #13294B;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #FFFFFF !important;
+    color: #FFFFFF;
 	text-transform:uppercase !important;
     letter-spacing: 0px;
     font-weight: bold;
@@ -2953,31 +2599,7 @@ button {
     position: relative;
     background: #13294B;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #FFFFFF !important;
-	text-transform:uppercase !important;
-    letter-spacing: 0px;
-    font-weight: bold;
-    font-size: 15px;
-    border-radius: 5px;
-    padding: 5px 0px 5px 5px !important;
-}
-.class-search button {
-    position: relative;
-    background: #13294B;
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #FFFFFF !important;
-	text-transform:uppercase !important;
-    letter-spacing: 0px;
-    font-weight: bold;
-    font-size: 15px;
-    border-radius: 5px;
-    padding: 5px 0px 5px 5px !important;
-}
-.class-search button:hover {
-    position: relative;
-    background: #13294B;
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #FFFFFF !important;
+    color: #FFFFFF;
 	text-transform:uppercase !important;
     letter-spacing: 0px;
     font-weight: bold;
@@ -2991,7 +2613,6 @@ button {
     font-size: 18px !important;
 	margin-left:3px;
 	margin-right:3px;
-	text-align:center !important;
 }
 .search-details-btn button {
     position: relative;
@@ -3218,14 +2839,7 @@ button {
     letter-spacing: 0px;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
 }
-.schedule-header h2 {
-    font-size: 18px !important;
-    font-family: "OpenSans Regular" !important;
-    font-weight: 550 !important;
-    color: #13294B !important;
-    margin-bottom: 3px;
-    text-overflow: ellipsis !important;
-}
+
 .schedule-header table tr td h2 {
     font-size: 18px !important;
     font-family: "OpenSans Regular" !important;
@@ -3441,78 +3055,6 @@ button {
     color: #13294B !important;
     margin-bottom: 0px;
 }
-/* *****************************
-	MY TESTING YELLOW STYLES
-******************************** */
-.headTab-yellow table {
-    position: relative;
-    margin: 0 auto;
-    padding: 0px !important;
-    width: 100% !important;
-    z-index: -1;
-    top: 3px;
-}
-.headTab-yellow table tr td {
-    line-height: 40px;
-}
-.headTab-yellow table tr td:first-child {
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #13294B !important;
-    width: 100%;
-    padding-left: 15px;
-    font-size: 32px;
-    background: #FFEA00;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-}
-.testContentYellow {
-    position: relative;
-    top: -3px;
-}
-.testContentYellow table {
-    position: relative;
-    margin: 0 auto;
-    top: 0px;
-    padding: 0px !important;
-    width: 100% !important;
-    border-top: none !important;
-    border-bottom: 5px solid #FFEA00;
-    border-left: 5px solid #FFEA00;
-    border-right: 5px solid #FFEA00;
-}
-.testContentYellow table tr td {
-    border-top: none !important;
-    vertical-align: middle;
-}
-.testContentYellow table tr td:first-child {
-    position: relative;
-    width: 60%;
-    margin: 0 auto;
-    padding: 10px 10px;
-}
-.testContentYellow table tr td:last-child {
-    position: relative;
-    width: 40%;
-}
-.testContentYellow table tr td:last-child img {
-    position: relative;
-    width: 100%;
-    padding: 5px 0px 0px 0px;
-    height: auto;
-}
-.testContentYellow-title {
-    font-size: 16px;
-    font-family: "OpenSans Regular";
-    color: #13294B !important;
-    margin-bottom: 0px;
-}
-.testContent-title-yellow {
-    font-size: 20px;
-    font-family: "OpenSans Regular";
-    color: #13294B !important;
-    margin-bottom: 0px;
-}
 /* *******************************************************************************************************	
 ********************************************************************************************************** */
 @media screen and (max-width: 768px) {
@@ -3574,82 +3116,42 @@ button:focus,
     vertical-align: middle !important;
     border: none !important;
 }
-.footerMenu {
-	/* padding-top:10px;
-	bottom:-15px;
-	position:relative; */
-	position:relative;
-	margin-top:0px;
-	margin-bottom:-5px !important;
-}
-.footerMenu tr td {
-	vertical-align:top !important;
-	padding:0px 0px !important;
-}
-.footerMenu tr td p a {
-	color:#FFFFFF;
-	text-decoration:underline !important;
-	font-family: "OpenSans Regular";
-    font-weight: 500;
-	font-size:12px;
-}
-.footerMenu tr td:first-child, 
-.footerMenu tr td:nth-child(2),
-.footerMenu tr td:nth-child(3),
-.footerMenu tr td:nth-child(4) {
-	width:10%;
-}
-.footerMenu tr td:last-child {
-	width:60%;
-}
-.footer-content-1 {
+/* .footer-content {
     position: fixed;
-    bottom: -5px !important;
+    bottom: 0px !important;
     width: 100%;
     background: #13294B;
-    height: auto;
-    padding: 0px 0px !important;
-	border-top:6px solid #4B9CD3;
+    height: 150px;
+    padding: 0px 0px;
 }
-.footer-table-1 {
+.footer-table {
     width: 100%;
-	position:relative;
 }
-.footer-table-1 tr td {
+.footer-table tr td {
     vertical-align: middle !important;
     border: none;
-	padding:1px;
 }
-.footer-table-1 tr td img {
-    /* margin-top: 5px; */
-	width: 140px;
+.footer-table tr td img {
+    margin-top: 5px;
     vertical-align: middle !important;
 }
-.footer-table-1 tr td:first-child ,
-.footer-table-1 tr td:nth-child (2),
-.footer-table-1 tr td:last-child {
-    width:33.3%
+.footer-table tr td:first-child {
+    width: 50%;
 }
-.footer-table-1 tr td:first-child img {
-    width: 140px;
-    height: auto;
-    /* height: 45px; */
+.footer-table tr td:first-child img {
+    width: 175px;
+    height: 47px;
     margin-left: 15px;
 }
-.footer-table-1 tr td:nth-child(2) img {
-    text-align:center;
-	position:relative;
-	margin:0 auto;
-	width: 140px;
-    height: auto;
+.footer-table tr td:last-child {
+    width: 50%;
 }
-.footer-table-1 tr td:last-child img {
-    width: 140px;
-    height: auto;
-    /* height: 35px; */
+.footer-table tr td:last-child img {
+    width: 180px;
+    height: 35px;
     float: right;
     margin-right: 15px;
-}
+} */
 /* **********************
 	SEARCH STYLES
 ********************** */
@@ -3820,17 +3322,17 @@ RECENTLY SELECTED RESULTS STYLE
     white-space: nowrap;
 }
 .subject-name-details {
-    margin-top: 0px;
+    margin-top: -10px;
     font-size: 26px;
     letter-spacing: 1px;
     color: #13294b;
     font-weight: 500;
     font-family: "OpenSans Regular";
-    /* width: 425px;
+    width: 425px;
     overflow: hidden;
     display: inline-block;
     text-overflow: ellipsis;
-    white-space: nowrap; */
+    white-space: nowrap;
 }
 .instructor-details {
     font-size: 18px;
@@ -3917,7 +3419,7 @@ RECENTLY SELECTED RESULTS STYLE
     width: 40vh;
     height: 62vh;
     position: relative;
-    
+    margin: 0 auto;
 }
 /* **********************
 	TESTING HOW TO STYLES
@@ -3991,7 +3493,7 @@ RECENTLY SELECTED RESULTS STYLE
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #FFFFFF;
     letter-spacing: 0px;
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
     width: 100%;
     border-radius: 10px;
@@ -4000,7 +3502,7 @@ RECENTLY SELECTED RESULTS STYLE
 }
 .myTest-btn span {
     position: relative;
-    top: 5px;
+    top: 11px;
     left: 10px;
 }
 .myTest-btn button:hover {
@@ -4011,7 +3513,7 @@ RECENTLY SELECTED RESULTS STYLE
 }
 .myTest-btn i {
     position: relative;
-    top: 4px;
+    top: 12px;
     font-size: 35px;
     float: right;
 }
@@ -4023,11 +3525,10 @@ RECENTLY SELECTED RESULTS STYLE
     letter-spacing: 0px;
     font-size: 20px;
     font-weight: bold;
-    width: auto;
+    width: 100%;
     border-radius: 10px;
     text-align: left;
     padding-left:15px;
-	display:inline-block;
 }
 .my-reservations-btn i {
     position: relative;
@@ -4494,45 +3995,6 @@ RECENTLY SELECTED RESULTS STYLE
 					MOBILE VIEW IN ORIENTATION PORTRAIT 
 **************************************************************** */
 @media only screen and (min-width: 320px) and (max-width: 768px) {
-	.custom-logo-link {
-		position: relative;
-		width: 190px;
-		height: auto;
-		margin-top: 10%;
-		margin-left: 8%;
-	}
-	.headTab-blue table {
-		position: relative;
-		margin: 0 auto;
-		padding: 0px !important;
-		width: 100% !important;
-		z-index: -1;
-	}
-	.headTab-blue table tr td {
-		line-height: 27px;
-	}
-	.headTab-blue table tr td:first-child {
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		color: #FFFFFF !important;
-		font-size: 27px;
-		padding-top: 7px;
-		padding-bottom: 7px;
-		padding-left: 25px;
-		padding-right: 25px;
-		width: 60%;
-		background: #4B9CD3;
-		border-top-left-radius: 15px;
-		border-top-right-radius: 15px;
-		border-top: none;
-		border-left: none;
-		border-right: none;
-		/* border-bottom:5px solid #4B9CD3; */
-	}
-	.headTab-blue table tr td:last-child {
-		width: 40%;
-		border: none;
-		/* border-bottom:5px solid #4B9CD3; */
-	}
     .breadcrumb {
         font-family: "OpenSans Regular";
         color: #13294B !important;
@@ -4561,67 +4023,6 @@ RECENTLY SELECTED RESULTS STYLE
     .breadcrumb .breadcrumb-item+.breadcrumb-item::before {
         content: '>';
     }
-	
-	
-	.selectUi:after {
-		content: '\e842';
-		display: block;
-		font-family: 'Feather';
-		color: #13294B !important;
-		position: absolute;
-		color: #13294B;
-		right: 11px;
-		top:45px;
-		font-size:27px;
-		padding: 0 0 2px;
-		/*left line */
-		position: absolute;
-		pointer-events: none;
-	}
-	.selectUi select {
-		
-	}
-	/* **************************************
-		UNC TESTING APP HOME STYLES
-	***************************************** */
-	.agreeCheck {
-		position: relative;
-		margin: 0 auto;
-		text-align: center;
-	}
-	.agreeCheck input[type="checkbox"] {
-		position: absolute;
-		left: -999px;
-	}
-	.agreeCheck span {
-		color: #13294B;
-		font-size: 20px;
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-	}
-	.agreeCheck input[type="checkbox"]:focus+span {
-		color: #4B9CD3;
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-	}
-	.agreeCheck label {
-		cursor: pointer;
-	}
-	.agreeCheck label input[type="checkbox"]+span:before {
-		font-family: feather;
-		content: "\e8cb";
-		display: inline-block;
-		font-weight: 400;
-		font-style: normal;
-		font-size: 1.5em;
-		top: 4px;
-		position: relative;
-	}
-	.agreeCheck label input[type="checkbox"]:checked+span:before {
-		content: "\e840";
-	}
-	/* checked icon */
-	.agreeCheck label input[type="checkbox"]:indeterminate+span:before {
-		content: "\e8cb";
-	}
     .testing-title-1 {
         font-size: 20px;
         font-family: "OpenSans Regular";
@@ -4629,18 +4030,6 @@ RECENTLY SELECTED RESULTS STYLE
         color: #13294B !important;
         margin-bottom: 5px;
     }
-	.reserveContent img {
-		margin: 0 auto;
-		width: 100%;
-		height: 19vh;
-		position: relative;
-	}
-	.thxImg img {
-		margin: 0 auto;
-		width: 100%;
-		height: 19vh;
-		position: relative;
-	}
     .proImg img {
         margin: 0 auto;
         width: 100%;
@@ -4683,13 +4072,6 @@ RECENTLY SELECTED RESULTS STYLE
         font-size: 24px;
         font-weight: bold;
     }
-	.location_name_1 {
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		color: #13294B;
-		letter-spacing: 0px;
-		font-size: 24px;
-		font-weight: bold;
-	}
     .head-h2-1 {
         font-family: "OpenSans Bold";
         color: #13294B;
@@ -4712,70 +4094,62 @@ RECENTLY SELECTED RESULTS STYLE
         font-size: 20px;
         font-weight: bold;
     }
-	.head-wrapper {
-		position:relative;
-		padding-bottom:0px;
-	}
-	.head-wrapper label {
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		color: #13294B;
-		letter-spacing: 0px;
-		font-size: 20px;
-		font-weight: bold;
-		margin-top: 10px;
-	}
-	.head-wrapper input {
-		font-family: "OpenSans Bold";
-		border: 1px solid #13294B;
-		letter-spacing: 0px;
-		font-size: 18px;
-		font-weight: bold;
-		height: 40px;
-		border-radius: 10px;
-		position: relative;
-		vertical-align: middle;
-		width:100%;
-		left:0;
-	}
-	.head-wrapper select {
-		font-family: "OpenSans Bold";
-		border: 1px solid #13294B;
-		letter-spacing: 0px;
-		font-size: 18px;
-		font-weight: bold;
-		height: 40px;
-		width: 100% !important;
-		border-radius: 10px;
-		position: relative;
-		margin: 0 auto;
-		vertical-align: middle;
-		background:#EFEFEF;
-	}
-	.head-wrapper .select-wrapper {
-		position: relative;
-		margin: 0 auto;
-		width: 100% !important;
-	}
+    .head-wrapper label {
+        font-family: "ITC Franklin Gothic LT Demi Compressed";
+        color: #13294B;
+        letter-spacing: 0px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .head-wrapper input {
+        font-family: "OpenSans Bold";
+        border: 2px solid #13294B;
+        letter-spacing: 0px;
+        font-size: 18px;
+        font-weight: bold;
+        height: 50px;
+        border-radius: 10px;
+        position: relative;
+        margin: 0 auto;
+        vertical-align: middle;
+    }
+    .head-wrapper select {
+        font-family: "OpenSans Bold";
+        border: 2px solid #13294B;
+        letter-spacing: 0px;
+        font-size: 18px;
+        font-weight: bold;
+        height: 50px;
+        width: 100% !important;
+        border-radius: 10px;
+        position: relative;
+        margin: 0 auto;
+        vertical-align: middle;
+    }
+    .head-wrapper .select-wrapper {
+        position: relative;
+        margin: 0 auto;
+        width: 100% !important;
+    }
 	select {
-		color: #13294B !important;
+        color: #13294B !important;
 		font-size: 18px !important;
-		font-weight: normal !important;
 		position: relative;
 		vertical-align: middle;
 		font-family: "OpenSans Regular" !important;
-	}
-	.head-wrapper p {
-		position: relative;
-		text-align: justify;
-		font-family: "OpenSans Regular";
-		color: #13294B;
-		font-size: 14px !important;
-	}
+    }
+    .head-wrapper p {
+        position: relative;
+        text-align: justify;
+        font-family: "OpenSans Regular";
+        color: #13294B;
+        font-size: 11pt !important;
+    }
     .login-btn {
         position: relative;
         margin: 0 auto;
         width: 100% !important;
-        /* top: -10px; */
+        top: -10px;
     }
 	.login-btn-1 i {
         position: relative;
@@ -4795,48 +4169,6 @@ RECENTLY SELECTED RESULTS STYLE
 		font-size:32px;
 		float: right;
     }
-	.btn-log-1 i {
-		position: relative;
-		top: 0px;
-		font-size:29px;
-		/* float: right; */
-		text-align:center !important;
-	}
-	.btn-log-1 {
-		border:3px solid #C4D600;
-		background: #C4D600;
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		color: #13294B;
-		letter-spacing: 0px;
-		font-size: 20px;
-		font-weight: bold;
-		width: 100%;
-		display:block;
-		/* float:right; */
-		text-align:center;
-		position:relative;
-	}
-	.btn-log-1:hover {
-		background: #FFFFFF !important;
-		border:3px solid #C4D600;
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		color: #13294B !important;
-		letter-spacing: 0px;
-		font-size: 20px;
-		font-weight: bold;
-		width: auto;
-		display:block;
-	}
-	.btn-back-1 i {
-		position: relative;
-		top: 2px;
-		float: left;
-		vertical-align: middle !important;
-		margin:0 auto;
-		font-size:25px;
-		align-items:center !important;
-		text-align:center !important;
-	}
     .btn-add {
         background: #C4D600;
         font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -5021,7 +4353,6 @@ RECENTLY SELECTED RESULTS STYLE
 		padding: 0;
 		border: none !important;
 		margin-top: 80px;
-		/* margin-top: 40px; */
 		background: #C4D600;
 	}
     #topnav .navigation-menu>li {
@@ -5031,22 +4362,19 @@ RECENTLY SELECTED RESULTS STYLE
         position: relative;
         margin: 0 10px;
         border: none !important;
-		width:100%;
     }
     #topnav .navigation-menu>li.has-submenu:before {
         color: #13294B !important;
         position: absolute;
         -webkit-transition: all 0.5s;
         transition: all 0.5s;
-        right: 35px;
+        right: 15px;
         top: 22px;
         text-align: left;
         font-weight: bold;
         font-size: 30px;
         font-family: feather;
         content: "\e8b1";
-		display: block;
-		z-index:-1 !important;
     }
     #topnav .navigation-menu>li.has-submenu.active.open:before {
         font-size: 30px;
@@ -5054,13 +4382,11 @@ RECENTLY SELECTED RESULTS STYLE
         position: absolute;
         -webkit-transition: all 0.5s;
         transition: all 0.5s;
-        right: 35px;
+        right: 15px;
         top: 22px;
         font-weight: bold;
         font-family: feather;
         content: "\e897";
-		display: block;
-		z-index:-1 !important;
     }
     #topnav .navigation-menu>li>a {
         display: block;
@@ -5105,45 +4431,6 @@ RECENTLY SELECTED RESULTS STYLE
         position: relative;
         top: -20px;
     }
-	.my-reservations-btn button {
-		vertical-align: middle !important;
-		background: #C4D600;
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		color: #13294B;
-		letter-spacing: 0px;
-		font-size: 20px;
-		font-weight: bold;
-		width: 100%;
-		border-radius: 10px;
-		text-align: left;
-		padding-left:15px;
-	}
-	.my-reservations-btn i {
-		position: relative;
-		top: 2px;
-		font-size: 25px;
-		float: right;
-	}
-	.btn-log {
-		background: #C4D600;
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		color: #13294B;
-		letter-spacing: 0px;
-		font-size: 20px;
-		font-weight: bold;
-		width: 100%;
-		/* border-radius:25px; */
-	}
-	.btn-log:hover {
-		background: #FFFFFF !important;
-		border:3px solid #C4D600;
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		color: #13294B !important;
-		letter-spacing: 0px;
-		font-size: 20px;
-		font-weight: bold;
-		width: 100%;
-	}
     .arrow-menu {
         color: #13294B;
         font-size: 25px;
@@ -5263,26 +4550,8 @@ RECENTLY SELECTED RESULTS STYLE
 		margin-left:3px;
 		margin-right:3px;
 	}
-	.errTab table tr td {
-		position: relative;
-		padding:10px;
-		margin:0 auto;
-	}
-	.btn-err-pink {
-		background: #EF426F;
-		font-family: "OpenSans";
-		color: #FFFFFF;
-		margin:0 auto;
-		vertical-align:middle;
-		text-align:center;
-		letter-spacing: 0px;
-		font-weight: bold;
-		padding-left:10px;
-		padding-right:10px;
-		border-radius:10px;
-		width:75px;
-		height:73px;
-	}
+
+
     .subject-name-details {
         margin-top: -5px;
         font-size: 26px;
@@ -5301,7 +4570,7 @@ RECENTLY SELECTED RESULTS STYLE
 	********************** */
     .footer-content {
         position: fixed;
-        bottom: 4px !important;
+        bottom: 5px !important;
         width: 100%;
         height: 75px;
         padding: 0px 0px;
@@ -5485,58 +4754,7 @@ RECENTLY SELECTED RESULTS STYLE
         height: auto;
     }
 }
-/* ********************************************
-	ORIENTATION LANDSCAPE - TABLE VIEW
-******************************************** */
 @media (min-width: 320px) and (max-width: 768px) and (orientation: landscape) {
-	.headTab-blue table {
-		position: relative;
-		margin: 0 auto;
-		padding: 0px !important;
-		width: 100% !important;
-		z-index: -1;
-	}
-	.headTab-blue table tr td {
-		line-height: 27px;
-	}
-	.headTab-blue table tr td:first-child {
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		color: #FFFFFF !important;
-		font-size: 27px;
-		padding-top: 7px;
-		padding-bottom: 7px;
-		padding-left: 25px;
-		padding-right: 25px;
-		width: 60%;
-		background: #4B9CD3;
-		border-top-left-radius: 15px;
-		border-top-right-radius: 15px;
-		border-top: none;
-		border-left: none;
-		border-right: none;
-		/* border-bottom:5px solid #4B9CD3; */
-	}
-	.headTab-blue table tr td:last-child {
-		width: 40%;
-		border: none;
-		/* border-bottom:5px solid #4B9CD3; */
-	}
-	.selectUi:after {
-		content: '\e842';
-		display: block;
-		font-family: 'Feather';
-		color: #13294B !important;
-		position: absolute;
-		color: #13294B;
-		right: 11px;
-		/*Adjust for position however you want*/
-		top:45px;
-		font-size:27px;
-		padding: 0 0 2px;
-		/*left line */
-		position: absolute;
-		pointer-events: none;
-	}
     .recent-subject-code p {
         position: relative;
         font-size: 25px !important;
@@ -5572,25 +4790,6 @@ RECENTLY SELECTED RESULTS STYLE
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-	.my-reservations-btn button {
-		vertical-align: middle !important;
-		background: #C4D600;
-		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		color: #13294B;
-		letter-spacing: 0px;
-		font-size: 20px;
-		font-weight: bold;
-		width: 100%;
-		border-radius: 10px;
-		text-align: left;
-		padding-left:15px;
-	}
-	.my-reservations-btn i {
-		position: relative;
-		top: 2px;
-		font-size: 25px;
-		float: right;
-	}
 }
 @media only screen and (max-width: 360px) and (max-width: 640px) {}
 @media only screen and (min-width: 480px) and (max-width: 640px) {
