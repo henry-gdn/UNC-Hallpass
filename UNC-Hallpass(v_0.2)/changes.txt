@@ -113,4 +113,14 @@ my reservation
 3. working on demographics page
 4. updated css, js, plugins folder.
 
+*****************
+   30/12/2020
+*****************
+1. Demographics.html file added
+
+
+
+
+
+
 

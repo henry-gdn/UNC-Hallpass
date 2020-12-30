@@ -2374,6 +2374,17 @@ a {
 	position:relative;
 	padding-bottom:40px;
 }
+.raceLabel {
+	font-family: "ITC Franklin Gothic LT Demi Compressed";
+	color: #13294B;
+	letter-spacing: 0px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.raceSelect {
+	position:relative;
+	top:-25px;
+}
 .head-wrapper label {
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
 	color: #13294B;
@@ -2406,7 +2417,8 @@ a {
 	border-radius: 10px;
 	position: relative;
 	margin: 0 auto;
-	background:#EFEFEF;
+	/* background:#EFEFEF; */
+	background:#FFFFFF;
 	vertical-align:middle !important;
 }
 .head-wrapper .select-wrapper {
@@ -2446,10 +2458,22 @@ select::-ms-expand {
 	font-size:27px;
 }
 
+.raceUi:after {
+	content: '\e842';
+	display: block;
+	font-family: 'Feather';
+	color: #13294B !important;
+	position: absolute;
+	color: #13294B;
+	right: 23px;
+	top:30px;
+	font-size:27px;
+}
+
 .selectUi select {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	appearance: none !important;
 }
 
 
@@ -4359,6 +4383,23 @@ RECENTLY SELECTED RESULTS STYLE
     display: flex;
     text-align: center !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ***************************************
 		AUTOCOMPLETE PAGE STYLES
 ****************************************** */
@@ -4785,6 +4826,18 @@ RECENTLY SELECTED RESULTS STYLE
 		font-size: 20px;
 		font-weight: bold;
 		margin-top: 10px;
+	}
+	.raceLabel {
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #13294B;
+		letter-spacing: 0px;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.raceSelect {
+		position:relative;
+		top:22px;
+		margin-bottom:25px;
 	}
 	.head-wrapper input {
 		font-family: "OpenSans Bold";

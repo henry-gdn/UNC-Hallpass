@@ -1,46 +1,3 @@
-/**
- * Bootstrap Multiselect (http://davidstutz.de/bootstrap-multiselect/)
- *
- * Apache License, Version 2.0:
- * Copyright (c) 2012 - 2018 David Stutz
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a
- * copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations
- * under the License.
- *
- * BSD 3-Clause License:
- * Copyright (c) 2012 - 2018 David Stutz
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *    - Redistributions of source code must retain the above copyright notice,
- *      this list of conditions and the following disclaimer.
- *    - Redistributions in binary form must reproduce the above copyright notice,
- *      this list of conditions and the following disclaimer in the documentation
- *      and/or other materials provided with the distribution.
- *    - Neither the name of David Stutz nor the names of its contributors may be
- *      used to endorse or promote products derived from this software without
- *      specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
- * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 (function (root, factory) {
     // check to see if 'knockout' AMD module is specified if using requirejs
     if (typeof define === 'function' && define.amd &&
@@ -398,9 +355,9 @@
 
             },
             enableHTML: false,
-            buttonClass: 'custom-select',
+            buttonClass: '',
             inheritClass: false,
-            buttonWidth: 'auto',
+            buttonWidth: '100%',
             buttonContainer: '<div class="btn-group" />',
             dropRight: false,
             dropUp: false,
@@ -426,10 +383,10 @@
             filterBehavior: 'text',
             includeFilterClearBtn: true,
             preventInputChangeEvent: false,
-            nonSelectedText: 'None selected',
+            nonSelectedText: 'Select Race',
             nSelectedText: 'selected',
             allSelectedText: 'All selected',
-            numberDisplayed: 3,
+            numberDisplayed: 0,
             disableIfEmpty: false,
             disabledText: '',
             delimiterText: ', ',
@@ -438,7 +395,7 @@
             resetText: 'Reset',
             indentGroupOptions: true,
             templates: {
-                button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span class="multiselect-selected-text"></span></button>',
+                button: '<button type="button" class="multiselect" data-toggle="dropdown"><span class="multiselect-selected-text"></span></button>',
                 popupContainer: '<div class="multiselect-container dropdown-menu"></div>',
                 filter: '<div class="multiselect-filter d-flex align-items-center"><i class="fas fa-sm fa-search text-muted"></i><input type="search" class="multiselect-search form-control" /></div>',
                 option: '<button type="button" class="multiselect-option dropdown-item"></button>',
@@ -713,7 +670,7 @@
                         $checkbox.prop('checked', !$checkbox.prop('checked'));
                         $checkbox.change();
                     }
-                    else if (this.options.enableClickableOptGroups && this.options.multiple && !$target.hasClass("caret-container")) {
+                    else if (this.options.enableClickableOptGroups && this.options.multiple && !$target.hasClass("")) {
                         var groupItem = $target;
                         if (!groupItem.hasClass("multiselect-group")) {
                             groupItem = $target.closest('.multiselect-group');
@@ -840,8 +797,8 @@
             }
 
             if (this.options.enableCollapsibleOptGroups && this.options.multiple) {
-                $(".multiselect-group .caret-container", this.$popupContainer).off("click");
-                $(".multiselect-group .caret-container", this.$popupContainer).on("click", $.proxy(function (event) {
+                $(".multiselect-group ", this.$popupContainer).off("click");
+                $(".multiselect-group ", this.$popupContainer).on("click", $.proxy(function (event) {
                     var $group = $(event.target).closest('.multiselect-group');
                     var $inputs = $group.nextUntil(".multiselect-group")
                         .not('.multiselect-filter-hidden');
@@ -1000,7 +957,7 @@
 
             if (this.options.enableCollapsibleOptGroups && this.options.multiple) {
                 $groupOption.find('.form-check').addClass('d-inline-block');
-                $groupOption.append('<span class="caret-container dropdown-toggle pl-1"></span>');
+                //$groupOption.append('<span class="caret-container dropdown-toggle pl-1"></span>');
             }
 
             if ($group.is(':disabled')) {
