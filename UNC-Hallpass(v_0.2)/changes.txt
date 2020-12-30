@@ -103,3 +103,14 @@ my reservation
 
 
 
+***************************************************************************************************************************
+
+*****************
+   30/12/2020
+*****************
+1. county field added in local address and quarantine address.
+2. test site select box added in scan new test page and value placed in scan complete page.
+3. working on demographics page
+4. updated css, js, plugins folder.
+
+

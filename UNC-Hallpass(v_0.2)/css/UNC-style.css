@@ -1544,6 +1544,52 @@ a {
 .agreeCheck label input[type="checkbox"]:indeterminate+span:before {
     content: "\e8cb";
 }
+
+
+
+
+.raceCheck {
+    /* position: relative;
+    margin: 0 auto;
+	text-align: left;
+	font-weight:normal !important; */
+}
+.raceCheck input[type="checkbox"] {
+    position: absolute;
+    left: -999px;
+	font-weight:normal !important;
+}
+.raceCheck span {
+    color: #13294B;
+    font-size: 20px;
+    font-family: "";
+	font-weight:normal !important;
+}
+.raceCheck input[type="checkbox"]:focus+span {
+    color: #4B9CD3;
+    font-family: "OpenSans Regular";
+	font-weight:normal !important;
+}
+.raceCheck label {
+    cursor: pointer;
+	font-weight:normal !important;
+}
+.raceCheck label input[type="checkbox"]+span:before {
+    font-family: feather;
+    content: "\e8cb";
+    display: inline-block;
+    font-weight:normal !important;
+    font-size: 1.5em;
+    top: 4px;
+    position: relative;
+}
+.raceCheck label input[type="checkbox"]:checked+span:before {
+    content: "\e840";
+}
+/* checked icon */
+.raceCheck label input[type="checkbox"]:indeterminate+span:before {
+    content: "\e8cb";
+}
 /* ***********************
 	BREADCRUMB
 *********************** */
@@ -1630,24 +1676,24 @@ a {
             box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.15);
     border-color: transparent #ffffff #ffffff transparent;
   }
-  #topnav .navigation-menu > li .submenu {
-    position: absolute; 
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    padding: 10px 0;
-    list-style: none;
-    min-width: 170px;
-    visibility: hidden;
-    opacity: 0;
-    margin-top: 10px;
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
-    border-radius: 5px;
-    background-color: #EFEFEF;
-    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-  }
+	#topnav .navigation-menu > li .submenu {
+		position: absolute; 
+		top: 100%;
+		left: 0;
+		z-index: 1000;
+		/* padding: 10px 0; */
+		list-style: none;
+		min-width: 170px;
+		visibility: hidden;
+		opacity: 0;
+		margin-top: 0px;
+		-webkit-transition: all .2s ease;
+		transition: all .2s ease;
+		border-radius: 5px;
+		background-color: #EFEFEF;
+		-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+	}
   #topnav .navigation-menu > li .submenu:before {
     content: "";
     position: absolute;
@@ -1666,10 +1712,10 @@ a {
 			
   }
   #topnav .navigation-menu > li .submenu > li .submenu {
-    left: 106%;
+    /* left: 106%;
     top: 0;
     margin-left: 10px;
-    margin-top: -1px;
+    margin-top: -1px; */
   }
   #topnav .navigation-menu > li > a {
     padding-top: 25px;
@@ -2360,8 +2406,8 @@ a {
 	border-radius: 10px;
 	position: relative;
 	margin: 0 auto;
-	vertical-align: middle;
 	background:#EFEFEF;
+	vertical-align:middle !important;
 }
 .head-wrapper .select-wrapper {
 	position: relative;
@@ -2369,6 +2415,9 @@ a {
 	width: 100% !important;
 }
 select {
+	margin: 0 auto;
+	padding:0px 10px !important;
+	vertical-align:middle !important;
 	color: #13294B !important;
 	font-size: 18px !important;
 	font-weight: normal !important;
@@ -2425,6 +2474,20 @@ select::-ms-expand {
 	font-family: "OpenSans Regular";
 	color: #EF426F;
 }
+#testSiteErr i {
+	position: relative;
+	font-size: 27px;
+	top: 4px;
+	color: #EF426F;
+}
+#testSiteErr {
+	position: relative;
+	font-size: 16px;
+	top: 10px;
+	font-family: "OpenSans Regular";
+	color: #EF426F;
+}
+
 #errMsg_1 i {
 	position: relative;
 	font-size: 27px;
@@ -3369,6 +3432,17 @@ button {
     margin: 0 auto;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
 }
+
+
+
+
+
+
+
+
+
+
+
 /* **********************
 	MY TESTING PINK STYLES
 ********************** */
@@ -4225,18 +4299,6 @@ RECENTLY SELECTED RESULTS STYLE
     bottom: 0;
     right: 0;
     top: 0;
-    display: flex;
-    align-items: center !important;
-}
-.fdfd {
-    position: relative;
-    width: 96%;
-    margin: 0 auto;
-    height: 200px;
-    /* line-height: 155px; */
-    background: #EDEDEA;
-    border-radius: 20px;
-    border: 1px solid #707070;
     display: flex;
     align-items: center !important;
 }
