@@ -165,27 +165,4 @@
     <script src="js/app.js"></script>
     <script src="js/flow.js"></script>
 </body>
-<script>
-    $(document).ready(function() {    
-	    
-		//here needs to change the server URL				
-		$.post("http://192.168.43.117:8080/AOMS/findTestSiteData", {
-			pid: "pid",
-		},
-		function(data, status) {
-			var contentHtml = '';
-			for(var i=0;i<data.length;i++){
-				contentHtml += "<div class='col-lg-4 col-md-4 col-sm-12 col-xs-12'><div class='mt-2 mb-3 p-0 reserveContent-1'><img src='"+data[i].site_img+"' /></div><div class='head-content mb-0 p-0'><h2 aria-labelledby='"+data[i].site_name+"' aria-label='"+data[i].site_name+"' class='content-title'>"+data[i].site_name+"</h2></div><div class='mb-0 p-0 mt-2'><h3 aria-labelledby='"+data[i].hours+"' aria-label='"+data[i].hours+"' class='findTestSite'>Hours: "+data[i].hours+"</h3></div><div class='reserve-btn p-0 mt-3' data-location='"+data[i].site_name+"#"+data[i].hours+"#"+data[i].People_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME' aria-labelledby='RESERVE TIME' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div><br><br></div>";
-			}
-			$('#siteContent').append(contentHtml);
-		}); 
-		$(document).on('click','.reserve-btn',function(){
-			var location = $(this).attr("data-location");
-			localStorage.removeItem("site-location");
-			localStorage.setItem("site-location", location);
-			window.location.href = "find_test_site_1.html";
-		});
-		
-    });		
-</script>
 </html>

@@ -103,7 +103,7 @@
 					<h2 aria-labelledby="Quarantine Address" aria-label="Quarantine Address" class="head-h2">Demographics</h2>
                 </div>
 				<div class="mt-4 mb-0">
-					<h3 aria-labelledby="PLEASE ENTER QUARANTINE ADDRESS" aria-label="PLEASE ENTER QUARANTINE ADDRESS" class="head-h3">PLEASE ENTER DEMOGRPHICS DETAILS</h3>
+					<h3 aria-labelledby="PLEASE ENTER QUARANTINE ADDRESS" aria-label="PLEASE ENTER QUARANTINE ADDRESS" class="head-h3">PLEASE ENTER DEMOGRAPHICS DETAILS</h3>
                 </div>
                 <!-- <div class="mb-3 mt-1">
 					<p>In the event you are asked to quarantine where will you be quarantining?</p>
@@ -133,9 +133,10 @@
 						</div>
 					</div>
 							
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 raceSelect">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 raceSelect head-wrapper">
 						<div class="form-group mb-0 raceUi">
-							<label class="raceLabel">RACE</label>
+							<!--label class="raceLabel">RACE</label-->
+							<label>RACE</label>
 							<select id="race" name="race" multiple="multiple" class="form-control">
 								<option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
 								<option value="Asian">Asian</option>
@@ -159,7 +160,7 @@
 					</div>
 					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 						<div class="p-0">
-							<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1">
+							<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1" onclick="save_demographics()">
 							CONTINUE
 							<i class="feather icon-chevron-right"></i>
 							</button>
@@ -224,10 +225,11 @@
     <!-- javascript -->
 	
     <script src="js/app.js"></script>
+    <script src="js/flow.js"></script>
 </body>
 <script>
 $(document).ready(function() {
-	$('#race').multiselect();
+	//$('#race').multiselect();
 });
 </script>
 </html>

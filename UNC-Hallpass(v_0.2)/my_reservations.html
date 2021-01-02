@@ -109,14 +109,12 @@
 			</div>	
 			<br/>
 			<div class="login-btn mt-3 mb-3">
-				<a href="#">
-					<button aria-label="CANCEL RESERVATION" aria-labelledby="CANCEL RESERVATION" class="btn btn-block btn-log text-left">
-					CANCEL RESERVATION
-					<i class="feather icon-chevron-right btn-arrow"></i>
-					</button>
-				</a>
+			    <button aria-label="CANCEL RESERVATION" aria-labelledby="CANCEL RESERVATION" class="btn btn-block btn-log text-left" onclick="cancel_reservation()">
+				CANCEL RESERVATION
+				<i class="feather icon-chevron-right btn-arrow"></i>
+		            </button>
 			</div>
-            <div class="barCode p-4 mb-5 successImg">
+            <div class="qrcode p-4 mb-5 successImg">
 				<!-- image will append here -->
 			</div><br/><br/>
         </div>
@@ -179,19 +177,6 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/flow.js"></script>
 </body>
-<script>
-$(document).ready(function() {
-	var availSlot = localStorage.getItem("avail-slot").split('#');
-	var locationName = localStorage.getItem('location-name');
-    var  confirmSlot = localStorage.getItem("confirm-slot").split('#');
-	
-	$('.slot-time').text(confirmSlot[1]);
-	$('.locationName').text(confirmSlot[0]);  
-	$('.bookdate').text(availSlot[1]);
-	
-	var img = '<img src="'+confirmSlot[2]+'" />';
-	$('.successImg').append(img);
-});	 
-</script>
 </html>
