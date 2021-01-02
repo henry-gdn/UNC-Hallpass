@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>UNC Hall Pass - START NEW TEST </title>
-    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -14,7 +14,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
-<body class="">
+<body>
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
@@ -38,7 +38,8 @@
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-				<li><a href="#">LOGIN</a></li>
+				<li><a href="home" class="hidden-xs-down hidden-sm-down hidden-md-down">HOME</a></li>
+				<li><a href="index">LOGIN</a></li>
 				<li class="has-submenu">
 					<a href="#">MY TESTING</a>
 					<ul class="submenu megamenu">
@@ -62,9 +63,9 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="#">ACCESSIBILITY</a></li>
-				<li><a href="#">SUPPORT</a></li>
-				<li><a href="#">CONTACT</a></li>
+				<li><a href="accessibility">ACCESSIBILITY</a></li>
+				<li><a href="support">SUPPORT</a></li>
+				<li><a href="contact">CONTACT</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -97,8 +98,8 @@
                 </div>
 				<div class="mt-3 mb-4">
 					<h3 class="contentHead">Member : <span id="member_name"></span></h3>
-                                        <h3 class="contentHead">PID : <span id="member_pid"></span></h3>
-					<h3 class="contentHead">Status: Pending</h3>
+                    <h3 class="contentHead">PID : <span id="member_pid"></span></h3>
+					<h3 class="contentHead">Status: <span id="member_status"></span></h3>
                 </div> 
                 <div class="mb-3 mt-1">
 					<p>Your scan was not successful. Please try scanning again or enter the barcode manually.</p>

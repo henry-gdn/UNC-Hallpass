@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>UNC Hall Pass - MY TESTING </title>
-    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -14,7 +14,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
-<body class="">
+<body>
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
@@ -38,8 +38,8 @@
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-				<li><a href="index">HOME</a></li>
-				<li><a href="Home_post_auth">LOGIN</a></li>
+				<li><a href="home" class="hidden-xs-down hidden-sm-down hidden-md-down">HOME</a></li>
+				<li><a href="index">LOGIN</a></li>
 				<li class="has-submenu">
 					<a href="#">MY TESTING</a>
 					<ul class="submenu megamenu">
@@ -63,9 +63,9 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="#">ACCESSIBILITY</a></li>
-				<li><a href="#">SUPPORT</a></li>
-				<li><a href="#">CONTACT</a></li>
+				<li><a href="accessibility">ACCESSIBILITY</a></li>
+				<li><a href="support">SUPPORT</a></li>
+				<li><a href="contact">CONTACT</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -87,7 +87,7 @@
 			<div class="row pt-1">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index" aria-labelledby="Home" aria-label="Home">Home</a></li>
+						<li class="breadcrumb-item"><a href="home" aria-labelledby="Home" aria-label="Home">Home</a></li>
 						<li class="breadcrumb-item" aria-labelledby="My Testing" aria-label="My Testing">My Testing</li>
 					</ol>
 				</div>
@@ -98,7 +98,7 @@
 			<div class="row pt-3">
                 <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
 			 		<h6 class="schedule-title">Member : <span id="member_name"></span></h3>
-                                        <h6 class="schedule-title">PID : <span id="member_pid"></span></h3>
+                    <h6 class="schedule-title">PID : <span id="member_pid"></span></h3>
 					<h6 class="schedule-title">Status: <span class="status"></span></h6>
                 </div>
             </div>
@@ -149,7 +149,8 @@
 		<div class="clearfix"></div>
 		
 		<!-- HALL PASS - COMPLIANT -->
-			<div id="hallpass-hcolor" class="headTab-green">
+		<div class="myTestFooter">
+			<div id="hallpass-hcolor" class="headTab-yellow hallpassTable hidden-lg-up hidden-md-up">
 				<table class="table table-sm">
 					<tr>
 						<td>
@@ -158,21 +159,23 @@
 					</tr>  
 				</table>
 			</div>
-			<div id="hallpass-bcolor" class="testContentGreen">
+			<div id="hallpass-bcolor" class="testContentYellow">
 				<table class="table table-sm">
 					<tr>
+						<td class="hidden-xs-down hidden-sm-down">HALL PASS</td>
 						<td>
 							<p class="testContent-title">Member status :</p> 
 							<p class='test-content-date-time status'></p> 
 							<p class="testContent-title validUntil"></p> 
 							<p id="asap" class='test-content-date-time get_next_test_before_content asap'></p>
 						</td>
-						<td>
+						<td class="hidden-lg-up hidden-md-up">
 							<img class="myTestQrImg" src="" width="100" height="100"  />
 						</td>
 					</tr>
 				</table>
 			</div>
+		</div>
     </section><br/><br/><br/>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
@@ -211,9 +214,9 @@
 					<p><a href="class_search">Class Search</a></p>
 				</td>
 				<td>
-					<p><a href="">Accessibility</a></p>
-					<p><a href="">Support</a></p>
-					<p><a href="">Contact</a></p>
+					<p><a href="accessibility">Accessibility</a></p>
+					<p><a href="support">Support</a></p>
+					<p><a href="contact">Contact</a></p>
 				</td>
 			</tr>
 		</table>

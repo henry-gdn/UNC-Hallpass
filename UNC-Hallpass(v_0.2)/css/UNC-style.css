@@ -1462,6 +1462,16 @@ a {
 	line-height: 68px;
 }
 
+.myTestFooter {
+	position:relative;
+	margin:0 auto;
+	padding-left:130px;
+	padding-right:130px;
+	margin-bottom:75px;
+}
+.hallpassTable table tr td {
+	width:50% !important;
+}
 
 
 .headTab-blue table {
@@ -1484,8 +1494,6 @@ a {
 	padding-right: 25px;
 	width: 20%;
 	background: #4B9CD3;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
 	border-top: none;
 	border-left: none;
 	border-right: none;
@@ -2080,11 +2088,10 @@ a {
 }
 .headTab-green table {
     position: relative;
-    margin: 0 auto;
-    padding: 0px !important;
-    width: 100% !important;
-    z-index: -1;
-    top: 3px;
+	margin: 0 auto;
+	padding: 0px !important;
+	width: 100% !important;
+	z-index: -1;
 }
 .headTab-green table tr td {
     line-height: 40px;
@@ -2773,8 +2780,8 @@ button {
 }
 .proImg img {
 	margin: 0 auto;
-	width: 40vh;
-    height: 62vh;
+	width: 100%;
+    height: auto;
     position: relative;
 }
 .reserve-btn {
@@ -3406,6 +3413,10 @@ button {
     text-align: center;
     margin: 0 auto;
 }
+
+/* **********************
+	GREEN STYLES
+********************** */
 .testContentGreen {
     position: relative;
     top: -3px;
@@ -3416,24 +3427,31 @@ button {
     top: 0px;
     padding: 0px !important;
     width: 100% !important;
-    border-top: none !important;
-    border-bottom: 5px solid #C4D600;
-    border-left: 5px solid #C4D600;
-    border-right: 5px solid #C4D600;
+    border: 5px solid #C4D600;
 }
 .testContentGreen table tr td {
-    border-top: none !important;
-    vertical-align: middle;
+    vertical-align: middle !important;
+	line-height:30px;
 }
 .testContentGreen table tr td:first-child {
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #13294B !important;
+    width: 20%;
+    padding-left: 15px;
+    font-size: 32px;
+    background: #C4D600;
+    vertical-align: middle !important;
+}
+.testContentGreen table tr td:nth-child(2) {
     position: relative;
     width: 60%;
     margin: 0 auto;
     padding: 10px 10px;
+	vertical-align: middle !important;
 }
 .testContentGreen table tr td:last-child {
     position: relative;
-    width: 40%;
+    width: 20%;
 }
 .testContentGreen table tr td:last-child img {
     position: relative;
@@ -3446,52 +3464,73 @@ button {
     font-family: "OpenSans Regular";
     color: #13294B !important;
     margin-bottom: 0px;
+	float:left;
+	padding-left:15px;
 }
 .test-content-date-time {
     position: relative;
-    top: -5px;
     text-transform: uppercase;
     font-size: 25px;
     color: #13294B;
     margin: 0 auto;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
+	float:left;
+	padding-left:15px;
 }
-
-
-
-
-
-
-
 
 
 
 
 /* **********************
-	MY TESTING PINK STYLES
+	BLUE STYLES
 ********************** */
-.headTab-pink table {
+.testContentBlue {
+    position: relative;
+    top: -3px;
+}
+.testContentBlue table {
     position: relative;
     margin: 0 auto;
+    top: 0px;
     padding: 0px !important;
     width: 100% !important;
-    z-index: -1;
-    top: 3px;
+    border: 5px solid #4B9CD3;
 }
-.headTab-pink table tr td {
-    line-height: 40px;
+.testContentBlue table tr td {
+    vertical-align: middle !important;
+	line-height:30px;
 }
-.headTab-pink table tr td:first-child {
+.testContentBlue table tr td:first-child {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #FFFFFF !important;
-    width: 100%;
+    color: #13294B !important;
+    width: 20%;
     padding-left: 15px;
     font-size: 32px;
-    background: #EF426F;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    background: #4B9CD3;
+    vertical-align: middle !important;
 }
+.testContentBlue table tr td:nth-child(2) {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px 10px;
+	vertical-align: middle !important;
+}
+.testContentBlue table tr td:last-child {
+    position: relative;
+    width: 20%;
+}
+.testContentBlue table tr td:last-child img {
+    position: relative;
+    width: 100%;
+    padding: 5px 0px 0px 0px;
+    height: auto;
+}
+
+
+/* **********************
+	PINK STYLES
+********************** */
 .testContentPink {
     position: relative;
     top: -3px;
@@ -3502,24 +3541,31 @@ button {
     top: 0px;
     padding: 0px !important;
     width: 100% !important;
-    border-top: none !important;
-    border-bottom: 5px solid #EF426F;
-    border-left: 5px solid #EF426F;
-    border-right: 5px solid #EF426F;
+    border: 5px solid #EF426F;
 }
 .testContentPink table tr td {
-    border-top: none !important;
-    vertical-align: middle;
+    vertical-align: middle !important;
+	line-height:30px;
 }
 .testContentPink table tr td:first-child {
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #13294B !important;
+    width: 20%;
+    padding-left: 15px;
+    font-size: 32px;
+    background: #EF426F;
+    vertical-align: middle !important;
+}
+.testContentPink table tr td:nth-child(2) {
     position: relative;
     width: 60%;
     margin: 0 auto;
     padding: 10px 10px;
+	vertical-align: middle !important;
 }
 .testContentPink table tr td:last-child {
     position: relative;
-    width: 40%;
+    width: 20%;
 }
 .testContentPink table tr td:last-child img {
     position: relative;
@@ -3527,43 +3573,11 @@ button {
     padding: 5px 0px 0px 0px;
     height: auto;
 }
-.testContentPink-title {
-    font-size: 16px;
-    font-family: "OpenSans Regular";
-    color: #13294B !important;
-    margin-bottom: 0px;
-}
-.testContent-title-pink {
-    font-size: 20px;
-    font-family: "OpenSans Regular";
-    color: #13294B !important;
-    margin-bottom: 0px;
-}
-/* *****************************
-	MY TESTING YELLOW STYLES
-******************************** */
-.headTab-yellow table {
-    position: relative;
-    margin: 0 auto;
-    padding: 0px !important;
-    width: 100% !important;
-    z-index: -1;
-    top: 3px;
-}
-.headTab-yellow table tr td {
-    line-height: 40px;
-}
-.headTab-yellow table tr td:first-child {
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #13294B !important;
-    width: 100%;
-    padding-left: 15px;
-    font-size: 32px;
-    background: #FFEA00;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-}
+
+
+/* **********************
+	YELLOW STYLES
+********************** */
 .testContentYellow {
     position: relative;
     top: -3px;
@@ -3574,24 +3588,31 @@ button {
     top: 0px;
     padding: 0px !important;
     width: 100% !important;
-    border-top: none !important;
-    border-bottom: 5px solid #FFEA00;
-    border-left: 5px solid #FFEA00;
-    border-right: 5px solid #FFEA00;
+    border: 5px solid #FFEA00;
 }
 .testContentYellow table tr td {
-    border-top: none !important;
-    vertical-align: middle;
+    vertical-align: middle !important;
+	line-height:30px;
 }
 .testContentYellow table tr td:first-child {
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #13294B !important;
+    width: 20%;
+    padding-left: 15px;
+    font-size: 32px;
+    background: #FFEA00;
+    vertical-align: middle !important;
+}
+.testContentYellow table tr td:nth-child(2) {
     position: relative;
     width: 60%;
     margin: 0 auto;
     padding: 10px 10px;
+	vertical-align: middle !important;
 }
 .testContentYellow table tr td:last-child {
     position: relative;
-    width: 40%;
+    width: 20%;
 }
 .testContentYellow table tr td:last-child img {
     position: relative;
@@ -3599,18 +3620,8 @@ button {
     padding: 5px 0px 0px 0px;
     height: auto;
 }
-.testContentYellow-title {
-    font-size: 16px;
-    font-family: "OpenSans Regular";
-    color: #13294B !important;
-    margin-bottom: 0px;
-}
-.testContent-title-yellow {
-    font-size: 20px;
-    font-family: "OpenSans Regular";
-    color: #13294B !important;
-    margin-bottom: 0px;
-}
+
+
 /* *******************************************************************************************************	
 ********************************************************************************************************** */
 @media screen and (max-width: 768px) {
@@ -4341,6 +4352,31 @@ RECENTLY SELECTED RESULTS STYLE
     display: flex;
     text-align: center !important;
 }
+
+/* ***************************************
+		INFOGRAPHIC PAGE STYLES
+****************************************** */
+#infographic {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    text-align: center !important;
+	overflow-y:scroll !important;
+}
+#infographic img {
+	position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 9999999;
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+	overflow-y:scroll !important;
+}
 /* ***************************************
 		SCAN TRY AGAIN PAGE STYLES
 ****************************************** */
@@ -4624,8 +4660,6 @@ RECENTLY SELECTED RESULTS STYLE
 		padding-right: 25px;
 		width: 60%;
 		background: #4B9CD3;
-		border-top-left-radius: 15px;
-		border-top-right-radius: 15px;
 		border-top: none;
 		border-left: none;
 		border-right: none;
@@ -4636,6 +4670,155 @@ RECENTLY SELECTED RESULTS STYLE
 		border: none;
 		/* border-bottom:5px solid #4B9CD3; */
 	}
+	
+	
+	/* **********************
+		MY TESTING PINK STYLES
+	********************** */
+	.headTab-pink table {
+		position: relative;
+		margin: 0 auto;
+		padding: 0px !important;
+		width: 100% !important;
+		z-index: -1;
+		top: 3px;
+	}
+	.headTab-pink table tr td {
+		line-height: 40px;
+	}
+	.headTab-pink table tr td:first-child {
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #FFFFFF !important;
+		width: 100%;
+		padding-left: 15px;
+		font-size: 32px;
+		background: #EF426F;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+	}
+	.testContentPink {
+		position: relative;
+		top: -3px;
+	}
+	.testContentPink table {
+		position: relative;
+		margin: 0 auto;
+		top: 0px;
+		padding: 0px !important;
+		width: 100% !important;
+		border-top: none !important;
+		border-bottom: 5px solid #EF426F;
+		border-left: 5px solid #EF426F;
+		border-right: 5px solid #EF426F;
+	}
+	.testContentPink table tr td {
+		border-top: none !important;
+		vertical-align: middle;
+	}
+	.testContentPink table tr td:first-child {
+		position: relative;
+		width: 60%;
+		margin: 0 auto;
+		padding: 10px 10px;
+	}
+	.testContentPink table tr td:last-child {
+		position: relative;
+		width: 40%;
+	}
+	.testContentPink table tr td:last-child img {
+		position: relative;
+		width: 100%;
+		padding: 5px 0px 0px 0px;
+		height: auto;
+	}
+	.testContentPink-title {
+		font-size: 16px;
+		font-family: "OpenSans Regular";
+		color: #13294B !important;
+		margin-bottom: 0px;
+	}
+	.testContent-title-pink {
+		font-size: 20px;
+		font-family: "OpenSans Regular";
+		color: #13294B !important;
+		margin-bottom: 0px;
+	}
+	/* *****************************
+		MY TESTING YELLOW STYLES
+	******************************** */
+	.headTab-yellow table {
+		position: relative;
+		margin: 0 auto;
+		padding: 0px !important;
+		width: 100% !important;
+		z-index: -1;
+		top: 3px;
+	}
+	.headTab-yellow table tr td {
+		line-height: 40px;
+	}
+	.headTab-yellow table tr td:first-child {
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #13294B !important;
+		width: 100%;
+		padding-left: 15px;
+		font-size: 32px;
+		background: #FFEA00;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+	}
+	.testContentYellow {
+		position: relative;
+		top: -3px;
+	}
+	.testContentYellow table {
+		position: relative;
+		margin: 0 auto;
+		top: 0px;
+		padding: 0px !important;
+		width: 100% !important;
+		border-top: none !important;
+		border-bottom: 5px solid #FFEA00;
+		border-left: 5px solid #FFEA00;
+		border-right: 5px solid #FFEA00;
+	}
+	.testContentYellow table tr td {
+		border-top: none !important;
+		vertical-align: middle;
+	}
+	.testContentYellow table tr td:first-child {
+		position: relative;
+		width: 60%;
+		margin: 0 auto;
+		padding: 10px 10px;
+	}
+	.testContentYellow table tr td:last-child {
+		position: relative;
+		width: 40%;
+	}
+	.testContentYellow table tr td:last-child img {
+		position: relative;
+		width: 100%;
+		padding: 5px 0px 0px 0px;
+		height: auto;
+	}
+	.testContentYellow-title {
+		font-size: 16px;
+		font-family: "OpenSans Regular";
+		color: #13294B !important;
+		margin-bottom: 0px;
+	}
+	.testContent-title-yellow {
+		font-size: 20px;
+		font-family: "OpenSans Regular";
+		color: #13294B !important;
+		margin-bottom: 0px;
+	}
+
+
+
     .breadcrumb {
         font-family: "OpenSans Regular";
         color: #13294B !important;
@@ -4983,6 +5166,49 @@ RECENTLY SELECTED RESULTS STYLE
         letter-spacing: 0px;
         font-family: "ITC Franklin Gothic LT Demi Compressed";
     }
+	
+	
+	.myTestFooter {
+		position:relative;
+		margin:0 auto;
+		padding:0px 0px;
+		margin-bottom:0px;
+	}
+	.hallpassTable table tr td {
+		position:relative;
+		width:100% !important;
+	}
+
+
+	.headTab-green table {
+		position: relative;
+		margin:0 auto;
+		padding: 0px !important;
+		width:100% !important;
+		z-index: -1;
+	}
+	
+	
+	.testContent-title {
+		font-size: 16px;
+		font-family: "OpenSans Regular";
+		color: #13294B !important;
+		margin-bottom: 0px;
+		float:left;
+		padding-left:15px;
+	}
+	.test-content-date-time {
+		position: relative;
+		text-transform: uppercase;
+		font-size: 25px;
+		color: #13294B;
+		margin: 0 auto;
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		float:left;
+		padding-left:15px;
+		top:-5px;
+	}
+
     .headTab-blueTest table {
         position: relative;
         margin: 0 auto;
@@ -5624,8 +5850,6 @@ RECENTLY SELECTED RESULTS STYLE
 		padding-right: 25px;
 		width: 60%;
 		background: #4B9CD3;
-		border-top-left-radius: 15px;
-		border-top-right-radius: 15px;
 		border-top: none;
 		border-left: none;
 		border-right: none;

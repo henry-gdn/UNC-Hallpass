@@ -1,0 +1,126 @@
+
+*****************
+   08/12/2020
+*****************
+-------
+SEARCH
+-------
+1. Class search and class details
+
+------------
+MY SCHEDULE
+------------
+1. Schedule and schedule details
+
+---------------
+FIND TEST SITE
+---------------
+1.Removed people in line data
+
+--------------
+REGISTRATION
+--------------
+1.Registration mobile invalid number - Page created
+2. All 50 states placed in select state dropdown field
+
+------------
+FLOW.JS
+-----------
+1. Placed phone number validation scripts for registration mobile number in flow.js ( Line no from 75 - 93 )
+2. Placed OTP validation scripts for registration mobile number ( Line no from 128 - 140 )
+------
+CSS
+------
+1. Updated css files.
+
+***************************************************************************************************************************
+
+*****************
+   14/12/2020
+*****************
+1. Completed to create scan bar code with ZXING library (scan_new_test_1.html, scanner.html, scan_complete.html, scan_fail.html)
+2. Back button alignment issue fixed.
+
+***************************************************************************************************************************
+
+*****************
+   15/12/2020
+*****************
+1. my testing latest screen pages completed ( 5 screens )
+2. css files updated
+
+***************************************************************************************************************************
+
+*****************
+   16/12/2020
+*****************
+
+1. switch camera toggle button added to switch front and back camera
+2. css file updated 
+------------------------
+1. my testing -> header title added
+2. my schedule -> header title added
+3. find test site -> header title added
+3. find test site - 1 -> find test site name rearranged
+4. class details -> header title added
+5. class search -> header title added
+6. find_test_site_thx.html  -> reservation date added
+7. find_test_site_thx_1.html -> page created with reservation date
+8. find_test_site.html -> removed people in line
+9. registration_mobile_number.html -> content added
+9. registration_mobile_error.html -> page created and content added
+10. registration_mobile_number_invalid.html -> page modified and content added
+11. registration_mobile_2Stepverify.html -> content added
+
+
+
+
+***************************************************************************************************************************
+
+*****************
+   17/12/2020
+*****************
+1. Find test flow pages completed ( 5 pages )
+2. updated css files
+
+-----------------
+my reservation
+-----------------
+3. created my reservations html page.
+
+
+
+
+***************************************************************************************************************************
+
+*****************
+   28/12/2020
+*****************
+1. set header and footer for all pages both desktop and mobile pages.
+2. Fixed UI related bugs
+
+
+
+
+
+***************************************************************************************************************************
+
+*****************
+   30/12/2020
+*****************
+1. county field added in local address and quarantine address.
+2. test site select box added in scan new test page and value placed in scan complete page.
+3. working on demographics page
+4. updated css, js, plugins folder.
+
+*****************
+   30/12/2020
+*****************
+1. Demographics.html file added
+
+
+
+
+
+
+

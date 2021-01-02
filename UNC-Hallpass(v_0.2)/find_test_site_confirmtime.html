@@ -38,7 +38,8 @@
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-				<li><a href="#">LOGIN</a></li>
+				<li><a href="home" class="hidden-xs-down hidden-sm-down hidden-md-down">HOME</a></li>
+				<li><a href="index">LOGIN</a></li>
 				<li class="has-submenu">
 					<a href="#">MY TESTING</a>
 					<ul class="submenu megamenu">
@@ -62,9 +63,9 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="#">ACCESSIBILITY</a></li>
-				<li><a href="#">SUPPORT</a></li>
-				<li><a href="#">CONTACT</a></li>
+				<li><a href="accessibility">ACCESSIBILITY</a></li>
+				<li><a href="support">SUPPORT</a></li>
+				<li><a href="contact">CONTACT</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -97,7 +98,7 @@
 						<h2 aria-labelledby="Confirm Time" aria-label="Confirm Time" class="head-h2">Confirm Time</h2>
 					</div>
 					<div class="mt-3">
-						<p>You are reserving the time below for the selected testing site. After you reserve this time, you will be able to arrive at the site on the given time and skip any line that exists at the time.</p>
+						<p>You are reserving the hours listed below. After you reserve this time, you can arrive at the testing center anytime during that scheduled hour.</p>
 					</div>
 					<div class="mt-3 mb-3">
 						<button class="btn btn-lg btn-time-blue booktime"></button>
@@ -110,23 +111,19 @@
 				</div>
 
 				<div class="row mt-4 mb-2">
-					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
-						<div class="p-0">
-							<a href="find_test_site_slots">
-								<button aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1">
-								<i class="feather icon-chevron-left btn-arrow-left-1"></i>
-								BACK
-								</button>
-							</a>
-						</div>
-					</div>
-					<div id="reserveBtn" class="col-lg-2 col-md-2 col-xs-6 col-sm-6">
-						<div class="p-0">
-							<button aria-label="RESERVE TIME" aria-labelledby="RESERVE TIME" class="btn btn-block btn-log-1 reserve-time">
-							RESERVE TIME
-							<i class="feather icon-chevron-right"></i>
+					<div class="col-5 col-lg-2 col-md-2 col-xs-3 col-sm-3">
+						<a href="find_test_site_slots">
+							<button aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1">
+							<i class="feather icon-chevron-left btn-arrow-left-1"></i>
+							BACK
 							</button>
-						</div>
+						</a>
+					</div>
+					<div id="reserveBtn" class="col-7 col-lg-2 col-md-2 col-xs-9 col-sm-9">
+						<button aria-label="RESERVE TIME" aria-labelledby="RESERVE TIME" class="btn btn-block btn-log-1 reserve-time">
+						RESERVE TIME
+						<i class="feather icon-chevron-right"></i>
+						</button>
 					</div>
 				</div>
 			</div>           

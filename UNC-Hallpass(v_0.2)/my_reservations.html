@@ -39,7 +39,7 @@
         <div id="navigation">
             <ul class="navigation-menu">
 				<li><a href="home" class="hidden-xs-down hidden-sm-down hidden-md-down">HOME</a></li>
-				<li><a href="#">LOGIN</a></li>
+				<li><a href="index">LOGIN</a></li>
 				<li class="has-submenu">
 					<a href="#">MY TESTING</a>
 					<ul class="submenu megamenu">
@@ -63,9 +63,9 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="#">ACCESSIBILITY</a></li>
-				<li><a href="#">SUPPORT</a></li>
-				<li><a href="#">CONTACT</a></li>
+				<li><a href="accessibility">ACCESSIBILITY</a></li>
+				<li><a href="accessibility">SUPPORT</a></li>
+				<li><a href="accessibility">CONTACT</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -96,7 +96,7 @@
 					<h2 aria-labelledby="My Reservations" aria-label="My Reservations" class="head-h2">My Reservations</h2>
                 </div>
 				<div class="mt-3 mb-4"> 
-					<p>Thanks for reserving your time to receive a COVID-19 test. Arrive at the testing site at your appointment time promptly. <b>Use this code to skip the line at the test site.</b></p>
+					<p>Thanks for reserving your time to receive a COVID-19 test. Arrive at the testing site during your scheduled hour. This pass will be saved in My Reservations on the My Testing page. <b>Use this code to skip the line at the test site.</b></p>
 				</div>
 				<div class="border-hr"></div>
 				<div class="pt-4 mb-3">
@@ -106,14 +106,14 @@
 				<h6 class="get-test-title">Valid through:</h6>
 				<h3 class="mt-2 slot-time" aria-labelledby="" aria-label=""> </h3>
 				<h3 class="mt-3 locationName" aria-labelledby="" aria-label=""> </h3>
+				<br/>
+				<div class="login-btn mt-3 mb-3">
+					<button aria-label="CANCEL RESERVATION" aria-labelledby="CANCEL RESERVATION" class="btn btn-block btn-log text-left" onclick="cancel_reservation()">
+					CANCEL RESERVATION
+					<i class="feather icon-chevron-right btn-arrow"></i>
+						</button>
+				</div>
 			</div>	
-			<br/>
-			<div class="login-btn mt-3 mb-3">
-			    <button aria-label="CANCEL RESERVATION" aria-labelledby="CANCEL RESERVATION" class="btn btn-block btn-log text-left" onclick="cancel_reservation()">
-				CANCEL RESERVATION
-				<i class="feather icon-chevron-right btn-arrow"></i>
-		            </button>
-			</div>
             <div class="qrcode p-4 mb-5 successImg">
 				<!-- image will append here -->
 			</div><br/><br/>

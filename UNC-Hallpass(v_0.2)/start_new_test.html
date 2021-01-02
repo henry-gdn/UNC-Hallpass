@@ -45,9 +45,9 @@
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
-								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
-								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="test_how_to.html">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="find_test_site.html">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="scan_new_test_1.html">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 							</ul>
 						</li>
 					</ul>
@@ -57,8 +57,8 @@
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
-								<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>        
+								<li><a href="my_schedule.html">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="class_search.html">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>        
 							</ul>
 						</li>
 					</ul>
@@ -86,7 +86,7 @@
 			<div class="row pt-1">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="my_testing" aria-labelledby="My Testing" aria-label="My Testing">My Testing</a></li>
+						<li class="breadcrumb-item"><a href="my_testing_compliants.html" aria-labelledby="My Testing" aria-label="My Testing">My Testing</a></li>
 						<li class="breadcrumb-item" aria-labelledby="Class Details" aria-label="Class Details">Class Details</li>
 					</ol>
 				</div>
@@ -96,21 +96,36 @@
 					<h2 aria-labelledby="Scan New Test" aria-label="Scan New Test" class="head-h2">Scan New Test</h2>
                 </div>
 				<div class="mt-3 mb-3">
-					<h3 class="testing-title-1">Member : <span id="member_name"></span></h3>
-                    <h3 class="testing-title-1">PID : <span id="member_pid"></span></h3>
-					<h3 class="testing-title-1">Status: <span id="status"></span></h3>
+					<h3 class="testing-title-1">Member: </h3>
+					<h3 class="testing-title-1">PID: </h3>
+					<h3 class="testing-title-1">Status: </h3>
                 </div>
 				<div class="mt-4 mb-4">
 					<p>In order to scan new test, the app will use the camera on your mobile device. The barcode of your test must be scanned on site and in the presence of a medical professional.</p>
 				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+						<div class="select-wrapper">
+							<div class="form-group mb-0 pt-1 selectUi">
+								<label>TEST SITE</label>
+								<select id="test_site" class="form-control">
+									<option value="0">Select Test Site</option>
+									<option value="Frank Porter Graham Student Union">Frank Porter Graham Student Union</option>
+									<option value="Campus Health">Campus Health</option>
+								</select>
+							</div>
+						</div>
+						<span class="hideErr" id="testSiteErr"><i class="feather icon-alert-circle"></i>&nbsp;Please select test site.</span>
+					</div>
+				</div>
 				<div class="scan-btn scanBarCode mt-4 mb-4 p-0">
-					<a href="scan_new_test">
-						<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block">
+					<!-- <a href="scanner.html"> -->
+						<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block scanBarCodeBtn">
 							<img aria-labelledby="SCAN BARCODE" aria-label="SCAN BARCODE" alt="SCAN BARCODE" width="65" src="images/scanImg.png" />
 							<span>SCAN BARCODE</span>
 							<i class="feather icon-chevron-right"></i>
 						</button>
-					</a>
+					<!-- </a> -->
 				</div>
 				<div class="searchButton mannualBarCode p-0" style="margin-left:-10px;margin-right:-10px;display:none;">
 					<table class="table p-0">
@@ -129,18 +144,18 @@
 				</div>
 			
 				<hr class="border-hr">
-				 <div class="test-status-div pt-3 mb-0">
-                                        <div class="mb-0">
-                                                <h5 aria-labelledby="Last test scanned" aria-label="Member name" class="testing-title-head">Last test scanned : </h5>
-                                                <h6 aria-labelledby="Member name" aria-label="Member name" class="testing-content-date last-test-date">12/15/20 @ 11:25 AM</h6>
-                                                <h6 aria-labelledby="site location" aria-label="pid number" class="testing-content mt-3 test-site-name">Student Union Art Gallery</h6>
-                                                <h6 aria-labelledby="test status" aria-label="test status" class="testing-content mt-0"><b>Status</b> : <span class="testing-content test-status-display mt-0">Active</span></h6>
-                                        </div>
-                                        <div class="mt-4 mb-4">
-                                                <h5 aria-labelledby="Member name" aria-label="Member name" class="testing-title-head">Get next test before : </h5>
-                                                <h6 aria-labelledby="Member name" aria-label="Member name" class="testing-content-date next-test-date">12/25/20 @ 11:25 AM</h6>
-                                        </div>
-                                </div>
+				<div class="pt-3 mb-0">
+					<div class="mb-0">
+						<h5 aria-labelledby="Member name" aria-label="Member name" class="testing-title-head">Last test scanned :</h5>
+						<h6 aria-labelledby="Member name" aria-label="Member name" class="testing-content-date"></h6>
+						<h6 aria-labelledby="pid number" aria-label="pid number" class="testing-content mt-3"></h6>
+						<h6 aria-labelledby="test status" aria-label="test status" class="testing-content mt-0">Status :  </h6>
+					</div>
+					<div class="mt-4 mb-4">
+						<h5 aria-labelledby="Member name" aria-label="Member name" class="testing-title-head">Get next test before : </h5>
+						<h6 aria-labelledby="Member name" aria-label="Member name" class="testing-content-date"></h6>
+					</div>
+				</div>
 			</div>	
         </div>
     </section><br/><br/><br/>
@@ -202,6 +217,47 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/flow.js"></script>
+	<script src="js/flow.js"></script>
 </body>
+<script>
+$(document).ready(function() {
+	var scanCount = localStorage.getItem("scanCount");
+	console.log(scanCount);
+	if(scanCount == null){
+		//$(".mannualBarCode").show();
+		localStorage.setItem("scanCount","0");
+	}else{
+		if(scanCount != 2){
+			$(".scanBarCode").show();
+			$(".mannualBarCode").hide();
+		}
+		else{
+			var testSiteSelectValue = localStorage.getItem("testSiteValue");
+			$("#test_site").val(testSiteSelectValue);
+			$('#test_site').prop('disabled', true);
+			$(".scanBarCode").hide();
+			$(".mannualBarCode").show();
+		}
+	}
+	$("#barcodeBtn").click(function(){
+		var txtVal = $("#manualBarCodeValue").val();
+		
+		if(txtVal.trim() == ""){
+			alert("Enter value");
+		}else{
+			localStorage.setItem("scanValue",txtVal);
+			window.location.href = "scan_complete.html";
+		}		
+	});
+	$(".scanBarCodeBtn").click(function(){
+		var testSiteVal = $("#test_site").val();
+		if(testSiteVal == "0"){
+			$("#testSiteErr").show();
+		}else{
+			localStorage.setItem("testSiteValue",testSiteVal);
+			window.location.href = "scanner.html";
+		}		
+	});
+});
+</script>
 </html>
