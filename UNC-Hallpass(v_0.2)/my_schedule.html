@@ -45,9 +45,9 @@
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
-								<li><a href="test_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
-								<li><a href="scan_new_test_1">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 							</ul>
 						</li>
 					</ul>
@@ -104,13 +104,13 @@
 			<div class="schedule-header p-0 mt-4">
 				<div class="row">
 					<div class="col col-lg-12 col-md-12 col-sm-7 col-xs-7">
-						<h2>Member : <span id="member"></span></h2>
-						<h2>PID : <span id="pid"></span></h2>
-						<h2>Status : <span id="testStatus"></span></h2>
+						<h2>Member : <span id="member_name"></span></h2>
+						<h2>PID : <span id="member_pid"></span></h2>
+						<h2>Status : <span id="member_status"></span></h2>
 					</div>
 					<div class="col col-lg-12 col-md-12 col-sm-5 col-xs-5 pt-2">
 						<div class="class-search-btn">
-							<a href="class_search.html"><button aria-label="Class Search" class="btn">class search <i class="feather icon-chevron-right btn-arrow-content"></i></button></a>
+							<a href="class_search"><button aria-label="Class Search" class="btn">class search <i class="feather icon-chevron-right btn-arrow-content"></i></button></a>
 						</div>
 					</div>
 				</div>
@@ -209,99 +209,6 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/flow.js"></script>
 </body>
-<script>
-var schedlueOnHtml = "",appHtml="" ,totHtml = "";
-
-var member = "", pid="" , status = "";
-
-    $(document).ready(function() {    
-		$("body").css({visibility:'visible'});
-		//here needs to change the server URL			
-        $("body").tooltip({ selector: '.hallModal, .hallTooltip, .enterDoor, .exitDoor, .subject-code' , boundary: 'window' });
-		
-		$.post("http://192.168.43.117:8080/AOMS/getContentData", {
-					user_id: "roll_no/login_id",
-					sso_ticket: "SSO124232ACD"
-				},
-				function(data, status) {	
-						if( status == "success" ){	
-							$("#member").html(data.member);
-							$("#pid").html(data.pid);
-							$("#testStatus").html(data.status);	
-						}						  	
-		}); 	
-		//As per current day schedule will be loaded
-        var arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday" ];
-        var day = new Date().getDay();	
-        /*for (var i = 0 ;i <day; i++) {		           
-            arr.push(arr.shift());			
-        }*/	
-		var str = arr.slice(0, 7).join(",");
-        var aryDays = str.split(",");			
-		for (var j = 0; j < aryDays.length; j++) {  
-			 var curDay = aryDays[j];
-			 var classHide = (j == 0) ? "show" : "" ;
-			 var classCollapse = (j == 0) ? "" : "collapsed";
-			 var startHtml = "<div class='card border shadow mb-3 dayCollapse' cur-day='"+curDay+"'><a data-toggle='collapse' href='#"+curDay+"' class='faq position-relative "+classCollapse+" ' aria-expanded='false' aria-controls='"+curDay+"'><div class='card-header p-2'  ><h4 class='title mb-0 faq-question'> "+curDay+" </h4></div></a> <div id='"+curDay+"' class='collapse "+classHide+"' aria-labelledby='"+curDay+"' data-parent='#scheduleDetails'><div class='card-body mb-3' style='padding-top:0;'>";
-			 var endHtml = "</div></div></div>";
-			 if(j == 0){
-				 getDayActivity(curDay,startHtml,endHtml,0);		
-			 }else{
-				totHtml += startHtml+endHtml;				
-			 }	
-		}      
-		$(document).on('click', '.dayCollapse', function() {           
-            var curDay  = $(this).attr("cur-day");					
-           getDayActivity(curDay,"","",1);		
-        });
-		$(document).on('click','.class-search',function(){
-			var res = $(this).attr("data-serVal");
-			console.log(res);
-			localStorage.removeItem("RESDATA");
-			localStorage.setItem("RESDATA", res);
-			document.location.href = "class_details.html?param=schedule";
-		});
-        function getDayActivity(appDay,startHtml,endHtml,type) {				
-			var curDay = appDay;
-			console.log( curDay );
-			var d = curDay.substring(0,3).toLowerCase();
-                //$.get("/secure/getdata.php?d="+d, 
-				$.post("http://192.168.43.117:8080/AOMS/getMyScheduleData", {
-					user_id: "roll_no/login_id",
-					sso_ticket: "SSO124232ACD",
-					
-					current_day: curDay
-				},
-				function(data, status) {	
-						if( status == "success" ){																						
-							schedlueOnHtml = "",appHtml="";	
-							var hrBorder = "<hr class='border-hr-schedule'>";
-							if (data.length != 0 ) {
-									for (var i = 0; i < data.length; i++) {
-										schedlueOnHtml += "<div class='row ml-1 mr-1'><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start mt-3'><p aria-label='Subject code ' class='subject-code p-0' title=''>"+data[i].subject_code+"</p><p aria-label='Subject name : ' class='subject-name'><span class='hallTooltip' title=''>"+data[i].subject_name+"</span></p> <div class='class-search' data-serVal='"+JSON.stringify(data[i])+"'><button class='btn mt-3 mb-2'>CLASS DETAILS <i class='feather icon-chevron-right btn-arrow-content'></i></button></div><p aria-label='class time :' class='classtime-table mt-2'> <span>"+data[i].class_time+"</span></p><p aria-label='Instructor Name :' title='' class='instructor-schedule pt-3'> <span>"+data[i].instructer_name+"</span></p><p class='location'> <span aria-label='Location :' title=''>"+data[i].location+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start mt-3'><p class='entry-text'>ENTRY: <span class='entry-time' aria-label='entry time :'>"+data[i].entry_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door:'>"+data[i].entry_sug_door+"</span></p><p class='suggested-door-name-acc'>Accessible Door: <span aria-label='Accessible Door:'>"+data[i].entry_acc_door+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start mt-3'><p class='exit-text'>EXIT: <span class='exit-time' aria-label='Exit Time:'>"+data[i].exit_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door:'>"+data[i].exit_sug_door+"</span></p><p class='suggested-door-name-acc'>Accessible Door: <span aria-label='Accessible Door:'>"+data[i].exit_acc_door+"</span></p></div></div>";
-										if ( i != data.length-1 ) {
-											schedlueOnHtml += hrBorder;
-										}			
-									}														
-								appHtml += startHtml+schedlueOnHtml+endHtml;	
-							}else{
-								appHtml += "<div class='container'><div class='noData'>NO DATA AVAILABLE</div></div>";
-							}
-																											
-							display(appHtml,type,curDay);
-						}						  	
-				}); 			
-		}		
-    });	
-function display(appHtml,type,id){	
-	if( type == 0 )
-	{
-		$(".scheduleData").append( appHtml+totHtml );	
-	}else{		
-		$("#"+id+" .card-body").empty().append( appHtml);	
-	}
-	
-}	
-</script>
 </html>

@@ -97,20 +97,20 @@
 			</div>
 			<div class="row pt-3">
                 <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
-			 		<h6 class="schedule-title">Member : <span id="member_name"></span></h3>
+		    <h6 class="schedule-title">Member : <span id="member_name"></span></h3>
                     <h6 class="schedule-title">PID : <span id="member_pid"></span></h3>
-					<h6 class="schedule-title">Status: <span class="status"></span></h6>
+	    	    <h6 class="schedule-title">Status: <span id="member_status"></span></h6>
                 </div>
             </div>
 			<p class="myTestContent pt-4"><!-- my test content append here... --></p>
 			<div class="row pt-4">
                 <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
 					<h6 class="get-test-title">Get next test before : </h6>
-					<h6 class='test-date-time get_next_test_before_title'></h6>
+					<h6 id='next_test_before' class='test-date-time get_next_test_before_title'></h6>
                 </div>
             </div>
 			<div class="my-reservations-btn mt-3 mb-1 p-1">
-				<a href="find_test_site_thx">
+				<a href="my_reservations">
 					<button aria-labelledby="MY RESERVATIONS" aria-label="MY RESERVATIONS" class="btn btn-block">
 						<span>MY RESERVATIONS</span>
 						<i class="feather icon-chevron-right"></i>
@@ -150,7 +150,7 @@
 		
 		<!-- HALL PASS - COMPLIANT -->
 		<div class="myTestFooter">
-			<div id="hallpass-hcolor" class="headTab-yellow hallpassTable hidden-lg-up hidden-md-up">
+<!--			<div id="hallpass-hcolor" class="headTab-green hallpassTable hidden-lg-up hidden-md-up">
 				<table class="table table-sm">
 					<tr>
 						<td>
@@ -158,8 +158,8 @@
 						</td>
 					</tr>  
 				</table>
-			</div>
-			<div id="hallpass-bcolor" class="testContentYellow">
+</div>//-->
+			<div id="hallpass-bcolor" class="testContentGreen">
 				<table class="table table-sm">
 					<tr>
 						<td class="hidden-xs-down hidden-sm-down">HALL PASS</td>
