@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - My Testing > Find Test Site > Student Union > Reserve Time > Fast Pass </title>
+    <title>UNC Hall Pass - My Testing > Find Test Site > Reserve Time </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
@@ -88,7 +88,6 @@
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="my_testing" aria-labelledby="My Testing" aria-label="My Testing">My Testing</a></li>
 						<li class="breadcrumb-item"><a href="find_test_site" aria-labelledby="Find Test Site" aria-label="Find Test Site">Find Test Site</a></li>
-						<li class="breadcrumb-item"><a href="find_test_site_slots" aria-labelledby="Student Union" aria-label="Student Union">Student Union</a></li>
 						<li class="breadcrumb-item"><a href="find_test_site_confirmtime" aria-labelledby="Reserve Time" aria-label="Reserve Time">Reserve Time</a></li>
 						<li class="breadcrumb-item" aria-labelledby="Thank You" aria-label="Thank You">Thank You</li>
 					</ol>
@@ -99,7 +98,7 @@
 					<h2 aria-labelledby="Thank You" aria-label="Thank You" class="head-h2">Thank You</h2>
                 </div>
 				<div class="mt-3 mb-4"> 
-					<p>Thanks for reserving your time to receive a COVID-19 test. Arrive at the testing site at your appointment time promptly. <b>We’ve emailed you the code below to skip the line.</b> This pass will be saved in <a href="find_test_site_thx_1" style="text-decoration:underline !important;color:#13294B !important;">My Reservations</a> on the My Testing page</p>
+					<p>Thanks for reserving your time to receive a COVID-19 test. Arrive at the testing site at your appointment time promptly. <b>We’ve emailed you the code below to skip the line.</b> This pass will be saved in <a href="my_reservations" style="text-decoration:underline !important;color:#13294B !important;">My Reservations</a> on the My Testing page</p>
 				</div>
 				<div class="border-hr"></div>
 				<div class="pt-4 mb-4">
@@ -170,16 +169,6 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/flow.js"></script>
 </body>
-<script>
-$(document).ready(function() {
-	var availSlot = localStorage.getItem("avail-slot").split('#');
-	var locationName = localStorage.getItem('location-name');
-    var  confirmSlot = localStorage.getItem("confirm-slot").split('#');
-	
-	$('.slot-time').text(confirmSlot[1]);
-	$('.locationName').text(confirmSlot[0]);  
-	$('.bookdate').text(availSlot[1]);
-});	 
-</script>
 </html>

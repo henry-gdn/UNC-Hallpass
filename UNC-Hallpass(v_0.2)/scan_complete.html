@@ -168,28 +168,4 @@
     <script src="js/app.js"></script>
     <script src="js/flow.js"></script>
 </body>
-<script>
-var  barCodeValue = localStorage.getItem("scanValue");
-
-var testSiteSelectValue = localStorage.getItem("testSiteValue");
-
-console.log(barCodeValue);
-
-console.log(scanValue);
-
-localStorage.setItem("scanCount","0");
-
-console.log(localStorage.getItem("scanCount"));
-	
-$(document).ready(function() {
-	$.post("http://192.168.43.117:8080/AOMS/getMyScheduleData", {
-		user_id: "roll_no/login_id",
-		bar_code_value : barCodeValue,
-		select_test_site_value : testSiteSelectValue
-	},
-	function(data, status) {	
-		console.log(barCodeValue);										  	
-	}); 
-});
-</script>
 </html>

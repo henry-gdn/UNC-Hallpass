@@ -45,9 +45,9 @@
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
-								<li><a href="test_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
-								<li><a href="scan_new_test_1">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 							</ul>
 						</li>
 					</ul>
@@ -88,8 +88,7 @@
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="my_testing_compliants" aria-labelledby="My Testing" aria-label="My Testing">My Testing</a></li>
 						<li class="breadcrumb-item"><a href="find_test_site" aria-labelledby="Find Test Site" aria-label="Find Test Site">Find Test Site</a></li>
-						<li class="breadcrumb-item"><a href="find_test_site_1" aria-labelledby="" aria-label=""><span class="location-name"></span></a></li>
-						<li class="breadcrumb-item" aria-labelledby="Reserve Time" aria-label="Reserve Time">Reserve Time</li>
+						<li class="breadcrumb-item" aria-labelledby="Slot Full" aria-label="Slot Full">Slot Full</li>
 					</ol>
 				</div>
 			</div>
@@ -110,7 +109,7 @@
 				<div class="row mt-4 mb-2">
 					<div class="col-5">
 						<div class="p-0">
-							<a href="find_test_site_1">
+							<a href="find_test_site_slots">
 								<button aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1">
 								<i class="feather icon-chevron-left btn-arrow-left-1"></i>
 								BACK
@@ -180,15 +179,6 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/flow.js"></script>
 </body>
-<script>
-$(document).ready(function() {
-	var availSlot = localStorage.getItem("avail-slot").split('#');
-	var locationName = localStorage.getItem('location-name');
-    var  confirmSlot = localStorage.getItem("confirm-slot").split('#');
-	
-	$('.booktime').text(availSlot[0]);
-	$('.locationName').text(locationName);  
-});	 
-</script>
 </html>

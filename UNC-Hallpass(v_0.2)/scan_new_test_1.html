@@ -119,13 +119,11 @@
 					</div>
 				</div>
 				<div class="scan-btn scanBarCode mt-4 mb-4 p-0">
-					<!-- <a href="scanner.html"> -->
-						<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block scanBarCodeBtn">
-							<img aria-labelledby="SCAN BARCODE" aria-label="SCAN BARCODE" alt="SCAN BARCODE" width="65" src="images/scanImg.png" />
-							<span>SCAN BARCODE</span>
-							<i class="feather icon-chevron-right"></i>
-						</button>
-					<!-- </a> -->
+					<button aria-labelledby="SCAN NEW TEST" aria-label="SCAN NEW TEST" class="btn btn-block scanBarCodeBtn">
+						<img aria-labelledby="SCAN BARCODE" aria-label="SCAN BARCODE" alt="SCAN BARCODE" width="65" src="images/scanImg.png" />
+						<span>SCAN BARCODE</span>
+						<i class="feather icon-chevron-right"></i>
+					</button>
 				</div>
 				<div class="searchButton mannualBarCode p-0" style="margin-left:-10px;margin-right:-10px;display:none;">
 					<table class="table p-0">
@@ -141,8 +139,7 @@
 							</td>
 						</tr>
 					</table> 
-				</div>
-			
+				</div>			
 				<hr class="border-hr">
 				<div class="pt-3 mb-0">
 					<div class="mb-0">
@@ -224,7 +221,6 @@ $(document).ready(function() {
 	var scanCount = localStorage.getItem("scanCount");
 	console.log(scanCount);
 	if(scanCount == null){
-		//$(".mannualBarCode").show();
 		localStorage.setItem("scanCount","0");
 	}else{
 		if(scanCount != 2){
@@ -248,8 +244,7 @@ $(document).ready(function() {
 			localStorage.setItem("scanValue",txtVal);
 			window.location.href = "scan_complete.html";
 		}		
-	});
-	
+	});	
 	$(".scanBarCodeBtn").click(function(){
 		var testSiteVal = $("#test_site").val();
 		if(testSiteVal == "0"){
@@ -258,9 +253,7 @@ $(document).ready(function() {
 			localStorage.setItem("testSiteValue",testSiteVal);
 			window.location.href = "scanner.html";
 		}		
-	});
-	
-	
+	});	
 });
 </script>
 </html>

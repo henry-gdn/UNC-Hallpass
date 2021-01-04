@@ -111,32 +111,6 @@
 			TRY <br/> AGAIN
 		</h2>
 	</div>
-		
-		
-	<!-- <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-body head-wrapper">
-					<div class="searchButton p-0" style="margin-left:-10px;margin-right:-10px;">
-						<table class="table p-0">
-							<tr>
-								<td>
-									<label class="mb-0">PLEASE ENTER BARCODE MANUALLY</label>
-									<input tabindex="0" type="text" data-role="none" data-enhance="false" aria-label='' aria-labelledby="" class="form-control search-box" placeholder="" />
-								</td>
-								<td>
-									<button aria-labelledby="search button" aria-label='search button' id="barcodeBtn" tabindex="0" class="btn btn-outline-search" type="button" style="position:relative;top:15px;">
-										<i class="feather icon-chevron-right"></i>
-									</button>
-								</td>
-							</tr>
-						</table> 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-	
 
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
@@ -228,8 +202,7 @@ $(document).ready(function(){
 			}, 15000);
 		})
 		.catch((err) => {
-			console.error(err)
-			//alert(err);
+			console.error(err);
 		})
 		
 	$(".cameraSwitch").click(function(){
@@ -240,7 +213,6 @@ $(document).ready(function(){
 			openCamera(backCamera);
 			camera = "back";
 		}
-		//window.location.href = "scan_complete.html";
 	});
 	$("#barcodeBtn").click(function(){
 		window.location.href = "scan_complete.html";
@@ -255,7 +227,6 @@ function openCamera(selectedDeviceId){
 		setTimeout(function() { 
 			window.location.href = "scan_complete.html";
 		}, 1000);
-		//document.getElementById('result').textContent = result.text
 	}).catch((err) => {
 		console.error(err)
 		
@@ -264,7 +235,6 @@ function openCamera(selectedDeviceId){
 			backdrop: 'static',
 			keyboard: false
 		});
-		//document.getElementById('result').textContent = err
 	})
 }
 </script>
