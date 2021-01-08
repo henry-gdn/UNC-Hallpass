@@ -18,9 +18,9 @@
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
-            <a class="logo" href="https://when-dev.unc.edu/" target="blank">
+            <a class="logo" href="https://when.unc.edu/">
                 <div class="align-self-center custom-logo-link">
-                    <img src="images/header_logo.png" class="logoImg" />
+                    <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
                 </div>
             </a>
         </div>
@@ -33,18 +33,17 @@
                         <span></span>
                     </div>
                 </a>
-                <!-- End mobile menu toggle-->
             </div>
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-				<li><a href="home" class="hidden-xs-down hidden-sm-down hidden-md-down">HOME</a></li>
-				<li><a href="index">LOGIN</a></li>
+				<li><a href="home">HOME</a></li>
 				<li class="has-submenu">
 					<a href="#">MY TESTING</a>
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
+								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -63,9 +62,11 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="https://ars.unc.edu/" target="_blank">ACCESSIBILITY</a></li>
+				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
 				<li><a href="contact">CONTACT</a></li>
+				<li><a href="/Shibboleth.sso/Logout">LOGOUT</a></li>
+				<li><a href="index">LOGIN</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -88,25 +89,25 @@
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="home" aria-labelledby="Home" aria-label="Home">Home</a></li>
-						<li class="breadcrumb-item" aria-labelledby="My Testing" aria-label="My Testing">My Testing</li>
+						<li class="breadcrumb-item">My Testing</li>
 					</ol>
 				</div>
 			</div>
 			<div class="pt-3 pb-1">
-				<h2 aria-labelledby="My Testing" aria-label="My Testing" class="head-h2">My Testing</h2>
+				<h1 class="head-h2">My Testing</h1>
 			</div>
 			<div class="row pt-3">
                 <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
-		    <h6 class="schedule-title">Member : <span id="member_name"></span></h3>
-                    <h6 class="schedule-title">PID : <span id="member_pid"></span></h3>
-	    	    <h6 class="schedule-title">Status: <span id="member_status"></span></h6>
+					<h2 class="schedule-title">Member : <span id="member_name"></span></h2>
+					<h2 class="schedule-title">PID : <span id="member_pid"></span></h2>
+					<h2 class="schedule-title">Status: <span id="member_status"></span></h2>
                 </div>
             </div>
 			<p class="myTestContent pt-4"><!-- my test content append here... --></p>
 			<div class="row pt-4">
                 <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0">
-					<h6 class="get-test-title">Get next test before : </h6>
-					<h6 id='next_test_before' class='test-date-time get_next_test_before_title'></h6>
+					<h3 class="get-test-title">Get next test before : </h3>
+					<h3 id='next_test_before' class='test-date-time get_next_test_before_title'></h3>
                 </div>
             </div>
 			<div class="my-reservations-btn mt-3 mb-1 p-1">
@@ -119,8 +120,8 @@
 			</div>
 			<div class="myTest-btn mt-3 mb-1 p-1">
 				<a href="testing_how_to">
-					<button aria-labelledby="TESTING HOW TO" aria-label="TESTING HOW TO" class="btn btn-block">
-						<img aria-labelledby="TESTING HOW TO" aria-label="TESTING HOW TO" alt="TESTING HOW TO" width="40" src="images/test.png" />
+					<button type="button" aria-labelledby="TESTING HOW TO" aria-label="TESTING HOW TO" class="btn btn-block">
+						<img alt="TESTING HOW TO" width="40" src="images/test.png" />
 						<span>TESTING HOW TO</span>
 						<i class="feather icon-chevron-right"></i>
 					</button>
@@ -129,8 +130,8 @@
 			
 			<div class="myTest-btn mt-1 mb-1 p-1">
 				<a href="find_test_site">
-					<button aria-labelledby="FIND A TEST SITE" aria-label="FIND A TEST SITE" class="btn btn-block">
-						<img aria-labelledby="FIND A TEST SITE" aria-label="FIND A TEST SITE" alt="FIND A TEST SITE" width="40" src="images/location.png" />
+					<button type="button" aria-labelledby="FIND A TEST SITE" aria-label="FIND A TEST SITE" class="btn btn-block">
+						<img alt="FIND A TEST SITE" width="40" src="images/location.png" />
 						<span>FIND A TEST SITE</span>
 						<i class="feather icon-chevron-right"></i>
 					</button>
@@ -139,8 +140,8 @@
 			
 			<div class="myTest-btn mt-1 mb-1 p-1">
 				<a href="start_new_test">
-					<button aria-labelledby="SSTART NEW TEST" aria-label="START NEW TEST" class="START NEW TEST">
-						<img aria-labelledby="scan button" aria-label="scan button" alt="scan button" width="42" src="images/NewTest_1.png" />
+					<button type="button" aria-labelledby="SSTART NEW TEST" aria-label="START NEW TEST" class="START NEW TEST">
+						<img alt="scan button" width="42" src="images/NewTest_1.png" />
 						<span>START NEW TEST</span>
 						<i class="feather icon-chevron-right"></i>
 					</button>
@@ -153,7 +154,7 @@
 		
 		<!-- HALL PASS - COMPLIANT -->
 		<div class="myTestFooter">
-<!--			<div id="hallpass-hcolor" class="headTab-green hallpassTable hidden-lg-up hidden-md-up">
+			<!--	<div id="hallpass-hcolor" class="headTab-green hallpassTable hidden-lg-up hidden-md-up">
 				<table class="table table-sm">
 					<tr>
 						<td>
@@ -161,7 +162,7 @@
 						</td>
 					</tr>  
 				</table>
-</div>//-->
+			</div>		//-->
 			<div id="hallpass-bcolor" class="testContentGreen">
 				<table class="table table-sm">
 					<tr>
@@ -186,15 +187,15 @@
         <table class="table">
             <tr>
                 <td>
-					<a href="home"><img aria-label="home" aria-labelledby="home" src="images/home_black.png" width="45" alt="home" /></a>
+					<a href="home"><img src="images/home_black.png" width="45" alt="home" /></a>
 					<div>HOME</div>
 				</td>
                 <td>
-					<a href="my_testing"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_blue.png" width="45" alt="My Testing" /></a>
+					<a href="my_testing"><img src="images/test_blue.png" width="45" alt="My Testing" /></a>
 					<div>MY TESTING</div>
 				</td>
                 <td>
-					<a href="my_schedule"><img aria-label="Class Schedule" aria-labelledby="Class Schedule" src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
+					<a href="my_schedule"><img src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
 					<div>CLASS SCHEDULE</div>
 				</td>
             </tr>
@@ -206,6 +207,7 @@
 				<td>
 					<p><a href="home">Home</a></p>
 					<p><a href="index">Login</a></p>
+					<p><a href="/Shibboleth.sso/Logout">Logout</a></p>
 				</td>
 				<td>
 					<p><a href="my_testing">My Testing</a></p>
@@ -217,7 +219,7 @@
 					<p><a href="class_search">Class Search</a></p>
 				</td>
 				<td>
-					<p><a href="https://ars.unc.edu/" target="_blank">Accessibility</a></p>
+					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
 					<p><a href="support">Support</a></p>
 					<p><a href="contact">Contact</a></p>
 				</td>
@@ -225,9 +227,9 @@
 		</table>
         <table class="footer-table-1 table">
             <tr>
-                <td><a href="https://www.unc.edu/" target="_blank" ><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://when-dev.unc.edu/" target="_blank" ><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/" target="_blank"><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a href="https://www.unc.edu/"  ><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a href="https://when-dev.unc.edu/"  ><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a href="https://reeseinnovate.com/" ><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>

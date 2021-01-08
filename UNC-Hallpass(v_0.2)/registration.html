@@ -18,9 +18,9 @@
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
-            <a class="logo" href="https://when-dev.unc.edu/" target="blank">
+            <a class="logo" href="https://when.unc.edu/">
                 <div class="align-self-center custom-logo-link">
-                    <img src="images/header_logo.png" class="logoImg" />
+                    <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
                 </div>
             </a>
         </div>
@@ -38,13 +38,13 @@
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-				<li><a href="home" class="hidden-xs-down hidden-sm-down hidden-md-down">HOME</a></li>
-				<li><a href="index">LOGIN</a></li>
+				<li><a href="home">HOME</a></li>
 				<li class="has-submenu">
 					<a href="#">MY TESTING</a>
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
+								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -63,9 +63,11 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="https://ars.unc.edu/" target="_blank">ACCESSIBILITY</a></li>
+				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
 				<li><a href="contact">CONTACT</a></li>
+				<li><a href="/Shibboleth.sso/Logout">LOGOUT</a></li>
+				<li><a href="index">LOGIN</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -92,25 +94,26 @@
 			</div>
             <div class="pt-2 head-wrapper">
 				<div class="mt-2">
-					<h2 aria-labelledby="Registration" aria-label="Registration" class="head-h2">Registration</h2>
+					<h1 class="head-h2">Registration</h1>
                 </div>
 				<div class="mt-3 mb-3">
-					<h3 class="testing-title-1">Member : <span id="member_name"></span></h3>
-					<h3 class="testing-title-1">PID : <span id="member_pid"></span></h3>
+					<h2 class="testing-title-1">Member : <span id="member_name"></span></h2>
+					<h2 class="testing-title-1">PID : <span id="member_pid"></span></h2>
                 </div>
 				<div class="mb-1 mt-2">
-					<p style="text-decoration:underline;"><b>Request for Release of COVID Test Results and Related Information : </b> </p>
+					<p><b>Request for Release of COVID Test Results and Related Information : </b> </p>
                 </div>
 				<div class="mb-1 mt-2">
-					<p>The purpose of this document is to authorize The University of North Carolina at Chapel Hill <span style="text-decoration:underline;">(“UNC”)</span> to disclose the specified information noted herein (including, if applicable, Protected Health Information, and all together <span style="text-decoration:underline;">“Information”</span>) to the entities designated below, and I signify my agreement to this authorization (<span style="text-decoration:underline;">“Authorization”</span>) by clicking in the box below.</p>
+					<p>The purpose of this document is to authorize The University of North Carolina at Chapel Hill (“UNC”) to disclose the
+					specified information noted herein (including, if applicable, Protected Health Information, and all together “Information”) to the entities designated below, and I signify my agreement to this authorization (“Authorization”) by clicking in the box below.</p>
                 </div>
 
 				<div class="mb-1 mt-2">
-					<p><b>I hereby authorize UNC and any of its agents, employees or representatives, to use and/or release personal information about me, including COVID-19 laboratory test results, contact information, demographic information, my class schedule, my close contacts (identified via contact tracing protocol), and application usage data.  Such information may be used or disclosed for the purpose of treatment, payment, public health, operational, environmental health, reporting purposes, workplace medical surveillance, as required by applicable law, or any other purposes related to pandemic management for students, employees, or for UNC activities or programs.</b></p>
+					<p><b>I hereby authorize UNC and any of its agents, employees or representatives, to use and/or release personal information about me, including COVID-19 laboratory test results, contact information, demographic information, my class schedule, my close contacts (identified via contact tracing protocol), and application usage data. Such information may be used or disclosed for the purpose of treatment, payment, public health, operational, environmental health, reporting purposes, workplace medical surveillance, as required by applicable law, or any other purposes related to pandemic management for students, employees, or for UNC activities or programs.</b></p>
                 </div>
 
 				<div class="mb-3 mt-2">
-					<p>Such information may be used by or released to the entities noted herein for the above purposes, including but not limited to, departments of public health, government agencies, health care providers, insurance companies, and various units of UNC (such as, for example, Campus Health Services, the Carolina Student Service Core, Employee Occupational Health Services, Institutional Integrity and Risk Management, Campus Housing, IT services, and others).  UNC may release such information in any format requested.  </p>
+					<p>Such information may be used by or released to the entities noted herein for the above purposes, including but not limited to, departments of public health, government agencies, health care providers, insurance companies, and various units of UNC (such as, for example, Campus Health Services, the Carolina Student Service Core, Employee Occupational Health Services, Institutional Integrity and Risk Management, Campus Housing, IT services, and others). UNC may release such information in any format requested.</p>
                 </div>
 				
 				<div class="mb-3 mt-2">
@@ -118,23 +121,26 @@
                 </div>
 				
 				<div class="mb-3 mt-2">
-					<p><b>1</b>. With respect to HIPAA PHI, I understand that I can revoke this Authorization at any time. I understand that revocation of this Authorization will apply and be effective only for future uses and disclosures of my HIPAA PHI related to COVID-19 laboratory test results, and any such revocation <span style="text-decoration:underline;">will not</span> be effective for PHI that UNC has already used or disclosed in accordance with this Authorization. I understand that this Authorization shall be effective for 180 days from the signature date, unless revoked in writing by sending UNC a written notification to <a href="https://campushealth.unc.edu/" target="_blank"style="text-decoration:underline !important;color:#13294B !important;">campushealth@unc.edu<a> with the Subject Line “Revocation of HIPAA Authorization.” </p>
+					<p><b>1</b>. With respect to HIPAA PHI, I understand that I can revoke this Authorization at any time. I understand that revocation of this Authorization will apply and be effective only for future uses and disclosures of my HIPAA PHI related to COVID-19 laboratory test results, and any such revocation will not be effective for PHI that UNC has already used or disclosed in accordance with this Authorization. I understand that this Authorization shall be effective for 180 days from the signature date, unless revoked in writing by sending UNC a written notification to <a href="https://campushealth.unc.edu/" style="text-decoration:underline !important;color:#13294B !important;">campushealth@unc.edu<a> with the Subject Line “Revocation of HIPAA Authorization.” </p>
                 </div>
 								
 				<div class="mb-3 mt-2">
-					<p><b>2</b>. I understand that information disclosed pursuant to this Authorization may be subject to re-disclosure by the recipient of such information.  It is possible that, once disclosed, the privacy of the information may no longer be protected under federal or state medical privacy laws.</p>
+					<p><b>2</b>. 2. I understand that information disclosed pursuant to this Authorization may be subject to re-disclosure by the recipient of such information. It is possible that, once disclosed, the privacy of the information may no longer be protected under federal or state medical privacy laws.</p>
                 </div>
 				
 				<div class="mb-3 mt-2">
-					<p><b>3</b>. In addition, I consent to use of any reasonable form of communication regarding such information, including phone calls, emails, and text messages to the phone number and email I enter in this website, or any phone number or email UNC has associated with me.  I further agree that this Authorization may be executed in electronic format and checking “Agree and Continue” below serves as my electronic signature.  I further agree that UNC may log my agreement electronically.  I understand I may print or screenshot this Authorization if my device so allows, and a copy is available here: hallpass.unc.edu where I may save or print a copy.  </p>
+					<p><b>3</b>. In addition, I consent to use of any reasonable form of communication regarding such information, including phone
+					calls, emails, and text messages to the phone number and email I enter in this website, or any phone number or email UNC has associated with me. I further agree that this Authorization may be executed in electronic format and checking “Agree and Continue” below serves as my electronic signature. I further agree that UNC may log my agreement electronically. I understand I may print or screenshot this Authorization if my device so allows, and a copy is available here: hallpass.unc.edu where I may save or print a copy.</p>
                 </div>
 				
 				<div class="mb-3 mt-2">
-					<p><b>4</b>. I understand that UNC will not condition medical treatment, any payment, enrollment in a health plan, or eligibility for benefits, on receiving my signature on this Authorization. <b>Authorization here under is required for participation in the Carolina Together Testing Program</b>.</p>
+					<p><b>4</b>. I understand that UNC will not condition medical treatment, any payment, enrollment in a health plan, or eligibility
+					for benefits, on receiving my signature on this Authorization. Authorization hereunder is required for participation in the Carolina Together Testing Program.</b></p>
                 </div>
 				
 				<div class="mb-3 mt-2">
-					<p><b>5</b>. I understand that this Authorization may be executed through the use of an electronic signature in accordance with the Electronic Signatures in Global and National Commerce Act (E-Sign Act), Title 15, United States Code, Sections 7001 et seq., the Uniform Electronic Transaction Act (UETA), and any applicable state law, and that any electronic signature shall be deemed an original signature for purposes of this Authorization, with such electronic signature having the same legal effect as an original signature.</p>
+					<p><b>5</b>. I understand that this Authorization may be executed through the use of an electronic signature in accordance with
+					the Electronic Signatures in Global and National Commerce Act (E-Sign Act), Title 15, United States Code, Sections 7001 et seq., the Uniform Electronic Transaction Act (UETA), and any applicable state law, and that any electronic signature shall be deemed an original signature for purposes of this 	Authorization, with such electronic signature having the same legal effect as an original signature.</p>
                 </div>
 
 				<div class="mt-0 pb-3 agreeCheck">
@@ -145,7 +151,7 @@
                 </div>
 
 				<div class="login-btn p-0 mt-4">
-					<button aria-label="AGREE AND CONTINUE" aria-labelledby="AGREE AND CONTINUE" class="btn btn-block btn-log" onclick="reg_step_1()">
+					<button type="button" aria-label="AGREE AND CONTINUE" aria-labelledby="AGREE AND CONTINUE" class="btn btn-block btn-log" onclick="reg_step_1()">
 					AGREE AND CONTINUE
 					<i class="feather icon-chevron-right"></i>
 					</button>
@@ -159,15 +165,15 @@
         <table class="table">
             <tr>
                 <td>
-					<a href="home"><img aria-label="home" aria-labelledby="home" src="images/home_black.png" width="45" alt="home" /></a>
+					<a href="home"><img src="images/home_black.png" width="45" alt="home" /></a>
 					<div>HOME</div>
 				</td>
                 <td>
-					<a href="my_testing"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_black.png" width="45" alt="My Testing" /></a>
+					<a href="my_testing"><img src="images/test_black.png" width="45" alt="My Testing" /></a>
 					<div>MY TESTING</div>
 				</td>
                 <td>
-					<a href="my_schedule"><img aria-label="Class Schedule" aria-labelledby="Class Schedule" src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
+					<a href="my_schedule"><img src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
 					<div>CLASS SCHEDULE</div>
 				</td>
             </tr>
@@ -179,6 +185,7 @@
 				<td>
 					<p><a href="home">Home</a></p>
 					<p><a href="index">Login</a></p>
+					<p><a href="/Shibboleth.sso/Logout">Logout</a></p>
 				</td>
 				<td>
 					<p><a href="my_testing">My Testing</a></p>
@@ -190,7 +197,7 @@
 					<p><a href="class_search">Class Search</a></p>
 				</td>
 				<td>
-					<p><a href="https://ars.unc.edu/" target="_blank">Accessibility</a></p>
+					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
 					<p><a href="support">Support</a></p>
 					<p><a href="contact">Contact</a></p>
 				</td>
@@ -198,9 +205,9 @@
 		</table>
         <table class="footer-table-1 table">
             <tr>
-                <td><a href="https://www.unc.edu/" target="_blank" ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://when-dev.unc.edu/" target="_blank" ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/" target="_blank"><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a href="https://www.unc.edu/"><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a href="https://when-dev.unc.edu/" ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a href="https://reeseinnovate.com/"><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>

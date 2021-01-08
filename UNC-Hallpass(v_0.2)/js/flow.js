@@ -149,7 +149,7 @@ function checkOTP() {
 		        $("#otpErrMsg_1").addClass("hideOtpErr");
                         console.log('otp validated successfully');
                         //window.location.href = "registration_local_address";
-						window.location.href = "demographics";
+						window.location.href = "enter_name";
                     }
                     else {
                         //alert('invalid otp entered, please retry!');
@@ -181,6 +181,40 @@ function sendnewotp(){
 	return false;
 }
 
+function load_member_name(){
+
+    $.ajax({
+	    url: '/secure/api/get_member_name',
+	    type: 'GET',
+	    success: function(data){
+		    console.log('data found:'+data);
+		    $('#first_name').val(data[0].first_name);
+		    $('#middle_name').val(data[0].middle_name);
+ 			$('#last_name').val(data[0].last_name);
+			$('#date_of_birth').val(data[0].dob);
+	    }
+    });
+}
+
+function save_member_name(){
+	$f = $('#first_name').val();
+    $m = $('#middle_name').val();
+    $l = $('#last_name').val();
+ 	$d = $('#date_of_birth').val();
+	if ($f.trim() == '' || $l.trim() == '' || $d.trim() == ''){
+		alert('Please enter the details.');
+		return false;
+ 	}
+    $.ajax({
+	    url: '/secure/api/update_member_name',
+	    type: 'POST',
+	    contentType: 'application/json',
+	    data: JSON.stringify({firstname: $f, middlename: $m, lastname: $l, dob: $d}),
+	    success: function(data) {
+                window.location.href = "demographics";
+        }
+    });
+}
 
 function load_demographics(){
     $.ajax({
@@ -199,6 +233,10 @@ function save_demographics(){
 	$g = $('#gender').val();
     $r = $('#race').val();
     $e = $('#ethnicity').val();
+	if ($g == null || $r == null || $e == null){
+		alert('Please enter the details.');
+		return false;
+	}
     $.ajax({
 	    url: '/secure/api/update_member_demographics',
 	    type: 'POST',
@@ -220,7 +258,7 @@ function load_local_addr(){
             $('#street_1').val(data[0].street1);
             $('#street_2_opt').val(data[0].street2_opt);
             $('#city').val(data[0].city);
-			//$('#county').val(data[0].county); // TODO
+			$('#county').val(data[0].county);
             $('#state').val(data[0].state);
             $('#zipcode').val(data[0].zipcode);
         }
@@ -231,9 +269,13 @@ function save_local_addr(){
     $las1 = $('#street_1').val();
     $las2 = $('#street_2_opt').val();
     $lac = $('#city').val();
-	//$lat = $('#county').val(); // TODO
+	$lat = $('#county').val(); 
     $las = $('#state').val();
     $laz = $('#zipcode').val();
+	if ($las1 == '' || $lac == '' || $lat == '' || $laz == ''){
+		alert('Please enter the details.');
+		return false;
+	}
     $.ajax({
 	    url: '/secure/api/update_member_local_addr',
 	    type: 'POST',
@@ -347,14 +389,18 @@ function load_registration_thx(){
         success: function(data){
             console.log('data found:'+data);
             $('#member_status').html(data[0].status);
+			console.log(data[0].nowplus84h);
+			/*
 			nowplus84h = new Date().addHours(84);
+			console.log(nowplus84h);
  			dt84 = nowplus84h.toISOString().substring(0,16).replace('T',' ');
-			$('#next_test_before').html(dt84);
+			*/
+			$('#next_test_before').html(data[0].nowplus84h);
 			if (data[0].name != ' '){
 				$('#member_name').html(data[0].name);
  			}
 			if (data[0].status == 'COMPLIANT')
- 			    $(".validUntil").text('Valid through: ' + dt84);
+ 			    $(".validUntil").text('Valid through: ' + data[0].nowplus84h);
         }
     });
 }
@@ -441,6 +487,14 @@ function formatDate() {
     return [year, month, day].join('-');
 }
 
+function formatDateDisplay(d) {
+  var yy = d.substring(2,4); 
+  var mm = d.substring(5,7);
+  var dd = d.substring(8,10);
+  var dtstr = mm+'/'+dd+'/'+yy; // + ' ' + t;
+  return dtstr;
+}
+
 function get_slots() {
     var appHtml ="", totHtml ="", locationName = "";
     var siteArray = localStorage.getItem("site-location").split("#");
@@ -517,8 +571,9 @@ function load_confirm_time(){
         var siteId = localStorage.getItem('location-id');
         var selectedDate = localStorage.getItem('avail-date');
         var locationName = localStorage.getItem('location-name');
+
 	$(".btn-time-blue").append(availSlot);
-	$(".bookdate").append(selectedDate);
+ 	$(".bookdate").append(formatDateDisplay(selectedDate));
 	$(".locationname").append(locationName);
 	/*
         var resHtml = '';
@@ -595,15 +650,21 @@ function cancel_reservation() {
 }
 
 function load_my_testing(){
-
+    localStorage.setItem("scanCount",0);
 	load_registration_thx();
 	$.get("/secure/api/my_testing",
         function(data, status) {
  			var curHtml = '';
 		    console.log(data[0]);
+		    var curStatus = data[0].my_status;
             if (data[0].reservation_found == null)
 				$('.my-reservations-btn').hide();
-		    var curStatus = data[0].my_status;
+		    else{
+                //$(".get_next_test_before_title").text();
+				//if (curStatus=='COMPLIANT')
+		    	   // $(".validUntil").text('Valid through: N/A');
+			}
+
 		    if (curStatus=='EXEMPT' || curStatus=='VOLUNTARY'){
 				$('.get-test-title').parent().hide();
 			}
@@ -703,6 +764,7 @@ function load_start_new_test(){
         else{
             $(".scanBarCode").hide();
             $(".mannualBarCode").show();
+			localStorage.setItem("scanCount",0);
         }
     }
     $("#barcodeBtn").click(
@@ -1021,7 +1083,7 @@ function load_slot_info(){
 }
 
 function load_find_test_site_slot_full(){
-	var availSlot = localStorage.getItem("avail-date") + ' ' + localStorage.getItem("avail-time");
+	var availSlot = formatDateDisplay(localStorage.getItem("avail-date")) + ' ' + localStorage.getItem("avail-time");
 	var locationName = localStorage.getItem('location-name');
 	$('.booktime').text(availSlot);
 	$('.locationName').text(locationName);
@@ -1038,7 +1100,8 @@ function load_my_schedule(){
     //As per current day schedule will be loaded
     var arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday" ];
     var day = new Date().getDay();	
-    for (var i = 0 ;i <day; i++) {		           
+	//alert(day);
+    for (var i = 0 ;i <day-1; i++) {		           
         arr.push(arr.shift());			
     }	
     var str = arr.slice(0, 7).join(",");
@@ -1139,6 +1202,9 @@ $(document).ready(function(){
     if (window.location.href.endsWith('registration_mobile_number')){
         load_email_mobile();
     }
+    if (window.location.href.endsWith('enter_name')) {
+        load_member_name();
+    }
     if (window.location.href.endsWith('demographics')) {
         load_demographics();
     }
@@ -1211,8 +1277,4 @@ $(document).ready(function(){
 		load_class_details();
     }
 });
-
-
-
-
 

@@ -18,9 +18,9 @@
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
-            <a class="logo" href="https://when-dev.unc.edu/" target="blank">
+            <a class="logo" href="https://when.unc.edu/">
                 <div class="custom-logo-link">
-                    <img src="images/header_logo.png" class="logoImg" />
+                    <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
                 </div>
             </a>
         </div>
@@ -38,13 +38,13 @@
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-				<li><a href="home" class="hidden-xs-down hidden-sm-down hidden-md-down">HOME</a></li>
-				<li><a href="index">LOGIN</a></li>
+				<li><a href="home">HOME</a></li>
 				<li class="has-submenu">
 					<a href="#">MY TESTING</a>
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
+								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -63,9 +63,11 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="https://ars.unc.edu/" target="_blank">ACCESSIBILITY</a></li>
+				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
 				<li><a href="contact">CONTACT</a></li>
+				<li><a href="/Shibboleth.sso/Logout">LOGOUT</a></li>
+				<li><a href="index">LOGIN</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -94,57 +96,60 @@
 			</div>
             <div class="pt-2 head-wrapper">	
 				<div class="mt-2 mb-0">
-					<h2 aria-labelledby="Mailing Address" aria-label="Mailing Address" class="head-h2">Enter Name</h2>
+					<h1 class="head-h2">Enter Name</h1>
                 </div>
 				<div class="mt-4 mb-0">
-					<h3 aria-labelledby="PLEASE ENTER MAILING ADDRESS" aria-label="PLEASE ENTER MAILING ADDRESS" class="head-h3">PLEASE ENTER YOUR DETAILS BELOW</h3>
+					<h2 class="head-h3">PLEASE ENTER YOUR DETAILS BELOW</h2>
                 </div>
-				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="form-group mb-0">
-							<label>FIRST NAME</label>
-							<input name="first_name" id="first_name" type="text" class="form-control" value="" placeholder="First name">
+				<form>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="form-group mb-0">
+								<label id="first_name_label" for="first_name">FIRST NAME</label>
+								<input aria-labelledby="first_name_label" name="first_name" id="first_name" type="text" class="form-control" value="" placeholder="First name">
+							</div>
 						</div>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="form-group mb-0">
-							<label>LAST NAME</label>
-							<input name="last_name" id="last_name" type="text" class="form-control" value="" placeholder="Last name">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="form-group mb-0">
+								<label id="last_name_label" for="last_name">LAST NAME</label>
+								<input aria-labelledby="last_name_label" name="last_name" id="last_name" type="text" class="form-control" value="" placeholder="Last name">
+							</div>
+						</div>	
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="form-group mb-0">
+								<label id="middle_name_label" for="middle_name">MIDDLE NAME</label>
+								<input aria-labelledby="middle_name_label" name="middle_name" id="middle_name" type="text" class="form-control" value="" placeholder="Middle name">
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="form-group mb-0">
+								<label id="date_of_birth_label" for="date_of_birth">DATE OF BIRTH (MM/DD/YY)</label>
+								<input aria-labelledby="date_of_birth_label" name="date_of_birth" id="date_of_birth" type="text" class="form-control" value="" placeholder="Date of birth(MM/DD/YY)">
+							</div>
 						</div>
 					</div>	
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="form-group mb-0">
-							<label>MIDDLE NAME</label>
-							<input name="middle_name" id="middle_name" type="text" class="form-control" value="" placeholder="Middle name">
+					<div class="row mt-5 mb-2">
+						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
+							<div class="p-0">
+								<button type="button" aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1" onclick="goBack()">
+								<i class="feather icon-chevron-left"></i>
+								BACK
+								</button>
+							</div>
+						</div>
+						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
+							<div class="p-0">
+								<button type="button" aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1" onclick="save_member_name()">
+								CONTINUE
+								<i class="feather icon-chevron-right"></i>
+								</button>
+							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="form-group mb-0">
-							<label>DATE OF BIRTH (mm-dd-yyyy)</label>
-							<input name="date_of_birth" id="date_of_birth" type="text" class="form-control" value="" placeholder="Date of birth(mm-dd-yyyy)">
-						</div>
-					</div>
-				</div>	
-				<div class="row mt-5 mb-2">
-					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
-						<div class="p-0">
-							<button aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1" onclick="goBack()">
-							<i class="feather icon-chevron-left"></i>
-							BACK
-							</button>
-						</div>
-					</div>
-					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
-						<div class="p-0">
-							<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1">
-							CONTINUE
-							<i class="feather icon-chevron-right"></i>
-							</button>
-						</div>
-					</div>
-				</div>
+				</form>
 			</div>	
         </div>
+		<br/><br/><br/><br/><br/><br/>
     </section>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
@@ -152,15 +157,15 @@
         <table class="table">
             <tr>
                 <td>
-					<a href="home"><img aria-label="home" aria-labelledby="home" src="images/home_black.png" width="45" alt="home" /></a>
+					<a href="home"><img src="images/home_black.png" width="45" alt="home" /></a>
 					<div>HOME</div>
 				</td>
                 <td>
-					<a href="my_testing"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_black.png" width="45" alt="My Testing" /></a>
+					<a href="my_testing"><img src="images/test_black.png" width="45" alt="My Testing" /></a>
 					<div>MY TESTING</div>
 				</td>
                 <td>
-					<a href="my_schedule"><img aria-label="Class Schedule" aria-labelledby="Class Schedule" src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
+					<a href="my_schedule"><img src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
 					<div>CLASS SCHEDULE</div>
 				</td>
             </tr>
@@ -172,6 +177,7 @@
 				<td>
 					<p><a href="home">Home</a></p>
 					<p><a href="index">Login</a></p>
+					<p><a href="/Shibboleth.sso/Logout">Logout</a></p>
 				</td>
 				<td>
 					<p><a href="my_testing">My Testing</a></p>
@@ -183,7 +189,7 @@
 					<p><a href="class_search">Class Search</a></p>
 				</td>
 				<td>
-					<p><a href="https://ars.unc.edu/" target="_blank">Accessibility</a></p>
+					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
 					<p><a href="support">Support</a></p>
 					<p><a href="contact">Contact</a></p>
 				</td>
@@ -191,9 +197,9 @@
 		</table>
         <table class="footer-table-1 table">
             <tr>
-                <td><a href="https://www.unc.edu/" target="_blank" ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://when-dev.unc.edu/" target="_blank" ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/" target="_blank"><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a href="https://www.unc.edu/"  ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a href="https://when-dev.unc.edu/"  ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a href="https://reeseinnovate.com/" ><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>
@@ -204,5 +210,6 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/flow.js"></script>
 </body>
 </html>

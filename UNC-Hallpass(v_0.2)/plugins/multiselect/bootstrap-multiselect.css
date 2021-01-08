@@ -13,9 +13,18 @@ span.multiselect-native-select {
 	border-radius: 10px !important;
 	padding:3px 10px;
 	background:#FFFFFF !important;
+	border:1px solid #13294B !important;
+}
+.multiselect:hover,
+.multiselect:focus {
+	border-radius: 10px !important;
+	-webkit-box-shadow: 0 0 3px rgba(53, 64, 78, .2);
+    box-shadow: 0 0 3px rgba(53, 64, 78, .2);
+	border:1px solid #13294B !important;
+	outline:none !important;
 }
 span.multiselect-native-select select {
-    border: 0 !important;
+    border: none !important;
     clip: rect(0 0 0 0) !important;
     height: 1px !important;
     margin: -1px -1px -1px -3px !important;
@@ -98,7 +107,7 @@ span.multiselect-native-select select {
 .multiselect-container .multiselect-option:not(.multiselect-active-item-fallback):active,
 .multiselect-container .multiselect-group:not(.multiselect-active-item-fallback):active,
 .multiselect-container .multiselect-all:not(.multiselect-active-item-fallback):active {
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
     color: black;
 }
 .multiselect-container .multiselect-option .form-check,
@@ -109,7 +118,7 @@ span.multiselect-native-select select {
 .multiselect-container .multiselect-option:focus,
 .multiselect-container .multiselect-group:focus,
 .multiselect-container .multiselect-all:focus {
-    outline: none;
+    outline: none !important;
 }
 .form-inline .multiselect-container span.form-check {
     /* padding: 3px 20px 3px 40px; */

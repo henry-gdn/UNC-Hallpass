@@ -18,9 +18,9 @@
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
-            <a class="logo" href="https://when-dev.unc.edu/" target="blank">
+            <a class="logo" href="https://when.unc.edu/">
                 <div class="custom-logo-link">
-                    <img src="images/header_logo.png" class="logoImg" />
+                    <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
                 </div>
             </a>
         </div>
@@ -38,13 +38,13 @@
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-				<li><a href="home" class="hidden-xs-down hidden-sm-down hidden-md-down">HOME</a></li>
-				<li><a href="index">LOGIN</a></li>
+				<li><a href="home">HOME</a></li>
 				<li class="has-submenu">
 					<a href="#">MY TESTING</a>
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
+								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="test_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 								<li><a href="scan_new_test_1">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -63,9 +63,11 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="https://ars.unc.edu/" target="_blank">ACCESSIBILITY</a></li>
+				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
 				<li><a href="contact">CONTACT</a></li>
+				<li><a href="/Shibboleth.sso/Logout">LOGOUT</a></li>
+				<li><a href="index">LOGIN</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -98,38 +100,42 @@
 			</div>
             <div class="pt-2 head-wrapper">
 				<div class="mt-2 mb-0">
-					<h2 aria-labelledby="Quarantine Address" aria-label="Quarantine Address" class="head-h2">Quarantine Address</h2>
+					<h1 class="head-h2">Quarantine Address</h1>
                 </div>
 				<div class="mt-4 mb-0">
-					<h3 aria-labelledby="PLEASE ENTER QUARANTINE ADDRESS" aria-label="PLEASE ENTER QUARANTINE ADDRESS" class="head-h3">PLEASE ENTER QUARANTINE ADDRESS</h3>
+					<h2 class="head-h3">PLEASE ENTER QUARANTINE ADDRESS</h2>
                 </div>
                 <div class="mb-3 mt-1">
 					<p>In the event you are asked to quarantine where will you be quarantining?</p>
-                </div>	
+                </div>
+				<form>				
 				<div class="row">
+					
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<div class="form-group mb-0">
-							<label>STREET 1</label>
-							<input name="street_1" id="street_1" type="text" class="form-control" value="" placeholder="Street 1">
+							<label id="street_1_label" for="street_1">STREET 1 * </label>
+							<input aria-labelledby="street_1_label" name="street_1" id="street_1" type="text" class="form-control" value="" placeholder="Street 1">
+							<span class="msgErr" id=""><i class="feather icon-alert-circle"></i>&nbsp;Please enter street 1.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<div class="form-group mb-0 pt-1">
-							<label>STREET 2 (OPT.)</label>
-							<input name="street_2_opt" id="street_2_opt" type="text" class="form-control" value="" placeholder="Street 2">
+							<label id="street_2_opt_label" for="street_2_opt">STREET 2 (OPT.)</label>
+							<input aria-labelledby="street_2_opt_label" name="street_2_opt" id="street_2_opt" type="text" class="form-control" value="" placeholder="Street 2">
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<div class="form-group mb-0 pt-1">
-							<label>CITY</label>
-							<input name="city" id="city" type="text" class="form-control" value="" placeholder="City">
+							<label id="city_label" for="city">CITY *</label>
+							<input aria-labelledby="city_label" name="city" id="city" type="text" class="form-control" value="" placeholder="City">
+							<span class="msgErr" id=""><i class="feather icon-alert-circle"></i>&nbsp;Please enter city.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<div class="select-wrapper">
 							<div class="form-group mb-0 pt-1 selectUi">
-								<label>COUNTY</label>
-								<select id="county" class="form-control">
+								<label id="county_label" for="county">COUNTY</label>
+								<select aria-labelledby="county_label" id="county" class="form-control">
 									<option>Alamance</option>
 									<option>Alexander</option>
 									<option>Alleghany</option>
@@ -237,15 +243,16 @@
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<div class="form-group mb-0 pt-1">
-							<label>ZIPCODE</label>
-							<input name="zipcode" id="zipcode" type="text" class="form-control" value="" placeholder="Zipcode">
+							<label id="zipcode_label" for="zipcode">ZIPCODE *</label>
+							<input aria-labelledby="zipcode_label" name="zipcode" id="zipcode" type="text" class="form-control" value="" placeholder="Zipcode">
+							<span class="msgErr" id=""><i class="feather icon-alert-circle"></i>&nbsp;Please enter zipcode.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<div class="select-wrapper">
 							<div class="form-group mb-0 pt-1 selectUi">
-								<label>SELECT STATE</label>
-								<select class="form-control">
+								<label id="select_state_label" for="select_state">SELECT STATE</label>
+								<select aria-labelledby="select_state_label" id="select_state" class="form-control">
 									<option>Alabama</option>
 									<option>Alaska</option>
 									<option>Arizona</option>
@@ -300,12 +307,13 @@
 							</div>
 						</div>
 					</div>
+					
 				</div>
 				
 				<div class="row mt-4 mb-2">
 					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 						<div class="p-0">
-							<button aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1" onclick="goBack()">
+							<button type="button" aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1" onclick="goBack()">
 							<i class="feather icon-chevron-left"></i>
 							BACK
 							</button>
@@ -313,13 +321,15 @@
 					</div>
 					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 						<div class="p-0">
-							<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1" onclick="savequarantineaddressother()">
+							<button type="button" aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1" onclick="savequarantineaddressother()">
 							CONTINUE
 							<i class="feather icon-chevron-right"></i>
 							</button>
 						</div>
 					</div>
 				</div>
+				
+				</form>
             </div>
         </div>
     </section>
@@ -329,15 +339,15 @@
         <table class="table">
             <tr>
                 <td>
-					<a href="home"><img aria-label="home" aria-labelledby="home" src="images/home_black.png" width="45" alt="home" /></a>
+					<a href="home"><img src="images/home_black.png" width="45" alt="home" /></a>
 					<div>HOME</div>
 				</td>
                 <td>
-					<a href="my_testing"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_black.png" width="45" alt="My Testing" /></a>
+					<a href="my_testing"><img src="images/test_black.png" width="45" alt="My Testing" /></a>
 					<div>MY TESTING</div>
 				</td>
                 <td>
-					<a href="my_schedule"><img aria-label="Class Schedule" aria-labelledby="Class Schedule" src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
+					<a href="my_schedule"><img src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
 					<div>CLASS SCHEDULE</div>
 				</td>
             </tr>
@@ -349,6 +359,7 @@
 				<td>
 					<p><a href="home">Home</a></p>
 					<p><a href="index">Login</a></p>
+					<p><a href="/Shibboleth.sso/Logout">Logout</a></p>
 				</td>
 				<td>
 					<p><a href="my_testing">My Testing</a></p>
@@ -360,7 +371,7 @@
 					<p><a href="class_search">Class Search</a></p>
 				</td>
 				<td>
-					<p><a href="https://ars.unc.edu/" target="_blank">Accessibility</a></p>
+					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
 					<p><a href="support">Support</a></p>
 					<p><a href="contact">Contact</a></p>
 				</td>
@@ -368,9 +379,9 @@
 		</table>
         <table class="footer-table-1 table">
             <tr>
-                <td><a href="https://www.unc.edu/" target="_blank" ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://when-dev.unc.edu/" target="_blank" ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/" target="_blank"><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a href="https://www.unc.edu/"  ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a href="https://when-dev.unc.edu/"  ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a href="https://reeseinnovate.com/" ><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>

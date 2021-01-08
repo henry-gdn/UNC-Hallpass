@@ -7,7 +7,7 @@
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<link rel="shortcut icon" type="image/png" href="images/apple-touch-icon.png" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -18,9 +18,9 @@
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
-            <a class="logo" href="https://when-dev.unc.edu/" target="blank">
+            <a class="logo" href="https://when.unc.edu/">
                 <div class="custom-logo-link">
-                    <img src="images/header_logo.png" class="logoImg" />
+                    <img src="images/header_logo.png" class="logoImg" alt="CAROLINA TOGETHER" />
                 </div>
             </a>
         </div>
@@ -33,18 +33,17 @@
                         <span></span>
                     </div>
                 </a>
-                <!-- End mobile menu toggle-->
             </div>
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-				<li><a href="home" class="hidden-xs-down hidden-sm-down hidden-md-down">HOME</a></li>
-				<li><a href="index">LOGIN</a></li>
+				<li><a href="home">HOME</a></li>
 				<li class="has-submenu">
-					<a href="#">MY TESTING</a>
+					<a href="#" aria-haspopup="true" aria-expanded="false">MY TESTING</a>
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
+								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -53,7 +52,7 @@
 					</ul>
 				</li>
                 <li class="has-submenu">
-					<a href="#">MY SCHEDULE</a>
+					<a href="#" aria-haspopup="true" aria-expanded="false">MY SCHEDULE</a>
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
@@ -63,9 +62,11 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="https://ars.unc.edu/" target="_blank">ACCESSIBILITY</a></li>
+				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
 				<li><a href="contact">CONTACT</a></li>
+				<li><a href="/Shibboleth.sso/Logout">LOGOUT</a></li>
+				<li><a href="index">LOGIN</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -86,13 +87,13 @@
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index" aria-labelledby="Welcome" aria-label="Welcome">Welcome</a></li>
+						<li class="breadcrumb-item"><a href="index">Home</a></li>
 					</ol>
 				</div>
 			</div>
             <div class="pt-2 head-wrapper">
 				<div class="mt-2 mb-1">
-					<h2 aria-labelledby="Welcome" aria-label="Welcome" class="head-h2">Welcome</h2>
+					<h1 class="head-h2">Home</h1>
                 </div>
                 <div class="mb-3 mt-1">
 					<p>Hall Pass is a web-based application that will assist you in the Carolina Together Testing Program. Using this site, you will be able to schedule and complete your test.</p>
@@ -103,12 +104,12 @@
 				<div class="mb-3 mt-1">
 					<p>UNC Faculty and staff may voluntarily use this site and the Carolina Together Testing Program.</p>
 				</div>
-				<div class="login-btn mt-4 p-0">
+				<div class="login-btn mt-4 p-0 mb-3">
 					<a href="/secure/api/login">
-					<button aria-label="Login With ONYEN" aria-labelledby="Login With ONYEN" class="btn btn-block btn-log">
-					LOGIN WITH ONYEN 
-					<i class="feather icon-chevron-right btn-arrow"></i>
-					</button>
+						<button aria-label="Login With ONYEN" class="btn btn-block btn-log">
+							LOGIN WITH ONYEN 
+							<i class="feather icon-chevron-right btn-arrow"></i>
+						</button>
 					</a>
 				</div>
             </div>
@@ -120,15 +121,15 @@
         <table class="table">
             <tr>
                 <td>
-					<a href="home"><img aria-label="home" aria-labelledby="home" src="images/home_blue.png" width="45" alt="home" /></a>
+					<a href="home"><img src="images/home_blue.png" width="45" alt="home" /></a>
 					<div>HOME</div>
 				</td>
                 <td>
-					<a href="my_testing"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_black.png" width="45" alt="My Testing" /></a>
+					<a href="my_testing"><img src="images/test_black.png" width="45" alt="My Testing" /></a>
 					<div>MY TESTING</div>
 				</td>
                 <td>
-					<a href="my_schedule"><img aria-label="Class Schedule" aria-labelledby="Class Schedule" src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
+					<a href="my_schedule"><img src="images/schedule_black.png" width="45" alt="My Schedule" /></a>
 					<div>CLASS SCHEDULE</div>
 				</td>
             </tr>
@@ -140,6 +141,7 @@
 				<td>
 					<p><a href="home">Home</a></p>
 					<p><a href="index">Login</a></p>
+					<p><a href="/Shibboleth.sso/Logout">Logout</a></p>
 				</td>
 				<td>
 					<p><a href="my_testing">My Testing</a></p>
@@ -151,7 +153,7 @@
 					<p><a href="class_search">Class Search</a></p>
 				</td>
 				<td>
-					<p><a href="https://ars.unc.edu/" target="_blank">Accessibility</a></p>
+					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
 					<p><a href="support">Support</a></p>
 					<p><a href="contact">Contact</a></p>
 				</td>
@@ -159,9 +161,9 @@
 		</table>
         <table class="footer-table-1 table">
             <tr>
-                <td><a href="https://www.unc.edu/" target="_blank" ><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://when-dev.unc.edu/" target="_blank" ><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/" target="_blank"><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a href="https://www.unc.edu/"><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a href="https://when-dev.unc.edu/"><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a href="https://reeseinnovate.com/"><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>
@@ -176,8 +178,12 @@
 	
 </body>
 <script>
-$(document).ready(function(){ 
-	$("body").css({visibility:'visible'})
+$(document).ready(function() { 
+	$("body").css({visibility:'visible'});
 });
 </script>
+<style>
+<!-- nav > ul li       ul { display: none !important; }
+nav > ul li:hover ul { display: block !important;} -->
+</style>
 </html>

@@ -19,6 +19,10 @@ $(document).ready(function(){
 	setTimeout(function(){ 
 		$("body").css({visibility:'visible'});
 	}, 1000);
+	
+	
+	
+	
 });
 
 ! function($) {
