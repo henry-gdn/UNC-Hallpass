@@ -18,7 +18,7 @@
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
-            <a class="logo" href="https://when.unc.edu/">
+            <a class="logo" href="https://hallpass.unc.edu/">
                 <div class="custom-logo-link">
                     <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
                 </div>
@@ -114,7 +114,7 @@
 						<div class="form-group mb-0">
 							<label id="street_1_label" for="street_1">STREET 1 * </label>
 							<input aria-labelledby="street_1_label" name="street_1" id="street_1" type="text" class="form-control" value="" placeholder="Street 1">
-							<span class="msgErr" id=""><i class="feather icon-alert-circle"></i>&nbsp;Please enter street 1.</span>
+							<span class="hideErr" id="street1_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter street 1.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 sol-xs-12">
@@ -127,7 +127,7 @@
 						<div class="form-group mb-0 pt-1">
 							<label id="city_label" for="city">CITY *</label>
 							<input aria-labelledby="city_label" name="city" id="city" class="form-control" value="" placeholder="City">
-							<span class="msgErr" id=""><i class="feather icon-alert-circle"></i>&nbsp;Please enter city.</span>
+							<span class="hideErr" id="city_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter city.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -237,6 +237,7 @@
 									<option>Yadkin</option>
 									<option>Yancey</option>
 								</select>
+							<span class="hideErr" id="county_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter county.</span>
 							</div>	
 						</div>
 					</div>
@@ -244,7 +245,7 @@
 						<div class="form-group mb-0 pt-1">
 							<label id="zipcode_label" for="zipcode">ZIPCODE *</label>
 							<input aria-labelledby="zipcode_label" name="zipcode" id="zipcode" class="form-control" value="" placeholder="Zipcode">
-							<span class="msgErr" id=""><i class="feather icon-alert-circle"></i>&nbsp;Please enter zipcode.</span>
+							<span class="hideErr" id="zipcode_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter zipcode.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 sol-xs-12">
@@ -303,6 +304,7 @@
 								<option value="WI">Wisconsin</option>
 								<option value="WY">Wyoming</option>
 								</select>
+							<span class="hideErr" id="state_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter state.</span>
 							</div>
 						</div>
 					</div>
@@ -379,7 +381,7 @@
         <table class="footer-table-1 table">
             <tr>
                 <td><a href="https://www.unc.edu/"  ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://when-dev.unc.edu/"  ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a href="https://hallpass.unc.edu/"  ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
                 <td><a href="https://reeseinnovate.com/" ><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
