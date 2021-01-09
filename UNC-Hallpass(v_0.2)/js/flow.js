@@ -1,3 +1,10 @@
+function strToDate(dateString){
+    let reggie = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/
+  , [,year, month, day, hours, minutes] = reggie.exec(dateString)
+  , dateObject = new Date(year, month-1, day, hours, minutes);
+  return dateObject;
+}
+
 Date.prototype.addHours= function(h){
     this.setHours(this.getHours()+h);
     return this;
@@ -12,12 +19,42 @@ function getCookie(cname) {
         while (c.charAt(0) == ' ') {
             c = c.substring(1);
         }
-        console.log(c);
+        //console.log(c);
         if (c.indexOf(name) == 0) {
             return c.substring(name.length, c.length);
         }
     }
     return "";
+}
+
+function IsUserLoggedIn() {
+	get_session_var('is_logged_in').then(
+		function(data){
+			if (data.sval == 'null'){
+				//alert('not logged in ');
+			}else{
+				$('ul.navigation-menu li:nth-child(8)').hide();
+				$('ul.navigation-menu li:nth-child(7)').show();
+				$('footer table.footerMenu tbody tr td:nth-child(1) p:nth-child(3)').show();
+				$('footer table.footerMenu tbody tr td:nth-child(1) p:nth-child(2)').hide();
+			}
+		}
+	);
+	/*
+	var cameFrom = window.location.href.substring(window.location.href.lastIndexOf('/'));
+	$.ajax({
+        url: '/secure/api/is_logged_in',
+        type: 'GET',
+		error: function(data){
+			console.log('failed');
+			window.location.href='/secure/api/login?r='+cameFrom;
+		},
+		success: function(data){
+			console.log('succeeded');
+			$('ul.navigation-menu li:nth-child(8)').hide();
+			$('ul.navigation-menu li:nth-child(7)').show();
+		}
+	});*/
 }
 
 function getUserInfo() {
@@ -37,23 +74,27 @@ function redirect(){
         type: 'GET',
         success: function(data){
             if (data[0].member_exists=='true')
-	        window.location.href="home";
-	    else
-	        window.location.href="registration";
-	}
+	        	window.location.href="home";
+	    	else
+	        	window.location.href="registration";
+		}
     });
 }
 
-function reg_step_1() {
+function save_registration() {
+	if (!$('#agreeChk').is(":checked")){
+		alert('Please select the checkbox');
+		return false;
+	}
     $.ajax({
-	url: '/secure/api/create_member',
-	type: 'POST',
+		url: '/secure/api/create_member',
+		type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({}),
-	success: function(data){
-	    console.log(data);
-	    window.location.href="registration_mobile_number";
-	}	
+		success: function(data){
+	   	 	console.log(data);
+	    	window.location.href="registration_mobile_number";
+		}	
     });
 }
 
@@ -69,6 +110,9 @@ function load_email_mobile(){
 		    console.log('data found:'+data);
 		    $('#preferred_email_address').val(data[0].email);
 		    $('#phone_number').val(data[0].mobile);
+	    },
+        error: function(data) {
+             window.location.href= "error_500";
 	    }
     });
 }
@@ -192,6 +236,9 @@ function load_member_name(){
 		    $('#middle_name').val(data[0].middle_name);
  			$('#last_name').val(data[0].last_name);
 			$('#date_of_birth').val(data[0].dob);
+	    },
+        error: function(data) {
+             window.location.href= "error_500";
 	    }
     });
 }
@@ -201,10 +248,24 @@ function save_member_name(){
     $m = $('#middle_name').val();
     $l = $('#last_name').val();
  	$d = $('#date_of_birth').val();
-	if ($f.trim() == '' || $l.trim() == '' || $d.trim() == ''){
-		alert('Please enter the details.');
+	isvalid = true;
+	if ($f == ''){
+		$('#first_name_err_msg').removeClass('hideErr');
+		$('#first_name_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if ($l == ''){
+		$('#last_name_err_msg').removeClass('hideErr');
+		$('#last_name_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if ($d == ''){
+		$('#date_of_birth_err_msg').removeClass('hideErr');
+		$('#date_of_birth_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if (isvalid != true)
 		return false;
- 	}
     $.ajax({
 	    url: '/secure/api/update_member_name',
 	    type: 'POST',
@@ -221,10 +282,28 @@ function load_demographics(){
         url: '/secure/api/get_member_demographics',
         type: 'GET',
         success: function(data){
-            console.log('data found:'+data);
-			$('#gender').val(data[0].gender);
-			$('#race').val(data[0].race);
-			$('#ethnicity').val(data[0].ethnicity);
+            console.log('data found:');
+			console.log(data[0]);
+			if (data[0].success == 'True'){
+				var gender = data[0].gender;
+				var race = data[0].race;
+				var ethnicity = data[0].ethnicity;
+ 				if (gender != null)
+					$('#gender').val(gender);
+				var selected=$("#race option:selected").map(function(){ return this.value }).get();
+				if (race != null && race != ''){
+					var races = race.split(';');
+					for (var i=0; i<races.length-1; i++){
+						$('.form-check-input[value=\''+races[i]+'\']').prop('checked', true);
+						selected.push(races[i]);
+					}
+					console.log(selected);
+					$('#race').val(selected);
+					$('.multiselect-selected-text').html(race.substring(0,race.length-1).replaceAll(';',', '));
+				}
+				if (ethnicity != null)
+					$('#ethnicity').val(ethnicity);
+			}
         }
     });
 }
@@ -244,7 +323,7 @@ function save_demographics(){
 	    data: JSON.stringify({gender: $g, race: $r, ethnicity: $e}),
 	    success: function(data) {
                 window.location.href = "registration_local_address";
-        }
+         }
     });
 }
 
@@ -254,7 +333,8 @@ function load_local_addr(){
         url: '/secure/api/get_member_local_addr',
         type: 'GET',
         success: function(data){
-            console.log('data found:'+data);
+            console.log('data found:');
+			console.log(data[0]);
             $('#street_1').val(data[0].street1);
             $('#street_2_opt').val(data[0].street2_opt);
             $('#city').val(data[0].city);
@@ -272,18 +352,42 @@ function save_local_addr(){
 	$lat = $('#county').val(); 
     $las = $('#state').val();
     $laz = $('#zipcode').val();
-	if ($las1 == '' || $lac == '' || $lat == '' || $laz == ''){
-		alert('Please enter the details.');
-		return false;
+	isvalid = true;
+	if ($las1 == ''){
+		$('#street1_err_msg').removeClass('hideErr');
+		$('#street1_err_msg').addClass('msgErr');
+		isvalid = false;
 	}
+	if ($lac == ''){
+		$('#city_err_msg').removeClass('hideErr');
+		$('#city_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if ($laz == ''){
+		$('#zipcode_err_msg').removeClass('hideErr');
+		$('#zipcode_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if ($lat == null){
+		$('#county_err_msg').removeClass('hideErr');
+		$('#county_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if ($las == null){
+		$('#state_err_msg').removeClass('hideErr');
+		$('#state_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if (isvalid != true)
+		return false;
+
     $.ajax({
 	    url: '/secure/api/update_member_local_addr',
 	    type: 'POST',
 	    contentType: 'application/json',
-	    data: JSON.stringify({las1: $las1, las2: $las2, lac: $lac, las: $las, laz: $laz}), // TODO
+	    data: JSON.stringify({las1: $las1, las2: $las2, lac: $lac, lat: $lat, las: $las, laz: $laz}), // TODO
 	    success: function(data) {
-                window.location.href = "registration_quarantine_address_choice";
-	        //window.location.replace("registration_mailing_address.html");
+			window.location.href = "registration_quarantine_address_choice";
         }
     });
 }
@@ -368,14 +472,42 @@ function save_quarantine_addr(){
     $las1 = $('#street_1').val();
     $las2 = $('#street_2_opt').val();
     $lac = $('#city').val();
-	//$lat = $('#county').val(); // TODO
+	$lat = $('#county').val(); 
     $las = $('#state').val();
     $laz = $('#zipcode').val();
+	isvalid = true;
+	if ($las1 == ''){
+		$('#street1_err_msg').removeClass('hideErr');
+		$('#street1_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if ($lac == ''){
+		$('#city_err_msg').removeClass('hideErr');
+		$('#city_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if ($laz == ''){
+		$('#zipcode_err_msg').removeClass('hideErr');
+		$('#zipcode_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if ($lat == null){
+		$('#county_err_msg').removeClass('hideErr');
+		$('#county_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if ($las == null){
+		$('#state_err_msg').removeClass('hideErr');
+		$('#state_err_msg').addClass('msgErr');
+		isvalid = false;
+	}
+	if (isvalid != true)
+		return false;
     $.ajax({
 	    url: '/secure/api/update_member_quarantine_addr',
 	    type: 'POST',
 	    contentType: 'application/json',
-	    data: JSON.stringify({ las1: $las1, las2: $las2, lac: $lac, las: $las, laz: $laz}), // TODO
+	    data: JSON.stringify({ las1: $las1, las2: $las2, lac: $lac, lat: $lat, las: $las, laz: $laz}), 
 	    success: function(data) {
 		    window.location.href = "registration_thx";
 	    }
@@ -443,7 +575,21 @@ function load_test_sites(){
 		        dhtml += "<i class=\"feather icon-chevron-right\"></i>";
 		        dhtml += "</button>";
 		        dhtml += "</div>";
-		        $('#siteContent').append(dhtml);
+
+				var dhtml2 = "<div class='col-lg-4 col-md-4 col-sm-12 col-xs-12'>";
+				dhtml2 += "<div class='mt-2 mb-3 p-0 reserveContent-1'>"
+				if (data[i].site_img != null)
+					dhtml2 += "<img src='"+data[i].site_img+"' />";
+ 				dhtml2 += "</div>";
+				dhtml2 += "<div class='head-content mb-0 p-0'>";
+                dhtml2 += "<h2 aria-labelledby='"+data[i].site_name+"' aria-label='"+data[i].site_name+"' class='content-title'>"+data[i].site_name + "<br/>" + data[i].site_location +"</h2>";
+  				dhtml2 += "</div>";
+				dhtml2 += "<div class='mb-0 p-0 mt-2'>";
+				dhtml2 += "<h3 aria-labelledby='"+data[i].site_hours+"' aria-label='"+data[i].site_hours+"' class='findTestSite'>Hours: "+data[i].site_hours+"</h3>";
+				dhtml2 += "</div>";
+				dhtml2 += "<div class='reserve-btn p-0 mt-3' data-location='"+data[i].site_id+'#'+data[i].site_name+"#"+data[i].site_hours+"#"+data[i].people_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME' aria-labelledby='RESERVE TIME' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div><br><br>";
+				dhtml2 += "</div>";
+		        $('#siteContent').append(dhtml2);
 	        }
             $(document).on('click','.reserve-btn',function(){
                 var location = $(this).attr("data-location");
@@ -473,7 +619,7 @@ function getCurDate(idx){
     return mm+'/'+dd+'/'+yyyy;
 }
 
-function formatDate() {
+function formatDate0() {
     var d = new Date(),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
@@ -485,6 +631,21 @@ function formatDate() {
         day = '0' + day;
 
     return [year, month, day].join('-');
+}
+
+function formatDate() {
+	var d = new Date(new Date().toLocaleString("en-US", {timeZone: "US/Eastern"}));
+	var month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+
 }
 
 function formatDateDisplay(d) {
@@ -509,13 +670,14 @@ function get_slots() {
     var imgUrl = "<img src='"+siteArray[3]+"'/>";
     //$(".reserveContent").append(imgUrl);
     var arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-    var day = new Date().getDay();	
+	var selectedDate = formatDate();
+    var day = new Date(new Date().toLocaleString("en-US", {timeZone: "US/Eastern"})).getDay();	
     for (var i = 0 ;i <day; i++) {		           
         arr.push(arr.shift());			
     }	
     var str = arr.slice(0, 13).join(",");
     var aryDays = str.split(",");	
-    var selectedDate = formatDate();
+
     var slots = [];
     $.ajax({
         url: '/secure/api/get_test_slots',
@@ -530,6 +692,7 @@ function get_slots() {
 		   var j = 0;
            while (k < 7){
 	           if (data[i].length > 0){
+
                    var curDay = aryDays[i];
 				   console.log(curDay);
 	               var classCollapse = "";
@@ -543,7 +706,15 @@ function get_slots() {
 	           startHtml += '<div class="card-body p-4">';
 	           var availSlot = '<div class="row time" cur-day-slots="'+j+'">';
 	           for (var j = 0; j < data[i].length; j++) {
-	               availSlot += '<div class="col-3 p-0 fillSlotBtn availSlotBtn availTime" avail-date="' + data[i][j].slot_date + '" avail-slot="'+data[i][j].slot_start+'"><button class="btn btn-default btn-sm"> '+data[i][j].slot_start+' </button></div>';
+				   //var d1str = data[i][j].slot_date + ' ' + data[i][j].slot_start;
+				   //console.log(d1str);
+				   //console.log(d1str.replace(/ [AP]M$/i,''));
+				   //var d1 = strToDate(d1str);
+				   //console.log(d1);
+				   //var d2 = new Date();
+				   //console.log(d1.getTime());
+				   //console.log(d2.getTime());
+	               availSlot += '<div class="col-4 p-0 fillSlotBtn availSlotBtn availTime" avail-date="' + data[i][j].slot_date + '" avail-slot="'+data[i][j].slot_start+'"><button class="btn btn-default btn-sm"> '+data[i][j].slot_start+' </button></div>';
 	           }
 	           availSlot +="</div>";
                    var endHtml = '</div></div></div>';
@@ -651,6 +822,7 @@ function cancel_reservation() {
 
 function load_my_testing(){
     localStorage.setItem("scanCount",0);
+	set_session_var('scan_count', 0).then(function(data){});
 	load_registration_thx();
 	$.get("/secure/api/my_testing",
         function(data, status) {
@@ -675,68 +847,72 @@ function load_my_testing(){
 				if (curStatus=='COMPLIANT')
 		    	    $(".validUntil").text('Valid through: ' + data[0].test_found[2]);
  		    }
-		    /*
-			var valid = data[0].valid_through;
-			if(typeof valid != 'undefined'){
-					$('.validUntil').text('Valid through');
-					$(".get_next_test_before_content").text(data.valid_through);
-			}
-			else{
-					$('.validUntil').text('Go to testing site');
-					$('#asap').removeClass('test-content-date-time').addClass('testContent-title');
-					$(".asap").text('As soon As possible');
-            }
-			*/
 			if(curStatus.toUpperCase() == 'NON-COMPLIANT'){
 					$("#hallpass-hcolor").removeClass();
-					$("#hallpass-hcolor").addClass('headTab-pink');
+					$("#hallpass-hcolor").addClass('headTab-pink hallpassTable hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
 					$("#hallpass-bcolor").addClass('testContentPink');
+ 				    $("#hallpass-bcolor").addClass('testContentPink');
 			}else if(curStatus.toUpperCase() == 'EXEMPT'){
 					$("#hallpass-hcolor").removeClass();
-					$("#hallpass-hcolor").addClass('headTab-blueTest');
+					$("#hallpass-hcolor").addClass('headTab-blueTest hallpassTable hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
 					$("#hallpass-bcolor").addClass('testContentBlue');
 			}else if(curStatus.toUpperCase() == 'VOLUNTARY'){
 					$("#hallpass-hcolor").removeClass();
-					$("#hallpass-hcolor").addClass('headTab-yellow');
+					$("#hallpass-hcolor").addClass('headTab-yellow hallpassTable hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
 					$("#hallpass-bcolor").addClass('testContentYellow');
 			}
-			$(".myTestQrImg").attr("src",data.qrImage);
+			//$(".myTestQrImg").attr("src",data.qrImage);
         }
     );
 }
 
-function scan_new_test(){
-    localStorage.setItem("site_id", $('#test_site').val());
-	window.location.href = "scan_new_test";
+
+
+function get_session_var(sname){
+	var v = null;
+	return $.ajax( "/secure/api/get_session_var?n="+sname );
+}
+
+function set_session_var(sname,sval){
+ 	return $.ajax( "/secure/api/set_session_var?n="+sname+"&v="+sval );
 }
 
 function load_start_new_test(){
+ 	//alert(localStorage.getItem("scanCount"));
+	localStorage.removeItem("scanValue");
+ 	localStorage.removeItem("siteId");
 	load_registration_thx();
 	$.ajax({
-        url: '/secure/api/get_test_sites',
+        url: '/secure/api/get_test_sites?all=y',
         type: 'GET',
         success: function(data){
-            console.log('data found:');
-			console.log(data);
+            //console.log('data found:');
+			//console.log(data);
 	        for (i=0; i<data.length; i++){
 				var o = new Option(data[i].site_name, data[i].site_id);
 				$(o).html(data[i].site_name);
 				$("#test_site").append(o);
 			}
-			site_id = localStorage.getItem("site_id");
-			console.log('site_id is ' + site_id);
-			if (site_id != null){
-				$('#test_site').val(site_id);
-			}
+			get_session_var('site_id').then(
+				function(data){ 
+					site_id = data.sval; 
+					console.log('site_id is ' + site_id);
+					if (site_id != 'null'){
+						console.log('setting site');
+						$('#test_site').val(site_id);
+					}
+				}
+			);
+
 			$.ajax({
 		        url: '/secure/api/get_latest_test',
 		        type: 'GET',
 		        success: function(data) {
 			        if (data[0].success) {
-				        console.log(data[0].latest_test[1]);
+				        //console.log(data[0].latest_test[1]);
 						$('.last-test-date').html(data[0].latest_test[1]);
 						$('.next-test-date').html(data[0].latest_test[2]);
 						$('.test-status-display').html(data[0].latest_test[3]);
@@ -752,71 +928,91 @@ function load_start_new_test(){
 
 
 	var scanCount = localStorage.getItem("scanCount");
-    console.log(scanCount);
-    if(scanCount == null){
-        //$(".mannualBarCode").show();
-        localStorage.setItem("scanCount",0);
-    }else{
-        if(scanCount < 1){
-            $(".scanBarCode").show();
-            $(".mannualBarCode").hide();
-        }
-        else{
-            $(".scanBarCode").hide();
-            $(".mannualBarCode").show();
-			localStorage.setItem("scanCount",0);
-        }
-    }
-    $("#barcodeBtn").click(
+	get_session_var('scan_count').then(
+		function(data){ 
+			scanCount = data.sval; 
+			console.log('scanCount is ' + scanCount);
+			if(scanCount == null){
+				scanCount = 0;
+				localStorage.setItem("scanCount",0);
+				set_session_var('scan_count', 0).then(function(data){});
+				get_session_var('scan_count').then(
+					function(data){ scanCount = data.sval; }
+				);
+				console.log('scancount now is ' + scanCount);
+			}
+			if(scanCount < 1){
+				$(".scanBarCode").show();
+				$(".mannualBarCode").hide();
+			}
+			else{
+				$(".scanBarCode").hide();
+				$(".mannualBarCode").show();
+				localStorage.setItem("scanCount",0);
+				set_session_var('scan_count', 0).then(function(data){});
+			}
+		}
+	);
+
+	$("#barcodeBtn").click(
         function(){
             var txtVal = $("#manualBarCodeValue").val();
 			var siteId = $('#test_site').val();
+			if (siteId == 0){
+				alert("Please select a test site");
+				return;
+			}
             if(txtVal.trim() == ""){
                 alert("Enter value");
             }else{
-                localStorage.setItem("scanValue",txtVal);
                 var barCodeValue = txtVal;
                 if (barCodeValue != null){
-                    $.ajax({
-	                    url: '/secure/api/upload_test_barcode',
-	                    method: 'POST',
-	                    data: JSON.stringify({ bc: barCodeValue, site_id: siteId }),
-	                    success: function(data){
-				            window.location.href = 'scan_complete';
-	                    }
-					});
+					//alert('sending to server');
+					upload_test_barcode(barCodeValue, siteId);
 				}
             }
         });
 }
 
+function scan_new_test(){
+	var siteId = $('#test_site').val();
+	if (siteId == 0){
+		$('#testSiteErr').removeClass('hideErr');
+		$('#testSiteErr').addClass('msgErr');
+		return false;
+	}
+    //localStorage.setItem("siteId", siteId );
+	set_session_var('site_id', siteId).then(function(data){});
+	get_session_var('site_id').then(function(data){ console.log(data.sval);});
+	window.location.href = "scan_new_test";
+}
+
 function start_scan(){
 	let selectedDeviceId;
-        codeReader = new ZXing.BrowserBarcodeReader()
-        console.log('ZXing code reader initialized')
-        codeReader.getVideoInputDevices()
-                .then((videoInputDevices) => {
-                        selectedDeviceId = videoInputDevices[0].deviceId;
-                        frontCamera = videoInputDevices[0].deviceId;
-                        if (videoInputDevices.length > 1) {
-                                $(".switchCamera").show();
-                                frontCamera = videoInputDevices[0].deviceId;
-                                backCamera = videoInputDevices[1].deviceId
-                                selectedDeviceId = videoInputDevices[1].deviceId;
-                                openCamera(backCamera);
-                        }else
-                                openCamera(frontCamera);
-                        setTimeout(function() {
-                                //$("#scanTryLayout").addClass("show").show();
-                                setTimeout(function() {
-                                        window.location.href = "scan_fail";
-                                }, 1000);
-                        }, 12000);
-                })
-                .catch((err) => {
-                        console.error(err)
-                        //alert(err);
-                })
+	codeReader = new ZXing.BrowserBarcodeReader()
+	console.log('ZXing code reader initialized')
+	codeReader.getVideoInputDevices()
+			.then((videoInputDevices) => {
+		//alert('selecting camera');
+					selectedDeviceId = videoInputDevices[0].deviceId;
+					frontCamera = videoInputDevices[0].deviceId;
+					if (videoInputDevices.length > 1) {
+							$(".switchCamera").show();
+							frontCamera = videoInputDevices[0].deviceId;
+							backCamera = videoInputDevices[1].deviceId
+							selectedDeviceId = videoInputDevices[1].deviceId;
+							openCamera(backCamera);
+					}
+					else
+							openCamera(frontCamera);
+
+			})
+			.catch((err) => {
+					console.error(err)
+					setTimeout(function() {
+						window.location.href = "scan_fail";
+					}, 1000);
+			})
 
         $(".cameraSwitch").click(function(){
                 if(camera == "back"){
@@ -829,36 +1025,52 @@ function start_scan(){
                 //window.location.href = "scan_complete.html";
         });
         $("#barcodeBtn").click(function(){
-                window.location.href = "scan_complete";
+			window.location.href = "scan_complete";
         });
 }
 
 function scan_fail() {
 	load_home();
-	var scanCount = parseInt(localStorage.getItem("scanCount"));
-	localStorage.setItem("scanCount",(++scanCount));
-	console.log(localStorage.getItem("scanCount"));
+	localStorage.setItem("scanCount",1);
+ 	set_session_var('scan_count', 1).then(function(data){});
+ 	get_session_var('site_id').then(function(){ console.log(data.sval);});
+	//alert(localStorage.getItem("scanCount"));
 }
 
 function openCamera(selectedDeviceId){
-        codeReader.decodeOnceFromVideoDevice(selectedDeviceId, 'video').then((result) => {
-                var txtVal = $("#manualBarCodeValue").val();
-                localStorage.setItem("scanValue",result);
-                $("#scanCompleteLayout").addClass("show").show();
-                setTimeout(function() {
-                        window.location.href = "scan_complete";
-                }, 1000);
-                //document.getElementById('result').textContent = result.text
-        }).catch((err) => {
-                console.error(err)
+	//alert('opening camera');
+    setTimeout(function(){ window.location.href = "scan_fail"; }, 15000);
+	codeReader.decodeOnceFromVideoDevice(selectedDeviceId, 'video').then((result) => {
+		//alert('scan completed from camera');
+		localStorage.setItem("scanValue",result);
+		$("#scanCompleteLayout").addClass("show").show();
+		setTimeout(function(){
+			var  barCodeValue = localStorage.getItem("scanValue");
+			//alert(barCodeValue);
+			get_session_var('site_id').then(
+				function(data){ 
+					siteId = data.sval; 
+					if (barCodeValue != null){
+						//alert('sending to server')
+						upload_test_barcode(barCodeValue, siteId);
+					}
+					else
+						window.location.href="scan_fail";
+				}
+			);
+		}, 12000);
+	}).catch((err) => {
+		//alert('scan failed from camera');
+		//alert(err);
+			console.error(err);
 
-                $('#myModal').modal({
-                        show: true,
-                        backdrop: 'static',
-                        keyboard: false
-                });
-                //document.getElementById('result').textContent = err
-        })
+			$('#myModal').modal({
+					show: true,
+					backdrop: 'static',
+					keyboard: false
+			});
+			window.location.href = "scan_fail";
+	})
 }
 
 var subjects = [];
@@ -947,7 +1159,7 @@ $( ".search-box" )
 		return $( "<li class='ui-state-disabled'>" ).append( "No matches found" ).appendTo( ul );
 	}else{
 		return $( "<li>" )
-			.append("<span><span style='float:left'>" + item.label + "</span> <span class='instructor-details' style='float:right'>" + item.instructor + "</span>" 				)
+			.append("<span><span style='float:left'>" + item.label + "</span> <span class='instructor-details-search' style='float:right'>" + item.instructor + "</span>" 				)
 			.appendTo( ul );
 	}
   }
@@ -1032,32 +1244,36 @@ function loadRecentSearch(){
 
 function load_scan_complete(){
 	load_home();
-    var  barCodeValue = localStorage.getItem("scanValue");
-    if (barCodeValue != null){
-        $.ajax({
-	        url: '/secure/api/upload_test_barcode',
-	        method: 'POST',
-	        data: JSON.stringify({ bar_code_value: barCodeValue }),
-	        success: function(data){
-	        }
-        });
-    }
+	set_session_var('site_id', 0).then(function(data){});
 }
 
-function upload_test_barcode(){
-    alert('uploading test barcode');
-    //var  barCodeValue = localStorage.getItem("scanValue");
-    var barCodeValue = $('#manualBarCodeValue').val();
-    if (barCodeValue != null){
-        $.ajax({
-	        url: '/secure/api/upload_test_barcode',
-	        method: 'POST',
-	        data: JSON.stringify({ bar_code_value: barCodeValue }),
-	        success: function(data){
-				window.href.location='scan_complete';
-	        }
-        });
-    }
+function upload_test_barcode(barCodeValue, siteId){
+
+	$.ajax({
+		url: '/secure/api/upload_test_barcode',
+		method: 'POST',
+		data: JSON.stringify({ bc: barCodeValue, siteid: siteId }),
+		success: function(data){
+			if (data[0].success == 'True'){
+				localStorage.removeItem("scanValue");
+  	            window.location.href='scan_complete';
+			}
+			else{
+                //alert(data[0].message);
+				$('#barCodeErrMsg').removeClass('hideErr');
+				$('#barCodeErrMsg').addClass('msgErr');
+				var tag = $("#barCodeErrMsg");
+                $('html,body').animate({scrollTop: tag.offset().top},'slow');
+ 				if (localStorage.getItem("scanValue") != null){
+					localStorage.removeItem("scanValue");
+					window.location.href='scan_fail';
+				}
+ 				else
+					localStorage.removeItem("scanValue");
+			}
+		}
+ 	});
+
 }
 
 function urlParam(name) {
@@ -1139,7 +1355,7 @@ function getDayActivity(appDay,startHtml,endHtml,type) {
 				}
 				else{
                     for (var i = 0; i < data.length; i++) {
-                        scheduleOnHtml += "<div class='row schedule-content pt-3'><div class='col-sm-12 col-xs-12 col-md-8 col-lg-8 justify-content-start'><p aria-label='Subject code : "+data[i].subject_code+"' class='subject-code p-0' data-toggle='tooltip' data-placement='top' title='"+data[i].subject_code+"'>"+data[i].subject_code+"</p><p aria-label='Subject name : "+data[i].subject_name+"' class='subject-name' ><span class='hallTooltip' data-toggle='tooltip' data-placement='top' title='"+data[i].subject_name+"'>"+data[i].subject_name+"</span></p><p aria-label='Instructor Name : "+data[i].instructor_name+"' data-toggle='tooltip' data-placement='top' title='"+data[i].instructor_name+"' class='instructor-schedule pt-3'>Instructor: <span>"+data[i].instructor_name+"</span></p><p class='location'>Location: <span aria-label='Location : "+data[i].location+"' data-toggle='tooltip' data-placement='top' title='"+data[i].location+"'>"+data[i].location+"</span></p><p aria-label='class time : "+data[i].class_time+"' class='classtime-table'>Class Time: <span>"+data[i].class_time+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start'><p class='entry-text'>ENTRY: <span class='entry-time' aria-label='entry time : "+data[i].entry_time+"'>"+data[i].entry_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door: "+data[i].entry_sug_door+"'>"+data[i].entry_sug_door+"</span></p><p class='suggested-door-name'>Accessible Door: <span aria-label='Accessible Door: "+data[i].entry_acc_door+"'>"+data[i].entry_acc_door+"</span></p><p class='exit-text pt-3'>EXIT: <span class='exit-time' aria-label='Exit Time: "+data[i].exit_time+"'>"+data[i].exit_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door: "+data[i].exit_sug_door+"'>"+data[i].exit_sug_door+"</span></p><p class='suggested-door-name'>Accessible Door: <span aria-label='Accessible Door: "+data[i].exit_acc_door+"'>"+data[i].exit_acc_door+"</span></p></div></div>";
+                        scheduleOnHtml += "<div class='row schedule-content pt-3'><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start'><p aria-label='Subject code : "+data[i].subject_code+"' class='subject-code p-0' data-toggle='tooltip' data-placement='top' title='"+data[i].subject_code+"'>"+data[i].subject_code+"</p><p aria-label='Subject name : "+data[i].subject_name+"' class='subject-name' ><span class='hallTooltip' data-toggle='tooltip' data-placement='top' title='"+data[i].subject_name+"'>"+data[i].subject_name+"</span></p><p aria-label='Instructor Name : "+data[i].instructor_name+"' data-toggle='tooltip' data-placement='top' title='"+data[i].instructor_name+"' class='instructor-schedule pt-3'>Instructor: <span>"+data[i].instructor_name+"</span></p><p class='location'>Location: <span aria-label='Location : "+data[i].location+"' data-toggle='tooltip' data-placement='top' title='"+data[i].location+"'>"+data[i].location+"</span></p><p aria-label='class time : "+data[i].class_time+"' class='classtime-table'>Class Time: <span>"+data[i].class_time+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start'><p class='entry-text'>ENTRY: <span class='entry-time' aria-label='entry time : "+data[i].entry_time+"'>"+data[i].entry_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door: "+data[i].entry_sug_door+"'>"+data[i].entry_sug_door+"</span></p><p class='suggested-door-name'>Accessible Door: <span aria-label='Accessible Door: "+data[i].entry_acc_door+"'>"+data[i].entry_acc_door+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start'><p class='exit-text'>EXIT: <span class='exit-time' aria-label='Exit Time: "+data[i].exit_time+"'>"+data[i].exit_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door: "+data[i].exit_sug_door+"'>"+data[i].exit_sug_door+"</span></p><p class='suggested-door-name'>Accessible Door: <span aria-label='Accessible Door: "+data[i].exit_acc_door+"'>"+data[i].exit_acc_door+"</span></p></div></div>";
                         if ( i != data.length-1 ) {
                             scheduleOnHtml += hrBorder;
                         }
@@ -1192,8 +1408,16 @@ var getUrlParameter = function getUrlParameter(sParam) {
 	}
 };
 
+function load_class_search(){
+	var tag = $("#scrollto");
+    $('html,body').animate({scrollTop: tag.offset().top},'slow');
+}
+
 /* common func on all pages */
 $(document).ready(function(){
+	IsUserLoggedIn();
+	$('ul.navigation-menu li:nth-child(7)').hide();
+	$('footer table.footerMenu tbody tr td:nth-child(1) p:nth-child(3)').hide();
 	var u = getUserInfo();
     console.log('updating user info');
     console.log(u);
@@ -1276,5 +1500,8 @@ $(document).ready(function(){
     if (window.location.href.endsWith('class_details')){
 		load_class_details();
     }
+	if (window.location.href.endsWith('class_search')){
+		load_class_search();
+	}
 });
 
