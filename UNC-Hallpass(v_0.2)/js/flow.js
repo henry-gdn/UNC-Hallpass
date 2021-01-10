@@ -114,6 +114,9 @@ function save_registration() {
 function goBack(){
 	//history.go(-1);
 	
+	if (window.location.href.endsWith('registration_mobile_number')) {
+		window.location.href="registration";
+	}
 	if (window.location.href.endsWith('registration_mobile_verify')) {
 		window.location.href="registration_mobile_number";
 	}
@@ -1528,9 +1531,10 @@ function load_class_search(){
 
 /* common func on all pages */
 $(document).ready(function(){
-	IsUserLoggedIn();
-	$('ul.navigation-menu li:nth-child(7)').hide();
-	$('footer table.footerMenu tbody tr td:nth-child(1) p:nth-child(3)').hide();
+	//console.log('on load flowjs');
+	//IsUserLoggedIn();
+	//$('ul.navigation-menu li:nth-child(7)').hide();
+	//$('footer table.footerMenu tbody tr td:nth-child(1) p:nth-child(3)').hide();
 	getUserInfo().then(
 		function(data){
 			console.log('data found:'+data);

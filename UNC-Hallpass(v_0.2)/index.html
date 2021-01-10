@@ -43,10 +43,10 @@
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
-								<li><a href="https://hallpass-dev.unc.edu/secure/my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="/secure/my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="https://hallpass-dev.unc.edu/secure/find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
-								<li><a href="https://hallpass-dev.unc.edu/secure/start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="/secure/find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="/secure/start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 							</ul>
 						</li>
 					</ul>
@@ -56,8 +56,8 @@
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
-								<li><a href="https://hallpass-dev.unc.edu/secure/my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="https://hallpass-dev.unc.edu/secure/class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>        
+								<li><a href="/secure/my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="/secure/class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>        
 							</ul>
 						</li>
 					</ul>
@@ -65,7 +65,6 @@
 				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
 				<li><a href="https://hallpass.unc.edu/results">RESULTS</a></li>
-				<li><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">LOGOUT</a></li>
 				<li><a href="index">LOGIN</a></li>
             </ul>
         </div>
@@ -139,18 +138,18 @@
 		<table class="table p-2 ml-1 footerMenu">
 			<tr>
 				<td>
-					<p><a href="home">Home</a></p>
+					<p><a href="/secure/home">Home</a></p>
 					<p><a href="index">Login</a></p>
-					<p><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">Logout</a></p>
+					<p><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout" style="display:none">Logout</a></p>
 				</td>
 				<td>
-					<p><a href="https://hallpass-dev.unc.edu/secure/my_testing">My Testing</a></p>
-					<p><a href="testing_how_to">Testing How To</a></p>
-					<p><a href="https://hallpass-dev.unc.edu/secure/find_test_site">Find Test Site</a></p>
+					<p><a href="/secure/my_testing">My Testing</a></p>
+					<p><a href="/secure/testing_how_to">Testing How To</a></p>
+					<p><a href="/secure/find_test_site">Find Test Site</a></p>
 				</td>
 				<td>
-					<p><a href="https://hallpass-dev.unc.edu/secure/my_schedule">My Class Schedule</a></p>
-					<p><a href="https://hallpass-dev.unc.edu/secure/class_search">Class Search</a></p>
+					<p><a href="/secure/my_schedule">My Class Schedule</a></p>
+					<p><a href="/secure/class_search">Class Search</a></p>
 				</td>
 				<td>
 					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
@@ -175,12 +174,11 @@
     <script src="js/scrollspy.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/flow.js"></script>
-	
 </body>
 <script>
 $(document).ready(function() { 
 	$("body").css({visibility:'visible'});
+	$.getScript('js/flow.js', function() { console.log('flowjs loaded'); });
 });
 </script>
 <style>
