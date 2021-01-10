@@ -10,6 +10,24 @@ Date.prototype.addHours= function(h){
     return this;
 }
 
+function markInvalid(f){
+	f.removeClass('hideErr');
+	f.addClass('msgErr');
+}
+
+function markValid(f){
+	f.removeClass('msgErr');
+	f.addClass('hideErr');
+}
+
+function isValidDate(d){
+	var date_regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
+	if (!(date_regex.test(d))) 
+    	return false;
+	else 
+		return true;
+}
+
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -58,10 +76,20 @@ function IsUserLoggedIn() {
 }
 
 function getUserInfo() {
-    var userInfoCookie = getCookie('reg-user-info');
+    /*var userInfoCookie = getCookie('reg-user-info');
     console.log(userInfoCookie);
     var parts = userInfoCookie.split(':');
-    return { 'name': parts[0], 'pid': parts[1] };
+	return { 'name': parts[0], 'pid': parts[1] };*/
+	pid="";
+	users_name=""
+
+	return $.ajax({
+        url: '/secure/api/get_member_email_mobile',
+		type: 'GET',
+		async: false
+	});
+	
+	//return { 'name':users_name, 'pid': pid};
 }
 
 function getPID(){
@@ -83,7 +111,7 @@ function redirect(){
 
 function save_registration() {
 	if (!$('#agreeChk').is(":checked")){
-		alert('Please select the checkbox');
+		markInvalid($('#agreeChkErr'));
 		return false;
 	}
     $.ajax({
@@ -99,7 +127,26 @@ function save_registration() {
 }
 
 function goBack(){
-	history.go(-1);
+	//history.go(-1);
+	
+	if (window.location.href.endsWith('registration_mobile_verify')) {
+		window.location.href="registration_mobile_email";
+	}
+	if (window.location.href.endsWith('enter_name')) {
+		window.location.href="registration_mobile_verify";
+	}
+	if (window.location.href.endsWith('demographics')) {
+		window.location.href="enter_name";
+	}
+	if (window.location.href.endsWith('registration_local_address')) {
+		window.location.href="demographics";
+	}
+	if (window.location.href.endsWith('registration_quarantine_address_choice')) {
+		window.location.href="registration_local_address";
+	}
+	if (window.location.href.endsWith('registration_quarantine_address')) {
+		window.location.href="registration_quarantine_address_choice";
+	}
 }
 
 function load_email_mobile(){
@@ -226,7 +273,6 @@ function sendnewotp(){
 }
 
 function load_member_name(){
-
     $.ajax({
 	    url: '/secure/api/get_member_name',
 	    type: 'GET',
@@ -250,20 +296,23 @@ function save_member_name(){
  	$d = $('#date_of_birth').val();
 	isvalid = true;
 	if ($f == ''){
-		$('#first_name_err_msg').removeClass('hideErr');
-		$('#first_name_err_msg').addClass('msgErr');
+ 		markInvalid($('#first_name_err_msg'));
 		isvalid = false;
 	}
+	else
+		markValid($('#first_name_err_msg'));
 	if ($l == ''){
-		$('#last_name_err_msg').removeClass('hideErr');
-		$('#last_name_err_msg').addClass('msgErr');
+		markInvalid($('#last_name_err_msg'));
 		isvalid = false;
 	}
-	if ($d == ''){
-		$('#date_of_birth_err_msg').removeClass('hideErr');
-		$('#date_of_birth_err_msg').addClass('msgErr');
+	else
+		markValid($('#last_name_err_msg'));
+	if ($d == '' || !isValidDate($d)){
+		markInvalid($('#date_of_birth_err_msg'));
 		isvalid = false;
 	}
+	else
+		markValid($('#date_of_birth_err_msg'));
 	if (isvalid != true)
 		return false;
     $.ajax({
@@ -312,8 +361,26 @@ function save_demographics(){
 	$g = $('#gender').val();
     $r = $('#race').val();
     $e = $('#ethnicity').val();
-	if ($g == null || $r == null || $e == null){
-		alert('Please enter the details.');
+	isvalid = true;
+	if ($g == null || $g == ''){ 
+		markInvalid($('#genderErr'));
+		isvalid = false;
+	}
+	else
+		markValid($('#genderErr'));
+	if ($r == null || $r == ''){ 
+		markInvalid($('#raceErr'));
+		isvalid = false;
+	}
+	else
+		markValid($('#raceErr'));
+	if ($e == null || $e == ''){ 
+		markInvalid($('#ethnicityErr'));
+		isvalid = false;
+	}
+	else
+		markValid($('#ethnicityErr'));
+	if (!isvalid){
 		return false;
 	}
     $.ajax({
@@ -354,30 +421,35 @@ function save_local_addr(){
     $laz = $('#zipcode').val();
 	isvalid = true;
 	if ($las1 == ''){
-		$('#street1_err_msg').removeClass('hideErr');
-		$('#street1_err_msg').addClass('msgErr');
+		markInvalid($('#street1_err_msg'));
 		isvalid = false;
 	}
+	else
+		markValid($('#street1_err_msg'));
 	if ($lac == ''){
-		$('#city_err_msg').removeClass('hideErr');
-		$('#city_err_msg').addClass('msgErr');
+		markInvalid($('#city_err_msg'));
 		isvalid = false;
 	}
+	else
+		markValid($('#city_err_msg'));
 	if ($laz == ''){
-		$('#zipcode_err_msg').removeClass('hideErr');
-		$('#zipcode_err_msg').addClass('msgErr');
+		markInvalid($('#zipcode_err_msg'));		
 		isvalid = false;
 	}
+	else
+		markValid($('#zipcode_err_msg'));	
 	if ($lat == null){
-		$('#county_err_msg').removeClass('hideErr');
-		$('#county_err_msg').addClass('msgErr');
+		markInvalid($('#county_err_msg'));		
 		isvalid = false;
 	}
+	else
+		markValid($('#county_err_msg'));	
 	if ($las == null){
-		$('#state_err_msg').removeClass('hideErr');
-		$('#state_err_msg').addClass('msgErr');
+		markInvalid($('#state_err_msg'));		
 		isvalid = false;
 	}
+	else
+		markValid($('#state_err_msg'));	
 	if (isvalid != true)
 		return false;
 
@@ -438,6 +510,10 @@ function load_quarantine_choice(){
 
 function save_quarantine_choice(){
     $qaddr = $('#quarantine_address').val();
+	if ($qaddr == null || $qaddr == ''){
+		markInvalid($('#quarantineErr'));
+		return false;
+	}
     $.ajax({
 	    url: '/secure/api/update_member_quarantine_choice',
 	    type: 'POST',
@@ -477,30 +553,35 @@ function save_quarantine_addr(){
     $laz = $('#zipcode').val();
 	isvalid = true;
 	if ($las1 == ''){
-		$('#street1_err_msg').removeClass('hideErr');
-		$('#street1_err_msg').addClass('msgErr');
+		markInvalid($('#street1_err_msg'));
 		isvalid = false;
 	}
+	else
+		markValid($('#street1_err_msg'));
 	if ($lac == ''){
-		$('#city_err_msg').removeClass('hideErr');
-		$('#city_err_msg').addClass('msgErr');
+		markInvalid($('#city_err_msg'));
 		isvalid = false;
 	}
+	else
+		markValid($('#city_err_msg'));
 	if ($laz == ''){
-		$('#zipcode_err_msg').removeClass('hideErr');
-		$('#zipcode_err_msg').addClass('msgErr');
+		markInvalid($('#zipcode_err_msg'));		
 		isvalid = false;
 	}
+	else
+		markValid($('#zipcode_err_msg'));	
 	if ($lat == null){
-		$('#county_err_msg').removeClass('hideErr');
-		$('#county_err_msg').addClass('msgErr');
+		markInvalid($('#county_err_msg'));		
 		isvalid = false;
 	}
+	else
+		markValid($('#county_err_msg'));	
 	if ($las == null){
-		$('#state_err_msg').removeClass('hideErr');
-		$('#state_err_msg').addClass('msgErr');
+		markInvalid($('#state_err_msg'));		
 		isvalid = false;
 	}
+	else
+		markValid($('#state_err_msg'));	
 	if (isvalid != true)
 		return false;
     $.ajax({
@@ -977,14 +1058,23 @@ function load_start_new_test(){
 function scan_new_test(){
 	var siteId = $('#test_site').val();
 	if (siteId == 0){
-		$('#testSiteErr').removeClass('hideErr');
-		$('#testSiteErr').addClass('msgErr');
+		markInvalid($('#testSiteErr'));
 		return false;
 	}
-    //localStorage.setItem("siteId", siteId );
-	set_session_var('site_id', siteId).then(function(data){});
-	get_session_var('site_id').then(function(data){ console.log(data.sval);});
-	window.location.href = "scan_new_test";
+    $.ajax({
+        url: '/secure/api/demographic_data_ok',
+        type: 'GET',
+		success: function(data) {
+            if (data[0].success == 'True'){
+				set_session_var('site_id', siteId).then(function(data){});
+				window.location.href = "scan_new_test";
+			}
+			else {
+				markInvalid($('#demoDataErr'));
+				return false;
+			}
+		}
+	});
 }
 
 function start_scan(){
@@ -1049,6 +1139,7 @@ function openCamera(selectedDeviceId){
 			//alert(barCodeValue);
 			get_session_var('site_id').then(
 				function(data){ 
+					//alert(data.sval)
 					siteId = data.sval; 
 					if (barCodeValue != null){
 						//alert('sending to server')
@@ -1259,9 +1350,17 @@ function upload_test_barcode(barCodeValue, siteId){
   	            window.location.href='scan_complete';
 			}
 			else{
-                //alert(data[0].message);
+                console.log(data[0].message);
 				$('#barCodeErrMsg').removeClass('hideErr');
 				$('#barCodeErrMsg').addClass('msgErr');
+				
+				if (data[0].message != ""){
+					$('#barCodeErrMsg').text(data[0].message);
+				}
+				else{
+					$('#barCodeErrMsg').text("An error occured with this order and it was not processed")
+				}
+
 				var tag = $("#barCodeErrMsg");
                 $('html,body').animate({scrollTop: tag.offset().top},'slow');
  				if (localStorage.getItem("scanValue") != null){
@@ -1418,90 +1517,99 @@ $(document).ready(function(){
 	IsUserLoggedIn();
 	$('ul.navigation-menu li:nth-child(7)').hide();
 	$('footer table.footerMenu tbody tr td:nth-child(1) p:nth-child(3)').hide();
-	var u = getUserInfo();
-    console.log('updating user info');
-    console.log(u);
-    $('#member_name').length ? $('#member_name').html(u.name) : '';
-    $('#member_pid').length ? $('#member_pid').html(u.pid) : '';
-    if (window.location.href.endsWith('registration_mobile_number')){
-        load_email_mobile();
-    }
-    if (window.location.href.endsWith('enter_name')) {
-        load_member_name();
-    }
-    if (window.location.href.endsWith('demographics')) {
-        load_demographics();
-    }
-    if (window.location.href.endsWith('registration_local_address')){
-        load_local_addr();
-    }
-    if (window.location.href.endsWith('registration_mailing_address')){
-        load_step_4();
-    }
-    if (window.location.href.endsWith('registration_quarantine_address_choice')){
-        load_quarantine_choice();
-    }
-    if (window.location.href.endsWith('registration_quarantine_address')){
-        load_quarantine_addr();
-    }
+	getUserInfo().then(
+		function(data){
+			console.log('data found:'+data);
+			if (data[0].name != ' '){
+				users_name = data[0].name
+			}
+			if (data[0].pid != ' '){
+				pid = data[0].pid
+			}
+			
+			console.log('updating user info');
+			$('#member_name').length ? $('#member_name').html(users_name) : '';
+			$('#member_pid').length ? $('#member_pid').html(pid) : '';
+        }
+	);
+	if (window.location.href.endsWith('registration_mobile_number')){
+		load_email_mobile();
+	}
+	if (window.location.href.endsWith('enter_name')) {
+		load_member_name();
+	}
+	if (window.location.href.endsWith('demographics')) {
+		load_demographics();
+	}
+	if (window.location.href.endsWith('registration_local_address')){
+		load_local_addr();
+	}
+	if (window.location.href.endsWith('registration_mailing_address')){
+		load_step_4();
+	}
+	if (window.location.href.endsWith('registration_quarantine_address_choice')){
+		load_quarantine_choice();
+	}
+	if (window.location.href.endsWith('registration_quarantine_address')){
+		load_quarantine_addr();
+	}
 	if (window.location.href.endsWith('registration_thx')){
-        load_registration_thx();
-    }
+		load_registration_thx();
+	}
 	if (window.location.href.endsWith('home')){
-        load_home();
-    }
-    if (window.location.href.endsWith('find_test_site')){
-        load_test_sites();
-    }
-    if (window.location.href.endsWith('find_test_site_slots')){
-        get_slots();
-    }
-    if (window.location.href.endsWith('find_test_site_confirmtime')){
-        load_confirm_time();
-    }
-    if (window.location.href.endsWith('reservation')){
-        load_reservation();
-    }
-    if (window.location.href.endsWith('my_reservations')){
-        load_reservation();
-    }
-    if (window.location.href.endsWith('my_testing')){
-        load_my_testing();
-    }
-    if (window.location.href.endsWith('my_schedule')){
-        load_my_schedule();
-    }
-    if (window.location.href.endsWith('start_new_test')){
-        load_start_new_test();
-    }
-    if (window.location.href.endsWith('scan_new_test')){
-        start_scan();
-    }
-    if (window.location.href.endsWith('scan_fail')){
-        scan_fail();
-    }
+		load_home();
+	}
+	if (window.location.href.endsWith('find_test_site')){
+		load_test_sites();
+	}
+	if (window.location.href.endsWith('find_test_site_slots')){
+		get_slots();
+	}
+	if (window.location.href.endsWith('find_test_site_confirmtime')){
+		load_confirm_time();
+	}
+	if (window.location.href.endsWith('reservation')){
+		load_reservation();
+	}
+	if (window.location.href.endsWith('my_reservations')){
+		load_reservation();
+	}
+	if (window.location.href.endsWith('my_testing')){
+		load_my_testing();
+	}
+	if (window.location.href.endsWith('my_schedule')){
+		load_my_schedule();
+	}
+	if (window.location.href.endsWith('start_new_test')){
+		load_start_new_test();
+	}
+	if (window.location.href.endsWith('scan_new_test')){
+		start_scan();
+	}
+	if (window.location.href.endsWith('scan_fail')){
+		scan_fail();
+	}
 	if (window.location.href.endsWith('scan_complete')){
-        load_scan_complete();
-    }
-    if (window.location.href.includes('get_slot_info')){
-        load_slot_info();
-    }
+		load_scan_complete();
+	}
+	if (window.location.href.includes('get_slot_info')){
+		load_slot_info();
+	}
 	if (window.location.href.endsWith('find_test_site_slot_full')){
-        load_find_test_site_slot_full();
-    }
+		load_find_test_site_slot_full();
+	}
 	if (window.location.href.endsWith('find_test_site_slot_booked')){
-        load_find_test_site_slot_booked();
-    }
-    if (window.location.href.endsWith('class_search')){
+		load_find_test_site_slot_booked();
+	}
+	if (window.location.href.endsWith('class_search')){
 		handleKeyDown();
 		loadRecentSearch();
 		handleitemSelect();
-    }
-    if (window.location.href.endsWith('class_details')){
-		load_class_details();
-    }
-	if (window.location.href.endsWith('class_search')){
 		load_class_search();
 	}
+	if (window.location.href.endsWith('class_details')){
+		load_class_details();
+	}
+
 });
 
