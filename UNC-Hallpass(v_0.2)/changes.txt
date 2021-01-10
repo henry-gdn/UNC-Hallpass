@@ -161,6 +161,15 @@ my reservation
 
 1.Logout URL - The Logout URL changed to /Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout on all pages.   
 
+
+*****************
+   10/01/2021
+*****************	
+
+1. Updated unc-style.css file
+2. my_reservations.html --> breadcrumbs updated
+3. start_new_test.html --> ui changed. 
+
 ***************************************************************************************************************************
 
 
