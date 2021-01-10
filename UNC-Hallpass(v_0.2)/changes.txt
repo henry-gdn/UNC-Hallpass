@@ -119,8 +119,41 @@ my reservation
 1. Demographics.html file added
 
 
+***************************************************************************************************************************
+
+*****************
+   09/01/2021
+*****************
+1.UNC-style.css --> file updated
+2.menu ---> higlighted background color issue fixed on mobile
+3.my_schedule.html ---> page alignment issues fixed. We need to place class for accessible door ( instead of suggested-door-name just replace with suggested-door-name-acc ) in flow.js
+4.registration.html ---> need to edit. removed underline for without link.
+
+***************************************************************************************************************************
 
 
+***************************************************************************************************************************
 
+*****************
+   10/01/2021
+*****************
+1. start_new_test.html --> barcode error message changed. Instead of Please enter valid Barcode, changed to ( Please enter bar code in the below format 	CTTP-XXX-XXXX ). And also new content added
+2. Scan Successful page --> scan_complete.html --> new content added
+3. registration_local_address.html --> Added "NOT IN NORTH CAROLINA" in County drop-down at the top in registration local address page
+4. registration_quarantine_address.html --> Added "NOT IN NORTH CAROLINA" in County drop-down at the top in registration Quarantine address page
+5. support.html --> updated accessibility link
+6. Mobile view - My reservation button on the My Testing page is flickering issues fixed --> updated css for this issue
+7. registration_mobile_verify.html --> updated with login/logout button
+8. index.html -->  my testing - https://hallpass-dev.unc.edu/secure/my_testing
+				   Find test site - https://hallpass-dev.unc.edu/secure/find_test_site
+                   Start new test - https://hallpass-dev.unc.edu/secure/start_new_test
+                   My Schedule - https://hallpass-dev.unc.edu/secure/my_schedule
+                   Class Search - https://hallpass-dev.unc.edu/secure/class_search
+				  
+9. Results --> All the pages instead of contact, changed to results and its link to https://hallpass.unc.edu/results 	
+
+10. Important --> we need to remove unwanted .html pages.***		   
+
+***************************************************************************************************************************
 
 

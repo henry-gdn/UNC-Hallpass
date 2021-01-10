@@ -65,7 +65,7 @@
 				</li>
 				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
-				<li><a href="contact">CONTACT</a></li>
+				<li><a href="https://hallpass.unc.edu/results">RESULTS</a></li>
 				<li><a href="/Shibboleth.sso/Logout">LOGOUT</a></li>
 				<li><a href="index">LOGIN</a></li>
             </ul>
@@ -103,12 +103,13 @@
 					<h3 class="testing-title-1">Status: <span id="member_status"></span></h3>
                 </div>
 				<div class="mt-4 mb-4">
-					<p>In order to scan new test, the app will use the camera on your mobile device. The barcode of your test must be scanned on site and in the presence of a medical professional.</p>
+					<p>In the form below, select your collection location. Then remove the test tube from the bag and find the numbers under the barcode. Enter the digits, including the dash in the form, and submit the form.</p>
+					<p class="pt-3">After entering the information and submitting the form, follow the in-person testing procedures at your station.</p>
 				</div>
-				<div class="row">
+				<div class="row pt-0">
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 						<div class="select-wrapper">
-							<div class="form-group mb-0 pt-1 selectUi">
+							<div class="form-group mb-0 pt-1">
 								<label>TEST SITE</label>
 								<select id="test_site" class="form-control">
 									<option value="0">Select Test Site</option>
@@ -118,7 +119,7 @@
 						<span class="hideErr" id="testSiteErr"><i class="feather icon-alert-circle"></i>&nbsp;Please select test site.</span>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row mb-0">
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 						<div class="scan-btn scanBarCode mt-4 mb-4 p-0">
 							<button aria-labelledby="SCAN BARCODE" aria-label="SCAN BARCODE" class="btn btn-block scanBarCodeBtn" onclick="scan_new_test()">
@@ -129,7 +130,7 @@
 						</div>
 					</div>
 				</div>
-<span class="hideErr" id="demoDataErr"><i class="feather icon-alert-circle"></i>&nbsp;Please enter your demographic data before taking a test.</span>				
+				<span class="hideErr" id="demoDataErr"><i class="feather icon-alert-circle"></i>&nbsp;Please enter your demographic data before taking a test.</span>				
 				<div class="row pt-0">
 					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 						<div class="searchButton mannualBarCode p-0" style="margin-left:-8px;margin-right:-8px;">
@@ -147,7 +148,7 @@
 								</tr>
 							</table> 
 							<div class="mb-1" style="margin-left:10px;margin-top:-30px;">
-								<div class="hideErr" id="barCodeErrMsg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter valid Barcode.</div>
+								<div class="hideErr" id="barCodeErrMsg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter bar code in the below format CTTP-XXX-XXXX</div>
 							</div>
 						</div>
 					</div>
@@ -160,20 +161,8 @@
 						<h3 aria-labelledby="status" aria-label="status" class="testing-content mt-0">Status : <span class="test-status-display"></span></h3>
 						<h3 aria-labelledby="location" aria-label="location" class="testing-content mt-0">Location : <span class="test-site-display"></span></h3><br/>
 						<h4 aria-labelledby="Get next test before :" aria-label="Get next test before :" class="testing-title-head">Get next test before : <span class="next-test-date"></span></h4>
-						<!--h5 aria-labelledby="Member name" aria-label="Member name" class="testing-title-head">Last test scanned :<span class="last-test-date"></span></h5>
-						<h6 aria-labelledby="test status" aria-label="test status" class="testing-content mt-0">Status : <span class="test-status-display"></span></h6>
-						<h6 aria-labelledby="test site" aria-label="test site" class="testing-content mt-0">Location : <span class="test-site-display"></span></h6><br/>
-						<h5 aria-labelledby="Member name" aria-label="Member name" class="testing-title-head">Get next test before : <span class="next-test-date"></span></h5-->
 					</div>
 					<br/>
-<!--					<div class="mt-4 mb-4">
-
-						<h6 aria-labelledby="test status" aria-label="test status" class="testing-content mt-0">Status : <span class="test-status-display"></span></h6>
-						<h6 aria-labelledby="test site" aria-label="test site" class="testing-content mt-0">Location : <span class="test-site-display"></span></h6>
-					</div>//-->
-<!--					<div class="mt-4 mb-4">
-						<h5 aria-labelledby="Member name" aria-label="Member name" class="testing-title-head">Get next test before : <span class="next-test-date"></span></h5>
-					</div>//-->
 				</div>
 			</div>	
         </div>
@@ -218,7 +207,7 @@
 				<td>
 					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
 					<p><a href="support">Support</a></p>
-					<p><a href="contact">Contact</a></p>
+					<p><a href="https://hallpass.unc.edu/results">Results</a></p>
 				</td>
 			</tr>
 		</table>
