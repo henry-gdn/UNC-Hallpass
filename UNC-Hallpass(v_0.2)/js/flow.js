@@ -58,21 +58,6 @@ function IsUserLoggedIn() {
 			}
 		}
 	);
-	/*
-	var cameFrom = window.location.href.substring(window.location.href.lastIndexOf('/'));
-	$.ajax({
-        url: '/secure/api/is_logged_in',
-        type: 'GET',
-		error: function(data){
-			console.log('failed');
-			window.location.href='/secure/api/login?r='+cameFrom;
-		},
-		success: function(data){
-			console.log('succeeded');
-			$('ul.navigation-menu li:nth-child(8)').hide();
-			$('ul.navigation-menu li:nth-child(7)').show();
-		}
-	});*/
 }
 
 function getUserInfo() {
@@ -130,7 +115,7 @@ function goBack(){
 	//history.go(-1);
 	
 	if (window.location.href.endsWith('registration_mobile_verify')) {
-		window.location.href="registration_mobile_email";
+		window.location.href="registration_mobile_number";
 	}
 	if (window.location.href.endsWith('enter_name')) {
 		window.location.href="registration_mobile_verify";
@@ -514,6 +499,8 @@ function save_quarantine_choice(){
 		markInvalid($('#quarantineErr'));
 		return false;
 	}
+	else
+		markValid($('#quarantineErr'));
     $.ajax({
 	    url: '/secure/api/update_member_quarantine_choice',
 	    type: 'POST',
@@ -1008,18 +995,23 @@ function load_start_new_test(){
 	});
 
 
-	var scanCount = localStorage.getItem("scanCount");
+	var scanCount = 0; //localStorage.getItem("scanCount");
+	$(".scanBarCode").hide();
+	$(".manualBarCode").show();
+	$("#manualBarCodeValue").val('CTTP-');
+	$("#manualBarCodeValue").focus();
+	/*
 	get_session_var('scan_count').then(
 		function(data){ 
 			scanCount = data.sval; 
 			console.log('scanCount is ' + scanCount);
 			if(scanCount == null){
 				scanCount = 0;
-				localStorage.setItem("scanCount",0);
+				//localStorage.setItem("scanCount",0);
 				set_session_var('scan_count', 0).then(function(data){});
-				get_session_var('scan_count').then(
-					function(data){ scanCount = data.sval; }
-				);
+				//get_session_var('scan_count').then(
+					//function(data){ scanCount = data.sval; }
+				//);
 				console.log('scancount now is ' + scanCount);
 			}
 			if(scanCount < 1){
@@ -1028,31 +1020,52 @@ function load_start_new_test(){
 			}
 			else{
 				$(".scanBarCode").hide();
-				$(".mannualBarCode").show();
-				localStorage.setItem("scanCount",0);
+				$(".manualBarCode").val('CTTP-')
+				$("#manualBarCodeValue").show();
+			    $("#manualBarCodeValue").focus();
+				//localStorage.setItem("scanCount",0);
 				set_session_var('scan_count', 0).then(function(data){});
 			}
 		}
 	);
+	*/
 
 	$("#barcodeBtn").click(
         function(){
-            var txtVal = $("#manualBarCodeValue").val();
 			var siteId = $('#test_site').val();
 			if (siteId == 0){
-				alert("Please select a test site");
-				return;
+				markInvalid($('#testSiteErr'));
+				return false;
 			}
-            if(txtVal.trim() == ""){
-                alert("Enter value");
-            }else{
-                var barCodeValue = txtVal;
-                if (barCodeValue != null){
-					//alert('sending to server');
-					upload_test_barcode(barCodeValue, siteId);
+			else
+				markValid($('#testSiteErr'));
+			var txtVal = $("#manualBarCodeValue").val();
+			if(txtVal.trim() == ""){
+				markInvalid($('#barCodeErrMsg'));
+				return false;
+			}
+			else
+				markValid($('#barCodeErrMsg'));
+			$.ajax({
+				url: '/secure/api/demographic_data_ok',
+				type: 'GET',
+				success: function(data) {
+					if (data[0].success == 'True'){
+						set_session_var('site_id', siteId).then(function(data){});
+						var barCodeValue = txtVal;
+                		if (barCodeValue != null){
+							//alert('sending to server');
+							upload_test_barcode(barCodeValue, siteId);
+						}
+					}
+					else {
+						markInvalid($('#demoDataErr'));
+						return false;
+					}
 				}
-            }
-        });
+			});
+        }
+	);
 }
 
 function scan_new_test(){
@@ -1413,8 +1426,9 @@ function load_my_schedule(){
     $("body").tooltip({ selector: '.hallModal, .hallTooltip, .enterDoor, .exitDoor, .subject-code' , boundary: 'window' });
  	load_home();
     //As per current day schedule will be loaded
-    var arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday" ];
-    var day = new Date().getDay();	
+    var arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	var day = (new Date(new Date().toLocaleString("en-US", {timeZone: "US/Eastern"}))).getDay();
+    //var day = new Date().getDay();	
 	//alert(day);
     for (var i = 0 ;i <day-1; i++) {		           
         arr.push(arr.shift());			

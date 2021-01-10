@@ -102,7 +102,7 @@
 					<h3 class="testing-title-1">PID: <span id="member_pid"></span></h3>
 					<h3 class="testing-title-1">Status: <span id="member_status"></span></h3>
                 </div>
-				<div class="mt-4 mb-4">
+				<div class="mt-4 mb-2">
 					<p>In the form below, select your collection location. Then remove the test tube from the bag and find the numbers under the barcode. Enter the digits, including the dash in the form, and submit the form.</p>
 					<p class="pt-3">After entering the information and submitting the form, follow the in-person testing procedures at your station.</p>
 				</div>
@@ -137,7 +137,7 @@
 							<table class="table p-0">
 								<tr>
 									<td>
-										<label for="manualBarCodeValue" class="mb-0">PLEASE ENTER BARCODE MANUALLY</label>
+										<label for="manualBarCodeValue" class="mb-0">PLEASE ENTER BARCODE MANUALLY <br/>(CTTP-XXX-XXXX)</label>
 										<input id="manualBarCodeValue" tabindex="0" type="text" data-role="none" data-enhance="false" class="form-control search-box" placeholder="" />
 									</td>
 									<td>
@@ -149,6 +149,7 @@
 							</table> 
 							<div class="mb-1" style="margin-left:10px;margin-top:-30px;">
 								<div class="hideErr" id="barCodeErrMsg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter bar code in the below format CTTP-XXX-XXXX</div>
+								<span class="hideErr" id="demoDataErr"><i class="feather icon-alert-circle"></i>&nbsp;Please enter your demographic data before taking a test.</span>
 							</div>
 						</div>
 					</div>

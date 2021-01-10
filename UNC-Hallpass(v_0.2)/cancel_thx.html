@@ -171,16 +171,6 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/flow.js"></script>
 </body>
-<script>
-$(document).ready(function() {
-	var availSlot = localStorage.getItem("avail-slot").split('#');
-	var locationName = localStorage.getItem('location-name');
-    var  confirmSlot = localStorage.getItem("confirm-slot").split('#');
-	
-	$('.slot-time').text(confirmSlot[1]);
-	$('.locationName').text(confirmSlot[0]);  
-	$('.bookdate').text(availSlot[1]);
-});	 
-</script>
 </html>
