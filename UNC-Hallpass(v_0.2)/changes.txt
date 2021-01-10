@@ -134,7 +134,7 @@ my reservation
 
 ***************************************************************************************************************************
 
-*****************
+**************
    10/01/2021
 *****************
 1. start_new_test.html --> barcode error message changed. Instead of Please enter valid Barcode, changed to ( Please enter bar code in the below format 	CTTP-XXX-XXXX ). And also new content added
@@ -152,7 +152,14 @@ my reservation
 				  
 9. Results --> All the pages instead of contact, changed to results and its link to https://hallpass.unc.edu/results 	
 
-10. Important --> we need to remove unwanted .html pages.***		   
+10. Important --> we need to remove unwanted .html pages.***	
+
+
+*****************
+   10/01/2021
+*****************	
+
+1.Logout URL - The Logout URL changed to /Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout on all pages.   
 
 ***************************************************************************************************************************
 
