@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>UNC Hall Pass - Admin - Home </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="autdor" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="shortcut icon" type="image/png" href="images/apple-touch-icon.png" />
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/unc_admin.css">
+</head>
+<body>
+    <!-- HEADER START -->
+    <header id="topnav" class="defaultscroll sticky bg-header">
+        <div>
+            <a class="logo" href="https://hallpass.unc.edu/">
+                <div class="custom-logo-link">
+                    <img src="images/header_logo.png" class="logoImg" alt="CAROLINA TOGETHER" />
+                </div>
+            </a>
+        </div>
+        <div class="menu-extras">
+            <div class="menu-item">
+                <a class="navbar-toggle">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="navigation">
+            <ul class="navigation-menu">
+				<li><a href="home">SLOT BOOKING</a></li>
+				<li class="has-submenu">
+					<a href="#" aria-haspopup="true" aria-expanded="false">REPORT</a>
+					<ul class="submenu megamenu">
+						<li>
+							<ul>
+								<li><a href="#">MEMBER VIEW<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+								<li><a href="#">LOCATION VIEW<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li> 
+							</ul>
+						</li>
+					</ul>
+				</li>
+            </ul>
+        </div>
+		<div class="headTab-blue">
+			<table class="table table-sm">
+				<tr>
+					<td>
+						ADMIN 
+					</td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+    </header>
+    <!-- HEADER END -->
+	<!-- UNC CONTENT - START -->
+    <div class="mobile-view-home p-2 mb-5">
+        <div class="container">
+			<div class="row pt-2">
+				<div class="breadcrumb-wrapper col-12">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="admin_home">Admin</a></li>
+						<li class="breadcrumb-item"><a href="reserve_by_locations">Test Locations</a></li>
+						<li class="breadcrumb-item">Rams Head</li>
+					</ol>
+				</div>
+			</div>
+            <div class="pt-2 head-wrapper">
+				<div class="mt-2 mb-1">
+					<h1 class="head-h2">Rams Head</h1>
+                </div>
+				<div class="row mt-3 mb-2">
+					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
+						<div class="p-0">
+							<button type="button" aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1" onclick="goBack()">
+							<i class="feather icon-chevron-left"></i>
+							LOCATIONS
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="row pt-2">
+					<div class="col col-lg-4 col-md-4 col-sm-8 col-xs-8">
+						<div class="searchButton p-0">
+							<input type="text" class="form-control search-box" placeholder="SEARCH NAME OR PID"/>
+						</div>
+					</div>
+					<div class="col col-lg-1 col-md-1 col-sm-4 col-xs-4">
+						<button aria-labelledby="search name or pid button" aria-label="search name or pid button" tabindex="0" class="btn btn-outline-search" type="button">
+							<i class="feather icon-chevron-right"></i>
+						</button>
+					</div>
+				</div>
+				<div class="mt-4 location-view-table">
+					<table class="table table-sm">
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Time</th>
+								<th>PID</th>
+								<th>Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>10/25/20</td>
+								<td>08:00 AM</td>
+								<td>730145879</td>
+								<td>LastName, FirstName</td>
+							</tr>
+							<tr>
+								<td>10/25/20</td>
+								<td>08:00 AM</td>
+								<td>730145879</td>
+								<td>LastName, FirstName</td>
+							</tr>
+							<tr>
+								<td>10/25/20</td>
+								<td>08:00 AM</td>
+								<td>730145879</td>
+								<td>LastName, FirstName</td>
+							</tr>
+							<tr>
+								<td>10/25/20</td>
+								<td>08:00 AM</td>
+								<td>730145879</td>
+								<td>LastName, FirstName</td>
+							</tr>
+							<tr>
+								<td>10/25/20</td>
+								<td>08:00 AM</td>
+								<td>730145879</td>
+								<td>LastName, FirstName</td>
+							</tr>
+							<tr>
+								<td>10/25/20</td>
+								<td>08:00 AM</td>
+								<td>730145879</td>
+								<td>LastName, FirstName</td>
+							</tr>
+							<tr>
+								<td>10/25/20</td>
+								<td>08:00 AM</td>
+								<td>730145879</td>
+								<td>LastName, FirstName</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+            </div>
+        </div>
+    </div><br>
+	<!-- UNC CONTENT - END -->
+    <!-- javascript -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrollspy.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/flow.js"></script>	
+</body>
+</html>
