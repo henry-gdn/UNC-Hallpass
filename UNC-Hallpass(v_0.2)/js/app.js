@@ -18,6 +18,8 @@
 $(document).ready(function(){
 	setTimeout(function(){ 
 		$("body").css({visibility:'visible'});
+		
+		
 	}, 1000);
 	
 	
@@ -60,17 +62,76 @@ $(document).ready(function(){
     });
 
     // Clickable Menu
+     $('.has-submenu a').hover(function(e) { // password written	
+		//alert(hover);
+		//$(this).siblings('.submenu').addClass('visibleMenu');
+		//var code = e.keyCode || e.which;
+		//if (code === 9) {  
+			//e.preventDefault();
+			//$(".submenu").addClass("active");
+			//$(".submenu").focus();
+			//alert('it works!');
+		//}
+    });
+	
+	
+	$('.has-submenu a').focus(function(){
+		//alert(focus);	
+		//$(".navigation-menu li").addClass('visibleMenu'); // if hovered then it has class active
+		//$(this).removeClass('menuVis');
+	});
+	
+	// Clickable Menu
+    $("section").click(function() {
+		$(".submenu").css({visibility:'hidden'});
+		$(".submenu").css({opacity:'0'});
+    });
+	
+	$('.navigation-menu li').find("a").focus(function() {
+		/* if ($(this).find(".submenu").length == 0) {
+            $(".submenu").css({visibility:'hidden'});
+			$(".submenu").css({opacity:'0'});	
+        } */
+		/* alert($(this).closest("li").find(".submenu").length);
+		$(this).closest("li").find(".submenu").length;
+		$(".submenu").css({visibility:'hidden'});
+		$(".submenu").css({opacity:'0'}); */	
+	});
+	
+	
+	
+	// Clickable Menu
     $(".has-submenu a").click(function() {
-        if(window.innerWidth < 992){
+		//alert("click event triggerd");
+		$(".submenu").css({visibility:'hidden'});
+		$(".submenu").css({opacity:'0'});
+		$(this).closest("li").find(".submenu").css({visibility:'visible'});
+		$(this).closest("li").find(".submenu").css({opacity:'1'});
+		
+		
+		
+		//$(this).closest("li a").css({content:'\e897'});
+		//$(this).closest("li a").css({font-family:'feather'});
+		
+		if(window.innerWidth < 992){
+			$(".submenu").css({visibility:'visible'});
+			$(".submenu").css({opacity:'1'});
             if($(this).parent().hasClass('open')){
                 $(this).siblings('.submenu').removeClass('open');
                 $(this).parent().removeClass('open');
+				$(this).closest("li").find(".submenu").css({visibility:'visible'});
+				$(this).closest("li").find(".submenu").css({opacity:'1'});
             } else {
                 $(this).siblings('.submenu').addClass('open');
                 $(this).parent().addClass('open');
+				$(this).closest("li").find(".submenu").css({visibility:'visible'});
+				$(this).closest("li").find(".submenu").css({opacity:'1'});
             }
         }
+		
     });
+	
+
 
     $('.mouse-down').on('click', function(event) {
         var $anchor = $(this);

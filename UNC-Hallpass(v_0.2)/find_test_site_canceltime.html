@@ -18,7 +18,7 @@
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
-            <a class="logo" href="https://when-dev.unc.edu/" target="blank">
+            <a class="logo" href="https://hallpass.unc.edu/">
                 <div class="custom-logo-link">
                     <img src="images/header_logo.png" class="logoImg" />
                 </div>
@@ -38,13 +38,13 @@
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-				<li><a href="home" class="hidden-xs-down hidden-sm-down hidden-md-down">HOME</a></li>
-				<li><a href="index">LOGIN</a></li>
+				<li><a href="home">HOME</a></li>
 				<li class="has-submenu">
 					<a href="#">MY TESTING</a>
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
+								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -63,9 +63,11 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="https://ars.unc.edu/" target="_blank">ACCESSIBILITY</a></li>
+				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
-				<li><a href="contact">CONTACT</a></li>
+				<li><a href="https://hallpass.unc.edu/results">RESULTS</a></li>
+				<li><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">LOGOUT</a></li>
+				<li><a href="index" style="display:none">LOGIN</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -88,32 +90,32 @@
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="my_testing" aria-labelledby="My Testing" aria-label="My Testing">My Testing</a></li>
 						<li class="breadcrumb-item"><a href="find_test_site" aria-labelledby="Find Test Site" aria-label="Find Test Site">Find Test Site</a></li>
-						<li class="breadcrumb-item" aria-labelledby="location name" aria-label="location name"><span class="locationname"></span></li>
+						<li class="breadcrumb-item" aria-labelledby='location name' aria-label="location name"><span class="locationname"></span></li>
 					</ol>
 				</div>
 			</div>
 			<div class="head-wrapper">
 				<div class="pt-2 reserveTime reserveYes">
 					<div class="mt-2 mb-0">
-						<h2 aria-labelledby="Confirm Time" aria-label="Confirm Time" class="head-h2">Confirm Cancellation</h2>
+						<h1 class="head-h2">Confirm Cancellation</h1>
 					</div>
 					<div class="mt-3">
 						<p>You are cancelling the time below for the selected testing site. After you confirm this cancellation your spot is no longer saved for this time and location.</p>
 					</div>
 					<div class="mt-3 mb-3">
-						<button class="btn btn-lg btn-time-blue booktime"></button>
+						<div class="booktimeConfirm booktime"></div>
 					</div>
 					<div class="pt-1 mb-1">
-						<h6 class="get-test-title">Reservation date: </h6>
-						<h6 class='bookdate test-date-time'></h6>
+						<h2 class="get-test-title">Reservation date: </h2>
+						<h2 class='bookdate test-date-time'></h2>
 					</div>
-					<h3 class="mt-1 pb-1 locationname" aria-labelledby="" aria-label=""></h3>
+					<h3 class="mt-1 pb-1 locationname"></h3>
 				</div>
 
 				<div class="row mt-4 mb-2">
 					<div class="col-5 col-lg-2 col-md-2 col-xs-6 col-sm-6">
 						<div class="p-0">
-							<button aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1" onclick="goBack()">
+							<button aria-label="BACK BUTTON" aria-labelledby="BACK BUTTON" class="btn btn-block btn-back-1" onclick="goBack()">
 							<i class="feather icon-chevron-left"></i>
 							BACK
 							</button>
@@ -121,7 +123,7 @@
 					</div>
 					<div class="col-7 col-lg-2 col-md-2 col-xs-6 col-sm-6">
 						<div class="p-0">
-							<button aria-label="CANCEL TIME" aria-labelledby="CANCEL TIME" class="btn btn-block btn-log-1">
+							<button aria-label="CANCEL TIME BUTTON" aria-labelledby="CANCEL TIME BUTTON" class="btn btn-block btn-log-1">
 							CANCEL TIME
 							<i class="feather icon-chevron-right"></i>
 							</button>
@@ -156,7 +158,8 @@
 			<tr>
 				<td>
 					<p><a href="home">Home</a></p>
-					<p><a href="index">Login</a></p>
+					<p><a href="index" style="display:none">Login</a></p>
+					<p><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">Logout</a></p>
 				</td>
 				<td>
 					<p><a href="my_testing">My Testing</a></p>
@@ -168,17 +171,17 @@
 					<p><a href="class_search">Class Search</a></p>
 				</td>
 				<td>
-					<p><a href="https://ars.unc.edu/" target="_blank">Accessibility</a></p>
+					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
 					<p><a href="support">Support</a></p>
-					<p><a href="contact">Contact</a></p>
+					<p><a href="https://hallpass.unc.edu/results">Results</a></p>
 				</td>
 			</tr>
 		</table>
         <table class="footer-table-1 table">
             <tr>
-                <td><a href="https://www.unc.edu/" target="_blank" ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://when-dev.unc.edu/" target="_blank" ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/" target="_blank"><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a href="https://www.unc.edu/"  ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a href="https://hallpass.unc.edu/"  ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a href="https://reeseinnovate.com/" ><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>

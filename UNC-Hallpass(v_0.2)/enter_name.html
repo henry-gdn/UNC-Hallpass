@@ -107,14 +107,14 @@
 							<div class="form-group mb-0">
 								<label id="first_name_label" for="first_name">FIRST NAME *</label>
 								<input aria-labelledby="first_name_label" name="first_name" id="first_name" type="text" class="form-control" value="" placeholder="First name">
-								<span class="hideErr" id="first_name_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter first name</span>
+								<span aria-labelledby="Please enter first name" class="hideErr" id="first_name_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter first name</span>
 							</div>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 							<div class="form-group mb-0">
 								<label id="last_name_label" for="last_name">LAST NAME *</label>
 								<input aria-labelledby="last_name_label" name="last_name" id="last_name" type="text" class="form-control" value="" placeholder="Last name">
-								<span class="hideErr" id="last_name_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter last name</span>
+								<span aria-labelledby="Please enter last name" class="hideErr" id="last_name_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter last name</span>
 							</div>
 						</div>	
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -127,14 +127,14 @@
 							<div class="form-group mb-0">
 								<label id="date_of_birth_label" for="date_of_birth">DATE OF BIRTH (MM/DD/YYYY) *</label>
 								<input aria-labelledby="date_of_birth_label" name="date_of_birth" id="date_of_birth" type="text" class="form-control" value="" placeholder="Date of birth(MM/DD/YYYY)">
-								<span class="hideErr" id="date_of_birth_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter a valid date of birth</span>
+								<span aria-labelledby="Please enter a valid date of birth" class="hideErr" id="date_of_birth_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter a valid date of birth</span>
 							</div>
 						</div>
 					</div>
 					<div class="row mt-5 mb-2">
 						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 							<div class="p-0">
-								<button type="button" aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1" onclick="goBack()">
+								<button type="button" aria-label="BACK BUTTON" aria-labelledby="BACK BUTTON" class="btn btn-block btn-back-1" onclick="goBack()">
 								<i class="feather icon-chevron-left"></i>
 								BACK
 								</button>
@@ -142,7 +142,7 @@
 						</div>
 						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 							<div class="p-0">
-								<button type="button" aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1" onclick="save_member_name()">
+								<button type="button" aria-label="CONTINUE BUTTON" aria-labelledby="CONTINUE BUTTON" class="btn btn-block btn-log-1" onclick="save_member_name()">
 								CONTINUE
 								<i class="feather icon-chevron-right"></i>
 								</button>

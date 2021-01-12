@@ -171,5 +171,54 @@ my reservation
 3. start_new_test.html --> ui changed. 
 
 ***************************************************************************************************************************
+*****************
+   12/01/2021
+*****************
+1. start_new_test.html --> label issues fixed . Instead of table set fields with in a format
+2. my_testing.html --> removed border from button
+3. index.html --> /secure/ link added in footer menu for mobile view menus
+4. registration.html --> removed non links. not merged.
+5. Menu Highlighted --> Menu highlighted on mobile view 
+6. class_search.html --> changed ui for class search input field and search icon. Instead of table layout placed input group input field with icon
+7. desktop menus --> for the active menu changed menu color and + , - icon added while hover on submenu.
+8. find_test_site_confirmtime.html --> cursor pointer removed. ui changed. Instead of button placed book time in div.
+9. find_test_site_slot_booked.html --> cursor pointer removed. ui changed. Instead of button placed book time in div.
+10. Scrollbar - scrollbar on desktop changed.
+11. find_fest_site_slot_full.html --> unwanted file. we need to delete it.
+12. error_400.html --> header and footer menus not merged. Now i have merged.
+12. error_500.html --> header and footer menus not merged. Now i have merged.
+13. registration_g.html --> weed need to remove this file.
+14. home.html --> alt text added for image. and accessibility text added.
+15. accessibility.html --> we need to remove this file.
+16. cancel_thx.html --> accessibility text added
+17. contact.html --> we need to remove this file. Instead of this we had results.
+18. find_test_site_canceltime.html --> header footer menu merged. accessibility text added.
+19. find_test_site_slot_full.html --> header footer menu merged. accessibility text added.
+20. find_test_site_thx.html --> this file same as ( reservation.html ). So we need to delete this file.
+21. my_reservations.html --> accessibility text added
+22. registration_local_address.html --> accessibility text added
+23. registration_quarantine_address.html --> accessibility text added
+24. registration_mailing_address.html --> accessibility text added
+25. registration_mobile_2Stepverify.html --> accessibility text added. ui changed. Form error readed by screen reader.
+26. registration_mobile_error.html --> this file same as ( registration_mobile_number.html ). So we need to delete this file.
+27. registration_mobile_number.html --> accessibility text added. ui changed. Form error readed by screen reader.
+28. registration_mobile_number_invalid.html --> accessibility text added. ui changed. header and footer menus merged.
+29. registration_mobile_verify.html --> accessibility text added. ui changed. header and footer menus merged. Form error readed by screen reader.
+30. registration_mobile_verify2.html --> this file same as ( registration_mobile_verify.html ). So we need to delete this file.
+31. registration_mobile_2Stepverify.html **** which file we are using? we need to delete unwanted files.
+32. registration_quarantine_address_other.html --> its same as (registration_quarantine_address.html) it seems. so we need to delete this file.
+33. registration_thx.html --> accessibility text added.
+35. ok.html --> we need to delete.
+36. reservation.html --> misuse of accessibility text removed.
+37. scan_fail.html --> heading structure added.
+38. scan_new_test_1.html --> same as ( start_new_test.html ). so we need to delete.
+39. scanner.html --> header and footer menus merged. accessibility text added.
+40. support.html --> header and footer menus merged. accessibility text added.
+41. testing_how_to.html --> testing procedure image view converted into html code.
+42. images --> testing how to page images placed in images folder.
+43. app.js --> js file updated for menu to be accessibile via keyboard
+
+
+***************************************************************************************************************************
 
 

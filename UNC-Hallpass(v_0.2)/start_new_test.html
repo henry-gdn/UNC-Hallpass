@@ -110,8 +110,8 @@
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 						<div class="select-wrapper">
 							<div class="form-group mb-0 pt-1">
-								<label>TEST SITE</label>
-								<select id="test_site" class="form-control">
+								<label id="test-site-label" for="test_site">TEST SITE</label>
+								<select aria-labelledby="test-site-label" id="test_site" class="form-control">
 									<option value="0">Select Test Site</option>
 								</select>
 							</div>
@@ -122,37 +122,31 @@
 				<div class="row mb-0">
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 						<div class="scan-btn scanBarCode mt-4 mb-4 p-0">
-							<button aria-labelledby="SCAN BARCODE" aria-label="SCAN BARCODE" class="btn btn-block scanBarCodeBtn" onclick="scan_new_test()">
-								<img alt="SCAN BARCODE" width="50" src="images/scanImg.png" />
+							<button aria-labelledby="SCAN BAR CODE BUTTON" aria-label="SCAN BAR CODE BUTTON" class="btn btn-block scanBarCodeBtn" onclick="scan_new_test()">
+								<img alt="" width="50" src="images/scanImg.png" />
 								<span>SCAN BARCODE</span>
 								<i class="feather icon-chevron-right"></i>
 							</button>
 						</div>
 					</div>
 				</div>
-				<span class="hideErr" id="demoDataErr"><i class="feather icon-alert-circle"></i>&nbsp;Please enter your demographic data before taking a test.</span>				
-				<div class="row pt-0">
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-						<div class="searchButton mannualBarCode p-0" style="margin-left:-8px;margin-right:-8px;">
-							<table class="table p-0">
-								<tr>
-									<td>
-										<label for="manualBarCodeValue" class="mb-0"> PLEASE ENTER BARCODE MANUALLY <br/> (CTTP-XXX-XXXX)</label>
-										<input id="manualBarCodeValue" tabindex="0" type="text" data-role="none" data-enhance="false" class="form-control search-box" placeholder=""/>
-									</td>
-									<td>
-										<button id="barcodeBtn" aria-labelledby="bar code button" aria-label='bar code button' id="searchBtn" tabindex="0" class="btn btn-outline-search" type="button">
-											<i class="feather icon-chevron-right"></i>
-										</button>
-									</td>
-								</tr>
-							</table> 
-							<div class="mb-1" style="margin-left:10px;margin-top:-30px;">
-								<div class="hideErr" id="barCodeErrMsg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter bar code in the below format CTTP-XXX-XXXX</div>
-								<span class="hideErr" id="demoDataErr"><i class="feather icon-alert-circle"></i>&nbsp;Please enter your demographic data before taking a test.</span>
+				<span class="hideErr" id="demoDataErr"><i class="feather icon-alert-circle"></i>&nbsp;Please enter your demographic data before taking a test.</span>	
+					<form>
+						<div class="d-flex align-items-center justify-content-start pt-0">
+							<div class="mannualBarCode flex-fill">
+								<label for="manualBarCodeValue" id="enter-barcode-manually-label" class="mb-0"> PLEASE ENTER BARCODE MANUALLY <br/> (CTTP-XXX-XXXX)</label>
+								<input aria-labelledby="enter-barcode-manually-label" id="manualBarCodeValue" type="text" class="form-control search-box" placeholder=""/>
+							</div>
+							<div class="ml-1 flex-fill">
+								<button id="barcodeBtn" aria-labelledby="submit bar code" aria-label='submit bar code' id="searchBtn" class="btn btn-outline-search" type="button">
+									<i class="feather icon-chevron-right"></i>
+								</button>
 							</div>
 						</div>
-					</div>
+						<div class="justify-content-start">
+							<div aria-labelledby="Please enter bar code in the below format CTTP-XXX-XXXX" class="hideErr" id="barCodeErrMsg" ><i class="feather icon-alert-circle"></i>&nbsp;Please enter bar code in the below format CTTP-XXX-XXXX</div>
+						</div>
+					</form>
 				</div>
 				<span id="errmsg"></span>	
 				<hr class="border-hr">
@@ -167,7 +161,7 @@
 				</div>
 			</div>	
         </div>
-    </section><br/><br/><br/>
+    </section><br/><br/><br/><br/><br/><br/>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
     <footer class="hidden-lg-up footer-content footer-table">

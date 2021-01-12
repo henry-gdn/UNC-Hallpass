@@ -95,7 +95,7 @@
 			</div>
             <div class="pt-2 head-wrapper">
 				<div class="mt-2 mb-0">
-					<h2 aria-labelledby="Registration" aria-label="Registration" class="head-h2">Mobile Number</h2>
+					<h1 class="head-h2">Mobile Number</h1>
                 </div>
                 <div class="mb-1 mt-3">
 					<p>Please enter the email address and mobile number that you use regularly.  This information is used to update you on results and to contact you if needed.</p>
@@ -106,7 +106,7 @@
 							<div class="form-group">
 								<label id="preferred_email_address_label" for="preferred_email_address">PLEASE ENTER YOUR PREFERRED EMAIL ADDRESS</label>
 								<input aria-labelledby="preferred_email_address_label" name="preferred_email_address" id="preferred_email_address" type="text" class="form-control mt-2" value="" placeholder="">
-								<span class="hideErr" id="emailMissing"><i class="feather icon-alert-circle"></i>&nbsp;Please enter valid email address</span>
+								<span aria-labelledby="Please enter valid email address" class="hideErr" id="emailMissing"><i class="feather icon-alert-circle"></i>&nbsp;Please enter valid email address</span>
 							</div>
 						</div>
 					</div>
@@ -115,8 +115,8 @@
 							<div class="form-group">
 								<label id="phone_number_label" for="phone_number">ENTER 10-DIGIT PHONE NUMBER</label>
 								<input aria-labelledby="phone_number_label" name="phone_number" id="phone_number" type="text" class="form-control mt-2" value="" placeholder="">
-								<span class="hideErr" id="errMsg_1"><i class="feather icon-alert-circle"></i>&nbsp;Please enter 10 digits without dashes</span>
-								<span class="hideErr" id="errMsg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter 10 digits without dashes</span>
+								<span aria-labelledby="Please enter 10 digits without dashes" class="hideErr" id="errMsg_1"><i class="feather icon-alert-circle"></i>&nbsp;Please enter 10 digits without dashes</span>
+								<span aria-labelledby="Please enter 10 digits without dashes" class="hideErr" id="errMsg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter 10 digits without dashes</span>
 							</div>
 						</div>
 					</div>
@@ -129,7 +129,7 @@
 					<div class="row mt-4 mb-2">
 						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 							<div class="p-0">
-								<button type="button" aria-label="BACK" aria-labelledby="BACK" class="btn btn-default btn-back-1" onclick="goBack()">
+								<button type="button" aria-label="BACK BUTTON" aria-labelledby="BACK BUTTON" class="btn btn-default btn-back-1" onclick="goBack()">
 								<i class="feather icon-chevron-left"></i>
 								BACK
 								</button>
@@ -137,7 +137,7 @@
 						</div>
 						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 							<div class="p-0">
-								<button type="button" aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1" onclick="save_mobile_email()">
+								<button type="button" aria-label="CONTINUE BUTTON" aria-labelledby="CONTINUE BUTTON" class="btn btn-block btn-log-1" onclick="save_mobile_email()">
 								CONTINUE
 								<i class="feather icon-chevron-right"></i>
 								</button>
@@ -147,7 +147,7 @@
 				</form>
             </div>
         </div>
-    </section>
+    </section><br/><br/>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
     <footer class="hidden-lg-up footer-content footer-table">

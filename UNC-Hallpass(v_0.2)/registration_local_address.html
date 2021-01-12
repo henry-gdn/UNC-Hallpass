@@ -113,7 +113,7 @@
 						<div class="form-group mb-0">
 							<label id="street_1_label" for="street_1">STREET 1 * </label>
 							<input aria-labelledby="street_1_label" name="street_1" id="street_1" type="text" class="form-control" value="" placeholder="Street 1">
-							<span class="hideErr" id="street1_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter street 1.</span>
+							<span aria-labelledby="Please enter street 1" class="hideErr" id="street1_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter street 1.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -126,7 +126,7 @@
 						<div class="form-group mb-0 pt-1">
 							<label id="city_label" for="city">CITY *</label>
 							<input aria-labelledby="city_label" name="city" id="city" class="form-control" value="" placeholder="City">
-							<span class="hideErr" id="city_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter city.</span>
+							<span aria-labelledby="Please enter city" class="hideErr" id="city_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter city.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -237,7 +237,7 @@
 									<option>Yadkin</option>
 									<option>Yancey</option>
 								</select>
-								<span class="hideErr" id="county_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter county.</span>
+								<span aria-labelledby="Please enter county" class="hideErr" id="county_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter county.</span>
 							</div>
 						</div>
 					</div>
@@ -245,7 +245,7 @@
 						<div class="form-group mb-0 pt-1">
 							<label id="zipcode_label" for="zipcode">ZIPCODE *</label>
 							<input aria-labelledby="zipcode_label" name="zipcode" id="zipcode" class="form-control" value="" placeholder="Zipcode">
-							<span class="hideErr" id="zipcode_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter zipcode.</span>
+							<span aria-labelledby="Please enter valid zipcode" class="hideErr" id="zipcode_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter valid zipcode.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -304,7 +304,7 @@
 								<option value="WI">Wisconsin</option>
 								<option value="WY">Wyoming</option>
 								</select>
-								<span class="hideErr" id="state_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter state.</span>
+								<span aria-labelledby="Please enter state" class="hideErr" id="state_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter state.</span>
 							</div>
 						</div>
 					</div>
@@ -314,7 +314,7 @@
 				<div class="row mt-4 mb-2">
 					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 						<div class="p-0">
-							<button type="button" aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1" onclick="goBack()">
+							<button type="button" aria-label="BACK BUTTON" aria-labelledby="BACK BUTTON" class="btn btn-block btn-back-1" onclick="goBack()">
 							<i class="feather icon-chevron-left"></i>
 							BACK
 							</button>
@@ -322,7 +322,7 @@
 					</div>
 					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 						<div class="p-0">
-							<button type="button" aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1" onclick="save_local_addr()">
+							<button type="button" aria-label="CONTINUE BUTTON" aria-labelledby="CONTINUE BUTTON" class="btn btn-block btn-log-1" onclick="save_local_addr()">
 							CONTINUE
 							<i class="feather icon-chevron-right"></i>
 							</button>

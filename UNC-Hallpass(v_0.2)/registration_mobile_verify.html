@@ -95,44 +95,46 @@
 			</div>
             <div class="pt-2 head-wrapper">
 				<div class="mt-2 mb-3">
-					<h2 aria-labelledby="Mobile Number" aria-label="Mobile Number" class="head-h2">Mobile Number</h2>
+					<h1 class="head-h2">Mobile Number</h1>
                 </div>
 				<p>Please enter the 5-digit code sent to the mobile number you previously entered.</p>
-				<div class="mb-4 mt-4">
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-							<div class="form-group">
-								<label>ENTER THE 5-DIGIT CODE</label>
-								<input name="5_digit_code" id="5_digit_code" type="number" class="form-control mt-2" value="" placeholder="">
-								<span class="hideOtpErr" id="otpErrMsg"><i class="feather icon-alert-circle"></i>&nbsp;Incorrect code. Try again or send another text.</span>
-								<span class="hideOtpErr" id="otpErrMsg_1"><i class="feather icon-alert-circle"></i>&nbsp;Incorrect code. Try again or send another text.</span>
+				<form>
+					<div class="mb-4 mt-4">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<div class="form-group">
+									<label id="5_digit_code_label" for="5_digit_code">ENTER THE 5-DIGIT CODE</label>
+									<input aria-labelledby="5_digit_code_label" name="5_digit_code" id="5_digit_code" type="number" class="form-control mt-2" value="" placeholder="">
+									<span aria-labelledby="Incorrect code. Try again or send another text" class="hideOtpErr" id="otpErrMsg"><i class="feather icon-alert-circle"></i>&nbsp;Incorrect code. Try again or send another text.</span>
+									<span aria-labelledby="Incorrect code. Try again or send another text" class="hideOtpErr" id="otpErrMsg_1"><i class="feather icon-alert-circle"></i>&nbsp;Incorrect code. Try again or send another text.</span>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="mt-1">
-					<a class="sendOtp" aria-labelledby="Send another text" aria-label="Send another text" href=""  onclick="sendnewotp()">Send another text</a>
-				</div>
-			
-				<div class="row mt-4 mb-2">
-					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
-						<div class="p-0">
-							<button aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1" onclick="goBack()">
-							<i class="feather icon-chevron-left"></i>
-							BACK
-							</button>
+					<div class="mt-1">
+						<a class="sendOtp" href="#" onclick="sendnewotp()">Send another text</a>
+					</div>
+				
+					<div class="row mt-4 mb-2">
+						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
+							<div class="p-0">
+								<button aria-label="BACK BUTTON" aria-labelledby="BACK BUTTON" class="btn btn-block btn-back-1" onclick="goBack()">
+								<i class="feather icon-chevron-left"></i>
+								BACK
+								</button>
+							</div>
+						</div>
+						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
+							<div class="p-0">
+								<button aria-label="CONTINUE BUTTON" aria-labelledby="CONTINUE BUTTON" class="btn btn-block btn-log-1" onclick="checkOTP()">
+								CONTINUE
+								<i class="feather icon-chevron-right"></i>
+								</button>
+							</div>
 						</div>
 					</div>
-					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
-						<div class="p-0">
-							<button aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1" onclick="checkOTP()">
-							CONTINUE
-							<i class="feather icon-chevron-right"></i>
-							</button>
-						</div>
-					</div>
-				</div>
+				</form>
 			</div>
         </div>
     </section>
