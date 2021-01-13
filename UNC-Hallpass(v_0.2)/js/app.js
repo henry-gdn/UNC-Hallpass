@@ -1,30 +1,8 @@
-/* Template Name: Leaping - Creative Multipurpose Template
-   Author: Uniquecrew
-   E-mail: uniquecrewdesign@gmail.com
-   Version: 1.3.0
-   Created: May 2020
-   File Description: Main JS file of the template
-*/
-
-/****************************/
-/*         INDEX            */
-/*===========================
- *     01.  Loader          *
- *     02.  Menu            *
- *     03.  Sticky Menu     *
- *     03.  Back to top     *
- ===========================*/
  
 $(document).ready(function(){
 	setTimeout(function(){ 
 		$("body").css({visibility:'visible'});
-		
-		
 	}, 1000);
-	
-	
-	
-	
 });
 
 ! function($) {

@@ -35,11 +35,12 @@ span.multiselect-native-select select {
     left: 50%;
     top: 30px;
     border-radius: 10px !important;
+	color: #13294b !important;
 }
 .multiselect-selected-text {
     position: relative;
     text-align: left !important;
-
+	color: #13294b !important;
 }
 .multiselect.dropdown-toggle:after {
     display: none;
@@ -71,6 +72,7 @@ span.multiselect-native-select select {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     max-width: 100% !important;
+	color: #13294b !important;
 }
 .multiselect-container .multiselect-filter>input.multiselect-search:focus {
     border-bottom-right-radius: 0.25rem;
@@ -95,11 +97,13 @@ span.multiselect-native-select select {
 .multiselect-container .multiselect-group.dropdown-toggle,
 .multiselect-container .multiselect-all.dropdown-toggle {
     cursor: pointer;
+	color: #13294b !important;
 }
 .multiselect-container .multiselect-option .form-check-label,
 .multiselect-container .multiselect-group .form-check-label,
 .multiselect-container .multiselect-all .form-check-label {
     cursor: pointer;
+	color: #13294b !important;
 }
 .multiselect-container .multiselect-option.active:not(.multiselect-active-item-fallback),
 .multiselect-container .multiselect-group.active:not(.multiselect-active-item-fallback),
@@ -109,6 +113,7 @@ span.multiselect-native-select select {
 .multiselect-container .multiselect-all:not(.multiselect-active-item-fallback):active {
     /* background-color: lightgrey; */
     color: black;
+	color: #13294b !important;
 }
 .multiselect-container .multiselect-option .form-check,
 .multiselect-container .multiselect-group .form-check,
