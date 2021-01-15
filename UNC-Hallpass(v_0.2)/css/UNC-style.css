@@ -2013,7 +2013,7 @@ input[type=number] {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #fff !important;
     font-size: 27px;
-    padding-top: 7px;
+    padding-top: 8px;
     padding-bottom: 7px;
     padding-left: 25px;
     padding-right: 25px;
@@ -4570,7 +4570,7 @@ ul.nav.nav-pills>li {
     background: #4b9cd3;
     border-radius: 10px !important;
     position: relative;
-    top: 35px;
+    top: 20px;
 	padding:3px 5px 3px 5px;
 }
 
@@ -4588,37 +4588,41 @@ ul.nav.nav-pills>li {
     -webkit-box-shadow: none !important
 }
 
+
+.btnSubmitBarCode {
+    background: #4b9cd3;
+    border-radius: 10px !important;
+    position: relative;
+    top: 0px;
+	left:10px;
+	padding:3px 5px 3px 5px;
+}
+
+.btnSubmitBarCode i {
+    color: #fff;
+    font-size: 25px
+}
+
+.btnSubmitBarCode:focus,
+.btnSubmitBarCode:active,
+.btnSubmitBarCode:hover {
+    background: #13294B;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important
+}
+.mannualCode label {
+	position:relative;
+	top:-6px;
+}
+
+
 .input-group-addon {
 	background: #4b9cd3;
 	border-radius: 0px !important;
 }
 
-.btnSearch {
-    background: #4b9cd3;
-    border-radius: 0px !important;
-    position: relative;
-    top: 0px;
-	padding:10px 10px 3px 10px !important;
-	border-right: 1px solid #13294B !important;
-	border-bottom: 1px solid #13294B !important;
-	border-top: 1px solid #13294B !important;
-	border-left: none !important;
-	height:7vh !important;
-}
 
-.btnSearch i {
-    color: #fff;
-    font-size: 23px
-}
-
-.btnSearch:focus,
-.btnSearch:active,
-.btnSearch:hover {
-    background: #13294B;
-    border-radius: 0px !important;
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important
-}
 
 .subject-code-search {
     font-size: 25px;
@@ -5059,7 +5063,8 @@ ul.nav.nav-pills>li {
 .scan-btn span {
     position: relative;
     top: 2px;
-    left: 20px
+    left: 20px;
+	 color: #13294b !important;
 }
 
 .scan-btn i {
@@ -5418,7 +5423,7 @@ ul.nav.nav-pills>li {
 	position:relative;
 	background: #13294B;
 	padding:0px 0px !important;
-	color:#FFFFFF !important;
+	//color:#FFFFFF !important;
 }
 /* #parallelogram {
 	position: relative;
@@ -5461,6 +5466,7 @@ ul.nav.nav-pills>li {
 .testing-subtitle {
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
 	font-size: 22px;
+	color:#FFFFFF !important;
 }
 .testing-subtitle span {
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -5524,7 +5530,8 @@ ul.nav.nav-pills>li {
 	background: #4b9cd3;
 	color:#FFFFFF;
 	border-radius:15px;
-	padding:3px 20px 3px 20px;
+	position:relative;
+	padding:3px 20px 3px 20px !important;
 }
 .testing-page-content {
 	position:relative;
@@ -5602,22 +5609,55 @@ ul.nav.nav-pills>li {
     transition: 0s
 }
 
+.searchPageInput input {
+	/* position:relative; */
+	border:1px solid #13294B !important;
+	/* height:46px !important; */
+	border-radius:0px !important; 
+}
+
+
+.btnSearch {
+    background: #4b9cd3;
+    border-radius: 0px !important;
+    position: relative;
+    top: 0px;
+	padding:6px 10px 3px 10px !important;
+	border-right: 1px solid #13294B !important;
+	border-bottom: 1px solid #13294B !important;
+	border-top: 1px solid #13294B !important;
+	border-left: none !important;
+}
+
+.btnSearch i {
+    color: #fff;
+    font-size: 23px
+}
+
+.btnSearch:focus,
+.btnSearch:active,
+.btnSearch:hover {
+    background: #13294B;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important
+}
+
 @media only screen and (min-width:320px) and (max-width:768px) {
 	.btnSearch {
 		background: #4b9cd3;
 		border-radius: 0px !important;
 		position: relative;
 		top: 0px;
-		padding:10px 10px 3px 10px !important;
+		padding:6px 10px 3px 10px !important;
 		border-right: 1px solid #13294B !important;
 		border-bottom: 1px solid #13294B !important;
 		border-top: 1px solid #13294B !important;
 		border-left: none !important;
-		height:7vh !important;
 	}
 	.btnSearch i {
 		position:relative;
-		top:3px;
+		/* top:3px; */
 	}
     .class-search-btn button {
         position: relative;
@@ -5658,7 +5698,7 @@ ul.nav.nav-pills>li {
         font-family: "ITC Franklin Gothic LT Demi Compressed";
         color: #fff !important;
         font-size: 27px;
-        padding-top: 7px;
+        padding-top: 9px;
         padding-bottom: 7px;
         padding-left: 25px;
         padding-right: 25px;
@@ -5958,7 +5998,33 @@ ul.nav.nav-pills>li {
     .searchButton table tr td label {
         width: 100% !important
     }
+	.btnSubmitBarCode {
+		background: #4b9cd3;
+		border-radius: 10px !important;
+		position: relative;
+		top: 0px;
+		left:5px;
+		padding:3px 5px 3px 5px;
+	}
 
+	.btnSubmitBarCode i {
+		color: #fff;
+		font-size: 25px
+	}
+
+	.btnSubmitBarCode:focus,
+	.btnSubmitBarCode:active,
+	.btnSubmitBarCode:hover {
+		background: #13294B;
+		border-radius: 10px !important;
+		box-shadow: none !important;
+		-webkit-box-shadow: none !important
+	}
+	.mannualCode label {
+		position:relative;
+		top:-5px;
+		vertical-align:middle !important;
+	}
     .btn-outline-search {
         background: #4b9cd3;
         border-radius: 10px !important;
@@ -6211,7 +6277,7 @@ ul.nav.nav-pills>li {
         letter-spacing: 0;
         font-size: 20px;
         font-weight: 700;
-        width: auto;
+        width: 100%;
         display: block
     }
 
@@ -7014,11 +7080,11 @@ ul.nav.nav-pills>li {
 		position:relative;
 		background: #13294B;
 		padding:0px 0px !important;
-		
-	}
-	.testing-wrapper p, div, ul, li, span {
 		color:#FFFFFF;
-	}
+	}	
+	/* .testing-wrapper p, div, ul, li, span {
+		color:#FFFFFF;
+	} */
 	.testHead {
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
 		font-size: 20px;
@@ -7040,6 +7106,7 @@ ul.nav.nav-pills>li {
 		background: #4b9cd3;
 		border-radius:10px;
 		padding:1px 10px 1px 10px;
+		color:#FFFFFF;
 	}
 	.testContentStyle {
 		padding-left:20px;
@@ -7048,13 +7115,16 @@ ul.nav.nav-pills>li {
 		font-size: 15px !important;
 		font-family: "OpenSans Regular";
 		padding:10px 10px;
+		color:#FFFFFF;
 	}
 	.testContentStyle p {
 		font-size: 15px !important;
 		font-family: "OpenSans Regular";
+		color:#FFFFFF;
 	}
 	.testContentStyle ul li {
 		font-size: 15px;
+		color:#FFFFFF;
 		font-family: "OpenSans Regular";
 	}
 	.testContentStyle ul {
@@ -7068,6 +7138,18 @@ ul.nav.nav-pills>li {
 		width: 1em;
 		margin-left: -1em;
 	}
+	.quaAdd ul {
+		list-style: none;
+	}
+	.quaAdd ul li::before {
+		content: "\e856";
+		font-family: feather;
+		color: #C4D600;
+		font-weight: bold;
+		display: inline-block; 
+		width: 1em;
+		margin-left: -1em;
+	}
 	.testing-subtitle-1 {
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
 		font-size: 20px;
@@ -7075,8 +7157,10 @@ ul.nav.nav-pills>li {
 	.testing-subtitle-1 span {
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
 		background: #4b9cd3;
-		border-radius:5px;
-		padding:1px 10px 1px 10px;
+		border-radius:5px; 
+		padding:1px 10px 1px 10px !important;
+		color:#FFFFFF;
+		position:relative;
 	}
 	.testing-page-content {
 		position:relative;
@@ -7665,4 +7749,88 @@ ul.nav.nav-pills>li {
         text-align: center;
         align-items: center
     }
+}
+
+    .schedule-title span {
+    font-size: 18px !important;
+    font-family: "OpenSans Regular" !important;
+    font-weight: 550 !important;
+    color: #13294b !important;
+    margin-bottom: 3px;
+    text-overflow: ellipsis !important
+   }
+   .myTestContent {
+	position: relative;
+	text-align: justify;
+	font-family: "OpenSans Regular";
+	color: #13294b !important;
+	font-size: 14px !important;
+   }
+.schedule-header span {
+    font-size: 18px !important;
+    font-family: "OpenSans Regular" !important;
+    font-weight: 550 !important;
+    color: #13294b !important;
+    margin-bottom: 3px;
+    text-overflow: ellipsis !important
+}
+
+
+.subject-name span {
+    font-size: 21px;
+    color: #13294b;
+    font-weight: 500;
+    font-family: "OpenSans Regular";
+    width: 275px;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: -10px
+}
+.recent-results span {
+	color:#13294B !important;
+}
+
+.ui-menu .ui-menu-item .ui-menu-item-wrapper span {
+	color:#13294B !important;
+}
+.recent-instructor span {
+	color:#13294B !important;
+}
+.recent-instructor p span {
+	color:#13294B !important;
+}
+.suggested-door-name-details span {
+    color: #13294b !important;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: "OpenSans Bold"
+}
+
+.suggested-door-name-acc-details span {
+    color: #13294b !important;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: "OpenSans Regular"
+}
+.schedule-header span {
+    font-size: 18px !important;
+    font-family: "OpenSans Regular" !important;
+    font-weight: 550 !important;
+    color: #13294b !important;
+    margin-bottom: 3px;
+    text-overflow: ellipsis !important
+}
+.subject-name span {
+    font-size: 21px;
+    color: #13294b !important;
+    font-weight: 500;
+    font-family: "OpenSans Regular";
+    width: 275px;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: -10px
 }

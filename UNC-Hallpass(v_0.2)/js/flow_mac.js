@@ -5,11 +5,6 @@ function strToDate(dateString){
   return dateObject;
 }
 
-Date.prototype.addHours= function(h){
-    this.setHours(this.getHours()+h);
-    return this;
-}
-
 function markInvalid(f){
 	f.removeClass('hideErr');
 	f.addClass('msgErr');
@@ -20,28 +15,17 @@ function markValid(f){
 	f.addClass('hideErr');
 }
 
+Date.prototype.addHours= function(h){
+    this.setHours(this.getHours()+h);
+    return this;
+}
+
 function isValidDate(d){
 	var date_regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
 	if (!(date_regex.test(d))) 
     	return false;
 	else 
 		return true;
-}
-
-function isValidZip(z){
-    var zip_regex = /(^\d{5}$)|(^\d{9}$)|(^\d{5}-\d{4}$)/;
-	if (!(zip_regex.test(z))) 
-    	return false;
-	else 
- 		return true;
-}
-
-function isValidBarcodeSuffix(b){
-    var bar_code_regex = /(^\d{7}$)/;
-	if (!(bar_code_regex.test(b))) 
-    	return false;
-	else 
- 		return true;
 }
 
 function getCookie(cname) {
@@ -74,26 +58,28 @@ function IsUserLoggedIn() {
 			}
 		}
 	);
+	/*
+	var cameFrom = window.location.href.substring(window.location.href.lastIndexOf('/'));
+	$.ajax({
+        url: '/secure/api/is_logged_in',
+        type: 'GET',
+		error: function(data){
+			console.log('failed');
+			window.location.href='/secure/api/login?r='+cameFrom;
+		},
+		success: function(data){
+			console.log('succeeded');
+			$('ul.navigation-menu li:nth-child(8)').hide();
+			$('ul.navigation-menu li:nth-child(7)').show();
+		}
+	});*/
 }
 
 function getUserInfo() {
-    /*var userInfoCookie = getCookie('reg-user-info');
+    var userInfoCookie = getCookie('reg-user-info');
     console.log(userInfoCookie);
     var parts = userInfoCookie.split(':');
-	return { 'name': parts[0], 'pid': parts[1] };*/
-	pid="";
-	users_name=""
-
-	return $.ajax({
-        url: '/secure/api/get_member_email_mobile',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
-		async: false
-	});
-	
-	//return { 'name':users_name, 'pid': pid};
+    return { 'name': parts[0], 'pid': parts[1] };
 }
 
 function getPID(){
@@ -103,10 +89,7 @@ function getPID(){
 function redirect(){
     $.ajax({
         url: '/secure/api/get_member_is_registered',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
         success: function(data){
             if (data[0].member_exists=='true')
 	        	window.location.href="home";
@@ -124,10 +107,7 @@ function save_registration() {
     $.ajax({
 		url: '/secure/api/create_member',
 		type: 'POST',
-		contentType: 'application/json',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        contentType: 'application/json',
         data: JSON.stringify({}),
 		success: function(data){
 	   	 	console.log(data);
@@ -137,38 +117,13 @@ function save_registration() {
 }
 
 function goBack(){
-	//history.go(-1);
-	
-	if (window.location.href.endsWith('registration_mobile_number')) {
-		window.location.href="registration";
-	}
-	if (window.location.href.endsWith('registration_mobile_verify')) {
-		window.location.href="registration_mobile_number";
-	}
-	if (window.location.href.endsWith('enter_name')) {
-		window.location.href="registration_mobile_verify";
-	}
-	if (window.location.href.endsWith('demographics')) {
-		window.location.href="enter_name";
-	}
-	if (window.location.href.endsWith('registration_local_address')) {
-		window.location.href="demographics";
-	}
-	if (window.location.href.endsWith('registration_quarantine_address_choice')) {
-		window.location.href="registration_local_address";
-	}
-	if (window.location.href.endsWith('registration_quarantine_address')) {
-		window.location.href="registration_quarantine_address_choice";
-	}
+	history.go(-1);
 }
 
 function load_email_mobile(){
     $.ajax({
 	    url: '/secure/api/get_member_email_mobile',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'GET',
 	    success: function(data){
 		    console.log('data found:'+data);
 		    $('#preferred_email_address').val(data[0].email);
@@ -223,10 +178,7 @@ function save_mobile_email(){
     $.ajax({
 	    url: '/secure/api/update_member_email_mobile',
 	    type: 'POST',
-		contentType: 'application/json',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    contentType: 'application/json',
 	    data: JSON.stringify({email: $email, mobile: $mobile}),
 	    success: function(data) {
 		      var cookie_name = "reg-em-mb";
@@ -250,10 +202,7 @@ function checkOTP() {
 	if ($otp.length==5){
             $.ajax({
 	        url: '/secure/api/check_otp?otp='+$otp,
-			type: 'GET',
-			headers: {
-				"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-			},
+	        type: 'GET',
 	        success: function(data){
 		    console.log('data found:'+data);
                     if (data[0].otp_ok == 'true'){
@@ -288,9 +237,6 @@ function sendnewotp(){
 	$.ajax({
 		url: '/secure/api/resend_otp',
 		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
 		success: function(data) {
 		}
 	});
@@ -298,12 +244,10 @@ function sendnewotp(){
 }
 
 function load_member_name(){
+
     $.ajax({
 	    url: '/secure/api/get_member_name',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'GET',
 	    success: function(data){
 		    console.log('data found:'+data);
 		    $('#first_name').val(data[0].first_name);
@@ -312,25 +256,17 @@ function load_member_name(){
 			$('#date_of_birth').val(data[0].dob);
 	    },
         error: function(data) {
-             window.location.href= "error_500";
+			console.log(data);
+             //window.location.href= "error_500";
 	    }
     });
 }
 
 function save_member_name(){
 	$f = $('#first_name').val();
-	if ($f.indexOf("'") != -1){
-		$f = $f.replaceAll("'", "*");
-	}
     $m = $('#middle_name').val();
-	if ($m.indexOf("'") != -1){
-		$m = $m.replaceAll("'", "*");
- 	}
     $l = $('#last_name').val();
-	if ($l.indexOf("'") != -1){
-		$l = $l.replaceAll("'", "*");
-	}
-	$d = $('#date_of_birth').val();
+ 	$d = $('#date_of_birth').val();
 	isvalid = true;
 	if ($f == ''){
  		markInvalid($('#first_name_err_msg'));
@@ -354,10 +290,7 @@ function save_member_name(){
 		return false;
     $.ajax({
 	    url: '/secure/api/update_member_name',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
 	    contentType: 'application/json',
 	    data: JSON.stringify({firstname: $f, middlename: $m, lastname: $l, dob: $d}),
 	    success: function(data) {
@@ -369,10 +302,7 @@ function save_member_name(){
 function load_demographics(){
     $.ajax({
         url: '/secure/api/get_member_demographics',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
         success: function(data){
             console.log('data found:');
 			console.log(data[0]);
@@ -404,6 +334,7 @@ function save_demographics(){
 	$g = $('#gender').val();
     $r = $('#race').val();
     $e = $('#ethnicity').val();
+
 	isvalid = true;
 	if ($g == null || $g == ''){ 
 		markInvalid($('#genderErr'));
@@ -428,10 +359,7 @@ function save_demographics(){
 	}
     $.ajax({
 	    url: '/secure/api/update_member_demographics',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
 	    contentType: 'application/json',
 	    data: JSON.stringify({gender: $g, race: $r, ethnicity: $e}),
 	    success: function(data) {
@@ -444,10 +372,7 @@ function save_demographics(){
 function load_local_addr(){
     $.ajax({
         url: '/secure/api/get_member_local_addr',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
         success: function(data){
             console.log('data found:');
 			console.log(data[0]);
@@ -463,17 +388,8 @@ function load_local_addr(){
 
 function save_local_addr(){
     $las1 = $('#street_1').val();
-	if ($las1.indexOf("'") != -1){
-		$las1 = $las1.replaceAll("'", "*");
-	}
     $las2 = $('#street_2_opt').val();
-	if ($las2.indexOf("'") != -1){
-		$las2 = $las2.replaceAll("'", "*");
-	}
     $lac = $('#city').val();
-	if ($lac.indexOf("'") != -1){
-		$lac = $lac.replaceAll("'", "*");
-	}
 	$lat = $('#county').val(); 
     $las = $('#state').val();
     $laz = $('#zipcode').val();
@@ -490,7 +406,7 @@ function save_local_addr(){
 	}
 	else
 		markValid($('#city_err_msg'));
-	if ($laz == '' || !isValidZip($laz)){
+	if ($laz == ''){
 		markInvalid($('#zipcode_err_msg'));		
 		isvalid = false;
 	}
@@ -513,10 +429,7 @@ function save_local_addr(){
 
     $.ajax({
 	    url: '/secure/api/update_member_local_addr',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
 	    contentType: 'application/json',
 	    data: JSON.stringify({las1: $las1, las2: $las2, lac: $lac, lat: $lat, las: $las, laz: $laz}), // TODO
 	    success: function(data) {
@@ -528,10 +441,7 @@ function save_local_addr(){
 function load_step_4(){
     $.ajax({
         url: '/secure/api/get_member_mailing_addr',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
         success: function(data){
             console.log('data found:'+data);
             $('#street_1').val(data[0].street1);
@@ -545,25 +455,13 @@ function load_step_4(){
 
 function reg_step_4(){
     $las1 = $('#street_1').val();
-	if ($las1.indexOf("'") != -1){
-		$las1 = $las1.replaceAll("'", "*");
-	}
     $las2 = $('#street_2_opt').val();
-	if ($las2.indexOf("'") != -1){
-		$las2 = $las2.replaceAll("'", "*");
-	}
     $lac = $('#city').val();
-	if ($lac.indexOf("'") != -1){
-		$lac = $lac.replaceAll("'", "*");
-	}
     $las = $('#state').val();
     $laz = $('#zipcode').val();
     $.ajax({
 	    url: '/secure/api/update_member_mailing_addr',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
 	    contentType: 'application/json',
 	    data: JSON.stringify({las1: $las1, las2: $las2, lac: $lac, las: $las, laz: $laz}),
 	    success: function(data) {
@@ -575,10 +473,7 @@ function reg_step_4(){
 function load_quarantine_choice(){
     $.ajax({
         url: '/secure/api/get_member_quarantine_choice',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
         success: function(data){
             console.log('data found:'+data);
             $('#quarantine_address').val(data[0].qaddr);
@@ -589,18 +484,9 @@ function load_quarantine_choice(){
 
 function save_quarantine_choice(){
     $qaddr = $('#quarantine_address').val();
-	if ($qaddr == null || $qaddr == ''){
-		markInvalid($('#quarantineErr'));
-		return false;
-	}
-	else
-		markValid($('#quarantineErr'));
     $.ajax({
 	    url: '/secure/api/update_member_quarantine_choice',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
 	    contentType: 'application/json',
 	    data: JSON.stringify({qaddr: $qaddr}),
 	    success: function(data) {
@@ -615,10 +501,7 @@ function save_quarantine_choice(){
 function load_quarantine_addr(){
     $.ajax({
         url: '/secure/api/get_member_quarantine_addr',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
         success: function(data){
             console.log('data found:'+data);
             $('#street_1').val(data[0].street1);
@@ -632,18 +515,9 @@ function load_quarantine_addr(){
 
 
 function save_quarantine_addr(){
-	$las1 = $('#street_1').val();
-    if ($las1.indexOf("'") != -1){
-		$las1 = $las1.replaceAll("'", "*");
-	}
+    $las1 = $('#street_1').val();
     $las2 = $('#street_2_opt').val();
-	if ($las2.indexOf("'") != -1){
-		$las2 = $las2.replaceAll("'", "*");
-	}
     $lac = $('#city').val();
-	if ($lac.indexOf("'") != -1){
-		$lac = $lac.replaceAll("'", "*");
-	}
 	$lat = $('#county').val(); 
     $las = $('#state').val();
     $laz = $('#zipcode').val();
@@ -660,7 +534,7 @@ function save_quarantine_addr(){
 	}
 	else
 		markValid($('#city_err_msg'));
-	if ($laz == '' || !isValidZip($laz)){
+	if ($laz == ''){
 		markInvalid($('#zipcode_err_msg'));		
 		isvalid = false;
 	}
@@ -682,10 +556,7 @@ function save_quarantine_addr(){
 		return false;
     $.ajax({
 	    url: '/secure/api/update_member_quarantine_addr',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
 	    contentType: 'application/json',
 	    data: JSON.stringify({ las1: $las1, las2: $las2, lac: $lac, lat: $lat, las: $las, laz: $laz}), 
 	    success: function(data) {
@@ -697,27 +568,17 @@ function save_quarantine_addr(){
 function load_registration_thx(){
     $.ajax({
         url: '/secure/api/get_member_email_mobile',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
         success: function(data){
             console.log('data found:'+data);
             $('#member_status').html(data[0].status);
 			console.log(data[0].nowplus84h);
-			/*
-			nowplus84h = new Date().addHours(84);
-			console.log(nowplus84h);
- 			dt84 = nowplus84h.toISOString().substring(0,16).replace('T',' ');
-			*/
 			$('#next_test_before').html(data[0].nowplus84h);
 			if (data[0].name != ' '){
 				$('#member_name').html(data[0].name);
  			}
-			if (data[0].status == 'COMPLIANT'){
- 			    $(".validUntil").text('Valid through: ');
-			    $(".get_next_test_before_content").html(data[0].nowplus84h);
-			}
+			if (data[0].status == 'COMPLIANT')
+ 			    $(".validUntil").text('Valid through: ' + data[0].nowplus84h);
         }
     });
 }
@@ -725,10 +586,7 @@ function load_registration_thx(){
 function load_home(){
     $.ajax({
         url: '/secure/api/get_member_email_mobile',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
         success: function(data){
             console.log('data found:'+data);
             $('#member_status').html(data[0].status);
@@ -742,10 +600,7 @@ function load_home(){
 function load_test_sites(){
     $.ajax({
         url: '/secure/api/get_test_sites',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
         success: function(data){
             console.log('data found:');
 			console.log(data);
@@ -872,10 +727,7 @@ function get_slots() {
     var slots = [];
     $.ajax({
         url: '/secure/api/get_test_slots',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'POST',
 	    contentType: 'application/json',
 	    data: JSON.stringify({ site_id: siteId, selected_date: selectedDate}),
 	    success: function(data, status) {	
@@ -920,11 +772,11 @@ function get_slots() {
             $(document).on('click','.availTime',function(){
                 var availTime = $(this).attr('avail-slot');
                 var availDate = $(this).attr('avail-date');
-				var slot_requested = availTime+'^'+availDate+'^'+siteArray[0]+'^'+siteArray[1];
-				slot_requested = slot_requested.replaceAll(' ', '+');
-				set_session_var('slot_requested', slot_requested).then(function(data){
-					window.location.href = "find_test_site_confirmtime";
-				});
+                localStorage.setItem('avail-time', availTime);
+                localStorage.setItem('avail-date', availDate);
+                localStorage.setItem('location-id', siteArray[0]);
+                localStorage.setItem('location-name', siteArray[1]);
+                window.location.href = "find_test_site_confirmtime";
             });
 
 	}
@@ -932,20 +784,14 @@ function get_slots() {
 }
 
 function load_confirm_time(){
-	var availSlot = ''; 
-	var siteId = 0; 
-	var selectedDate = '';
-	var locationName = ''; 
-	get_session_var('slot_requested').then(function(data){
-		var slotRequested = data.sval.split('^');
-		availSlot = slotRequested[0];
-		$(".booktime").append(slotRequested[0]);
-		selectedDate = slotRequested[1];
-		$(".bookdate").html(formatDateDisplay(slotRequested[1]));
-		siteId = slotRequested[2];
-	    $(".locationname").append(slotRequested[3]);
-		locationName = slotRequested[3];
- 	});
+        var availSlot = localStorage.getItem("avail-time");
+        var siteId = localStorage.getItem('location-id');
+        var selectedDate = localStorage.getItem('avail-date');
+        var locationName = localStorage.getItem('location-name');
+
+	$(".btn-time-blue").append(availSlot);
+ 	$(".bookdate").append(formatDateDisplay(selectedDate));
+	$(".locationname").append(locationName);
 	/*
         var resHtml = '';
         resHtml = '<button class="btn btn-lg btn-time-blue">'+availSlot+'</button><h3 class="mt-4" aria-labelledby="" aria-label="">'+locationName+'</h3>';
@@ -959,10 +805,7 @@ function load_confirm_time(){
 			$.ajax({
                 url: '/secure/api/book_test_slot',
                 contentType: 'application/json',
-				type: 'POST',
-				headers: {
-					"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-				},
+                type: 'POST',
                 data: JSON.stringify({'q': 'book_test_slot', 'site_id': siteId, 'selected_date': selectedDate, 'slot_start': availSlot}),
                 success: function(data, status){
                     if (data[0].slot_booked == "true"){
@@ -998,9 +841,6 @@ function load_reservation() {
 	$.ajax({
 		url: '/secure/api/get_latest_reservation',
 		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
 		success: function(data) {
 		    console.log(data);
 		    confirmSlot = data[0]['confirm-slot'].split('#');
@@ -1016,10 +856,7 @@ function load_reservation() {
 function cancel_reservation() {
     $.ajax({
 	    url: '/secure/api/cancel_reservation',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
 	    contentType: 'application/json',
  		data: JSON.stringify({'sid': sid}),
 	    success: function(data) {
@@ -1053,10 +890,8 @@ function load_my_testing(){
  			$(".myTestContent").text(data[0].msg);
  			if (data[0].test_found != null){
 				$(".get_next_test_before_title").text(data[0].test_found[2]);
-				if (data[0].status == 'COMPLIANT'){
- 			   	 	$(".validUntil").text('Valid through: ');
-			    	$(".get_next_test_before_content").html(data[0].test_found[2]);
-				}
+				if (curStatus=='COMPLIANT')
+		    	    $(".validUntil").text('Valid through: ' + data[0].test_found[2]);
  		    }
 			if(curStatus.toUpperCase() == 'NON-COMPLIANT'){
 					$("#hallpass-hcolor").removeClass();
@@ -1098,10 +933,7 @@ function load_start_new_test(){
 	load_registration_thx();
 	$.ajax({
         url: '/secure/api/get_test_sites?all=y',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
         success: function(data){
             //console.log('data found:');
 			//console.log(data);
@@ -1123,10 +955,7 @@ function load_start_new_test(){
 
 			$.ajax({
 		        url: '/secure/api/get_latest_test',
-				type: 'GET',
-				headers: {
-					"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-				},
+		        type: 'GET',
 		        success: function(data) {
 			        if (data[0].success) {
 				        //console.log(data[0].latest_test[1]);
@@ -1144,23 +973,18 @@ function load_start_new_test(){
 	});
 
 
-	var scanCount = 0; //localStorage.getItem("scanCount");
-	$(".scanBarCode").hide();
-	$(".manualBarCode").show();
-	//$("#manualBarCodeValue").val('CTTP-');
-	$("#manualBarCodeValue").focus();
-	/*
+	var scanCount = localStorage.getItem("scanCount");
 	get_session_var('scan_count').then(
 		function(data){ 
 			scanCount = data.sval; 
 			console.log('scanCount is ' + scanCount);
 			if(scanCount == null){
 				scanCount = 0;
-				//localStorage.setItem("scanCount",0);
+				localStorage.setItem("scanCount",0);
 				set_session_var('scan_count', 0).then(function(data){});
-				//get_session_var('scan_count').then(
-					//function(data){ scanCount = data.sval; }
-				//);
+				get_session_var('scan_count').then(
+					function(data){ scanCount = data.sval; }
+				);
 				console.log('scancount now is ' + scanCount);
 			}
 			if(scanCount < 1){
@@ -1169,56 +993,31 @@ function load_start_new_test(){
 			}
 			else{
 				$(".scanBarCode").hide();
-				$(".manualBarCode").val('CTTP-')
-				$("#manualBarCodeValue").show();
-			    $("#manualBarCodeValue").focus();
-				//localStorage.setItem("scanCount",0);
+				$(".mannualBarCode").show();
+				localStorage.setItem("scanCount",0);
 				set_session_var('scan_count', 0).then(function(data){});
 			}
 		}
 	);
-	*/
 
 	$("#barcodeBtn").click(
         function(){
+            var txtVal = $("#manualBarCodeValue").val();
 			var siteId = $('#test_site').val();
 			if (siteId == 0){
-				markInvalid($('#testSiteErr'));
-				return false;
+				alert("Please select a test site");
+				return;
 			}
-			else
-				markValid($('#testSiteErr'));
-			var txtVal = $("#manualBarCodeValue").val();
-			if(txtVal.trim() == "" || !isValidBarcodeSuffix(txtVal.trim())){
-				markInvalid($('#barCodeErrMsg'));
-				return false;
-			}
-			else
-				markValid($('#barCodeErrMsg'));
-			$.ajax({
-				url: '/secure/api/demographic_data_ok',
-				type: 'GET',
-				headers: {
-					"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-				},
-				success: function(data) {
-					if (data[0].success == 'True'){
-						set_session_var('site_id', siteId).then(function(data){});
-						var barCodeValue = txtVal;
-                		if (barCodeValue != null){
-							//alert('sending to server');
-							var barCodeValue2='CTTP-'+ barCodeValue.substring(0,3)+'-'+barCodeValue.substring(3,8);
-							upload_test_barcode(barCodeValue2, siteId);
-						}
-					}
-					else {
-						markInvalid($('#demoDataErr'));
-						return false;
-					}
+            if(txtVal.trim() == ""){
+                alert("Enter value");
+            }else{
+                var barCodeValue = txtVal;
+                if (barCodeValue != null){
+					//alert('sending to server');
+					upload_test_barcode(barCodeValue, siteId);
 				}
-			});
-        }
-	);
+            }
+        });
 }
 
 function scan_new_test(){
@@ -1229,13 +1028,11 @@ function scan_new_test(){
 	}
     $.ajax({
         url: '/secure/api/demographic_data_ok',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
 		success: function(data) {
             if (data[0].success == 'True'){
 				set_session_var('site_id', siteId).then(function(data){});
+				get_session_var('site_id').then(function(data){ console.log(data.sval);});
 				window.location.href = "scan_new_test";
 			}
 			else {
@@ -1308,7 +1105,6 @@ function openCamera(selectedDeviceId){
 			//alert(barCodeValue);
 			get_session_var('site_id').then(
 				function(data){ 
-					//alert(data.sval)
 					siteId = data.sval; 
 					if (barCodeValue != null){
 						//alert('sending to server')
@@ -1419,7 +1215,7 @@ $( ".search-box" )
 		return $( "<li class='ui-state-disabled'>" ).append( "No matches found" ).appendTo( ul );
 	}else{
 		return $( "<li>" )
-			.append("<span><span style='color:#13294B !important; float:left'>" + item.label + "</span> <span class='instructor-details-search' style='color:#13294B !important; float:right'>" + item.instructor + "</span>" 				)
+			.append("<span><span style='float:left'>" + item.label + "</span> <span class='instructor-details-search' style='float:right'>" + item.instructor + "</span>" 				)
 			.appendTo( ul );
 	}
   }
@@ -1449,7 +1245,8 @@ function buildResultHtml(data, result){
 		var title = JSON.stringify(data[i]);
 		if(result){
 			htmStr += "<span class='search-results'><a href='#'><table class='recent-result-table table' style='width:100% !important;border-bottom:1px solid #DDDDDD;'><tr><td><input type='hidden' class='search-val' " +
-                             "value='" + title + "'><img class='recent-img' src='images/results-img.png' /></td><td><div class='row recent-results'><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-subject-code'><p>" + data[i].subject_code + "</p></div><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-instructor'><p style='color:#13294B !important;'>Instructor : " + data[i].instructor + "</p></div></div></td></tr></table></a></span>";
+                             "value='" + title + "'><img class='recent-img' src='images/results-img.png' /></td><td><div class='row recent-results'><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-subject-code'><p>" + data[i].subject_code + "</p></div><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-instructor'><p>Instructor : <span>" + data[i].instructor + "</span></p></div></div></td></tr></table></a></span>";
+
 		}
 	}	
 	$(".results").empty();
@@ -1494,7 +1291,7 @@ function loadRecentSearch(){
         var resHtml = "<br><div class='resultsText'> RECENTLY SELECTED </div>";
         var len = selectedData.length - 1;
         for (var k = len; k >= 0; k--) {
-		resHtml += "<a href='#' class='rslink'><table class='recent-result-table table' style='width:100% !important;border-bottom:1px solid #DDDDDD;'><tr><td><img class='recent-img' src='images/recent-icon.png' /></td><td><div class='row recent-results'><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-subject-code'><p>" + selectedData[k].subject_code + "</p></div><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-instructor'><p>Instructor : <span style='color:#13294B !important;'>" + selectedData[k].instructor + "</span><input type='hidden' class='search-val' value='"+JSON.stringify(selectedData[k])+"'></p></div></div></td></tr></table></a>";
+		resHtml += "<a href='#' class='rslink'><table class='recent-result-table table' style='width:100% !important;border-bottom:1px solid #DDDDDD;'><tr><td><img class='recent-img' src='images/recent-icon.png' /></td><td><div class='row recent-results'><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-subject-code'><p>" + selectedData[k].subject_code + "</p></div><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-instructor'><p>Instructor : <span>" + selectedData[k].instructor + "</span><input type='hidden' class='search-val' value='"+JSON.stringify(selectedData[k])+"'></p></div></div></td></tr></table></a>";
          }
         $(".results").html(resHtml);
 	$('.rslink').on("click", onRecentSelect);
@@ -1511,9 +1308,6 @@ function upload_test_barcode(barCodeValue, siteId){
 	$.ajax({
 		url: '/secure/api/upload_test_barcode',
 		method: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
 		data: JSON.stringify({ bc: barCodeValue, siteid: siteId }),
 		success: function(data){
 			if (data[0].success == 'True'){
@@ -1521,17 +1315,8 @@ function upload_test_barcode(barCodeValue, siteId){
   	            window.location.href='scan_complete';
 			}
 			else{
-                console.log(data[0].message);
-				$('#barCodeErrMsg').removeClass('hideErr');
-				$('#barCodeErrMsg').addClass('msgErr');
-				
-				if (data[0].message != ""){
-					$('#barCodeErrMsg').text(data[0].message);
-				}
-				else{
-					$('#barCodeErrMsg').text("An error occured with this order and it was not processed")
-				}
-
+                //alert(data[0].message);
+				markInvalid($('#barCodeErrMsg'));
 				var tag = $("#barCodeErrMsg");
                 $('html,body').animate({scrollTop: tag.offset().top},'slow');
  				if (localStorage.getItem("scanValue") != null){
@@ -1556,10 +1341,7 @@ function load_slot_info(){
     //alert(urlParam('qc'));
     $.ajax({
         url: '/secure/api/get_slot_info?qc='+urlParam('qc'),
-		method: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        method: 'GET',
         success: function(data){
             // display slot details on page
             console.log(data); 
@@ -1572,19 +1354,10 @@ function load_slot_info(){
 }
 
 function load_find_test_site_slot_full(){
-		var availSlot = '';
-    var selectedDate = '';
-    var locationName = '';
-	get_session_var('slot_requested').then(function(data){
-		var slotRequested = data.sval.split('^');
-		availSlot = slotRequested[0];
-		availDate = slotRequested[1];
-		$(".booktime").html(formatDateDisplay(availDate) + ' ' + availSlot);
-		locationName = slotRequested[3];
-	    $(".locationName").html(locationName);
-
- 	});
-
+	var availSlot = formatDateDisplay(localStorage.getItem("avail-date")) + ' ' + localStorage.getItem("avail-time");
+	var locationName = localStorage.getItem('location-name');
+	$('.booktime').text(availSlot);
+	$('.locationName').text(locationName);
 }
 
 function load_find_test_site_slot_booked(){
@@ -1596,11 +1369,10 @@ function load_my_schedule(){
     $("body").tooltip({ selector: '.hallModal, .hallTooltip, .enterDoor, .exitDoor, .subject-code' , boundary: 'window' });
  	load_home();
     //As per current day schedule will be loaded
-    var arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-	var day = (new Date(new Date().toLocaleString("en-US", {timeZone: "US/Eastern"}))).getDay();
-    //var day = new Date().getDay();	
+    var arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday" ];
+    var day = new Date().getDay();	
 	//alert(day);
-    for (var i = 0 ;i <day; i++) {		           
+    for (var i = 0 ;i <day-1; i++) {		           
         arr.push(arr.shift());			
     }	
     var str = arr.slice(0, 7).join(",");
@@ -1638,7 +1410,7 @@ function getDayActivity(appDay,startHtml,endHtml,type) {
 				}
 				else{
                     for (var i = 0; i < data.length; i++) {
-                        scheduleOnHtml += "<div class='row schedule-content pt-3'><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start'><p aria-label='Subject code : "+data[i].subject_code+"' class='subject-code p-0' data-toggle='tooltip' data-placement='top' title='"+data[i].subject_code+"'>"+data[i].subject_code+"</p><p aria-label='Subject name : "+data[i].subject_name+"' class='subject-name mt-1 pt-1' ><span style='color:#13294B !important;' class='hallTooltip' data-toggle='tooltip' data-placement='top' title='"+data[i].subject_name+"'>"+data[i].subject_name+"</span></p><p aria-label='Instructor Name : "+data[i].instructor_name+"' data-toggle='tooltip' data-placement='top' title='"+data[i].instructor_name+"' class='instructor-schedule pt-3'>Instructor: <span>"+data[i].instructor_name+"</span></p><p class='location'>Location: <span aria-label='Location : "+data[i].location+"' data-toggle='tooltip' data-placement='top' title='"+data[i].location+"'>"+data[i].location+"</span></p><p aria-label='class time : "+data[i].class_time+"' class='classtime-table'>Class Time: <span>"+data[i].class_time+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start'><p class='entry-text'>ENTRY: <span class='entry-time' aria-label='entry time : "+data[i].entry_time+"'>"+data[i].entry_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span style='color:#13294B !important;' aria-label='Suggested Door: "+data[i].entry_sug_door+"' >"+data[i].entry_sug_door+"</span></p><p class='suggested-door-name'>Accessible Door: <span style='color:#13294B !important;' aria-label='Accessible Door: "+data[i].entry_acc_door+"'>"+data[i].entry_acc_door+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justiy-content-start'><p class='exit-text'>EXIT: <span class='exit-time' aria-label='Exit Time: "+data[i].exit_time+"'>"+data[i].exit_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span style='color:#13294B !important;' aria-label='Suggested Door: "+data[i].exit_sug_door+"'>"+data[i].exit_sug_door+"</span></p><p class='suggested-door-name'>Accessible Door: <span style='color:#13294B !important;' aria-label='Accessible Door: "+data[i].exit_acc_door+"'>"+data[i].exit_acc_door+"</span></p></div></div>";
+                        scheduleOnHtml += "<div class='row schedule-content pt-3'><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start'><p aria-label='Subject code : "+data[i].subject_code+"' class='subject-code p-0' data-toggle='tooltip' data-placement='top' title='"+data[i].subject_code+"'>"+data[i].subject_code+"</p><p aria-label='Subject name : "+data[i].subject_name+"' class='subject-name' ><span class='hallTooltip' data-toggle='tooltip' data-placement='top' title='"+data[i].subject_name+"'>"+data[i].subject_name+"</span></p><p aria-label='Instructor Name : "+data[i].instructor_name+"' data-toggle='tooltip' data-placement='top' title='"+data[i].instructor_name+"' class='instructor-schedule pt-3'>Instructor: <span>"+data[i].instructor_name+"</span></p><p class='location'>Location: <span aria-label='Location : "+data[i].location+"' data-toggle='tooltip' data-placement='top' title='"+data[i].location+"'>"+data[i].location+"</span></p><p aria-label='class time : "+data[i].class_time+"' class='classtime-table'>Class Time: <span>"+data[i].class_time+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start'><p class='entry-text'>ENTRY: <span class='entry-time' aria-label='entry time : "+data[i].entry_time+"'>"+data[i].entry_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door: "+data[i].entry_sug_door+"'>"+data[i].entry_sug_door+"</span></p><p class='suggested-door-name-acc'>Accessible Door: <span aria-label='Accessible Door: "+data[i].entry_acc_door+"'>"+data[i].entry_acc_door+"</span></p></div><div class='col-sm-12 col-xs-12 col-md-4 col-lg-4 justify-content-start'><p class='exit-text'>EXIT: <span class='exit-time' aria-label='Exit Time: "+data[i].exit_time+"'>"+data[i].exit_time+"</span></p><p class='suggested-door-name'>Suggested Door: <span aria-label='Suggested Door: "+data[i].exit_sug_door+"'>"+data[i].exit_sug_door+"</span></p><p class='suggested-door-name-acc'>Accessible Door: <span aria-label='Accessible Door: "+data[i].exit_acc_door+"'>"+data[i].exit_acc_door+"</span></p></div></div>";
                         if ( i != data.length-1 ) {
                             scheduleOnHtml += hrBorder;
                         }
@@ -1660,15 +1432,14 @@ function display(appHtml,type,id){
 }	
 
 function load_class_details() {
-		$("body").tooltip({ selector: '.hallTooltip' , boundary: 'window' });
 		var key = getUrlParameter('param');
 		console.log(key);
 		var result = JSON.parse(localStorage.getItem("RESDATA"));
 		var resHtml = "";
 		if(key == "search"){
-			var resHtml = "<p aria-label='Subject code' class='subject-code-details p-0'>" + result.subject_code + "</p><p aria-label='Subject name' class='subject-name-details p-0'>" + result.subject_name + "</p><p aria-label='class time : '+ result.class_time +'' class='classtime-table mt-3'> <span>" + result.class_time + "</span></p><p aria-label='Instructor name' class='instructor-schedule p-0'>" + result.instructor + "</p><p aria-label='location name' class='instructor-schedule p-0'>" + result.location + "</p><div class='mt-4'><p class='entry-text'>ENTRY : <span class='entry-time' aria-label='entry time : '+ result.entry_time +''>" + result.entry_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '+ result.entry_sug_door +''>"+ result.entry_sug_door +"</span></p><p class='suggested-door-name-acc-details'>Accessible Door : <span aria-label='Accessible Door: '"+ result.entry_acc_door +"''>"+ result.entry_acc_door +"</span></p><p class='exit-text pt-4'>EXIT : <span class='exit-time' aria-label='Exit Time: '"+ result.exit_time +"''>" + result.exit_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '"+ result.exit_sug_door +"''>"+ result.exit_sug_door +"</span></p><p class='suggested-door-name-acc-details'> Accessible Door : <span aria-label='Accessible Door: '"+ result.exit_acc_door +"''>"+ result.exit_acc_door +"</span></p></div> <br/><div class='search-details-btn mt-2'> <a href='class_search'><button aria-label='Class Search' class='btn btn-block'>CLASS SEARCH &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='search-details-btn mt-4'> <a href='my_schedule'><button aria-label='Class Search' class='btn btn-block'>MY SCHEDULE &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='row pt-4 mb-5'><div class='col mt-0 p-0 ml-1 justify-content-start'><p class='doorMap' aria-label='DOOR MAP'>DOOR MAP</p><div class='doorMapImg resDataImg mt-3 pr-1'> <img class='map-img' src='" + result.image_src + "' /></div></div></div>";
+			var resHtml = "<p aria-label='Subject code' class='subject-code-details p-0'>" + result.subject_code + "</p><p aria-label='Subject name' class='subject-name-details p-0'>" + result.subject_name + "</p><p aria-label='class time : '+ result.class_time +'' class='classtime-table mt-3'> <span>" + result.class_time + "</span></p><p aria-label='Instructor name' class='instructor-schedule p-0'>" + result.instructor + "</p><p aria-label='location name' class='instructor-schedule p-0'>" + result.location + "</p><div class='mt-4'><p class='entry-text'>ENTRY : <span class='entry-time' aria-label='entry time : '+ result.entry_time +''>" + result.entry_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '+ result.entry_sug_door +''>"+ result.entry_sug_door +"</span></p><p class='suggested-door-name-acc-details'>Accessible Door : <span aria-label='Accessible Door: '+ result.entry_acc_door +''>"+ result.entry_acc_door +"</span></p><p class='exit-text pt-4'>EXIT : <span class='exit-time' aria-label='Exit Time: '+ result.exit_time +''>" + result.exit_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '+ result.exit_sug_door +''>"+ result.exit_sug_door +"</span></p><p class='suggested-door-name-acc-details'> Accessible Door : <span aria-label='Accessible Door: '+ result.exit_acc_door +''>"+ result.exit_acc_door +"</span></p></div> <br/><div class='search-details-btn mt-2'> <a href='class_search'><button aria-label='Class Search' class='btn btn-block'>CLASS SEARCH &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='search-details-btn mt-4'> <a href='my_schedule'><button aria-label='Class Search' class='btn btn-block'>MY SCHEDULE &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='row pt-4 mb-5'><div class='col mt-0 p-0 ml-1 justify-content-start'><p class='doorMap' aria-label='DOOR MAP'>DOOR MAP</p><div class='doorMapImg resDataImg mt-3 pr-1'> <img class='map-img' src='" + result.image_src + "' /></div></div></div>";
 		}else{
-			resHtml = "<p aria-label='Subject code' class='subject-code-details p-0'>" + result.subject_code + "</p><p aria-label='Subject name' data-toggle='tooltip' data-placement='top' title='"+ result.subject_name +"' class='subject-name-details p-0'>" + result.subject_name + "</p><p aria-label='class time : '"+ result.class_time +"'' class='classtime-table mt-3'> <span>" + result.class_time + "</span></p><p aria-label='Instructor name' class='instructor-schedule p-0'>" + result.instructor + "</p><p aria-label='location name' class='instructor-schedule p-0'>" + result.location + "</p><div class='mt-4'><p class='entry-text'>ENTRY : <span class='entry-time' aria-label='entry time : '"+ result.entry_time +"''>" + result.entry_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span style='color:#13294B !important;' aria-label='Suggested Door: ' "+ result.entry_sug_door +"''>"+ result.entry_sug_door +"</span></p><p class='suggested-door-name-acc-details'>Accessible Door : <span style='color:#13294B !important;' aria-label='Accessible Door: '"+ result.entry_acc_door +"''>"+ result.entry_acc_door +"</span></p><p class='exit-text pt-4'>EXIT : <span class='exit-time' aria-label='Exit Time: '"+ result.exit_time +"''>" + result.exit_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span style='color:#13294B !important;' aria-label='Suggested Door: '"+ result.exit_sug_door +"''>"+ result.exit_sug_door +"</span></p><p class='suggested-door-name-acc-details'> Accessible Door : <span style='color:#13294B !important;' aria-label='Accessible Door: '"+ result.exit_acc_door +"''>"+ result.exit_acc_door +"</span></p></div> <br/><div class='search-details-btn mt-2'> <a href='class_search'><button aria-label='Class Search' class='btn btn-block'>CLASS SEARCH &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='search-details-btn mt-4'> <a href='my_schedule'><button aria-label='Class Search' class='btn btn-block'>MY SCHEDULE &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='row pt-4 mb-5'><div class='col mt-0 p-0 ml-1 justify-content-start'><p class='doorMap' aria-label='DOOR MAP'>DOOR MAP</p><div class='doorMapImg resDataImg mt-3 pr-1'> <img class='map-img' src='" + result.image_src + "' /></div></div></div>";
+			resHtml = "<p aria-label='Subject code' class='subject-code-details p-0'>" + result.subject_code + "</p><p aria-label='Subject name' class='subject-name-details p-0'>" + result.subject_name + "</p><p aria-label='class time : '+ result.class_time +'' class='classtime-table mt-3'> <span>" + result.class_time + "</span></p><p aria-label='Instructor name' class='instructor-schedule p-0'>" + result.instructor + "</p><p aria-label='location name' class='instructor-schedule p-0'>" + result.location + "</p><div class='mt-4'><p class='entry-text'>ENTRY : <span class='entry-time' aria-label='entry time : '+ result.entry_time +''>" + result.entry_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '+ result.entry_sug_door +''>"+ result.entry_sug_door +"</span></p><p class='suggested-door-name-acc-details'>Accessible Door : <span aria-label='Accessible Door: '+ result.entry_acc_door +''>"+ result.entry_acc_door +"</span></p><p class='exit-text pt-4'>EXIT : <span class='exit-time' aria-label='Exit Time: '+ result.exit_time +''>" + result.exit_time + "</span></p><p class='suggested-door-name-details'>Suggested Door : <span aria-label='Suggested Door: '+ result.exit_sug_door +''>"+ result.exit_sug_door +"</span></p><p class='suggested-door-name-acc-details'> Accessible Door : <span aria-label='Accessible Door: '+ result.exit_acc_door +''>"+ result.exit_acc_door +"</span></p></div> <br/><div class='search-details-btn mt-2'> <a href='class_search'><button aria-label='Class Search' class='btn btn-block'>CLASS SEARCH &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='search-details-btn mt-4'> <a href='my_schedule'><button aria-label='Class Search' class='btn btn-block'>MY SCHEDULE &nbsp;<i class='feather icon-chevron-right arrow-details'></i>&nbsp;</button></a></div><div class='row pt-4 mb-5'><div class='col mt-0 p-0 ml-1 justify-content-start'><p class='doorMap' aria-label='DOOR MAP'>DOOR MAP</p><div class='doorMapImg resDataImg mt-3 pr-1'> <img class='map-img' src='" + result.image_src + "' /></div></div></div>";
 		}
         $(".resData").append(resHtml);
 		//var imgHtml = "";
@@ -1693,193 +1464,110 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 function load_class_search(){
-	/*let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
-    if (isMobile) {
-        //Conditional script here
-		var tag = $("#scrollto");
-    	$('html,body').animate({scrollTop: tag.offset().top},'slow');
-    }
-	*/
+	var tag = $("#scrollto");
+    $('html,body').animate({scrollTop: tag.offset().top},'slow');
+}
+
+function load_mobile_verify(){
+
+	setTimeout(function() {
+			var tag = $("#scrollto");
+			$('html,body').animate({scrollTop: tag.offset().top},'slow');
+		}, 3000);
 }
 
 /* common func on all pages */
 $(document).ready(function(){
-	//IsUserLoggedIn();
-	getUserInfo().then(
-		function(data){
-			console.log('data found:');
-			console.log(data);
-			if (data[0].name != ' '){
-				users_name = data[0].name;
-			}
-			if (data[0].pid != ' '){
-				pid = data[0].pid;
-			}
-
-			console.log('updating user info: ' + users_name + ', ' + pid);
-			$('#member_name').length ? $('#member_name').html(users_name) : '';
-			$('#member_pid').length ? $('#member_pid').html(pid) : '';
-        }
-	);
-	if (window.location.href.includes('registration_mobile_number')){
-		load_email_mobile();
-	}
-	if (window.location.href.includes('enter_name')) {
-		load_member_name();
-	}
-	if (window.location.href.includes('demographics')) {
-		load_demographics();
-	}
-	if (window.location.href.includes('registration_local_address')){
-		load_local_addr();
-	}
-	if (window.location.href.includes('registration_mailing_address')){
-		load_step_4();
-	}
-	if (window.location.href.includes('registration_quarantine_address_choice')){
-		load_quarantine_choice();
-	}
-	if (window.location.href.includes('registration_quarantine_address')){
-		load_quarantine_addr();
-	}
-	if (window.location.href.includes('registration_thx')){
-		load_registration_thx();
-	}
-	if (window.location.href.includes('home')){
-		load_home();
-	}
-	if (window.location.href.includes('find_test_site_slot_full')){
-		load_find_test_site_slot_full();
-	}
-	if (window.location.href.includes('find_test_site_slot_booked')){
-		load_find_test_site_slot_booked();
-	}
-	if (window.location.href.includes('find_test_site_slots')){
-		get_slots();
-	}
-	if (window.location.href.includes('find_test_site')){
-		load_test_sites();
-	}
-	if (window.location.href.includes('find_test_site_confirmtime')){
-		load_confirm_time();
-	}
-	if (window.location.href.includes('reservation')){
-		load_reservation();
-	}
-	if (window.location.href.includes('my_reservations')){
-		load_reservation();
-	}
-	if (window.location.href.includes('my_testing')){
-		load_my_testing();
-	}
-	if (window.location.href.includes('my_schedule')){
-		load_my_schedule();
-	}
-	if (window.location.href.includes('start_new_test')){
-		load_start_new_test();
-	}
-	if (window.location.href.includes('scan_new_test')){
-		start_scan();
-	}
-	if (window.location.href.endsWith('scan_fail')){
-		scan_fail();
-	}
-	if (window.location.href.includes('scan_complete')){
-		load_scan_complete();
-	}
-	if (window.location.href.includes('get_slot_info')){
-		load_slot_info();
-	}
-
-	if (window.location.href.includes('class_search')){
+	IsUserLoggedIn();
+	$('ul.navigation-menu li:nth-child(7)').hide();
+	$('footer table.footerMenu tbody tr td:nth-child(1) p:nth-child(3)').hide();
+	var u = getUserInfo();
+    console.log('updating user info');
+    console.log(u);
+    $('#member_name').length ? $('#member_name').html(u.name) : '';
+    $('#member_pid').length ? $('#member_pid').html(u.pid) : '';
+    if (window.location.href.endsWith('registration_mobile_number')){
+        load_email_mobile();
+    }
+    if (window.location.href.endsWith('enter_name')) {
+        load_member_name();
+    }
+    if (window.location.href.endsWith('demographics')) {
+        load_demographics();
+    }
+    if (window.location.href.endsWith('registration_local_address')){
+        load_local_addr();
+    }
+	if (window.location.href.endsWith('registration_mobile_verify')){
+        load_mobile_verify();
+    }
+    if (window.location.href.endsWith('registration_mailing_address')){
+        load_step_4();
+    }
+    if (window.location.href.endsWith('registration_quarantine_address_choice')){
+        load_quarantine_choice();
+    }
+    if (window.location.href.endsWith('registration_quarantine_address')){
+        load_quarantine_addr();
+    }
+	if (window.location.href.endsWith('registration_thx')){
+        load_registration_thx();
+    }
+	if (window.location.href.endsWith('home')){
+        load_home();
+    }
+    if (window.location.href.endsWith('find_test_site')){
+        load_test_sites();
+    }
+    if (window.location.href.endsWith('find_test_site_slots')){
+        get_slots();
+    }
+    if (window.location.href.endsWith('find_test_site_confirmtime')){
+        load_confirm_time();
+    }
+    if (window.location.href.endsWith('reservation')){
+        load_reservation();
+    }
+    if (window.location.href.endsWith('my_reservations')){
+        load_reservation();
+    }
+    if (window.location.href.endsWith('my_testing')){
+        load_my_testing();
+    }
+    if (window.location.href.endsWith('my_schedule')){
+        load_my_schedule();
+    }
+    if (window.location.href.endsWith('start_new_test')){
+        load_start_new_test();
+    }
+    if (window.location.href.endsWith('scan_new_test')){
+        start_scan();
+    }
+    if (window.location.href.endsWith('scan_fail')){
+        scan_fail();
+    }
+	if (window.location.href.endsWith('scan_complete')){
+        load_scan_complete();
+    }
+    if (window.location.href.includes('get_slot_info')){
+        load_slot_info();
+    }
+	if (window.location.href.endsWith('find_test_site_slot_full')){
+        load_find_test_site_slot_full();
+    }
+	if (window.location.href.endsWith('find_test_site_slot_booked')){
+        load_find_test_site_slot_booked();
+    }
+    if (window.location.href.endsWith('class_search')){
 		handleKeyDown();
 		loadRecentSearch();
 		handleitemSelect();
+    }
+    if (window.location.href.endsWith('class_details')){
+		load_class_details();
+    }
+	if (window.location.href.endsWith('class_search')){
 		load_class_search();
 	}
-	if (window.location.href.includes('class_details')){
-		load_class_details();
-	}
 });
 
-function onKeyboardOnOff(isOpen) {
-    // Write down your handling code
-    if (isOpen) {
-        // keyboard is open
-		//alert('keyboard is open');
-		$('.footer-content').hide();
-		if (window.location.href.includes('class_search')){
-			$('.results').hide();
-		}
-
-		//$('.topnav').hide();
-    } else {
-        // keyboard is closed
-		//alert('keyboard is closed');
-		$('.footer-content').show();
-		//$('.topnav').show();
-		if (window.location.href.includes('class_search')){
-			$('.results').show();
-		}
-    }
-}
-
-var originalPotion = false;
-$(document).ready(function(){
-    if (originalPotion === false) originalPotion = $(window).width() + $(window).height();
-});
-
-/**
- * Determine the mobile operating system.
- * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
- *
- * @returns {String}
- */
-function getMobileOperatingSystem() {
-    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-      // Windows Phone must come first because its UA also contains "Android"
-    if (/windows phone/i.test(userAgent)) {
-        return "winphone";
-    }
-
-    if (/android/i.test(userAgent)) {
-        return "android";
-    }
-
-    // iOS detection from: http://stackoverflow.com/a/9039885/177710
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        return "ios";
-    }
-
-    return "";
-}
-
-function applyAfterResize() {
-
-    if (getMobileOperatingSystem() != 'ios') {
-        if (originalPotion !== false) {
-            var wasWithKeyboard = $('body').hasClass('view-withKeyboard');
-            var nowWithKeyboard = false;
-
-                var diff = Math.abs(originalPotion - ($(window).width() + $(window).height()));
-                if (diff > 100) nowWithKeyboard = true;
-
-            $('body').toggleClass('view-withKeyboard', nowWithKeyboard);
-            if (wasWithKeyboard != nowWithKeyboard) {
-                onKeyboardOnOff(nowWithKeyboard);
-            }
-        }
-    }
-}
-
-$(document).on('focus blur', 'select, textarea, input[type=text], input[type=date], input[type=password], input[type=email], input[type=number]', function(e){
-    var $obj = $(this);
-    var nowWithKeyboard = (e.type == 'focusin');
-    $('body').toggleClass('view-withKeyboard', nowWithKeyboard);
-    onKeyboardOnOff(nowWithKeyboard);
-});
-
-$(window).on('resize orientationchange', function(){
-    applyAfterResize();
-});

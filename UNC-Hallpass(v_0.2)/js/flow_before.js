@@ -36,14 +36,6 @@ function isValidZip(z){
  		return true;
 }
 
-function isValidBarcodeSuffix(b){
-    var bar_code_regex = /(^\d{7}$)/;
-	if (!(bar_code_regex.test(b))) 
-    	return false;
-	else 
- 		return true;
-}
-
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -86,11 +78,11 @@ function getUserInfo() {
 
 	return $.ajax({
         url: '/secure/api/get_member_email_mobile',
-		type: 'GET',
+		type: 'GET',		
+		async: false,
 		headers: {
 			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
-		async: false
+		}
 	});
 	
 	//return { 'name':users_name, 'pid': pid};
@@ -103,10 +95,10 @@ function getPID(){
 function redirect(){
     $.ajax({
         url: '/secure/api/get_member_is_registered',
-		type: 'GET',
+        type: 'GET',
 		headers: {
 			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+		},        
         success: function(data){
             if (data[0].member_exists=='true')
 	        	window.location.href="home";
@@ -124,11 +116,11 @@ function save_registration() {
     $.ajax({
 		url: '/secure/api/create_member',
 		type: 'POST',
-		contentType: 'application/json',
 		headers: {
 			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
-        data: JSON.stringify({}),
+		},		
+        	contentType: 'application/json',
+        	data: JSON.stringify({}),
 		success: function(data){
 	   	 	console.log(data);
 	    	window.location.href="registration_mobile_number";
@@ -138,44 +130,44 @@ function save_registration() {
 
 function goBack(){
 	//history.go(-1);
-	
-	if (window.location.href.endsWith('registration_mobile_number')) {
+	if (window.location.href.includes('registration_mobile_number')) {
 		window.location.href="registration";
 	}
-	if (window.location.href.endsWith('registration_mobile_verify')) {
+	if (window.location.href.includes('registration_mobile_verify')) {
 		window.location.href="registration_mobile_number";
 	}
-	if (window.location.href.endsWith('enter_name')) {
+	if (window.location.href.includes('enter_name')) {
 		window.location.href="registration_mobile_verify";
 	}
-	if (window.location.href.endsWith('demographics')) {
+	if (window.location.href.includes('demographics')) {
 		window.location.href="enter_name";
 	}
-	if (window.location.href.endsWith('registration_local_address')) {
+	if (window.location.href.includes('registration_local_address')) {
 		window.location.href="demographics";
 	}
-	if (window.location.href.endsWith('registration_quarantine_address_choice')) {
+	if (window.location.href.includes('registration_quarantine_address_choice')) {
 		window.location.href="registration_local_address";
 	}
-	if (window.location.href.endsWith('registration_quarantine_address')) {
+	if (window.location.href.includes('registration_quarantine_address')) {
 		window.location.href="registration_quarantine_address_choice";
 	}
+	return false;
 }
 
 function load_email_mobile(){
     $.ajax({
 	    url: '/secure/api/get_member_email_mobile',
-		type: 'GET',
-		headers: {
+	    type: 'GET',
+	    headers: {
 			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    },	    
 	    success: function(data){
 		    console.log('data found:'+data);
 		    $('#preferred_email_address').val(data[0].email);
 		    $('#phone_number').val(data[0].mobile);
 	    },
-        error: function(data) {
-             window.location.href= "error_500";
+            error: function(data) {
+                window.location.href= "error_500";
 	    }
     });
 }
@@ -223,10 +215,10 @@ function save_mobile_email(){
     $.ajax({
 	    url: '/secure/api/update_member_email_mobile',
 	    type: 'POST',
-		contentType: 'application/json',
-		headers: {
+	    headers: {
 			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    },	    
+	    contentType: 'application/json',
 	    data: JSON.stringify({email: $email, mobile: $mobile}),
 	    success: function(data) {
 		      var cookie_name = "reg-em-mb";
@@ -250,23 +242,23 @@ function checkOTP() {
 	if ($otp.length==5){
             $.ajax({
 	        url: '/secure/api/check_otp?otp='+$otp,
-			type: 'GET',
-			headers: {
+	        type: 'GET',
+	        headers: {
 				"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-			},
+	        },
 	        success: function(data){
 		    console.log('data found:'+data);
                     if (data[0].otp_ok == 'true'){
-		        //alert("otp validate successfully");
-		        $("#otpErrMsg").addClass("hideOtpErr");
-		        $("#otpErrMsg_1").addClass("hideOtpErr");
+						//alert("otp validate successfully");
+						$("#otpErrMsg").addClass("hideOtpErr");
+						$("#otpErrMsg_1").addClass("hideOtpErr");
                         console.log('otp validated successfully');
                         //window.location.href = "registration_local_address";
 						window.location.href = "enter_name";
                     }
                     else {
                         //alert('invalid otp entered, please retry!');
-		        $("#otpErrMsg").removeClass("hideOtpErr");
+		        		$("#otpErrMsg").removeClass("hideOtpErr");
                         $("#otpErrMsg_1").addClass("hideOtpErr");
 	        	return false;
 	            }
@@ -281,6 +273,7 @@ function checkOTP() {
         }
 	/* End of validation scripts */   
 	/* *********************************************************************** */
+	return false;
 }
 
 function sendnewotp(){
@@ -289,8 +282,8 @@ function sendnewotp(){
 		url: '/secure/api/resend_otp',
 		type: 'GET',
 		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+				"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	        },
 		success: function(data) {
 		}
 	});
@@ -300,10 +293,10 @@ function sendnewotp(){
 function load_member_name(){
     $.ajax({
 	    url: '/secure/api/get_member_name',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'GET',
+	    headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	    },	    
 	    success: function(data){
 		    console.log('data found:'+data);
 		    $('#first_name').val(data[0].first_name);
@@ -319,18 +312,9 @@ function load_member_name(){
 
 function save_member_name(){
 	$f = $('#first_name').val();
-	if ($f.indexOf("'") != -1){
-		$f = $f.replaceAll("'", "*");
-	}
     $m = $('#middle_name').val();
-	if ($m.indexOf("'") != -1){
-		$m = $m.replaceAll("'", "*");
- 	}
     $l = $('#last_name').val();
-	if ($l.indexOf("'") != -1){
-		$l = $l.replaceAll("'", "*");
-	}
-	$d = $('#date_of_birth').val();
+ 	$d = $('#date_of_birth').val();
 	isvalid = true;
 	if ($f == ''){
  		markInvalid($('#first_name_err_msg'));
@@ -354,10 +338,10 @@ function save_member_name(){
 		return false;
     $.ajax({
 	    url: '/secure/api/update_member_name',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
+	    headers: {
+	    	"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	    },
 	    contentType: 'application/json',
 	    data: JSON.stringify({firstname: $f, middlename: $m, lastname: $l, dob: $d}),
 	    success: function(data) {
@@ -369,10 +353,10 @@ function save_member_name(){
 function load_demographics(){
     $.ajax({
         url: '/secure/api/get_member_demographics',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
+        headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},
         success: function(data){
             console.log('data found:');
 			console.log(data[0]);
@@ -428,10 +412,10 @@ function save_demographics(){
 	}
     $.ajax({
 	    url: '/secure/api/update_member_demographics',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
+	    headers: {
+	    	"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	    },
 	    contentType: 'application/json',
 	    data: JSON.stringify({gender: $g, race: $r, ethnicity: $e}),
 	    success: function(data) {
@@ -444,10 +428,10 @@ function save_demographics(){
 function load_local_addr(){
     $.ajax({
         url: '/secure/api/get_member_local_addr',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
+        headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},
         success: function(data){
             console.log('data found:');
 			console.log(data[0]);
@@ -463,17 +447,8 @@ function load_local_addr(){
 
 function save_local_addr(){
     $las1 = $('#street_1').val();
-	if ($las1.indexOf("'") != -1){
-		$las1 = $las1.replaceAll("'", "*");
-	}
     $las2 = $('#street_2_opt').val();
-	if ($las2.indexOf("'") != -1){
-		$las2 = $las2.replaceAll("'", "*");
-	}
     $lac = $('#city').val();
-	if ($lac.indexOf("'") != -1){
-		$lac = $lac.replaceAll("'", "*");
-	}
 	$lat = $('#county').val(); 
     $las = $('#state').val();
     $laz = $('#zipcode').val();
@@ -513,10 +488,10 @@ function save_local_addr(){
 
     $.ajax({
 	    url: '/secure/api/update_member_local_addr',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
+	    headers: {
+	    	"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	    },
 	    contentType: 'application/json',
 	    data: JSON.stringify({las1: $las1, las2: $las2, lac: $lac, lat: $lat, las: $las, laz: $laz}), // TODO
 	    success: function(data) {
@@ -528,10 +503,10 @@ function save_local_addr(){
 function load_step_4(){
     $.ajax({
         url: '/secure/api/get_member_mailing_addr',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
+        headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},
         success: function(data){
             console.log('data found:'+data);
             $('#street_1').val(data[0].street1);
@@ -545,40 +520,31 @@ function load_step_4(){
 
 function reg_step_4(){
     $las1 = $('#street_1').val();
-	if ($las1.indexOf("'") != -1){
-		$las1 = $las1.replaceAll("'", "*");
-	}
     $las2 = $('#street_2_opt').val();
-	if ($las2.indexOf("'") != -1){
-		$las2 = $las2.replaceAll("'", "*");
-	}
     $lac = $('#city').val();
-	if ($lac.indexOf("'") != -1){
-		$lac = $lac.replaceAll("'", "*");
-	}
     $las = $('#state').val();
     $laz = $('#zipcode').val();
     $.ajax({
 	    url: '/secure/api/update_member_mailing_addr',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
+	    headers: {
+	    	"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	    },
 	    contentType: 'application/json',
 	    data: JSON.stringify({las1: $las1, las2: $las2, lac: $lac, las: $las, laz: $laz}),
 	    success: function(data) {
-		window.location.href = "registration_quarantine_address_choice";
-            }
+			window.location.href = "registration_quarantine_address_choice";
+        }
     });
 }
 
 function load_quarantine_choice(){
     $.ajax({
         url: '/secure/api/get_member_quarantine_choice',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
+        headers: {
+	    "Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},
         success: function(data){
             console.log('data found:'+data);
             $('#quarantine_address').val(data[0].qaddr);
@@ -597,10 +563,10 @@ function save_quarantine_choice(){
 		markValid($('#quarantineErr'));
     $.ajax({
 	    url: '/secure/api/update_member_quarantine_choice',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
+	    headers: {
+	    	"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	    },
 	    contentType: 'application/json',
 	    data: JSON.stringify({qaddr: $qaddr}),
 	    success: function(data) {
@@ -615,10 +581,10 @@ function save_quarantine_choice(){
 function load_quarantine_addr(){
     $.ajax({
         url: '/secure/api/get_member_quarantine_addr',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
+        headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},
         success: function(data){
             console.log('data found:'+data);
             $('#street_1').val(data[0].street1);
@@ -632,18 +598,9 @@ function load_quarantine_addr(){
 
 
 function save_quarantine_addr(){
-	$las1 = $('#street_1').val();
-    if ($las1.indexOf("'") != -1){
-		$las1 = $las1.replaceAll("'", "*");
-	}
+    $las1 = $('#street_1').val();
     $las2 = $('#street_2_opt').val();
-	if ($las2.indexOf("'") != -1){
-		$las2 = $las2.replaceAll("'", "*");
-	}
     $lac = $('#city').val();
-	if ($lac.indexOf("'") != -1){
-		$lac = $lac.replaceAll("'", "*");
-	}
 	$lat = $('#county').val(); 
     $las = $('#state').val();
     $laz = $('#zipcode').val();
@@ -682,10 +639,7 @@ function save_quarantine_addr(){
 		return false;
     $.ajax({
 	    url: '/secure/api/update_member_quarantine_addr',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
 	    contentType: 'application/json',
 	    data: JSON.stringify({ las1: $las1, las2: $las2, lac: $lac, lat: $lat, las: $las, laz: $laz}), 
 	    success: function(data) {
@@ -697,10 +651,10 @@ function save_quarantine_addr(){
 function load_registration_thx(){
     $.ajax({
         url: '/secure/api/get_member_email_mobile',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
+        headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},        
         success: function(data){
             console.log('data found:'+data);
             $('#member_status').html(data[0].status);
@@ -715,8 +669,8 @@ function load_registration_thx(){
 				$('#member_name').html(data[0].name);
  			}
 			if (data[0].status == 'COMPLIANT'){
- 			    $(".validUntil").text('Valid through: ');
-			    $(".get_next_test_before_content").html(data[0].nowplus84h);
+				$(".validUntil").text('Valid through: ');
+				$(".get_next_test_before_content").html( data[0].nowplus84h);
 			}
         }
     });
@@ -725,10 +679,10 @@ function load_registration_thx(){
 function load_home(){
     $.ajax({
         url: '/secure/api/get_member_email_mobile',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
+        headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},        
         success: function(data){
             console.log('data found:'+data);
             $('#member_status').html(data[0].status);
@@ -742,10 +696,10 @@ function load_home(){
 function load_test_sites(){
     $.ajax({
         url: '/secure/api/get_test_sites',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
+	headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},
         success: function(data){
             console.log('data found:');
 			console.log(data);
@@ -872,13 +826,13 @@ function get_slots() {
     var slots = [];
     $.ajax({
         url: '/secure/api/get_test_slots',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
-	    contentType: 'application/json',
-	    data: JSON.stringify({ site_id: siteId, selected_date: selectedDate}),
-	    success: function(data, status) {	
+        type: 'POST',
+	headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},
+	contentType: 'application/json',
+	data: JSON.stringify({ site_id: siteId, selected_date: selectedDate}),
+	success: function(data, status) {	
            console.log(data);
 	       var appHtml = "";
 		   var i = 0;
@@ -918,13 +872,18 @@ function get_slots() {
             i++;
 	    }
             $(document).on('click','.availTime',function(){
-                var availTime = $(this).attr('avail-slot');
+				var availTime = $(this).attr('avail-slot');
                 var availDate = $(this).attr('avail-date');
+                //localStorage.setItem('avail-time', availTime);
+                //localStorage.setItem('avail-date', availDate);
+                //localStorage.setItem('location-id', siteArray[0]);
+                //localStorage.setItem('location-name', siteArray[1]);
 				var slot_requested = availTime+'^'+availDate+'^'+siteArray[0]+'^'+siteArray[1];
 				slot_requested = slot_requested.replaceAll(' ', '+');
 				set_session_var('slot_requested', slot_requested).then(function(data){
 					window.location.href = "find_test_site_confirmtime";
 				});
+
             });
 
 	}
@@ -932,10 +891,10 @@ function get_slots() {
 }
 
 function load_confirm_time(){
-	var availSlot = ''; 
-	var siteId = 0; 
-	var selectedDate = '';
-	var locationName = ''; 
+        var availSlot = ''; //localStorage.getItem("avail-time");
+        var siteId = 0; //localStorage.getItem('location-id');
+        var selectedDate = '';// localStorage.getItem('avail-date');
+        var locationName = ''; //localStorage.getItem('location-name');
 	get_session_var('slot_requested').then(function(data){
 		var slotRequested = data.sval.split('^');
 		availSlot = slotRequested[0];
@@ -946,6 +905,9 @@ function load_confirm_time(){
 	    $(".locationname").append(slotRequested[3]);
 		locationName = slotRequested[3];
  	});
+	//$(".btn-time-blue").append(availSlot);
+ 	//$(".bookdate").append(formatDateDisplay(selectedDate));
+	//$(".locationname").append(locationName);
 	/*
         var resHtml = '';
         resHtml = '<button class="btn btn-lg btn-time-blue">'+availSlot+'</button><h3 class="mt-4" aria-labelledby="" aria-label="">'+locationName+'</h3>';
@@ -959,10 +921,10 @@ function load_confirm_time(){
 			$.ajax({
                 url: '/secure/api/book_test_slot',
                 contentType: 'application/json',
-				type: 'POST',
-				headers: {
-					"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-				},
+		headers: {
+			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+		},
+                type: 'POST',
                 data: JSON.stringify({'q': 'book_test_slot', 'site_id': siteId, 'selected_date': selectedDate, 'slot_start': availSlot}),
                 success: function(data, status){
                     if (data[0].slot_booked == "true"){
@@ -1016,10 +978,10 @@ function load_reservation() {
 function cancel_reservation() {
     $.ajax({
 	    url: '/secure/api/cancel_reservation',
-		type: 'POST',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+	    type: 'POST',
+	    headers: {
+	        "Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	    },
 	    contentType: 'application/json',
  		data: JSON.stringify({'sid': sid}),
 	    success: function(data) {
@@ -1030,7 +992,7 @@ function cancel_reservation() {
 }
 
 function load_my_testing(){
-    localStorage.setItem("scanCount",0);
+    //localStorage.setItem("scanCount",0);
 	set_session_var('scan_count', 0).then(function(data){});
 	load_registration_thx();
 	$.get("/secure/api/my_testing",
@@ -1053,9 +1015,9 @@ function load_my_testing(){
  			$(".myTestContent").text(data[0].msg);
  			if (data[0].test_found != null){
 				$(".get_next_test_before_title").text(data[0].test_found[2]);
-				if (data[0].status == 'COMPLIANT'){
- 			   	 	$(".validUntil").text('Valid through: ');
-			    	$(".get_next_test_before_content").html(data[0].test_found[2]);
+				if (curStatus=='COMPLIANT'){
+		    	    $(".validUntil").text('Valid through: ');
+ 				    $(".get_next_test_before_content").html(data[0].test_found[2]);
 				}
  		    }
 			if(curStatus.toUpperCase() == 'NON-COMPLIANT'){
@@ -1098,10 +1060,10 @@ function load_start_new_test(){
 	load_registration_thx();
 	$.ajax({
         url: '/secure/api/get_test_sites?all=y',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        type: 'GET',
+	headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},
         success: function(data){
             //console.log('data found:');
 			//console.log(data);
@@ -1123,10 +1085,10 @@ function load_start_new_test(){
 
 			$.ajax({
 		        url: '/secure/api/get_latest_test',
-				type: 'GET',
-				headers: {
-					"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-				},
+		        type: 'GET',
+			headers: {
+				"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+			},		        
 		        success: function(data) {
 			        if (data[0].success) {
 				        //console.log(data[0].latest_test[1]);
@@ -1147,7 +1109,7 @@ function load_start_new_test(){
 	var scanCount = 0; //localStorage.getItem("scanCount");
 	$(".scanBarCode").hide();
 	$(".manualBarCode").show();
-	//$("#manualBarCodeValue").val('CTTP-');
+	$("#manualBarCodeValue").val('CTTP-');
 	$("#manualBarCodeValue").focus();
 	/*
 	get_session_var('scan_count').then(
@@ -1189,7 +1151,7 @@ function load_start_new_test(){
 			else
 				markValid($('#testSiteErr'));
 			var txtVal = $("#manualBarCodeValue").val();
-			if(txtVal.trim() == "" || !isValidBarcodeSuffix(txtVal.trim())){
+			if(txtVal.trim() == ""){
 				markInvalid($('#barCodeErrMsg'));
 				return false;
 			}
@@ -1200,15 +1162,14 @@ function load_start_new_test(){
 				type: 'GET',
 				headers: {
 					"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-				},
+				},				
 				success: function(data) {
 					if (data[0].success == 'True'){
 						set_session_var('site_id', siteId).then(function(data){});
 						var barCodeValue = txtVal;
                 		if (barCodeValue != null){
 							//alert('sending to server');
-							var barCodeValue2='CTTP-'+ barCodeValue.substring(0,3)+'-'+barCodeValue.substring(3,8);
-							upload_test_barcode(barCodeValue2, siteId);
+							upload_test_barcode(barCodeValue, siteId);
 						}
 					}
 					else {
@@ -1229,11 +1190,11 @@ function scan_new_test(){
 	}
     $.ajax({
         url: '/secure/api/demographic_data_ok',
-		type: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
-		success: function(data) {
+        type: 'GET',
+        headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},
+	success: function(data) {
             if (data[0].success == 'True'){
 				set_session_var('site_id', siteId).then(function(data){});
 				window.location.href = "scan_new_test";
@@ -1450,6 +1411,7 @@ function buildResultHtml(data, result){
 		if(result){
 			htmStr += "<span class='search-results'><a href='#'><table class='recent-result-table table' style='width:100% !important;border-bottom:1px solid #DDDDDD;'><tr><td><input type='hidden' class='search-val' " +
                              "value='" + title + "'><img class='recent-img' src='images/results-img.png' /></td><td><div class='row recent-results'><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-subject-code'><p>" + data[i].subject_code + "</p></div><div class='col-xs-12 col-sm-12 col-md-6 col-lg-6 recent-instructor'><p style='color:#13294B !important;'>Instructor : " + data[i].instructor + "</p></div></div></td></tr></table></a></span>";
+
 		}
 	}	
 	$(".results").empty();
@@ -1513,7 +1475,7 @@ function upload_test_barcode(barCodeValue, siteId){
 		method: 'POST',
 		headers: {
 			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+		},		
 		data: JSON.stringify({ bc: barCodeValue, siteid: siteId }),
 		success: function(data){
 			if (data[0].success == 'True'){
@@ -1556,10 +1518,10 @@ function load_slot_info(){
     //alert(urlParam('qc'));
     $.ajax({
         url: '/secure/api/get_slot_info?qc='+urlParam('qc'),
-		method: 'GET',
-		headers: {
-			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
-		},
+        method: 'GET',
+        headers: {
+		"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+	},        
         success: function(data){
             // display slot details on page
             console.log(data); 
@@ -1572,7 +1534,11 @@ function load_slot_info(){
 }
 
 function load_find_test_site_slot_full(){
-		var availSlot = '';
+	//var availSlot = formatDateDisplay(localStorage.getItem("avail-date")) + ' ' + localStorage.getItem("avail-time");
+	//var locationName = localStorage.getItem('location-name');
+	//$('.booktime').text(availSlot);
+	//$('.locationName').text(locationName);
+	var availSlot = '';
     var selectedDate = '';
     var locationName = '';
 	get_session_var('slot_requested').then(function(data){
@@ -1584,7 +1550,6 @@ function load_find_test_site_slot_full(){
 	    $(".locationName").html(locationName);
 
  	});
-
 }
 
 function load_find_test_site_slot_booked(){
@@ -1661,6 +1626,7 @@ function display(appHtml,type,id){
 
 function load_class_details() {
 		$("body").tooltip({ selector: '.hallTooltip' , boundary: 'window' });
+
 		var key = getUrlParameter('param');
 		console.log(key);
 		var result = JSON.parse(localStorage.getItem("RESDATA"));
@@ -1693,12 +1659,19 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 function load_class_search(){
-	/*let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+	/*
+	let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
     if (isMobile) {
         //Conditional script here
 		var tag = $("#scrollto");
     	$('html,body').animate({scrollTop: tag.offset().top},'slow');
     }
+	$('.search-box').focus(function(){
+		if (isMobile){
+			$('.footer-content').hide();
+			setTimeout(function(){$('.footer-content').show()}, 10000);
+		}
+	})
 	*/
 }
 
@@ -1800,6 +1773,7 @@ $(document).ready(function(){
 	if (window.location.href.includes('class_details')){
 		load_class_details();
 	}
+
 });
 
 function onKeyboardOnOff(isOpen) {
