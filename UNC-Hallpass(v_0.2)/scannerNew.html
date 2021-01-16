@@ -19,8 +19,8 @@
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="https://hallpass.unc.edu/">
-                <div class="align-self-center custom-logo-link">
-                    <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
+                <div class="custom-logo-link">
+                    <img src="images/header_logo.png" class="logoImg" alt="CAROLINA TOGETHER" />
                 </div>
             </a>
         </div>
@@ -33,7 +33,6 @@
                         <span></span>
                     </div>
                 </a>
-                <!-- End mobile menu toggle-->
             </div>
         </div>
         <div id="navigation">
@@ -83,90 +82,52 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 ">
-        <div class="container">
-			<div class="row pt-1">
-				<div class="breadcrumb-wrapper col-12">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="my_testing" aria-labelledby="My Testing" aria-label="My Testing">My Testing</a></li>
-						<li class="breadcrumb-item" aria-labelledby="Start New Test" aria-label="Start New Test">Start New Test</li>
-					</ol>
-				</div>
+    <section class="mobile-view-home">
+	
+		<div class="d-flex flex-row justify-content-start align-items-center scannerContent">
+			<div class="p-1"><i class="feather icon-x fs-50 "></i></div>
+			<div class="p-1">Hold the barcode horizontally and press the button to capture</div>
+		</div>
+		
+		<div id="scanCompleteLayout" style="display:none;">
+			<h1 class="head-title">
+				<img src="images/tick.png" alt="tick" width="100" height="100" />
+				SCAN <br/> COMPLETE
+			</h1>
+		</div>
+	
+        <!-- <div id="scanGif" style="display:none;">
+			<img src="images/scanGif.gif" alt="uploading, analyzing, barcode capturing" width="100" height="100" />
+		</div> -->
+		
+		<!-- <div id="scanTryLayout" class="show">
+			<h1 class="head-title">
+				<img src="images/tick.png" alt="tick" width="100" height="100" />
+				TRY <br/> AGAIN
+			</h1>
+		</div> -->	
+		
+		<!-- <div id="scanFailed" class="show">
+			<div>
+				<img src="images/close.jpg" alt="scan failed" />
+				<p class="fs-50">SCAN <br/> FAILED</p>
+				<br/>
+				<p class="fs-30">PLEASE RE-SCAN BARCODE <br/> OR ENTER BARCODE MANUALLY</p>
 			</div>
-            <div class="pt-2 head-wrapper">
-				<div class="mt-2 mb-0">
-					<h1 aria-labelledby="Start New Test" aria-label="Start New Test" class="head-h2">Start New Test</h1>
-                </div>
-				<div class="mt-3 mb-3">
-					<h2 class="contentHead">Member: <span id="member_name"></span></h2>
-					<h2 class="contentHead">PID: <span id="member_pid"></span></h2>
-					<h2 class="contentHead">Status: <span id="member_status"></span></h2>
-                </div>
-				<div class="mt-4 mb-2">
-					<p>In the form below, select your collection location. Then remove the test tube from the bag and find the numbers under the barcode. Enter the digits, including the dash in the form, and submit the form.</p>
-					<p class="pt-3">After entering the information and submitting the form, follow the in-person testing procedures at your station.</p>
-				</div>
-				<div class="row pt-0">
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-						<div class="select-wrapper">
-							<div class="form-group mb-0 pt-1 selectUi">
-								<label id="test-site-label" for="test_site">TEST SITE</label>
-								<select aria-labelledby="test-site-label" id="test_site" class="form-control">
-									<option value="0">Select Test Site</option>
-								</select>
-							</div>
-						</div>
-						<span class="hideErr" id="testSiteErr"><i class="feather icon-alert-circle"></i>&nbsp;Please select test site.</span>
-					</div>
-				</div>
-				<div class="row mb-0">
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-						<div class="scan-btn scanBarCode mt-4 mb-4 p-0">
-							<button aria-labelledby="SCAN BAR CODE BUTTON" aria-label="SCAN BAR CODE BUTTON" class="btn btn-block scanBarCodeBtn" onclick="scan_new_test()">
-								<img alt="" width="50" src="images/scanImg.png" />
-								<span>SCAN BARCODE</span>
-								<i class="feather icon-chevron-right"></i>
-							</button>
-						</div>
-					</div>
-				</div>
-				<span class="hideErr" id="demoDataErr"><i class="feather icon-alert-circle"></i>&nbsp;Please enter your demographic data before taking a test.</span>	
-					<form>
-						<div class="d-flex align-items-center justify-content-start pt-0">
-							<label for="manualBarCodeValue" id="enter-barcode-manually-label" class="mb-1">PLEASE ENTER THE NUMBERS THAT FOLLOW</label>
-						</div>
-						<div class="d-flex align-items-center justify-content-start pt-0 mannualCode">
-							<label>CTTP-&nbsp;</label>
-							<div class="mannualBarCode flex-fill">
-								<input aria-labelledby="enter-barcode-manually-label" id="manualBarCodeValue" type="text" class="form-control search-box" placeholder="Numbers Only, no dash required"/>
-							</div>
-							<div class="flex-fill">
-								<button id="barcodeBtn" aria-labelledby="submit bar code button" aria-label='submit bar code button' id="searchBtn" class="btn btnSubmitBarCode" type="button">
-									<i class="feather icon-chevron-right"></i>
-								</button>
-							</div>
-						</div>
-						<div class="justify-content-start">
-							<div aria-labelledby="Please enter the numbers that follow CTTP-" class="hideErr" id="barCodeErrMsg" ><i class="feather icon-alert-circle"></i>&nbsp;Enter 7 Numbers only, no dash required</div>
-						</div>
-					</form>
-				</div>
-				<span id="errmsg"></span>	
-				<hr class="border-hr">
-				<div class="pt-3 mb-0 test-status-div">
-					<div class="mb-0">
-						<h2 aria-labelledby="Last test scanned" aria-label="Last test scanned" class="testing-title-head">Last test scanned :<span class="last-test-date"></span></h2>
-						<h3 aria-labelledby="status" aria-label="status" class="testing-content mt-0">Status : <span class="test-status-display"></span></h3>
-						<h3 aria-labelledby="location" aria-label="location" class="testing-content mt-0">Location : <span class="test-site-display"></span></h3><br/>
-						<h4 aria-labelledby="Get next test before :" aria-label="Get next test before :" class="testing-title-head">Get next test before : <span class="next-test-date"></span></h4>
-					</div>
-					<br/>
-				</div>
-			</div>	
-        </div>
-    </section><br/><br/><br/><br/><br/><br/>
+		</div> -->	
+
+    </section>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
+	<div class="mannualFooter">
+		<a href="scan_new_test">
+			<button type="button" aria-label="UPDATE INFORMATION" class="btn btn-block ManuallButton text-left">
+			<i class="feather icon-chevron-left btn-arrow"></i>
+			Manually Enter Barcode
+			</button>
+		</a>					
+	</div>
+    <!-- FOOTER CONTENT  - START -->
     <footer class="hidden-lg-up footer-content footer-table">
         <table class="table">
             <tr>
@@ -226,4 +187,9 @@
     <script src="js/app.js"></script>
 	<script src="js/flow.js"></script>
 </body>
+<script>
+$(document).ready(function() {
+
+});
+</script>
 </html>
