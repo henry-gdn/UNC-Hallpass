@@ -383,7 +383,7 @@
             filterBehavior: 'text',
             includeFilterClearBtn: true,
             preventInputChangeEvent: false,
-            nonSelectedText: 'Select Race',
+            nonSelectedText: '',
             nSelectedText: 'selected',
             allSelectedText: 'All selected',
             numberDisplayed: 0,
@@ -957,7 +957,7 @@
 
             if (this.options.enableCollapsibleOptGroups && this.options.multiple) {
                 $groupOption.find('.form-check').addClass('d-inline-block');
-                $groupOption.append('<span class="caret-container dropdown-toggle pl-1"></span>');
+                //$groupOption.append('<span class="caret-container dropdown-toggle pl-1"></span>');
             }
 
             if ($group.is(':disabled')) {

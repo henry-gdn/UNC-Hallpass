@@ -12,6 +12,7 @@ span.multiselect-native-select {
 	width:100% !important;
 	border-radius: 10px !important;
 	padding:3px 10px;
+	height:34px !important;
 	background:#FFFFFF !important;
 	border:1px solid #13294B !important;
 }

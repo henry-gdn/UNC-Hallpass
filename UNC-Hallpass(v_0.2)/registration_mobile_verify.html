@@ -105,8 +105,9 @@
 								<div class="form-group">
 									<label id="5_digit_code_label" for="5_digit_code">ENTER THE 5-DIGIT CODE</label>
 									<input aria-labelledby="5_digit_code_label" name="5_digit_code" id="5_digit_code" type="number" class="form-control mt-2" value="" placeholder="">
-									<span aria-labelledby="Incorrect code. Try again or send another text" class="hideOtpErr" id="otpErrMsg"><i class="feather icon-alert-circle"></i>&nbsp;Incorrect code. Try again or send another text.</span>
-									<span aria-labelledby="Incorrect code. Try again or send another text" class="hideOtpErr" id="otpErrMsg_1"><i class="feather icon-alert-circle"></i>&nbsp;Incorrect code. Try again or send another text.</span>
+									<span aria-labelledby="Incorrect code. Try again or send another text" class="hideErr" id="otpErrMsg"><i class="feather icon-alert-circle"></i>&nbsp;Incorrect code. Try again or send another text.</span>
+									<p class="mt-1 hideErr" id="newcodemsg"><b><i class="feather icon-check fs-20"></i>&nbsp;New code sent successfully.</b></p>
+
 								</div>
 							</div>
 						</div>
@@ -119,7 +120,7 @@
 					<div class="row mt-4 mb-2">
 						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 							<div class="p-0">
-								<button aria-label="BACK BUTTON" aria-labelledby="BACK BUTTON" class="btn btn-block btn-back-1" onclick="goBack()">
+								<button type="button"  aria-label="BACK BUTTON" aria-labelledby="BACK BUTTON" class="btn btn-block btn-back-1" onclick="goBack()">
 								<i class="feather icon-chevron-left"></i>
 								BACK
 								</button>
@@ -127,7 +128,7 @@
 						</div>
 						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 							<div class="p-0">
-								<button aria-label="CONTINUE BUTTON" aria-labelledby="CONTINUE BUTTON" class="btn btn-block btn-log-1" onclick="checkOTP()">
+								<button type="button" aria-label="CONTINUE BUTTON" aria-labelledby="CONTINUE BUTTON" class="btn btn-block btn-log-1" onclick="checkOTP()">
 								CONTINUE
 								<i class="feather icon-chevron-right"></i>
 								</button>

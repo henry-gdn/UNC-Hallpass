@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - My Testing > Cancel Reservation </title>
+    <title>UNC Hall Pass - ACCESSIBILITY </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
@@ -18,9 +18,9 @@
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
-            <a class="logo" href="https://hallpass.unc.edu/">
-                <div class="custom-logo-link">
-                    <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
+            <a class="logo" href="https://when-dev.unc.edu/" target="blank">
+                <div class="align-self-center custom-logo-link">
+                    <img src="images/header_logo.png" class="logoImg" />
                 </div>
             </a>
         </div>
@@ -38,16 +38,16 @@
         </div>
         <div id="navigation">
             <ul class="navigation-menu">
-				<li><a href="home">HOME</a></li>
+				<li><a href="home" class="hidden-xs-down hidden-sm-down hidden-md-down">HOME</a></li>
+				<li><a href="index">LOGIN</a></li>
 				<li class="has-submenu">
 					<a href="#">MY TESTING</a>
 					<ul class="submenu megamenu">
 						<li>
 							<ul>
-								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
-								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>   
+								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 							</ul>
 						</li>
 					</ul>
@@ -63,18 +63,16 @@
 						</li>
 					</ul>
 				</li>
-				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
+				<li><a href="accessibility">ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
-				<li><a href="https://hallpass.unc.edu/results">RESULTS</a></li>
-				<li><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">LOGOUT</a></li>
-				<li><a href="index" style="display:none">LOGIN</a></li>
+				<li><a href="contact">CONTACT</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
 			<table class="table table-sm">
 				<tr>
 					<td>
-						RESERVATION 
+						ACCESSIBILITY
 					</td>
 					<td></td>
 				</tr>
@@ -88,28 +86,10 @@
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="my_testing">My Testing</a></li>
-						<li class="breadcrumb-item">Cancel Reservation</li>
+						<li class="breadcrumb-item" aria-label="Accessibility" aria-labelledby="Accessibility">Accessibility</li>
 					</ol>
 				</div>
 			</div>
-            <div class="pt-2 head-wrapper reserveTime">
-				<div class="mt-2 mb-3">
-					<h1 class="head-h2">Thank You</h1>
-                </div>
-				<div class="mt-3 mb-4"> 
-					<p>You have successfully cancelled your reservation.</p>
-				</div>
-				<div class="myTest-btn mt-3 mb-1">
-					<a href="find_test_site">
-						<button type="button" aria-labelledby="MAKE A RESERVATION BUTTON" aria-label="MAKE A RESERVATION BUTTON" class="btn btn-block">
-							<img alt="" width="40" src="images/location.png" />
-							<span>MAKE A RESERVATION</span>
-							<i class="feather icon-chevron-right"></i>
-						</button>
-					</a>
-				</div>
-			</div>	
         </div>
     </section>
 	<!-- UNC CONTENT - END -->
@@ -118,15 +98,15 @@
         <table class="table">
             <tr>
                 <td>
-					<a href="home"><img src="images/home_black.png" width="45" alt="home" /></a>
+					<a href="home"><img aria-label="home" aria-labelledby="home" src="images/home_black.png" width="45" alt="home" /></a>
 					<div>HOME</div>
 				</td>
                 <td>
-					<a href="my_testing"><img src="images/test_black.png" width="45" alt="My Testing" /></a>
+					<a href="my_testing"><img aria-label="My Testing" aria-labelledby="My Testing" src="images/test_black.png" width="45" alt="My Testing" /></a>
 					<div>MY TESTING</div>
 				</td>
                 <td>
-					<a href="my_schedule"><img src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
+					<a href="my_schedule"><img aria-label="Class Schedule" aria-labelledby="Class Schedule" src="images/schedule_black.png" width="45" alt="Class Schedule" /></a>
 					<div>CLASS SCHEDULE</div>
 				</td>
             </tr>
@@ -137,30 +117,29 @@
 			<tr>
 				<td>
 					<p><a href="home">Home</a></p>
-					<p><a href="index" style="display:none">Login</a></p>
-					<p><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">Logout</a></p>
+					<p><a href="index">Login</a></p>
 				</td>
 				<td>
 					<p><a href="my_testing">My Testing</a></p>
 					<p><a href="testing_how_to">Testing How To</a></p>
-					<p><a href="find_test_site">Make A Reservation</a></p>
+					<p><a href="find_test_site">Find Test Site</a></p>
 				</td>
 				<td>
 					<p><a href="my_schedule">My Class Schedule</a></p>
 					<p><a href="class_search">Class Search</a></p>
 				</td>
 				<td>
-					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
+					<p><a href="accessibility">Accessibility</a></p>
 					<p><a href="support">Support</a></p>
-					<p><a href="https://hallpass.unc.edu/results">Results</a></p>
+					<p><a href="contact">Contact</a></p>
 				</td>
 			</tr>
 		</table>
         <table class="footer-table-1 table">
             <tr>
-                <td><a href="https://www.unc.edu/"  ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://hallpass.unc.edu/"  ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/" ><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a href="https://www.unc.edu/" target="_blank" ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a href="https://when-dev.unc.edu/" target="_blank" ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a href="https://reeseinnovate.com/" target="_blank"><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>
@@ -171,6 +150,5 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrollspy.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/flow.js"></script>
 </body>
 </html>

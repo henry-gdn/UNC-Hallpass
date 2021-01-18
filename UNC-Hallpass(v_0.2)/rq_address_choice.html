@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>UNC Hall Pass - Registration > Thank You </title>
-    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>UNC Hall Pass - Registration > Mobile Number > Local Address > Mailing Address > Quarantine Address </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -18,7 +18,7 @@
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
-            <a class="logo" href="https://hallpass.unc.edu/">
+            <a class="logo" href="https://hallpass.unc.edu/" >
                 <div class="custom-logo-link">
                     <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
                 </div>
@@ -46,7 +46,7 @@
 							<ul>
 								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+								<li><a href="find_test_site">FIND TEST SITE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 							</ul>
 						</li>
@@ -89,46 +89,63 @@
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="registration">Registration</a></li>
-						<li class="breadcrumb-item">Thank You</li>
+						<li class="breadcrumb-item"><a href="registration_mobile_number">Mobile Number</a></li>
+						<li class="breadcrumb-item"><a href="enter_name">Enter Name</a></li>
+						<li class="breadcrumb-item"><a href="demographics">Demographics</a></li>
+						<li class="breadcrumb-item"><a href="registration_local_address">Local Address</a></li>
+						<li class="breadcrumb-item">Quarantine Address</li>
 					</ol>
 				</div>
 			</div>
             <div class="pt-2 head-wrapper">
 				<div class="mt-2 mb-0">
-					<h1 class="head-h2">Thank You</h1>
+					<h1 class="head-h2">Quarantine Address</h1>
                 </div>
-				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="mt-3 mb-4">
-							<h2 class="contentHead">Member : <span id="member_name"></span></h2>
-							<h2 class="contentHead">PID : <span id="member_pid"></span></h2>
-							<h2 class="contentHead">Status:  <span id="member_status"></span></h2>
-						</div>
-						<div class="mb-3 mt-1">
-							<p>Thank you for registering! Your frequency on how often you are tested depends on your area of living, class schedule, and academic program to comply with the University’s standards. This site will help you track your status, make a reservation locations on campus, and scan in new tests at collection sites.</p>
-						</div>	
-						<hr class="border-hr">
-						<div class="pt-1 getTest">
-							<h3 class="mb-1">Get next test before :</h3>
-							<h4 id="next_test_before"></h4>
+				<div class="mt-4 mb-0">
+					<h2 class="head-h3">PLEASE ENTER YOUR QUARANTINE ADDRESS</h2>
+                </div>
+                <div class="mb-3 mt-1">
+					<p>In the event you are asked to quarantine, where will you be quarantining?</p>
+                </div>	
+				
+				
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="select-wrapper">
+								<div class="form-group mb-0 pt-1 selectUi">
+									<label id="quarantine_address_label" for="quarantine_address">SELECT LOCATION</label>
+									<select aria-labelledby="quarantine_address_label" id="quarantine_address" class="form-control">
+										<option value="school">Local Address</option>
+										<option value="campus">Campus Housing</option>
+										<option value="other">Other</option>
+									</select>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="hidden-xs-down hidden-sm-down hidden-md-down col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-2">
-						<iframe style="position:relative;width:100%;height:95%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;" src="https://www.youtube.com/embed/rQPkkfOtuYQ" frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-					<div class="myTest-btn mt-5 mb-5 ml-1 mr-1">
-						<a href="find_test_site">
-							<button type="button" aria-labelledby="MAKE A RESERVATION" aria-label="MAKE A RESERVATION BUTTON" class="btn btn-block">
-								<img alt="" width="40" src="images/location.png" />
-								<span>MAKE A RESERVATION</span>
+					<span class="hideErr" id="quarantineErr"><i class="feather icon-alert-circle"></i>&nbsp;Please select a quarantine address.</span>
+					
+					<div class="row mt-4 mb-2">
+						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
+							<div class="p-0">
+								<button type="button" aria-label="BACK" aria-labelledby="BACK" class="btn btn-block btn-back-1" onclick="goBack()">
+								<i class="feather icon-chevron-left"></i>
+								BACK
+								</button>
+							</div>
+						</div>
+						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
+							<div class="p-0">
+								<button type="button" aria-label="CONTINUE" aria-labelledby="CONTINUE" class="btn btn-block btn-log-1" onclick="save_quarantine_choice()">
+								CONTINUE
 								<i class="feather icon-chevron-right"></i>
-							</button>
-						</a>
+								</button>
+							</div>
+						</div>
 					</div>
-					<div class="hidden-lg-up hidden-sm-up hidden-md-up col-12 mt-4 mb-4">
-						<iframe style="position:relative;width:100%;height:100%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;" src="https://www.youtube.com/embed/rQPkkfOtuYQ" frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
+				
+				
+				
             </div>
         </div>
     </section>
@@ -153,7 +170,7 @@
         </table>
     </footer>
 	<footer class="hidden-xs-down hidden-sm-down hidden-md-down footer-content-1">
-		<table class="table ml-1 footerMenu">
+		<table class="table p-2 ml-1 footerMenu">
 			<tr>
 				<td>
 					<p><a href="home">Home</a></p>
@@ -163,7 +180,7 @@
 				<td>
 					<p><a href="my_testing">My Testing</a></p>
 					<p><a href="testing_how_to">Testing How To</a></p>
-					<p><a href="find_test_site">Make A Reservation</a></p>
+					<p><a href="find_test_site">Find Test Site</a></p>
 				</td>
 				<td>
 					<p><a href="my_schedule">My Class Schedule</a></p>
@@ -178,9 +195,9 @@
 		</table>
         <table class="footer-table-1 table">
             <tr>
-                <td><a href="https://www.unc.edu/"  ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://hallpass.unc.edu/"  ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/" ><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a href="https://www.unc.edu/"  ><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a href="https://hallpass.unc.edu/"  ><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a href="https://reeseinnovate.com/" ><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>
