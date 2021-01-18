@@ -139,25 +139,25 @@ function save_registration() {
 function goBack(){
 	//history.go(-1);
 	
-	if (window.location.href.endsWith('registration_mobile_number')) {
+	if (window.location.href.includes('registration_mobile_number')) {
 		window.location.href="registration";
 	}
-	if (window.location.href.endsWith('registration_mobile_verify')) {
+	if (window.location.href.includes('registration_mobile_verify')) {
 		window.location.href="registration_mobile_number";
 	}
-	if (window.location.href.endsWith('enter_name')) {
+	if (window.location.href.includes('enter_name')) {
 		window.location.href="registration_mobile_verify";
 	}
-	if (window.location.href.endsWith('demographics')) {
+	if (window.location.href.includes('demographics')) {
 		window.location.href="enter_name";
 	}
-	if (window.location.href.endsWith('registration_local_address')) {
+	if (window.location.href.includes('registration_local_address')) {
 		window.location.href="demographics";
 	}
-	if (window.location.href.endsWith('registration_quarantine_address_choice')) {
+	if (window.location.href.includes('registration_quarantine_address_choice')) {
 		window.location.href="registration_local_address";
 	}
-	if (window.location.href.endsWith('registration_quarantine_address')) {
+	if (window.location.href.includes('registration_quarantine_address')) {
 		window.location.href="registration_quarantine_address_choice";
 	}
 }
@@ -246,44 +246,47 @@ function checkOTP() {
 		OTP validation scripts for registration mobile number 
 	********************************************************************* 
         */
+	$('#newcodemsg').addClass('hideErr');
 	$otp = $('#5_digit_code').val();
 	if ($otp.length==5){
-            $.ajax({
-	        url: '/secure/api/check_otp?otp='+$otp,
+		$.ajax({
+			url: '/secure/api/check_otp?otp='+$otp,
 			type: 'GET',
 			headers: {
 				"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
 			},
-	        success: function(data){
-		    console.log('data found:'+data);
-                    if (data[0].otp_ok == 'true'){
-		        //alert("otp validate successfully");
-		        $("#otpErrMsg").addClass("hideOtpErr");
-		        $("#otpErrMsg_1").addClass("hideOtpErr");
-                        console.log('otp validated successfully');
-                        //window.location.href = "registration_local_address";
-						window.location.href = "enter_name";
-                    }
-                    else {
-                        //alert('invalid otp entered, please retry!');
-		        $("#otpErrMsg").removeClass("hideOtpErr");
-                        $("#otpErrMsg_1").addClass("hideOtpErr");
-	        	return false;
-	            }
-                 }
-            });
+			success: function(data){
+				console.log('data found:'+data);
+				if (data[0].otp_ok == 'true'){
+					//alert("otp validate successfully");
+					markValid($('#otpErrMsg'));
+					//$("#otpErrMsg").addClass("hideOtpErr");
+					//$("#otpErrMsg_1").addClass("hideOtpErr");
+					console.log('otp validated successfully');
+					//window.location.href = "registration_local_address";
+					window.location.href = "enter_name";
+				}
+				else {
+					//alert('invalid otp entered, please retry!');
+					markInvalid($('#otpErrMsg'));
+					return false;
+				}
+			}
+		});
 	}
-        else {
-            //alert('invalid otp entered, please retry!');
-	    $("#otpErrMsg").removeClass("hideOtpErr");
-            $("#otpErrMsg_1").addClass("hideOtpErr");
-	    return false;
-        }
+	else {
+		markInvalid($('#otpErrMsg'));
+		return false;
+	}
+	return false;
 	/* End of validation scripts */   
 	/* *********************************************************************** */
 }
 
 function sendnewotp(){
+	markValid($('#otpErrMsg'));
+	$('#newcodemsg').addClass('hideErr');
+	$('.sendOtp').html('Sending new text.....');
 	$('#5_digit_code').val('');
 	$.ajax({
 		url: '/secure/api/resend_otp',
@@ -292,6 +295,9 @@ function sendnewotp(){
 			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
 		},
 		success: function(data) {
+			$('#newcodemsg').removeClass('hideErr');
+			$('.sendOtp').html('Send another text');
+			//$('#newcodemsg').addClass('msgErr');
 		}
 	});
 	return false;
@@ -367,6 +373,9 @@ function save_member_name(){
 }
 
 function load_demographics(){
+	$('#gender').val('');
+ 	$('#ethnicity').val('');
+	$('#race').val('');
     $.ajax({
         url: '/secure/api/get_member_demographics',
 		type: 'GET',
@@ -442,6 +451,7 @@ function save_demographics(){
 
 
 function load_local_addr(){
+	$('#county').val('');
     $.ajax({
         url: '/secure/api/get_member_local_addr',
 		type: 'GET',
@@ -613,6 +623,7 @@ function save_quarantine_choice(){
 }
 
 function load_quarantine_addr(){
+	$('#county').val('');
     $.ajax({
         url: '/secure/api/get_member_quarantine_addr',
 		type: 'GET',
@@ -624,6 +635,7 @@ function load_quarantine_addr(){
             $('#street_1').val(data[0].street1);
             $('#street_2_opt').val(data[0].street2_opt);
             $('#city').val(data[0].city);
+			$('#county').val(data[0].county);
             $('#state').val(data[0].state);
             $('#zipcode').val(data[0].zipcode);
         }
@@ -749,24 +761,7 @@ function load_test_sites(){
         success: function(data){
             console.log('data found:');
 			console.log(data);
-	        for (i=0; i<data.length; i++){
-		        var dhtml = "<div class=\"col-12 content-p mt-2 mb-3 p-0 reserveContent\">";
-		        if (data[i].site_img != null)
-                    dhtml += "<img src=\"" + data[i].site_img + "\" />";
-		        dhtml += "</div>";
-		        dhtml += "<div class=\"col-12 head-content mb-0 p-0\">";
-		        dhtml += "<h2 aria-labelledby=\"" + data[i].site_name + "\" aria-label=\"" + data[i].site_name + "\" class=\"content-title\">" + data[i].site_name + "<br/>" + data[i].site_location +"</h2>";
-		        dhtml += "</div>";
-		        dhtml += "<div class=\"col-12 mb-0 p-0 mt-2\">";
-		        dhtml += "<h3 class=\"testing-title\">" + data[i].site_hours + "</h3>";
-		        dhtml += "</div>";
-		        dhtml += "<div class=\"col-12 reserve-btn p-0 mt-3\"  data-location='"+data[i].site_id+"#"+data[i].site_name+"#"+data[i].site_hours+"#"+data[i].people_in_line+"#"+data[i].site_img+"'>";
- 		        dhtml += "<button aria-label=\"RESERVE TIME\" aria-labelledby=\"RESERVE TIME\" class=\"btn btn-block\">";
- 		        dhtml += "RESERVE TIME";
-		        dhtml += "<i class=\"feather icon-chevron-right\"></i>";
-		        dhtml += "</button>";
-		        dhtml += "</div>";
-
+	        for (i=0; i<data.length; i++){		        
 				var dhtml2 = "<div class='col-lg-4 col-md-4 col-sm-12 col-xs-12'>";
 				dhtml2 += "<div class='mt-2 mb-3 p-0 reserveContent-1'>"
 				if (data[i].site_img != null)
@@ -778,7 +773,7 @@ function load_test_sites(){
 				dhtml2 += "<div class='mb-0 p-0 mt-2'>";
 				dhtml2 += "<h3 aria-labelledby='"+data[i].site_hours+"' aria-label='"+data[i].site_hours+"' class='findTestSite'>Hours: "+data[i].site_hours+"</h3>";
 				dhtml2 += "</div>";
-				dhtml2 += "<div class='reserve-btn p-0 mt-3' data-location='"+data[i].site_id+'#'+data[i].site_name+"#"+data[i].site_hours+"#"+data[i].people_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME' aria-labelledby='RESERVE TIME' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div><br><br>";
+				dhtml2 += "<div class='reserve-btn p-0 mt-3' data-location='"+data[i].site_id+'#'+data[i].site_name+"#"+data[i].site_hours+"#"+data[i].people_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME AT " + data[i].site_name + "' aria-labelledby='RESERVE TIME AT " + data[i].site_name + "' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div><br><br>";
 				dhtml2 += "</div>";
 		        $('#siteContent').append(dhtml2);
 	        }
@@ -1146,7 +1141,7 @@ function load_start_new_test(){
 
 	var scanCount = 0; //localStorage.getItem("scanCount");
 	$(".scanBarCode").hide();
-	$(".manualBarCode").show();
+	//$(".manualBarCode").show();
 	//$("#manualBarCodeValue").val('CTTP-');
 	$("#manualBarCodeValue").focus();
 	/*
@@ -1178,6 +1173,30 @@ function load_start_new_test(){
 		}
 	);
 	*/
+    $('#file').on('change', 
+		function (e) { 
+			var fd = new FormData(); 
+			var files = $('#file')[0].files[0]; 
+			fd.append('file', files); 
+			$.ajax({ 
+				url: '/secure/api/process_barcode', 
+				type: 'post', 
+				data: fd, 
+				contentType: false, 
+				processData: false, 
+				success: function(response){ 
+					if(response != 0){ 
+					//alert('file uploaded'); 
+						alert('barcode is ' + response.barcode);
+						$('#file').val('');
+					} 
+					else{ 
+						alert('file not uploaded'); 
+					}
+				},
+			});
+		}
+	);	
 
 	$("#barcodeBtn").click(
         function(){
@@ -1779,8 +1798,12 @@ $(document).ready(function(){
 		load_start_new_test();
 	}
 	if (window.location.href.includes('scan_new_test')){
-		start_scan();
+		load_start_new_test();
+		//upload_barcode_image();
 	}
+	//else if (window.location.href.includes('scan_new_test')){
+		//start_scan();
+	//}
 	if (window.location.href.endsWith('scan_fail')){
 		scan_fail();
 	}
@@ -1799,6 +1822,9 @@ $(document).ready(function(){
 	}
 	if (window.location.href.includes('class_details')){
 		load_class_details();
+	}
+	if (window.location.href.endsWith('test')){
+		//upload_barcode_image();
 	}
 });
 
@@ -1883,3 +1909,35 @@ $(document).on('focus blur', 'select, textarea, input[type=text], input[type=dat
 $(window).on('resize orientationchange', function(){
     applyAfterResize();
 });
+
+
+function upload_barcode_image(){
+	$("#upload").click(function() { 
+		var fd = new FormData(); 
+		var files = $('#file')[0].files[0]; 
+ 		fd.append('file', files); 
+		$.ajax({ 
+			url: '/secure/api/process_barcode', 
+			type: 'post', 
+			data: fd, 
+			contentType: false, 
+			processData: false, 
+			success: function(response){ 
+				if(response != 0){ 
+				   //alert('file uploaded'); 
+ 				   alert('barcode is ' + response.barcode);
+				} 
+				else{ 
+					alert('file not uploaded'); 
+				}
+				return false;
+			}, 
+		}); 
+	}); 
+}
+
+
+function process_barcode(){
+
+	$('#file').click();
+}
