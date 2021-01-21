@@ -336,6 +336,7 @@ function save_member_name(){
 	if ($l.indexOf("'") != -1){
 		$l = $l.replaceAll("'", "*");
 	}
+
 	$d = $('#date_of_birth').val();
 	isvalid = true;
 	if ($f == ''){
@@ -350,12 +351,14 @@ function save_member_name(){
 	}
 	else
 		markValid($('#last_name_err_msg'));
+	/*
 	if ($d == '' || !isValidDate($d)){
 		markInvalid($('#date_of_birth_err_msg'));
 		isvalid = false;
 	}
 	else
 		markValid($('#date_of_birth_err_msg'));
+	*/
 	if (isvalid != true)
 		return false;
     $.ajax({
@@ -530,7 +533,8 @@ function save_local_addr(){
 	    contentType: 'application/json',
 	    data: JSON.stringify({las1: $las1, las2: $las2, lac: $lac, lat: $lat, las: $las, laz: $laz}), // TODO
 	    success: function(data) {
-			window.location.href = "registration_quarantine_address_choice";
+			//window.location.href = "registration_quarantine_address_choice";
+			window.location.href = "registration_thx";
         }
     });
 }
@@ -1240,6 +1244,169 @@ function load_start_new_test(){
 	);
 }
 
+function load_start_new_scan(){
+ 	//alert(localStorage.getItem("scanCount"));
+	localStorage.removeItem("scanValue");
+ 	localStorage.removeItem("siteId");
+	load_registration_thx();
+	$.ajax({
+        url: '/secure/api/get_test_sites?all=y',
+		type: 'GET',
+		headers: {
+			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+		},
+        success: function(data){
+            //console.log('data found:');
+			//console.log(data);
+	        for (i=0; i<data.length; i++){
+				var o = new Option(data[i].site_name, data[i].site_id);
+				$(o).html(data[i].site_name);
+				$("#test_site").append(o);
+			}
+			get_session_var('site_id').then(
+				function(data){ 
+					site_id = data.sval; 
+					console.log('site_id is ' + site_id);
+					if (site_id != 'null'){
+						console.log('setting site');
+						$('#test_site').val(site_id);
+					}
+				}
+			);
+
+			$.ajax({
+		        url: '/secure/api/get_latest_test',
+				type: 'GET',
+				headers: {
+					"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+				},
+		        success: function(data) {
+			        if (data[0].success) {
+				        //console.log(data[0].latest_test[1]);
+						$('.last-test-date').html(data[0].latest_test[1]);
+						$('.next-test-date').html(data[0].latest_test[2]);
+						$('.test-status-display').html(data[0].latest_test[3]);
+						$('.test-site-display').html(data[0].latest_test[4]);
+					}
+					else {
+						$('.test-status-div').hide();
+					}
+				}
+			});
+		}
+	});
+
+
+	var scanCount = 0; //localStorage.getItem("scanCount");
+	$("#manual-bar-code").hide();
+	$('#scanGif').hide();
+	$('#scanCompleteLayout').hide();
+	$('#show-scan-result').hide();
+	$('#msg-after-scan').hide();
+	$('#scanFailed').hide();
+	$('#lbl-enter-barcode').hide();
+	$("#manualBarCodeValue").val('');
+	$("#manualBarCodeValue").focus();
+    $('#file').on('change', 
+		function (e) { 
+		$('#scanGif').show();
+
+			var fd = new FormData(); 
+			var files = $('#file')[0].files[0]; 
+			fd.append('file', files); 
+			$.ajax({ 
+				url: '/secure/api/process_barcode', 
+				type: 'post', 
+				data: fd, 
+				contentType: false, 
+				processData: false, 
+				success: function(response){ 
+					if(response != 0){ 
+					//alert('file uploaded');
+						if (response.barcode != ''){
+
+						  $('#test_site').attr('disabled', true);
+						  $('#scanCompleteLayout').show();
+						  $('#scanGif').hide();
+						  $('#msg-before-scan').hide();
+						  $('#msg-after-scan').show();
+						  $('#manualBarCodeValue').val(response.barcode.replace('CTTP-','').replace('-',''));
+						  setTimeout(function(){ $('#scanCompleteLayout').hide();},3000);
+						  $('#scan-barcode').hide();
+						  $('#show-scan-result').show();
+						}
+						else {
+						  $('#test_site').attr('disabled', true);
+						  $('#scanGif').hide();
+						  $('#msg-before-scan').hide();
+
+						  //$('#msg-after-scan').show();
+						  $('#scanFailed').show();
+						  setTimeout(function(){ 
+							$('#lbl-enter-barcode').show();
+						    $('#lbl-confirm-barcode').hide();
+						    $('#show-scan-result').show();
+					        $('#scan-barcode').hide();
+						    $('#rescan-barcode').hide();
+						    $('#scanFailed').hide();
+							$("#manualBarCodeValue").val('');
+						    $("#manualBarCodeValue").focus();
+											   },3000);
+
+						}
+						$('#file').val('');
+					} 
+					else{ 
+						alert('file not uploaded'); 
+
+					}
+				},
+			});
+		}
+	);	
+
+	$("#barcodeBtn").click(
+        function(){
+			var siteId = $('#test_site').val();
+			if (siteId == 0){
+				markInvalid($('#testSiteErr'));
+				return false;
+			}
+			else
+				markValid($('#testSiteErr'));
+			var txtVal = $("#manualBarCodeValue").val();
+			if(txtVal.trim() == "" || !isValidBarcodeSuffix(txtVal.trim())){
+				markInvalid($('#barCodeErrMsg'));
+				return false;
+			}
+			else
+				markValid($('#barCodeErrMsg'));
+			$.ajax({
+				url: '/secure/api/demographic_data_ok',
+				type: 'GET',
+				headers: {
+					"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+				},
+				success: function(data) {
+					if (data[0].success == 'True'){
+						set_session_var('site_id', siteId).then(function(data){});
+						var barCodeValue = txtVal;
+                		if (barCodeValue != null){
+							//alert('sending to server');
+							var barCodeValue2='CTTP-'+ barCodeValue.substring(0,3)+'-'+barCodeValue.substring(3,8);
+							upload_test_barcode(barCodeValue2, siteId);
+						}
+					}
+					else {
+						markInvalid($('#demoDataErr'));
+						return false;
+					}
+				}
+			});
+        }
+	);
+}
+
 function scan_new_test(){
 	var siteId = $('#test_site').val();
 	if (siteId == 0){
@@ -1794,6 +1961,9 @@ $(document).ready(function(){
 	if (window.location.href.includes('my_schedule')){
 		load_my_schedule();
 	}
+	if (window.location.href.includes('start_new_scan')){
+		load_start_new_scan();
+	}
 	if (window.location.href.includes('start_new_test')){
 		load_start_new_test();
 	}
@@ -1938,6 +2108,12 @@ function upload_barcode_image(){
 
 
 function process_barcode(){
-
+    var siteId = $('#test_site').val();
+	if (siteId == 0){
+		markInvalid($('#testSiteErr'));
+		return false;
+	}
+	else
+		markValid($('#testSiteErr'));
 	$('#file').click();
 }
