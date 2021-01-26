@@ -15,52 +15,44 @@
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
 <body>
+    <a aria-label="skip to main content" class="skip-link sr-only sr-only-focusable" href='#mainContent'>Skip to main content</a>
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="https://hallpass.unc.edu/">
-                <div class="align-self-center custom-logo-link">
-                    <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
+                <div class="custom-logo-link">
+                    <img src="images/header_logo.png" class="logoImg" alt="Link to Hall Pass Portal" />
                 </div>
             </a>
         </div>
         <div class="menu-extras">
             <div class="menu-item">
-                <a class="navbar-toggle">
+                <a aria-label="Hamburger menu" href="javascript:void(0);" class="navbar-toggle">
                     <div class="lines">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
                 </a>
-                <!-- End mobile menu toggle-->
             </div>
         </div>
-        <div id="navigation">
+        <div aria-label="Main Navigation" id="navigation">
             <ul class="navigation-menu">
 				<li><a href="home">HOME</a></li>
 				<li class="has-submenu">
-					<a href="#">MY TESTING</a>
-					<ul class="submenu megamenu">
-						<li>
-							<ul>
-								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
-								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
-							</ul>
-						</li>
+					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
+					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
+						<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+						<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 					</ul>
 				</li>
                 <li class="has-submenu">
-					<a href="#">MY SCHEDULE</a>
-					<ul class="submenu megamenu">
-						<li>
-							<ul>
-								<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>        
-							</ul>
-						</li>
+					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
+					<ul class="collapse collapseMenu" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
+						<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    	
 					</ul>
 				</li>
 				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
@@ -70,7 +62,7 @@
 				<li><a href="index" style="display:none">LOGIN</a></li>
             </ul>
         </div>
-		<div class="headTab-blue">
+		<div class="headTab-blue" id="mainContent">
 			<table class="table table-sm">
 				<tr>
 					<td>
@@ -105,7 +97,7 @@
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-3 col-xs-3">
 						<div class="class-search-btn">
-							<a href="class_search"><button aria-label="CLASS SEARCH BUTTON" aria-labelledby="CLASS SEARCH BUTTON" class="btn">class search <i class="feather icon-chevron-right btn-arrow-content"></i></button></a>
+							<a href="class_search" tabindex="0" aria-label="Click to search for classes" class="btn" role="button">class search <i class="feather icon-chevron-right btn-arrow-content"></i></a>
 						</div>
 					</div>
 				</div>
@@ -116,7 +108,7 @@
 					<!-- dynamically schedule data append here -->
 				</div>
             </div>
-			<br/><br/><br/><br/>
+			<div class="h-80"></div>
         </div>
     </section>
 	<!-- UNC CONTENT - END -->
@@ -140,12 +132,12 @@
         </table>
     </footer>
 	<footer class="hidden-xs-down hidden-sm-down hidden-md-down footer-content-1">
-		<table class="table p-2 ml-1 footerMenu">
+		<table class="table footerMenu">
 			<tr>
 				<td>
 					<p><a href="home">Home</a></p>
 					<p><a href="index" style="display:none">Login</a></p>
-					<p><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">Logout</a></p>
+					<p><a aria-label="link to logout" href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">Logout</a></p>
 				</td>
 				<td>
 					<p><a href="my_testing">My Testing</a></p>
@@ -157,17 +149,17 @@
 					<p><a href="class_search">Class Search</a></p>
 				</td>
 				<td>
-					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
+					<p><a aria-label="online Accessibility request" href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
 					<p><a href="support">Support</a></p>
-					<p><a href="https://hallpass.unc.edu/results">Results</a></p>
+					<p><a aria-label="hall pass results" href="https://hallpass.unc.edu/results">Results</a></p>
 				</td>
 			</tr>
 		</table>
         <table class="footer-table-1 table">
             <tr>
-                <td><a href="https://www.unc.edu/"  ><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://hallpass.unc.edu/"  ><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/" ><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a aria-label="Link to UNC Chapel Hill Website" href="https://www.unc.edu/"><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a aria-label="Link to Hall Pass Portal" href="https://hallpass.unc.edu/"><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a aria-label="Link to Reese Innovation Lab" href="https://reeseinnovate.com/"><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>

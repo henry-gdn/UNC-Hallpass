@@ -15,18 +15,19 @@
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
 <body>
+	<a aria-label="skip to main content" class="skip-link sr-only sr-only-focusable" href='#mainContent'>Skip to main content</a>
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="https://hallpass.unc.edu/">
-                <div class="align-self-center custom-logo-link">
-                    <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
+                <div class="custom-logo-link">
+                    <img src="images/header_logo.png" class="logoImg" alt="Link to Hall Pass Portal" />
                 </div>
             </a>
         </div>
         <div class="menu-extras">
             <div class="menu-item">
-                <a class="navbar-toggle">
+                <a aria-label="Hamburger menu" href="javascript:void(0);" class="navbar-toggle">
                     <div class="lines">
                         <span></span>
                         <span></span>
@@ -35,31 +36,23 @@
                 </a>
             </div>
         </div>
-        <div id="navigation">
+        <div aria-label="Main Navigation" id="navigation">
             <ul class="navigation-menu">
 				<li><a href="home">HOME</a></li>
 				<li class="has-submenu">
-					<a href="#">MY TESTING</a>
-					<ul class="submenu megamenu">
-						<li>
-							<ul>
-								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>   
-								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-							</ul>
-						</li>
+					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
+					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
+						<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+						<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 					</ul>
 				</li>
                 <li class="has-submenu">
-					<a href="#">MY SCHEDULE</a>
-					<ul class="submenu megamenu">
-						<li>
-							<ul>
-								<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>        
-							</ul>
-						</li>
+					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
+					<ul class="collapse collapseMenu" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
+						<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    	
 					</ul>
 				</li>
 				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
@@ -69,7 +62,7 @@
 				<li><a href="index" style="display:none">LOGIN</a></li>
             </ul>
         </div>
-		<div class="headTab-blue">
+		<div class="headTab-blue" id="mainContent">
 			<table class="table table-sm">
 				<tr>
 					<td>
@@ -82,12 +75,12 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home p-2 mb-5">
-        <div class="container mb-5">
+    <section class="mobile-view-home p-2" >
+        <div class="container">
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="home">Home</a></li>
+						<li class="breadcrumb-item">Home</li>
 					</ol>
 				</div>
 			</div>
@@ -103,35 +96,28 @@
 							<h2 class="contentHead">Status: <span id="member_status"></span></h2>
 						</div>
 						<div class="login-btn mb-4">
-							<a href="find_test_site">
-								<button type="button" aria-label="MAKE A RESERVATION" class="btn btn-block btn-log text-left">
+							<a tabindex="0" href="find_test_site" aria-label="Click to choose test site and slots" class="btn btn-block btn-log" role="button">
 								MAKE A RESERVATION
 								<i class="feather icon-chevron-right btn-arrow"></i>
-								</button>
 							</a>
 						</div>
 						<div class="mb-3 mt-2">
 							<p><b>If your mobile number or address information changes, update it below.</b></p>
 						</div>
 						<div class="login-btn">
-							<a href="registration_mobile_number">
-								<button type="button" aria-label="UPDATE INFORMATION BUTTON" aria-labelledby="UPDATE INFORMATION BUTTON" class="btn btn-block btn-blue text-left">
+							<a tabindex="0" href="registration_mobile_number" aria-label="Click to update your contact information" class="btn btn-block btn-blue text-left">
 								UPDATE INFORMATION
 								<i class="feather icon-chevron-right btn-arrow"></i>
-								</button>
 							</a>
 						</div>
 					</div>
-					
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-2">
-						<iframe title="Understanding the Carolina Together Testing Program" class="videoAlign" src="https://www.youtube.com/embed/rQPkkfOtuYQ" frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe tabindex="-1" title="About Carolina Together Testing Program" class="videoAlign" src="https://www.youtube.com/embed/rQPkkfOtuYQ" frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
-					
 					<div class="col-12 mt-3">
 						<div class="infoContent">
 						<h3 class="mt-1">Expanded Hours of Operation; Convenient Parking </h3>
 						<p class="pb-3">Tomorrow all three testing centers will open. The hours will be: </p>
-						
 						<div class="infoHead">Frank Porter Graham Student Union, gallery space, side closest to Davis Library</div>
 						<div class="pl-3">
 							<ul class="mt-1 mb-3">
@@ -140,8 +126,6 @@
 								<li class="pt-2">Parking is available in the Undergraduate Library Parking Lot </li>
 							</ul>
 						</div>
-						
-						
 						<div class="infoHead">CURRENT ArtSpace + Studio</div>
 						<div class="pl-3">
 							<ul class="mt-1 mb-3">
@@ -150,8 +134,6 @@
 								<li class="pt-2">Parking is available in the Granville Towers West Parking Lot </li>
 							</ul>
 						</div>
-						
-						
 						<div class="infoHead">UNC Rams Head Recreation Center, multi-purpose room, closest to dining hall </div>
 						<div class="pl-3">
 							<ul class="mt-1 mb-3">
@@ -165,16 +147,9 @@
 								</ul>
 							</ul>
 						</div>
-						
-						
-						<p><b>You can find maps to the parking locations on the <a href="https://carolinatogether.unc.edu/carolina-together-testing-program/#chapter-2" aria-labelledby="for mor help please visit carolina-together-testing-program/#chapter-2 link" style="text-decoration:underline !important;color:#13294B !important;">Carolina Together website</a>. There are signs for designated spots at the Undergraduate Library lot and at Granville Towers</b>.</p>
-						
-					
+						<p><b>You can find maps to the parking locations on the <a href="https://carolinatogether.unc.edu/carolina-together-testing-program/#chapter-2" aria-label="for more help please visit carolina-together-testing-program/#chapter-2 link" class="text-decoration text-unc">Carolina Together website</a>. There are signs for designated spots at the Undergraduate Library lot and at Granville Towers</b>.</p>
 					</div>
 					</div>
-					
-					
-					
 					<div class="col-12 mt-4">
 						<div class="mb-3 mt-1">
 							<p>Hall Pass is a web-based application that will assist you in the Carolina Together Testing Program. Using this site, you will be able to schedule and complete your test.</p>
@@ -186,32 +161,17 @@
 							<p>UNC Faculty and staff may voluntarily use this site and the Carolina Together Testing Program.</p>
 						</div>
 					</div>
-						
-						
 				</div>
-
 				<div class="myTest-btn mt-3 mb-1">
-					<a href="testing_how_to">
-						<button type="buttton" aria-labelledby="TESTING HOW TO BUTTON" aria-label="TESTING HOW TO BUTTON" class="btn btn-block">
-							<img alt="" width="40" src="images/test.png" />
-							<span>TESTING HOW TO</span>
-							<i class="feather icon-chevron-right"></i>
-						</button>
+					<a tabindex="0" href="testing_how_to" aria-label="Click to know about testing procedure" class="btn btn-block d-flex flex-row align-items-center p-1" role="button">			
+						<img alt="" width="38" src="images/test.png" />
+						<div class="pl-2">TESTING HOW TO</div>
+						<div class="ml-auto"><i class="feather icon-chevron-right"></i></div>
 					</a>
 				</div>
-				
-				<!-- <div class="myTest-btn mt-3 mb-1">
-					<a href="find_test_site">
-						<button type="buttton" aria-labelledby="FIND A TEST SITE BUTTON" aria-label="FIND A TEST SITE BUTTON" class="btn btn-block">
-							<img alt="" width="40" src="images/location.png" />
-							<span>FIND A TEST SITE</span>
-							<i class="feather icon-chevron-right"></i>
-						</button>
-					</a>
-				</div> -->
             </div>
         </div>
-    </section><br/><br/>
+    </section>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
     <footer class="hidden-lg-up footer-content footer-table">
@@ -233,12 +193,12 @@
         </table>
     </footer>
 	<footer class="hidden-xs-down hidden-sm-down hidden-md-down footer-content-1">
-		<table class="table ml-1 footerMenu">
+		<table class="table footerMenu">
 			<tr>
 				<td>
 					<p><a href="home">Home</a></p>
 					<p><a href="index" style="display:none">Login</a></p>
-					<p><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">Logout</a></p>
+					<p><a aria-label="link to logout" href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">Logout</a></p>
 				</td>
 				<td>
 					<p><a href="my_testing">My Testing</a></p>
@@ -250,17 +210,17 @@
 					<p><a href="class_search">Class Search</a></p>
 				</td>
 				<td>
-					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
+					<p><a aria-label="online Accessibility request" href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
 					<p><a href="support">Support</a></p>
-					<p><a href="https://hallpass.unc.edu/results">Results</a></p>
+					<p><a aria-label="hall pass results" href="https://hallpass.unc.edu/results">Results</a></p>
 				</td>
 			</tr>
 		</table>
         <table class="footer-table-1 table"> 
             <tr>
-                <td><a href="https://www.unc.edu/"  ><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://hallpass.unc.edu/"  ><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/" ><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a aria-label="Link to UNC Chapel Hill Website" href="https://www.unc.edu/"><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a aria-label="Link to Hall Pass Portal" href="https://hallpass.unc.edu/"><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a aria-label="Link to Reese Innovation Lab" href="https://reeseinnovate.com/"><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>

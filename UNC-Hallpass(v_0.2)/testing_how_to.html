@@ -7,60 +7,52 @@
     <meta name="autdor" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link rel="shortcut icon" type="image/png" href="images/apple-touch-icon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" type="image/png" href="images/apple-touch-icon.png" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Main css -->
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
 <body>
+    <a aria-label="skip to main content" class="skip-link sr-only sr-only-focusable" href='#mainContent'>Skip to main content</a>
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="https://hallpass.unc.edu/">
-                <div class="align-self-center custom-logo-link">
-                    <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
+                <div class="custom-logo-link">
+                    <img src="images/header_logo.png" class="logoImg" alt="Link to Hall Pass Portal" />
                 </div>
             </a>
         </div>
         <div class="menu-extras">
             <div class="menu-item">
-                <a class="navbar-toggle">
+                <a aria-label="Hamburger menu" href="javascript:void(0);" class="navbar-toggle">
                     <div class="lines">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
                 </a>
-                <!-- End mobile menu toggle-->
             </div>
         </div>
-        <div id="navigation">
+        <div aria-label="Main Navigation" id="navigation">
             <ul class="navigation-menu">
 				<li><a href="home">HOME</a></li>
 				<li class="has-submenu">
-					<a href="#">MY TESTING</a>
-					<ul class="submenu megamenu">
-						<li>
-							<ul>
-								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>   
-								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-							</ul>
-						</li>
+					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
+					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
+						<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+						<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 					</ul>
 				</li>
                 <li class="has-submenu">
-					<a href="#">MY SCHEDULE</a>
-					<ul class="submenu megamenu">
-						<li>
-							<ul>
-								<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>        
-							</ul>
-						</li>
+					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
+					<ul class="collapse collapseMenu" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
+						<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    	
 					</ul>
 				</li>
 				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
@@ -70,288 +62,304 @@
 				<li><a href="index" style="display:none">LOGIN</a></li>
             </ul>
         </div>
-		<div class="headTab-blue">
-			<table class="table table-sm">
-				<tr>
-					<td>
-						TESTING HOW TO
-					</td>
-					<td></td>
-				</tr>
-			</table>
-		</div>
+		<div class="headTab-blue" id="mainContent">
+            <table class="table table-sm">
+                <tr>
+                    <td>
+                        TESTING HOW TO
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
     </header>
     <!-- HEADER END -->
-	<!-- UNC CONTENT - START -->
+    <!-- UNC CONTENT - START -->
     <section class="mobile-view-home p-2 ">
         <div class="container">
-			<div class="row pt-2">
-				<div class="breadcrumb-wrapper col-12">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="my_testing">My Testing</a></li>
-						<li class="breadcrumb-item">Testing How To</li>
-					</ol>
-				</div>
-			</div>
-            <div class="pt-2 head-wrapper pb-5 mb-5">
-				<div class="mt-2 mb-0">
-					<h1 class="head-h2">Testing Procedure</h1>
+            <div class="row pt-2">
+                <div class="breadcrumb-wrapper col-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="my_testing">My Testing</a></li>
+                        <li class="breadcrumb-item">Testing How To</li>
+                    </ol>
                 </div>
-				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="mt-3 mb-4">
-							<p>You can view on-campus Carolina Together Testing Centers and plan accordingly to keep your status compliant with the COVID-19 Community Standards.<p>
-							<p class="pt-2">Students taking classes on campus will be required to be tested regularly. This system will determine the frequency of those tests based on several factors.<p>
-							<p class="pt-2">You need to choose a location and schedule a testing hour. You can be tested anytime during that hour.</p>
-							<p class="pt-2">After arriving at a collection site, you will receive a test kit with a barcode. You will use your smartphone to scan the barcode and complete the test. At each testing center, you will be required to self-administer a COVID-19 nasal swab test while being monitored by the collection team. See the testing steps below.</p>
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<iframe style="position:relative;width:100%;height:100%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;" src="https://www.youtube.com/embed/aq-d2L8U1aU" frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-				<div class="testing-wrapper mt-5 mb-5">
-					
-						<div class="row pt-5 mb-5">
-							<div class="col-lg-4 col-md-4 col-xs-6 col-sm-6">
-								<div id="parallelogram"></div><div class="testHead">TESTING PROCEDURE</div>
-							</div>
-							<div class="col-lg-8 col-md-8 col-xs-6 col-sm-6"></div>
-						</div>
-						
-						<div class="pl-3 pr-3">
-							<div class="row">
-								<div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
-									<div class="testing-subtitle"><span>1</span>&nbsp;&nbsp;REGISTER</div>
-									<div class="p-2">
+            </div>
+            <div class="pt-2 head-wrapper pb-4">
+                <div class="mt-2 mb-0">
+                    <h1 class="head-h2">Testing Procedure</h1>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="mt-3 mb-4">
+                            <p>You can view on-campus Carolina Together Testing Centers and plan accordingly to keep your status compliant with the COVID-19 Community Standards.
+                            <p>
+                            <p class="pt-2">Students taking classes on campus will be required to be tested regularly. This system will determine the frequency of those tests based on several factors.
+                            <p>
+                            <p class="pt-2">You need to choose a location and schedule a testing hour. You can be tested anytime during that hour.</p>
+                            <p class="pt-2">After arriving at a collection site, you will receive a test kit with a barcode. You will use your smartphone to scan the barcode and complete the test. At each testing center, you will be required to self-administer a COVID-19 nasal swab test while being monitored by the collection team. See the testing steps below.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <iframe title="How to take a Swab Test" tabindex="-1" class="videoStyle-1" src="https://www.youtube.com/embed/aq-d2L8U1aU" frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="testing-wrapper mt-5 mb-5">
+                    <div class="row pt-5 mb-5">
+                        <div class="col-lg-4 col-md-4 col-xs-6 col-sm-6">
+                            <div class="testHead">TESTING PROCEDURE</div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-xs-6 col-sm-6"></div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+							<!-- ONE -->
+                            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12 mb-3">
+								<div class="d-flex flex-row align-items-center justify-content-start">
+									<div class="bulletNumbers">1</div>
+									<div class="testing-subtitle">REGISTER</div>
+								</div>
+								<div class="row">
+									<div class="col hidden-xs-down hidden-sm-down col-lg-1 col-md-1"></div>
+									<div class="col col-lg-11 col-md-11 col-xs-12 col-sm-12">
 										<div class="testContentStyle">
 											<p>To begin the process, you will be asked to submit the following information : </p>
-											<div class=" mt-2">
-												<div class="">
-													<ul>
-														<li>Preferred email address</li>
-														<li>Phone number</li>
-														<li>Local Address</li>
-														<li>Permanent Address</li>
-														<li>Quarantine Address</li>
-														<div class="quaAdd">
-															<ul>
-																<li class="ml-1">&nbsp;In the event you are asked to quarantine, this address is where you will be located.</li>
-															</ul>
-														</div>
-													</ul>
-												</div>
+											<div class="mt-2">
+												<ul>
+													<li>Preferred email address</li>
+													<li>Phone number</li>
+													<li>Local Address</li>
+													<li>Permanent Address</li>
+													<li>Quarantine Address</li>
+													<div class="quaAdd">
+														<ul>
+															<li class="ml-1">&nbsp;In the event you are asked to quarantine, this address is where you will be located.</li>
+														</ul>
+													</div>
+												</ul>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
-									<div class="testing-subtitle"><span>2</span>&nbsp;&nbsp;MAKE A RESERVATION</div>
-									<div class="p-2">
+							</div>
+							<!-- TOW -->
+                            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12 mb-3">
+								<div class="d-flex flex-row align-items-center justify-content-start">
+									<div class="bulletNumbers">2</div>
+									<div class="testing-subtitle">MAKE A RESERVATION</div>
+								</div>
+								<div class="row">
+									<div class="col hidden-xs-down hidden-sm-down col-lg-1 col-md-1"></div>
+									<div class="col col-lg-11 col-md-11 col-xs-12 col-sm-12">
 										<div class="testContentStyle">
 											<p>Next, choose the site at which you will report for testing.</p>
 											<p class="mt-3">Choose an available timeslot for your appointment and confirm. You may arrive at any point during your assigned time slot.</p>
-											<p class="mt-3">You will receive a QR code via email that will serve as your verification.</p>
+											<p class="mt-3">You will receive an email and text confirming your verification.</p>
 										</div>
 									</div>
+                                </div>
+                            </div>
+							<!-- THREE -->
+                            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12 mb-3">
+								<div class="d-flex flex-row align-items-center justify-content-start">
+									<div class="bulletNumbers">3</div>
+									<div class="testing-subtitle">ARRIVE AT LOCATION</div>
 								</div>
-								<div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
-									<div class="testing-subtitle"><span>3</span>&nbsp;&nbsp;ARRIVE AT LOCATION</div>
-									<div class="p-2">
+                                <div class="row">
+									<div class="col hidden-xs-down hidden-sm-down col-lg-1 col-md-1"></div>
+									<div class="col col-lg-11 col-md-11 col-xs-12 col-sm-12">
 										<div class="testContentStyle">
 											<p>Report to your testing site with your QR code ready and you will be given a test kit.</p>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						
-						<div class="pt-5 mb-5">
-							<div class="row">
-								<div class="col-lg-4 col-md-4 col-xs-6 col-sm-6">
-									<div class="testHead">HOW TO TEST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-5 mb-4">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-xs-6 col-sm-6">
+                                <div class="testHead">HOW TO TEST</div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 testContentStyle_1">
+                                <p>Report to your testing site with your QR code ready and you will be given a test kit. Follow the steps below in order to ensure an accurate test result.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testing-page-content">
+                        <!-- ONE -->
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+								<div class="d-flex flex-row align-items-center justify-content-start">
+									<div class="bulletPoint">1</div>
+									<div class="testing-subtitle-1">BLOW NOSE (IF NEEDED) AND CLEAN HANDS</div>
 								</div>
-								<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 testContentStyle_1">
-									<p>Report to your testing site with your QR code ready and you will be given a test kit. Follow the steps below in order to ensure an accurate test result.</p>
-								</div>
 							</div>
-						</div>
-						
-						<div class="">
-							<div class="testing-page-content">
+							<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
 								<div class="row">
-									<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-										<div class="testing-subtitle-1"><span>1</span>&nbsp;&nbsp;BLOW NOSE (IF NEEDED) AND CLEAN HANDS</div>
-									</div>
-									<div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
-										<div class="p-2">
-											<div class="testContentStyle">
-												<div class=" mt-2">
-													<ul>
-														<li class="pt-2">In order to get a good specimen, it's important that both your nose and hands are clean.</li>
-														<li class="pt-2">Using a clean tissue, gently blow your nose and clear out any additional debris in both nostrils.</li>
-														<li class="pt-2">Apply enough hand sanitizer to cover all surfaces of hands. Rub hands including palms, back of hands, and between fingers until all surfaces are dry.</li>
-													</ul>
-												</div>
-											</div>
+									<div class="col-xs-2 col-sm-2 col-lg-1 col-md-1"></div>
+									<div class="col-lg-7 col-md-7 col-xs-12 col-sm-12">
+										<div class="testContentStyle-2">
+											<ul>
+												<li class="pt-2">In order to get a good specimen, it's important that both your nose and hands are clean.</li>
+												<li class="pt-2">Using a clean tissue, gently blow your nose and clear out any additional debris in both nostrils.</li>
+												<li class="pt-2">Apply enough hand sanitizer to cover all surfaces of hands. Rub hands including palms, back of hands, and between fingers until all surfaces are dry.</li>
+											</ul>
 										</div>
 									</div>
 									<div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
-										<img alt="tissue picture" class="tissueImg" src="images/tissues.png" />
+										<img alt="blow nose (if needed) and clean hands image" class="tissueImg" src="images/tissues.png" />
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="">
-							<div class="testing-page-content">
+                        <!-- TWO -->
+                        <div class="row">
+							<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+								<div class="d-flex flex-row align-items-center justify-content-start">
+									<div class="bulletPoint">2</div>
+									<div class="testing-subtitle-1">OPEN NASAL SWAB</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
 								<div class="row">
-									<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-										<div class="testing-subtitle-1"><span>2</span>&nbsp;&nbsp;OPEN NASAL SWAB</div>
-									</div>
-									<div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
-										<div class="p-2">
-											<div class="testContentStyle">
-												<div class=" mt-2">
-													<ul>
-														<li class="pt-2">Remove the nasal swab from the wrapper. Many open like a band-aid, where you pull the ends of the wrapper apart.</li>
-														<li class="pt-2">Be careful to only touch the swab handle, not the tip.</li>
-													</ul>
-												</div>
-											</div>
+									<div class="col-xs-2 col-sm-2 col-lg-1 col-md-1"></div>
+									<div class="col-lg-7 col-md-7 col-xs-12 col-sm-12">
+										<div class="testContentStyle-2">
+											<ul>
+												<li class="pt-2">Remove the nasal swab from the wrapper. Many open like a band-aid, where you pull the ends of the wrapper apart.</li>
+												<li class="pt-2">Be careful to only touch the swab handle, not the tip.</li>
+											</ul>
 										</div>
 									</div>
 									<div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
-										<img alt="nasal swab picture" class="nasalSwabImg" src="images/nasalSwab.png" />
+										<img alt="open nasal swab image" class="nasalSwabImg" src="images/nasalSwab.png" />
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="">
-							<div class="testing-page-content">
+                        <!-- THREE -->
+                        <div class="row">
+							<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+								<div class="d-flex flex-row align-items-center justify-content-start">
+									<div class="bulletPoint">3</div>
+									<div class="testing-subtitle-1">SWAB NOSE</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
 								<div class="row">
-									<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-										<div class="testing-subtitle-1"><span>3</span>&nbsp;&nbsp;SWAB NOSE</div>
-									</div>
-									<div class="col-lg-8 col-md-8 col-xs-8 col-sm-8">
-										<div class="p-2">
-											<div class="testContentStyle">
-												<div class=" mt-2">
-													<ul>
-														<li class="pt-2">Gently insert the entire soft tip of the swab into one nostril until you feel a bit of resistance.</li>
-														<li class="pt-2">Using medium pressure, rub the swab slowly in a circular motion around the inside wall of your nostril five times.</li>
-														<li class="pt-2">The swab tip should be touching the inside wall of your nostril through each rotation.</li>
-														<li class="pt-2">Repeat the same process with the same swab in the other nostril.</li>
-													</ul>
-												</div>
-											</div>
+									<div class="col-xs-2 col-sm-2 col-lg-1 col-md-1"></div>
+									<div class="col-lg-7 col-md-7 col-xs-12 col-sm-12">
+										<div class="testContentStyle-2">
+											<ul>
+												<li class="pt-2">Gently insert the entire soft tip of the swab into one nostril until you feel a bit of resistance.</li>
+												<li class="pt-2">Using medium pressure, rub the swab slowly in a circular motion around the inside wall of your nostril five times.</li>
+												<li class="pt-2">The swab tip should be touching the inside wall of your nostril through each rotation.</li>
+												<li class="pt-2">Repeat the same process with the same swab in the other nostril.</li>
+											</ul>
 										</div>
 									</div>
-									<div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
-										<img alt="swab nose picture" class="swabNoseImg" src="images/swabNose.png" />
+									<div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+										<img alt="swab nose image" class="swabNoseImg" src="images/swabNose.png" />
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="mb-5">
-							<div class="testing-page-content">
+                        <!-- FOUR -->
+                        <div class="row">
+							<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+								<div class="d-flex flex-row align-items-center justify-content-start">
+									<div class="bulletPoint">4</div>
+									<div class="testing-subtitle-1">PUT SWAB IN TUBE</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
 								<div class="row">
-									<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-										<div class="testing-subtitle-1"><span>4</span>&nbsp;&nbsp;PUT SWAB IN TUBE</div>
-									</div>
-									<div class="col-lg-8 col-md-8 col-xs-8 col-sm-8">
-										<div class="p-2">
-											<div class="testContentStyle">
-												<div class="mt-2">
-													<ul>
-														<li class="pt-2">While holding the swab, open the tube.</li>
-														<li class="pt-2">Put the swab tip first into the tube.</li>
-														<li class="pt-2">Break the swab at the break point. Leave the tip with the swab in the tube and throw away the plastic tip.</li>
-														<li class="pt-2">Screw the cap back onto the tube tightly.</li>
-														<li class="pt-2">Wash your hands again with hand sanitizer.</li>
-													</ul>
-												</div>
-											</div>
+									<div class="col-xs-2 col-sm-2 col-lg-1 col-md-1"></div>
+									<div class="col-lg-7 col-md-7 col-xs-12 col-sm-12">
+										<div class="testContentStyle-2">
+											<ul>
+												<li class="pt-2">While holding the swab, open the tube.</li>
+												<li class="pt-2">Put the swab tip first into the tube.</li>
+												<li class="pt-2">Break the swab at the break point. Leave the tip with the swab in the tube and throw away the plastic tip.</li>
+												<li class="pt-2">Screw the cap back onto the tube tightly.</li>
+												<li class="pt-2">Wash your hands again with hand sanitizer.</li>
+											</ul>
 										</div>
 									</div>
-									<div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
-										<img alt="swab tube picture" class="swabTubeImg" src="images/swabTube.png" />
+									<div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+										<img alt="put swab in tube image" class="swabTubeImg" src="images/swabTube.png" />
 									</div>
 								</div>
 							</div>
-						</div>					
-				</div>
-				
-				<div class="myTest-btn mb-1 p-1 mt-0 pt-0">
-					<a href="find_test_site">
-						<button type="button" aria-labelledby="MAKE A RESERVATION" aria-label="MAKE A RESERVATION" class="btn btn-block">
-							<img alt="MAKE A RESERVATION" width="40" src="images/location.png" />
-							<span>MAKE A RESERVATION</span>
-							<i class="feather icon-chevron-right"></i>
-						</button>
-					</a>
-				</div>
-				<div class="myTest-btn mt-1 mb-5 p-1">
-					<a href="start_new_test">
-						<button type="button" aria-labelledby="START NEW TEST" aria-label="START NEW TEST" class="btn btn-block">
-							<img alt="start new test" width="42" src="images/NewTest_1.png" />
-							<span>START NEW TEST</span>
-							<i class="feather icon-chevron-right"></i>
-						</button>
-					</a>
-				</div>
-				<div class="pb-5"></div>
-			</div>	
-        </div>
+						</div>
+                    </div>
+                </div>
+                <div class="myTest-btn mb-1 p-1 mt-0 pt-0">
+                    <a tabindex="0" href="find_test_site" aria-label="Click to choose test site and slots" class="btn btn-block d-flex flex-row align-items-center p-1" role="button">
+                        <img alt="" width="38" src="images/location.png" />
+                        <div class="pl-2">MAKE A RESERVATION</div>
+                        <div class="ml-auto"><i class="feather icon-chevron-right"></i></div>
+                    </a>
+                </div>
+                <div class="myTest-btn mt-1 p-1">
+                    <a href="start_new_test" aria-label="Click to initiate a new test" class="btn btn-block d-flex flex-row align-items-center p-1" role="button">
+                        <img alt="" width="40" src="images/NewTest_1.png" />
+                        <div class="pl-2">START NEW TEST</span></div>
+                        <div class="ml-auto"><i class="feather icon-chevron-right"></i></div>
+                    </a>
+                </div>
+            </div>
     </section>
-	<!-- UNC CONTENT - END -->
-	<!-- FOOTER CONTENT  - START -->
+    <!-- UNC CONTENT - END -->
+    <!-- FOOTER CONTENT  - START -->
     <footer class="hidden-lg-up footer-content footer-table">
         <table class="table">
             <tr>
                 <td>
-					<a href="home"><img src="images/home_black.png" width="45" alt="home"/></a>
-					<div>HOME</div>
-				</td>
+                    <a href="home"><img src="images/home_black.png" width="45" alt="home" /></a>
+                    <div>HOME</div>
+                </td>
                 <td>
-					<a href="my_testing"><img src="images/test_black.png" width="45" alt="My Testing"/></a>
-					<div>MY TESTING</div>
-				</td>
+                    <a href="my_testing"><img src="images/test_black.png" width="45" alt="My Testing" /></a>
+                    <div>MY TESTING</div>
+                </td>
                 <td>
-					<a href="my_schedule"><img src="images/schedule_black.png" width="45" alt="My Schedule"/></a>
-					<div>CLASS SCHEDULE</div>
-				</td>
+                    <a href="my_schedule"><img src="images/schedule_black.png" width="45" alt="My Schedule" /></a>
+                    <div>CLASS SCHEDULE</div>
+                </td>
             </tr>
         </table>
     </footer>
-	<footer class="hidden-xs-down hidden-sm-down hidden-md-down footer-content-1">
-		<table class="table ml-1 footerMenu">
-			<tr>
-				<td>
-					<p><a href="home">Home</a></p>
-					<p><a href="index" style="display:none">Login</a></p>
-					<p><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">Logout</a></p>
-				</td>
-				<td>
-					<p><a href="my_testing">My Testing</a></p>
-					<p><a href="testing_how_to">Testing How To</a></p>
-					<p><a href="find_test_site">Make A Reservation</a></p>
-				</td>
-				<td>
-					<p><a href="my_schedule">My Class Schedule</a></p>
-					<p><a href="class_search">Class Search</a></p>
-				</td>
-				<td>
-					<p><a href="https://www.unc.edu/about/accessibility/">Accessibility</a></p>
-					<p><a href="support">Support</a></p>
-					<p><a href="https://hallpass.unc.edu/results">Results</a></p>
-				</td>
-			</tr>  
-		</table>
+    <footer class="hidden-xs-down hidden-sm-down hidden-md-down footer-content-1">
+        <table class="table footerMenu">
+            <tr>
+                <td>
+                    <p><a href="home">Home</a></p>
+                    <p><a href="index" style="display:none">Login</a></p>
+                    <p><a aria-label="link to logout" href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">Logout</a></p>
+                </td>
+                <td>
+                    <p><a href="my_testing">My Testing</a></p>
+                    <p><a href="testing_how_to">Testing How To</a></p>
+                    <p><a href="find_test_site">Make A Reservation</a></p>
+                </td>
+                <td>
+                    <p><a href="my_schedule">My Class Schedule</a></p>
+                    <p><a href="class_search">Class Search</a></p>
+                </td>
+                <td>
+                    <p><a aria-label="online Accessibility request" href="https://www.unc.edu/about/accessibility/">Accessibility</a></p>
+                    <p><a href="support">Support</a></p>
+                    <p><a aria-label="hall pass results" href="https://hallpass.unc.edu/results">Results</a></p>
+                </td>
+            </tr>
+        </table>
         <table class="footer-table-1 table">
             <tr>
-                <td><a href="https://www.unc.edu/"><img width="120" alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://hallpass.unc.edu/"><img width="120" alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/"><img width="120" alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a aria-label="Link to UNC Chapel Hill Website" href="https://www.unc.edu/"><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a aria-label="Link to Hall Pass Portal" href="https://hallpass.unc.edu/"><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a aria-label="Link to Reese Innovation Lab" href="https://reeseinnovate.com/"><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>

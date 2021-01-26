@@ -15,18 +15,19 @@
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
 <body>
+    <a aria-label="skip to main content" class="skip-link sr-only sr-only-focusable" href='#mainContent'>Skip to main content</a>
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="https://hallpass.unc.edu/">
-                <div class="align-self-center custom-logo-link">
-                    <img src="images/header_logo.png" alt="CAROLINA TOGETHER" class="logoImg" />
+                <div class="custom-logo-link">
+                    <img src="images/header_logo.png" class="logoImg" alt="Link to Hall Pass Portal" />
                 </div>
             </a>
         </div>
         <div class="menu-extras">
             <div class="menu-item">
-                <a class="navbar-toggle">
+                <a aria-label="Hamburger menu" href="javascript:void(0);" class="navbar-toggle">
                     <div class="lines">
                         <span></span>
                         <span></span>
@@ -35,31 +36,23 @@
                 </a>
             </div>
         </div>
-        <div id="navigation">
+        <div aria-label="Main Navigation" id="navigation">
             <ul class="navigation-menu">
 				<li><a href="home">HOME</a></li>
 				<li class="has-submenu">
-					<a href="#">MY TESTING</a>
-					<ul class="submenu megamenu">
-						<li>
-							<ul>
-								<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
-								<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
-							</ul>
-						</li>
+					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
+					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
+						<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+						<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 					</ul>
 				</li>
                 <li class="has-submenu">
-					<a href="#">MY SCHEDULE</a>
-					<ul class="submenu megamenu">
-						<li>
-							<ul>
-								<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>        
-							</ul>
-						</li>
+					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
+					<ul class="collapse collapseMenu" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
+						<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    	
 					</ul>
 				</li>
 				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
@@ -69,7 +62,7 @@
 				<li><a href="index" style="display:none">LOGIN</a></li>
             </ul>
         </div>
-		<div class="headTab-blue">
+		<div class="headTab-blue" id="mainContent">
 			<table class="table table-sm">
 				<tr>
 					<td>
@@ -82,13 +75,13 @@
     </header>
     <!-- HEADER END -->
 	<!-- UNC CONTENT - START -->
-    <section class="mobile-view-home">
+    <section class="mobile-view-home-test pb-1">
         <div class="p-2 head-wrapper">
         <div class="container">
 			<div class="row pt-1">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="home" aria-labelledby="Home" aria-label="Home">Home</a></li>
+						<li class="breadcrumb-item"><a href="home">Home</a></li>
 						<li class="breadcrumb-item">My Testing</li>
 					</ol>
 				</div>
@@ -110,50 +103,45 @@
 					<h4 id='next_test_before' class='test-date-time get_next_test_before_title'></h4>
                 </div>
             </div>
-			<div class="my-reservations-btn mt-3 mb-1 p-1">
-				<a href="my_reservations">
-					<button aria-labelledby="MY RESERVATIONS BUTTON" aria-label="MY RESERVATIONS BUTTON" class="btn btn-block">
-						MY RESERVATIONS
-						<i class="feather icon-chevron-right"></i>
-					</button>
+			<div class="login-btn mt-3 mb-1 p-1">
+				<a tabindex="0" href="my_reservations" aria-label="Click to view your reservations" class="btn btn-log" role="button">
+					MY RESERVATIONS
+					<i class="feather icon-chevron-right btn-arrow"></i>
 				</a>
 			</div>
 			<div class="myTest-btn mt-3 mb-1 p-1">
-				<a href="testing_how_to">
-					<button type="button" aria-labelledby="TESTING HOW TO BUTTON" aria-label="TESTING HOW TO BUTTON" class="btn btn-block">
-						<img alt="" width="40" src="images/test.png" />
-						<span>TESTING HOW TO</span>
-						<i class="feather icon-chevron-right"></i>
-					</button>
+				<a tabindex="0" href="testing_how_to" aria-label="Click to know about testing procedure" class="btn btn-block d-flex flex-row align-items-center p-1" role="button">
+					<img alt="" width="38" src="images/test.png" />
+					<div class="pl-2">TESTING HOW TO</div>
+					<div class="ml-auto"><i class="feather icon-chevron-right"></i></div>
 				</a>
 			</div>
-			
 			<div class="myTest-btn mt-1 mb-1 p-1">
-				<a href="find_test_site">
-					<button type="button" aria-labelledby="MAKE A RESERVATION BUTTON" aria-label="MAKE A RESERVATION BUTTON" class="btn btn-block">
-						<img alt="" width="40" src="images/location.png" />
-						<span>MAKE A RESERVATION</span>
-						<i class="feather icon-chevron-right"></i>
-					</button>
+				<a tabindex="0" href="find_test_site" aria-label="Click to choose test site and slots" class="btn btn-block d-flex flex-row align-items-center p-1" role="button">
+					<img alt="" width="38" src="images/location.png" />
+					<div class="pl-2">MAKE A RESERVATION</div>
+					<div class="ml-auto"><i class="feather icon-chevron-right"></i></div>
 				</a>
 			</div>
-			
 			<div class="myTest-btn mt-1 mb-1 p-1">
-				<a href="start_new_test">
-					<button type="button" aria-labelledby="START NEW TEST BUTTON" aria-label="START NEW TEST BUTTON" class="btn btn-block">
-						<img alt="" width="42" src="images/NewTest_1.png" />
-						<span>START NEW TEST</span>
-						<i class="feather icon-chevron-right"></i>
-					</button>
+				<a tabindex="0" href="start_new_test" aria-label="Click to initiate a new test" class="btn btn-block d-flex flex-row align-items-center p-1" role="button">
+					<img alt="" width="42" src="images/NewTest_1.png" />
+					<div class="pl-2">START NEW TEST</div>
+					<div class="ml-auto"><i class="feather icon-chevron-right"></i></div>
 				</a>
 			</div>
-			
+			<div class="myTest-btn mt-1 mb-1 p-1">
+				<a tabindex="0" href="results" aria-label="Click to view results" class="btn btn-block d-flex flex-row align-items-center p-1" role="button">
+					<img alt="" width="38" src="images/results.png"/>
+					<div class="pl-2">RESULTS</div>
+					<div class="ml-auto"><i class="feather icon-chevron-right"></i></div>
+				</a>
+			</div>
         </div>
         </div>
 		<div class="clearfix"></div>
-		
 		<!-- HALL PASS - COMPLIANT -->
-		<div class="myTestFooter">
+		<!-- <div class="myTestFooter">
 			<div id="hallpass-hcolor" class="headTab-green hallpassTable hidden-lg-up hidden-md-up">
 				<table class="table table-sm">
 					<tr>
@@ -173,17 +161,30 @@
 							<p class="testContent-title validUntil"></p> 
 							<p id="asap" class='test-content-date-time get_next_test_before_content asap'></p>
 						</td>
-						<!--td class="hidden-lg-up hidden-md-up">
-							<img class="myTestQrImg" src="" width="100" height="100"  />
-						</td-->
 					</tr>
 				</table>
 			</div>
+		</div> -->
+		<div class="myTestFooter">
+			<div id="hallpass-hcolor" class="headTab-green hidden-lg-up hidden-md-up">
+				<div class="d-flex justify-content-start align-items-center align-self-center">
+					HALL PASS
+				</div>
+			</div>
+			<div id="hallpass-bcolor" class="d-flex align-items-center align-self-center flex-row justify-content-start testContentGreen">
+				<div class="hidden-xs-down hidden-sm-down">HALL PASS</div>
+				<div class="align-items-center">
+					<p class="testContent-title">Member status :</p> 
+					<p class='test-content-date-time status'></p> 
+					<p class="testContent-title validUntil"></p> 
+					<p id="asap" class='test-content-date-time get_next_test_before_content asap'></p>
+				</div>
+			</div>
 		</div>
-    </section><br/><br/><br/>
+    </section>
 	<!-- UNC CONTENT - END -->
 	<!-- FOOTER CONTENT  - START -->
-    <footer class="hidden-lg-up footer-content footer-table" style="bottom:2px !important;">
+    <footer class="hidden-lg-up footer-content footer-table">
         <table class="table">
             <tr>
                 <td>
@@ -202,12 +203,12 @@
         </table>
     </footer>
 	<footer class="hidden-xs-down hidden-sm-down hidden-md-down footer-content-1">
-		<table class="table p-2 ml-1 footerMenu">
+		<table class="table footerMenu">
 			<tr>
 				<td>
 					<p><a href="home">Home</a></p>
 					<p><a href="index" style="display:none">Login</a></p>
-					<p><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">Logout</a></p>
+					<p><a aria-label="link to logout" href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">Logout</a></p>
 				</td>
 				<td>
 					<p><a href="my_testing">My Testing</a></p>
@@ -219,17 +220,17 @@
 					<p><a href="class_search">Class Search</a></p>
 				</td>
 				<td>
-					<p><a href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
+					<p><a aria-label="online Accessibility request" href="https://www.unc.edu/about/accessibility/" >Accessibility</a></p>
 					<p><a href="support">Support</a></p>
-					<p><a href="https://hallpass.unc.edu/results">Results</a></p>
+					<p><a aria-label="hall pass results" href="https://hallpass.unc.edu/results">Results</a></p>
 				</td>
 			</tr>
 		</table>
         <table class="footer-table-1 table">
             <tr>
-                <td><a href="https://www.unc.edu/"  ><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
-                <td><a href="https://hallpass.unc.edu/"  ><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
-                <td><a href="https://reeseinnovate.com/" ><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
+                <td><a aria-label="Link to UNC Chapel Hill Website" href="https://www.unc.edu/"><img alt="THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL" src="images/UNC-footer-logo.png" /></a></td>
+                <td><a aria-label="Link to Hall Pass Portal" href="https://hallpass.unc.edu/"><img alt="CAROLINA TOGETHER" src="images/header_logo.png" /></a></td>
+                <td><a aria-label="Link to Reese Innovation Lab" href="https://reeseinnovate.com/"><img alt="UNC REESE INNOVATION" src="images/lab.png" /></a></td>
             </tr>
         </table>
     </footer>

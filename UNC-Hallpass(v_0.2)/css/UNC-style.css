@@ -1240,11 +1240,14 @@ body {
     width: 100%;
     height: 100% !important;
     -webkit-box-shadow: none !important;
-    overflow-y: scroll !important
+    overflow-y: auto !important
 }
 
 html {
-    visibility: hidden
+	position:relative;
+    visibility: hidden;
+	width: 100%;
+    height: auto !important;
 }
 
 ol,
@@ -1756,6 +1759,14 @@ input[type=number] {
 }
 
 
+.skip-link {
+	display:inline-block;
+	
+	font-family: "OpenSans Regular";
+    font-weight: 400 !important;
+	color:#FFFFFF;
+}
+
 #topnav {
     position: fixed;
     right: 0;
@@ -2001,6 +2012,55 @@ input[type=number] {
     box-shadow: 0 0 3px rgba(53, 64, 78, .2)
 }
 
+
+
+
+
+// Usage as a mixin
+.skip-navigation {
+	@include sr-only;
+	@include sr-only-focusable;
+}
+.text-decoration {
+	text-decoration:underline !important;	
+}
+.text-unc {
+	color:#13294B !important;	
+}
+section {
+	position:relative;
+	width:100%;
+	height:auto;
+	min-height:100%;
+	bottom:0;
+}
+.section-vh {
+	position:relative;
+	height:auto;
+	min-height:65vh;
+	bottom:0px;
+}
+.videoStyle {
+	position:relative;width:100%;height:95%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+.videoStyle-1 {
+	position:relative;width:100%;height:100%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+.h-80 {
+	position:relative;
+	height:80px;
+}
+.reserve-time {
+	display:inline-block;white-space:nowrap;
+}
+.qrcode img {
+	position:relative;
+	width:50vh;
+	height:50vh;
+}
+
+
+
 .logo {
     font-weight: 700;
     font-size: 22px;
@@ -2012,14 +2072,13 @@ input[type=number] {
 .myTestFooter {
     position: relative;
     margin: 0 auto;
-    padding-left: 130px;
-    padding-right: 130px;
-    margin-bottom: 75px
+	width:100% !important;
+    padding-left: 125px;
+    padding-right: 125px;
+	margin-top: 15px;
+    margin-bottom: 40px;
 }
 
-.hallpassTable table tr td {
-    width: 50% !important
-}
 
 .headTab-blue table {
     position: relative;
@@ -2057,14 +2116,6 @@ input[type=number] {
     border: none
 }
 
-.headTab-Blue table {
-    position: relative;
-    margin: 0 auto;
-    padding: 0 !important;
-    width: 100% !important;
-    z-index: -1
-}
-
 
 
 .videoAlign {
@@ -2072,30 +2123,6 @@ input[type=number] {
 }
 
 
-
-.headTab-Blue table tr td {
-    line-height: 27px
-}
-
-.headTab-Blue table tr td:first-child {
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #fff !important;
-    font-size: 27px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 25px;
-    padding-right: 25px;
-    width: 20%;
-    background: #4b9cd3;
-    border-top: none;
-    border-left: none;
-    border-right: none
-}
-
-.headTab-Blue table tr td:last-child {
-    width: 80%;
-    border: none
-}
 
 .head-h3 {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -2238,6 +2265,11 @@ input[type=number] {
     margin-top: 95px !important;
 }
 
+.mobile-view-home-test {
+    position: relative;
+    margin-top: 95px !important;
+}
+
 .head-h2 {
     font-family: "OpenSans Regular";
     color: #13294b;
@@ -2287,24 +2319,69 @@ input[type=number] {
         justify-content: flex-end
     }
 
-    #topnav .navigation-menu>.has-submenu>.submenu>.has-submenu>.submenu::before {
+    /* #topnav .navigation-menu>.has-submenu>.submenu>.has-submenu>.submenu::before {
         top: 20px;
         margin-left: -35px;
         -webkit-box-shadow: 1px 1px 0 0 rgba(0, 0, 0, .15);
         box-shadow: 1px 1px 0 0 rgba(0, 0, 0, .15);
         border-color: transparent #fff #fff transparent
-    }
+    } */
 
-    #topnav .navigation-menu>li .submenu {
+	#topnav .navigation-menu .collapseMenu li a {
+		position:relative;
+		padding: 5px 12px;
+		display:block;
+        white-space: nowrap;
+        font-size: 16px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+	}
+	
+	.menuIcon {
+		font-weight: 600;
+	}
+	/* #topnav .navigation-menu>li.has-submenu {
+		
+	} */
+	
+	
+
+	#topnav .navigation-menu .collapseMenu li.active {
+		position:relative;
+		display:block;
+        white-space: nowrap;
+        font-size: 16px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+		text-decoration: underline solid #13294b 2px !important;
+	}
+	
+	#topnav .navigation-menu .collapseMenu li:hover {
+		position:relative;
+		display:block;
+        white-space: nowrap;
+        font-size: 16px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+		text-decoration: underline solid #13294b 2px !important;
+	}
+	
+	#topnav .navigation-menu .collapseMenu  {
 		text-transform: uppercase !important;
         position: absolute;
         top: 100%;
         left: 0;
         z-index: 1000;
         list-style: none;
-        /* min-width: 170px; */
-        visibility: hidden;
-        opacity: 0;
         margin-top: 0;
         -webkit-transition: all .2s ease;
         transition: all .2s ease;
@@ -2313,8 +2390,55 @@ input[type=number] {
         -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .2);
         box-shadow: 0 0 3px rgba(0, 0, 0, .2)
     }
+	
+	#topnav .navigation-menu .collapseMenu:before  {
+		content: "";
+        position: absolute;
+        top: 2px;
+        left: 45px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 7px solid #495057;
+        border-color: transparent transparent #efefef #efefef;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+        -webkit-box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, .15);
+        box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, .15);
+    }
 
-    #topnav .navigation-menu>li .submenu:before {
+    
+	/* #topnav .navigation-menu>li.has-submenu a {
+		white-space:nowrap !important;
+	} */
+	
+	/* #topnav .navigation-menu>li.has-submenu a.menuTitle  {
+		background: transparent !important;
+	}
+	
+	#topnav .navigation-menu>li.has-submenu a.menuTitle[data-toggle=collapse] {
+		background: #EFEFEF !important;
+		display:inline-block;
+		width:100%;
+		color: #13294b !important;
+		text-decoration: underline solid #13294b 2px !important;
+	} */
+	/* #topnav .navigation-menu>li.has-submenu a[data-toggle=collapse] {
+		text-align: left;
+		border-radius: 17px !important;
+		color: #13294b;
+		background-color: #fff;
+		font-weight: 700;
+		border: 2px solid #c4d600;
+		-webkit-transition: all .5s;
+		transition: all .5s;
+		-webkit-box-shadow: none !important
+	} */
+	
+	
+	
+	#topnav .navigation-menu>li .collapseMenu:before {
         content: "";
         position: absolute;
         top: 2px;
@@ -2330,56 +2454,10 @@ input[type=number] {
         -webkit-box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, .15);
         box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, .15)
     }
-	#topnav .navigation-menu>li.has-submenu a {
-		white-space:nowrap !important;
-	}
 	
-	#topnav .navigation-menu>li.has-submenu a {
-		white-space:nowrap !important;
-	}
-	
-	#topnav .navigation-menu>li.has-submenu:before {
-        color: #FFFFFF !important;
-        position: relative;
-        -webkit-transition: all .5s;
-        transition: all .5s;
-        top: 26px;
-        text-align: right;
-		left:12px;
-        float: right !important;
-        font-weight: 700;
-        font-size: 18px;
-        font-family: feather;
-        content: "\e8b1";
-		cursor:pointer;
-		display:inline-block;
-		z-index:-1 !important;
-    }
-	
-	#topnav .navigation-menu>li.has-submenu:hover:before,
-    #topnav .navigation-menu>li.has-submenu:focus:before,
-    #topnav .navigation-menu>li.has-submenu:active:before {
-		/* color: #4B9CD3 !important; */
-		/* border-bottom:2px solid #EFEFEF !important; */
-		/* text-decoration: underline solid #FFFFFF 2px !important; */
-        position: relative;
-        -webkit-transition: all .5s;
-        transition: all .5s;
-        top: 26px;
-        text-align: right;
-		left:12px;
-        float: right !important;
-        font-weight: 700;
-        font-size: 18px;
-        font-family: feather;
-        content: "\e897";
-		cursor:pointer;
-		display:inline-block;
-		z-index:-1 !important;
-    }
 
-    #topnav .navigation-menu>li.has-submenu.active:before {
-		/* color: #4B9CD3 !important;
+   /* #topnav .navigation-menu>li.has-submenu.active:before {
+		 color: #4B9CD3 !important;
         position: relative;
         -webkit-transition: all .5s;
         transition: all .5s;
@@ -2393,8 +2471,8 @@ input[type=number] {
         content: "\e897";
 		cursor:pointer;
 		display:inline-block;
-		z-index:-1 !important; */
-    }
+		z-index:-1 !important; 
+    } */
 	
 	/* #topnav .navigation-menu>li.has-submenu.active>.submenu {
         visibility: visible;
@@ -2560,8 +2638,8 @@ input[type=number] {
         letter-spacing: 0;
         font-size: 25px;
         font-weight: 700;
-        -webkit-transition: all .3s;
-        transition: all .3s
+        /* -webkit-transition: all .3s;
+        transition: all .3s */
     }
 
     #topnav .navigation-menu>li .submenu.open {
@@ -2569,12 +2647,12 @@ input[type=number] {
     }
 
     #topnav .navigation-menu>li .submenu .submenu {
-        display: none;
+        /* display: none; */
         list-style: none
     }
 
     #topnav .navigation-menu>li .submenu .submenu.open {
-        display: block !important; 
+        /* display: block !important; */ 
     }
 
     #topnav .navigation-menu>li .submenu.megamenu>li>ul {
@@ -2657,7 +2735,7 @@ input[type=number] {
 }
 
 @media (min-width:768px) {
-    #topnav .navigation-menu>li.has-submenu:hover>.submenu {
+    /* #topnav .navigation-menu>li.has-submenu:hover>.submenu {
         visibility: visible !important;
         opacity: 1;
         margin-top: 0;
@@ -2668,7 +2746,7 @@ input[type=number] {
         opacity: 1;
         margin-left: 0;
         margin-right: 0
-    } 
+    }  */
 
     .navbar-toggle {
         display: block;
@@ -2752,30 +2830,6 @@ input[type=number] {
     border-top-right-radius: 15px;
     -webkit-box-shadow: none !important;
     box-shadow: none !important
-}
-
-.headTab-green table {
-    position: relative;
-    margin: 0 auto;
-    padding: 0 !important;
-    width: 100% !important;
-    z-index: -1
-}
-
-.headTab-green table tr td {
-    line-height: 40px
-}
-
-.headTab-green table tr td:first-child {
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #13294b !important;
-    width: 100%;
-    padding-left: 15px;
-    font-size: 32px;
-    background: #c4d600;
-    border-top: none;
-    border-left: none;
-    border-right: none
 }
 
 .headTab table {
@@ -2896,16 +2950,6 @@ input[type=number] {
     float: left
 }
 
-.btn-back-1 i {
-    position: relative;
-    top: 1px;
-    float: left;
-    vertical-align: middle !important;
-    margin: 0 auto;
-    font-size: 25px;
-    align-items: center !important;
-    text-align: center !important
-}
 
 .btn-back i {
     position: relative;
@@ -3166,7 +3210,7 @@ select::-ms-expand {
     top: 42px;
     font-size: 27px;
 	z-index:1;
-	pointer-events: none;
+	pointer-events: none !important;
 }
 
 .raceUi:after {
@@ -3180,7 +3224,7 @@ select::-ms-expand {
     top: 28px;
     font-size: 27px;
 	z-index:1;
-	pointer-events: none;
+	pointer-events: none !important;
 }
 
 .raceUi select {
@@ -3210,7 +3254,7 @@ select::-ms-expand {
     position: relative;
     font-size: 27px;
     top: 4px;
-    color: #ef426f
+    color: #FF0266
 }
 
 #errMsg {
@@ -3218,14 +3262,14 @@ select::-ms-expand {
     font-size: 16px;
     top: 10px;
     font-family: "OpenSans Regular";
-    color: #ef426f
+    color: #FF0266
 }
 
 .msgErr i {
     position: relative;
     font-size: 27px;
     top: 3px;
-    color: #ef426f
+    color: #FF0266;
 }
 
 .msgErr {
@@ -3233,14 +3277,14 @@ select::-ms-expand {
     font-size: 16px;
     top: 6px;
     font-family: "OpenSans Regular";
-    color: #ef426f
+    color: #FF0266;
 }
 
 #barCodeErrMsg i {
     position: relative;
     font-size: 27px;
     top: 4px;
-    color: #ef426f
+    color: #FF0266
 }
 
 #barCodeErrMsg {
@@ -3248,14 +3292,14 @@ select::-ms-expand {
     font-size: 16px;
     top: 10px;
     font-family: "OpenSans Regular";
-    color: #ef426f
+    color: #FF0266
 }
 
 #demoDataErr i {
     position: relative;
     font-size: 27px;
     top: 4px;
-    color: #ef426f
+    color: #FF0266
 }
 
 #demoDataErr {
@@ -3263,14 +3307,14 @@ select::-ms-expand {
     font-size: 16px;
     top: -5px;
     font-family: "OpenSans Regular";
-    color: #ef426f
+    color: #FF0266
 }
 
 #testSiteErr i {
     position: relative;
     font-size: 27px;
     top: 4px;
-    color: #ef426f
+    color: #FF0266
 }
 
 #testSiteErr {
@@ -3278,14 +3322,14 @@ select::-ms-expand {
     font-size: 16px;
     top: 10px;
     font-family: "OpenSans Regular";
-    color: #ef426f
+    color: #FF0266
 }
 
 #errMsg_1 i {
     position: relative;
     font-size: 27px;
     top: 4px;
-    color: #ef426f
+    color: #FF0266
 }
 
 #errMsg_1 {
@@ -3293,14 +3337,14 @@ select::-ms-expand {
     font-size: 16px;
     top: 10px;
     font-family: "OpenSans Regular";
-    color: #ef426f
+    color: #FF0266
 }
 
 #emailMissing i {
     position: relative;
     font-size: 27px;
     top: 4px;
-    color: #ef426f
+    color: #FF0266
 }
 
 #emailMissing {
@@ -3308,14 +3352,14 @@ select::-ms-expand {
     font-size: 16px;
     top: 10px;
     font-family: "OpenSans Regular";
-    color: #ef426f
+    color: #FF0266
 }
 
 #otpErrMsg i {
     position: relative;
     font-size: 27px;
     top: 4px;
-    color: #ef426f
+    color: #FF0266
 }
 
 #otpErrMsg {
@@ -3323,14 +3367,14 @@ select::-ms-expand {
     font-size: 16px;
     top: 10px;
     font-family: "OpenSans Regular";
-    color: #ef426f
+    color: #FF0266
 }
 
 #otpErrMsg_1 i {
     position: relative;
     font-size: 27px;
     top: 4px;
-    color: #ef426f
+    color: #FF0266
 }
 
 #otpErrMsg_1 {
@@ -3338,13 +3382,13 @@ select::-ms-expand {
     font-size: 16px;
     top: 10px;
     font-family: "OpenSans Regular";
-    color: #ef426f
+    color: #FF0266
 }
 
 .alertErr i {
     position: relative;
     font-size: 32px;
-    color: #ef426f
+    color: #FF0266
 }
 
 .hideErr {
@@ -3442,6 +3486,11 @@ button {
     position: relative
 }
 
+.login-btn a:active, 
+.login-btn a:hover, 
+.login-btn a:focus {
+	
+}
 .btn-log {
     background: #c4d600;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -3456,6 +3505,7 @@ button {
 }
 
 .btn-log:focus,
+.btn-log:active,
 .btn-log:hover {
     text-align: center !important;
     background: #fff !important;
@@ -3472,8 +3522,8 @@ button {
 .btn-log i {
     position: relative;
     font-size: 26px !important;
-    top: 1px;
-    text-align: center !important
+    top: 2px;
+    text-align: center !important;
 }
 
 .btn-blue {
@@ -3492,10 +3542,10 @@ button {
 .btn-blue:focus,
 .btn-blue:hover {
     text-align: center !important;
-    background: #fff !important;
-    border: 3px solid #13294B;
+    background: #4B9CD3 !important;
+    border: 3px solid #4B9CD3;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #13294b !important;
+    color: #FFFFFF !important;
     letter-spacing: 0;
     font-size: 20px;
     font-weight: 700;
@@ -3665,6 +3715,16 @@ button {
     width: auto
 }
 
+.btn-back-1 i {
+    position: relative;
+    top: 1px;
+    float: left;
+    vertical-align: middle !important;
+    margin: 0 auto;
+    font-size: 25px;
+    align-items: center !important;
+    text-align: center !important
+}
 .btn-back-1 {
     border: 3px solid #ededea;
     background: #ededea;
@@ -3691,7 +3751,42 @@ button {
     display: block
 }
 
+.backBtn i {
+    position: relative;
+    top: 1px;
+    float: left;
+    vertical-align: middle !important;
+    margin: 0 auto;
+    font-size: 25px;
+    align-items: center !important;
+    text-align: center !important
+}
+.backBtn {
+    border: 3px solid #ededea;
+    background: #ededea;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #13294b;
+    letter-spacing: 0;
+    font-size: 20px;
+    font-weight: 700;
+    width: auto;
+    text-align: center !important;
+	display:inline-block;
+}
 
+.backBtn:active,
+.backBtn:focus,
+.backBtn:hover {
+    border: 3px solid #13294b;
+    background: #13294b;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #fff !important;
+    letter-spacing: 0;
+    font-size: 20px;
+    font-weight: 700;
+    width: auto;
+    display:inline-block;
+}
 
 
 .ManuallButton {
@@ -3945,6 +4040,55 @@ button {
     padding: 5px 0 5px 5px !important
 }
 
+.class-search-btn button i {
+    position: relative;
+    top: 3px;
+    font-size: 18px !important;
+    margin-left: 3px;
+    margin-right: 3px;
+    text-align: center !important
+}
+
+
+
+.class-search-btn a {
+    position: relative;
+    background: #13294b;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #fff !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 5px 0 5px 5px !important;
+    top: 10px
+}
+
+.class-search-btn a:active,
+.class-search-btn a:focus,
+.class-search-btn a:hover {
+    position: relative;
+    background: #4b9cd3;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #fff !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 5px 0 5px 5px !important
+}
+
+.class-search-btn a i {
+    position: relative;
+    top: 2px;
+    font-size: 18px !important;
+    margin-left: 3px;
+    margin-right: 3px;
+    text-align: center !important
+}
+
 .class-search button {
     position: relative;
     background: #13294b;
@@ -3973,16 +4117,9 @@ button {
     padding: 5px 0 5px 5px !important
 }
 
-.class-search-btn button i {
-    position: relative;
-    top: 3px;
-    font-size: 18px !important;
-    margin-left: 3px;
-    margin-right: 3px;
-    text-align: center !important
-}
 
-.search-details-btn button {
+
+.search-details-btn a {
     position: relative;
     background: #13294b;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -3995,9 +4132,9 @@ button {
     padding: 11px 10px
 }
 
-.search-details-btn button:active,
-.search-details-btn button:focus,
-.search-details-btn button:hover {
+.search-details-btn a:active,
+.search-details-btn a:focus,
+.search-details-btn a:hover {
     position: relative;
     background: #4b9cd3;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -4358,52 +4495,88 @@ button {
     margin: 0 auto
 }
 
+/* **********************************
+	MY TESTING CONTENTS STYLES
+********************************** */
 .testContentGreen {
-    position: relative;
-    top: -3px
-}
-
-.testContentGreen table {
     position: relative;
     margin: 0 auto;
     top: 0;
     padding: 0 !important;
     width: 100% !important;
-    border: 5px solid #c4d600
+    border: 5px solid #c4d600;
 }
-
-.testContentGreen table tr td {
-    vertical-align: middle !important;
-    line-height: 30px
-}
-
-.testContentGreen table tr td:first-child {
+.testContentGreen div:first-child {
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #13294b !important;
     width: 20%;
     padding-left: 15px;
     font-size: 32px;
     background: #c4d600;
-    vertical-align: middle !important
+    vertical-align: middle !important;
 }
-
-.testContentGreen table tr td:nth-child(2) {
+.testContentBlue {
     position: relative;
-    width: 80%;
     margin: 0 auto;
-    padding: 10px 10px;
-    vertical-align: middle !important
+    top: 0;
+    padding: 0 !important;
+    width: 100% !important;
+    border: 5px solid #4b9cd3;
 }
-
+.testContentBlue div:first-child {
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #FFFFFF !important;
+    width: 20%;
+    padding-left: 15px;
+    font-size: 32px;
+    background: #4b9cd3;
+    vertical-align: middle !important;
+}
+.testContentPink {
+    position: relative;
+    margin: 0 auto;
+    top: 0;
+    padding: 0 !important;
+    width: 100% !important;
+    border: 5px solid #ef426f;
+}
+.testContentPink div:first-child {
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #FFFFFF !important;
+    width: 20%;
+    padding-left: 15px;
+    font-size: 32px;
+    background: #ef426f;
+    vertical-align: middle !important;
+}
+.testContentYellow {
+    position: relative;
+    margin: 0 auto;
+    top: 0;
+    padding: 0 !important;
+    width: 100% !important;
+    border: 5px solid #ffea00;
+}
+.testContentYellow div:first-child {
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #13294b !important;
+    width: 20%;
+    padding-left: 15px;
+    font-size: 32px;
+    background: #ffea00;
+    vertical-align: middle !important;
+}
 .testContent-title {
+	position:relative;
     font-size: 16px;
     font-family: "OpenSans Regular";
     color: #13294b !important;
-    margin-bottom: 0;
+	margin: 0 auto;
     float: left;
-    padding-left: 15px
+    padding-left: 15px;
+    padding-top: 6px;
+	vertical-align:middle !important;
 }
-
 .test-content-date-time {
     position: relative;
     text-transform: uppercase;
@@ -4412,118 +4585,8 @@ button {
     margin: 0 auto;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     float: left;
-    padding-left: 15px
-}
-
-.testContentBlue {
-    position: relative;
-    top: -3px
-}
-
-.testContentBlue table {
-    position: relative;
-    margin: 0 auto;
-    top: 0;
-    padding: 0 !important;
-    width: 100% !important;
-    border: 5px solid #4b9cd3
-}
-
-.testContentBlue table tr td {
-    vertical-align: middle !important;
-    line-height: 30px
-}
-
-.testContentBlue table tr td:first-child {
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #fff !important;
-    width: 20%;
     padding-left: 15px;
-    font-size: 32px;
-    background: #4b9cd3;
-    vertical-align: middle !important
-}
-
-.testContentBlue table tr td:nth-child(2) {
-    position: relative;
-    width: 60%;
-    margin: 0 auto;
-    padding: 10px 10px;
-    vertical-align: middle !important
-}
-
-.testContentPink {
-    position: relative;
-    top: -3px
-}
-
-.testContentPink table {
-    position: relative;
-    margin: 0 auto;
-    top: 0;
-    padding: 0 !important;
-    width: 100% !important;
-    border: 5px solid #ef426f
-}
-
-.testContentPink table tr td {
-    vertical-align: middle !important;
-    line-height: 30px
-}
-
-.testContentPink table tr td:first-child {
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #fff !important;
-    width: 20%;
-    padding-left: 15px;
-    font-size: 32px;
-    background: #ef426f;
-    vertical-align: middle !important
-}
-
-.testContentPink table tr td:nth-child(2) {
-    position: relative;
-    width: 80%;
-    margin: 0 auto;
-    padding: 10px 10px;
-    vertical-align: middle !important
-}
-
-.testContentYellow {
-    position: relative;
-    top: -3px
-}
-
-.testContentYellow table {
-    position: relative;
-    margin: 0 auto;
-    top: 0;
-    padding: 0 !important;
-    width: 100% !important;
-    border: 5px solid #ffea00
-}
-
-.testContentYellow table tr td {
-    vertical-align: middle !important;
-    line-height: 30px
-}
-
-.testContentYellow table tr td:first-child {
-    font-family: "ITC Franklin Gothic LT Demi Compressed";
-    color: #13294b !important;
-    width: 20%;
-    padding-left: 15px;
-    font-size: 32px;
-    background: #ffea00;
-    vertical-align: middle !important
-}
-
-.testContentYellow table tr td:nth-child(2) {
-    position: relative;
-    width: 80%;
-    margin: 0 auto;
-    padding: 10px 10px;
-    vertical-align: middle !important
+	padding-top: 1px;
 }
 
 @media screen and (max-width:768px) {
@@ -4565,12 +4628,12 @@ ul.nav.nav-pills>li {
 .footerMenu {
     position: relative;
     margin-top: 0;
-    margin-bottom: 8px !important
+    /* margin-bottom: 8px !important; */
 }
 
 .footerMenu tr td {
     vertical-align: top !important;
-    padding: 0 0 !important;
+    padding:10px 10px 0px 10px !important;
 	text-transform: capitalize !important;
 }
 
@@ -4590,7 +4653,7 @@ ul.nav.nav-pills>li {
     text-decoration: none !important;
     font-family: "OpenSans Regular";
     font-weight: 500;
-    font-size: 14px
+    font-size: 13px !important;
 }
 
 .footerMenu tr td:first-child,
@@ -4605,18 +4668,25 @@ ul.nav.nav-pills>li {
 }
 
 .footer-content-1 {
-    position: fixed;
-    bottom: -5px !important;
+    position: relative;
+    bottom: 0 !important;
     width: 100%;
-    background: #13294b;
-    height: auto;
-    padding: 0 0 !important;
-    border-top: 6px solid #4b9cd3
+    background: #13294b !important;
+    height: 100% !important;
+	/* height:auto !important;
+	min-height:100% !important; */
+    border-top: 6px solid #4b9cd3;
+    border-bottom: 1px solid #13294b;
+	right: 0;
+    left: 0;
+	margin: 0 auto;
 }
 
 .footer-table-1 {
     width: 100%;
-    position: relative
+    position: relative;
+	bottom: 0px !important;
+	height:100% !important;
 }
 
 .footer-table-1 tr td {
@@ -5068,7 +5138,10 @@ ul.nav.nav-pills>li {
 .myTest-btn {
     position: relative;
     margin: 0 auto;
-    width: 100% !important
+    width: 100% !important;
+	align-items:center !important;
+	display:flex;
+	vertical-align: middle !important;
 }
 
 .myTest-btn img {
@@ -5077,7 +5150,7 @@ ul.nav.nav-pills>li {
     left: 5px
 }
 
-.myTest-btn button {
+.myTest-btn a {
     vertical-align: middle !important;
     background: #13294b;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -5087,14 +5160,13 @@ ul.nav.nav-pills>li {
     font-weight: 700;
     width: 100%;
     border-radius: 10px;
-    text-align: left;
-    padding: 2px 2px
+    /* padding: 10px 10px; */
 }
 
-.myTest-btn button:active,
-.myTest-btn button:focus,
-.myTest-btn button:hover {
-    vertical-align: middle !important;
+.myTest-btn a:active,
+.myTest-btn a:focus,
+.myTest-btn a:hover {
+	vertical-align: middle !important;
     background: #4b9cd3;
     font-family: "ITC Franklin Gothic LT Demi Compressed";
     color: #fff;
@@ -5103,14 +5175,11 @@ ul.nav.nav-pills>li {
     font-weight: 700;
     width: 100%;
     border-radius: 10px;
-    text-align: left;
-    padding: 2px 2px
 }
 
 .myTest-btn span {
     position: relative;
-    top: 5px;
-    left: 10px
+	top: 5px;
 }
 
 .myTest-btn button:hover {
@@ -5119,11 +5188,10 @@ ul.nav.nav-pills>li {
     -webkit-box-shadow: none !important
 }
 
-.myTest-btn i {
+.myTest-btn a i {
     position: relative;
-    top: 4px;
+	top: 3px;
     font-size: 35px;
-    float: right
 }
 
 .my-reservations-btn button {
@@ -5166,6 +5234,73 @@ ul.nav.nav-pills>li {
     font-size: 25px;
     float: right
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.myReservationsBtn button {
+    vertical-align: middle !important;
+    background: #c4d600;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #13294b !important;
+    letter-spacing: 0;
+    font-size: 20px;
+    font-weight: 700;
+    width: auto;
+    border-radius: 10px;
+    text-align: left;
+    padding-left: 15px;
+    display: inline-block;
+    border: 3px solid #c4d600
+}
+
+.myReservationsBtn button:active,
+.myReservationsBtn button:focus,
+.myReservationsBtn button:hover {
+    vertical-align: middle !important;
+    border: 3px solid #c4d600;
+    background: #fff;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #13294b !important;
+    letter-spacing: 0;
+    font-size: 20px;
+    font-weight: 700;
+    width: auto;
+    border-radius: 10px;
+    text-align: left;
+    padding-left: 15px;
+    display: inline-block
+}
+
+.myReservationsBtn i {
+    position: relative;
+    top: 2px;
+    font-size: 25px;
+    float: right
+}
+
+
+
+
+
+
+
+
+
+
 
 .scan-btn {
     position: relative;
@@ -5411,7 +5546,7 @@ ul.nav.nav-pills>li {
 }
 
 #scanCompleteLayout.show {
-    position: fixed;
+	position: fixed;
     width: 100%;
     height: 100vh;
     text-align: center;
@@ -5425,24 +5560,26 @@ ul.nav.nav-pills>li {
     right: 0;
     top: 0;
     display: flex;
-    align-items: center !important
+    align-items: center !important;
 }
 
-#scanCompleteLayout.show h1 {
+#scanCompleteLayout.show div {
 	position:relative;
 	margin:0 auto;
 	font-family:"ITC Franklin Gothic LT Demi Compressed";
 	color:#13294b;
 	text-align:center!important;
 	letter-spacing:0;
-	font-size:50px;
+	font-size:30px;
 }
 
 #scanCompleteLayout.show img {
     position: relative;
     margin: 0 auto;
     display: flex;
-    text-align: center !important
+    text-align: center !important;
+	width:auto;
+	height:auto;
 }
 
 #infographic {
@@ -5637,8 +5774,9 @@ ul.nav.nav-pills>li {
     border: 1px solid #ededea
 }
 
-.ui-menu .ui-menu-item:hover {
-    background: #e1e1e1 !important
+.ui-menu .ui-menu-item:hover,
+.ui-menu .ui-menu-item:focus {
+    background: #EDEDEA !important
 }
 
 .ui-menu {
@@ -5739,41 +5877,70 @@ ul.nav.nav-pills>li {
 	color:#FFFFFF !important;
 	padding-left: 15px;
 	padding-top:10px;
-	padding-bottom:10px;
+	padding-bottom:8px;
 	border-top-right-radius:15px;
 	border-bottom-right-radius:15px;
 }
 .testing-subtitle {
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
-	font-size: 22px;
+	font-size: 23px;
 	color:#FFFFFF !important;
+	padding-left:7px;
 }
-.testing-subtitle span {
+.bulletNumbers {
+	position:relative;
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
 	background: #4b9cd3;
 	color:#FFFFFF !important;
-	border-radius:10px;
-	padding:3px 10px 3px 10px;
+	border-radius:7px;
+	font-size: 30px;
+	width:40px;
+	text-align:center;	
 }
-.testContentStyle {
-	padding-left:20px;
-}
+
 .testContentStyle_1 p {
 	font-size: 15px !important;
     font-family: "OpenSans Regular";
-	padding-top:15px;
+	padding-top:14px;
 	color:#FFFFFF !important;
+}
+.testContentStyle {
+	padding:10px 10px;
 }
 .testContentStyle p {
 	font-size: 15px !important;
     font-family: "OpenSans Regular";
 	color:#FFFFFF !important;
+	padding-left:7px;
 }
 .testContentStyle ul li {
 	font-size: 15px;
+	padding-top: 7px;
+	padding-left: 30px;
     font-family: "OpenSans Regular";
-	padding-left:12px;
 	color:#FFFFFF;
+}
+.testContentStyle-2 ul li {
+	position:relative;
+	margin-left:-10px;
+	font-size: 15px;
+	padding-top: 7px;
+    font-family: "OpenSans Regular";
+	color:#FFFFFF;
+}
+.testContentStyle-2 ul {
+	list-style: none;
+	color:#FFFFFF;
+	padding-top:10px;
+}
+.testContentStyle-2 ul li::before {
+	content: "\2022";
+	color: #C4D600;
+	font-weight: bold;
+	display: inline-block; 
+	width: 1em;
+	margin-left: -1em;
+	font-family: feather;
 }
 .testContentStyle ul {
 	list-style: none;
@@ -5804,14 +5971,17 @@ ul.nav.nav-pills>li {
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
 	font-size: 50px;
 	color:#FFFFFF;
+	padding-left:20px;
 }
-.testing-subtitle-1 span {
+.bulletPoint {
+	position:relative;
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
 	background: #4b9cd3;
-	color:#FFFFFF;
-	border-radius:15px;
-	position:relative;
-	padding:3px 20px 3px 20px !important;
+	color:#FFFFFF !important;
+	border-radius:7px;
+	font-size: 35px;
+	width:45px;
+	text-align:center;
 }
 .testing-page-content {
 	position:relative;
@@ -5960,8 +6130,17 @@ ul.nav.nav-pills>li {
 }
 
 @media only screen and (min-width:320px) and (max-width:768px) {
-	
-	
+	.qrcode img {
+		position:relative;
+		width:100%;
+		height:100%;
+		margin:0 auto;
+		padding:10px 15px;
+	}
+	.section-vh {
+		position:relative;
+		height:65vh;
+	}
 	.infoContent {
 		position:relative;
 		padding-top:15px;padding-bottom:15px;width:100%;height:100%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
@@ -6042,7 +6221,23 @@ ul.nav.nav-pills>li {
 		position:relative;
 		/* top:3px; */
 	}
+	
     .class-search-btn button {
+        position: relative;
+        background: #13294b;
+        font-family: "ITC Franklin Gothic LT Demi Compressed";
+        color: #fff !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0;
+        font-weight: 700;
+        font-size: 15px;
+        border-radius: 5px;
+        padding: 5px 0 5px 5px !important;
+        float: right;
+        top: -56px
+    }
+	
+	.class-search-btn a {
         position: relative;
         background: #13294b;
         font-family: "ITC Franklin Gothic LT Demi Compressed";
@@ -6101,197 +6296,6 @@ ul.nav.nav-pills>li {
         border: none
     }
 
-    .headTab-Blue table {
-        position: relative;
-        margin: 0 auto;
-        padding: 0 !important;
-        width: 100% !important;
-        z-index: -1
-    }
-
-    .headTab-Blue table tr td {
-        line-height: 27px
-    }
-
-    .headTab-Blue table tr td:first-child {
-        font-family: "ITC Franklin Gothic LT Demi Compressed";
-        color: #fff !important;
-        font-size: 27px;
-        padding-top: 7px;
-        padding-bottom: 7px;
-        padding-left: 25px;
-        padding-right: 25px;
-        width: 60%;
-        background: #4b9cd3;
-        border-top: none;
-        border-left: none;
-        border-right: none
-    }
-
-    .headTab-Blue table tr td:last-child {
-        width: 40%;
-        border: none
-    }
-
-    .headTab-pink table {
-        position: relative;
-        margin: 0 auto;
-        padding: 0 !important;
-        width: 100% !important;
-        z-index: -1;
-        top: 3px
-    }
-
-    .headTab-pink table tr td {
-        line-height: 40px
-    }
-
-    .headTab-pink table tr td:first-child {
-        font-family: "ITC Franklin Gothic LT Demi Compressed";
-        color: #fff !important;
-        width: 100%;
-        padding-left: 15px;
-        font-size: 32px;
-        background: #ef426f;
-        border-top: none;
-        border-left: none;
-        border-right: none
-    }
-
-    .testContentPink {
-        position: relative;
-        top: -3px
-    }
-
-    .testContentPink table {
-        position: relative;
-        margin: 0 auto;
-        top: 0;
-        padding: 0 !important;
-        width: 100% !important;
-        border-top: none !important;
-        border-bottom: 5px solid #ef426f;
-        border-left: 5px solid #ef426f;
-        border-right: 5px solid #ef426f
-    }
-
-    .testContentPink table tr td {
-        border-top: none !important;
-        vertical-align: middle
-    }
-
-    .testContentPink table tr td:first-child {
-        position: relative;
-        width: 60%;
-        margin: 0 auto;
-        padding: 10px 10px
-    }
-
-    .testContentPink table tr td:last-child {
-        position: relative;
-        width: 40%
-    }
-
-    .testContentPink table tr td:last-child img {
-        position: relative;
-        width: 100%;
-        padding: 5px 0 0 0;
-        height: auto
-    }
-
-    .testContentPink-title {
-        font-size: 16px;
-        font-family: "OpenSans Regular";
-        color: #13294b !important;
-        margin-bottom: 0
-    }
-
-    .testContent-title-pink {
-        font-size: 20px;
-        font-family: "OpenSans Regular";
-        color: #13294b !important;
-        margin-bottom: 0
-    }
-
-    .headTab-yellow table {
-        position: relative;
-        margin: 0 auto;
-        padding: 0 !important;
-        width: 100% !important;
-        z-index: -1;
-        top: 3px
-    }
-
-    .headTab-yellow table tr td {
-        line-height: 40px
-    }
-
-    .headTab-yellow table tr td:first-child {
-        font-family: "ITC Franklin Gothic LT Demi Compressed";
-        color: #13294b !important;
-        width: 100%;
-        padding-left: 15px;
-        font-size: 32px;
-        background: #ffea00;
-        border-top: none;
-        border-left: none;
-        border-right: none
-    }
-
-    .testContentYellow {
-        position: relative;
-        top: -3px
-    }
-
-    .testContentYellow table {
-        position: relative;
-        margin: 0 auto;
-        top: 0;
-        padding: 0 !important;
-        width: 100% !important;
-        border-top: none !important;
-        border-bottom: 5px solid #ffea00;
-        border-left: 5px solid #ffea00;
-        border-right: 5px solid #ffea00
-    }
-
-    .testContentYellow table tr td {
-        border-top: none !important;
-        vertical-align: middle
-    }
-
-    .testContentYellow table tr td:first-child {
-        position: relative;
-        width: 60%;
-        margin: 0 auto;
-        padding: 10px 10px
-    }
-
-    .testContentYellow table tr td:last-child {
-        position: relative;
-        width: 40%
-    }
-
-    .testContentYellow table tr td:last-child img {
-        position: relative;
-        width: 100%;
-        padding: 5px 0 0 0;
-        height: auto
-    }
-
-    .testContentYellow-title {
-        font-size: 16px;
-        font-family: "OpenSans Regular";
-        color: #13294b !important;
-        margin-bottom: 0
-    }
-
-    .testContent-title-yellow {
-        font-size: 20px;
-        font-family: "OpenSans Regular";
-        color: #13294b !important;
-        margin-bottom: 0
-    }
 
     .breadcrumb {
         font-family: "OpenSans Regular";
@@ -6442,6 +6446,15 @@ ul.nav.nav-pills>li {
         margin-top: 105px !important;
 		height:100%;
         overflow-y: auto;
+		margin-bottom:100px !important;
+    }
+	
+	.mobile-view-home-test {
+        position: relative;
+        margin-top: 105px !important;
+		height:100%;
+        overflow-y: auto;
+		margin-bottom:71px !important;
     }
 
     .mobile-view-custom {
@@ -6661,6 +6674,43 @@ ul.nav.nav-pills>li {
         align-items: center !important;
         text-align: center !important
     }
+	
+	.backBtn {
+		position: relative;
+        top: 2px;
+        float: left;
+        vertical-align: middle !important;
+        margin: 0 auto;
+        font-size: 25px;
+        align-items: center !important;
+        text-align: center !important
+	}
+	.backBtn {
+		border: 3px solid #ededea;
+		background: #ededea;
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #13294b;
+		letter-spacing: 0;
+		font-size: 20px;
+		font-weight: 700;
+		width: auto;
+		text-align: center !important;
+		display:block;
+	}
+
+	.backBtn:active,
+	.backBtn:focus,
+	.backBtn:hover {
+		border: 3px solid #13294b;
+		background: #13294b;
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #fff !important;
+		letter-spacing: 0;
+		font-size: 20px;
+		font-weight: 700;
+		width: auto;
+		display:block;
+	}
 
     .btn-add {
         background: #c4d600;
@@ -6706,31 +6756,117 @@ ul.nav.nav-pills>li {
         position: relative;
         margin: 0 auto;
         padding: 0 0;
-        margin-bottom: 0
+        margin-bottom: 4px;
+		margin-top: 0px;
     }
-
-    .hallpassTable table tr td {
+	/* **************************************
+		MY TESTING CONTENTS -STYLES
+	************************************** */
+	/* **************************************
+		GREEN TESTING -STYLES
+	************************************** */
+    .headTab-green div {
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #13294b !important;
+		width: 100%;
+		font-size: 32px;
+		background: #c4d600;
+		padding:3px 10px;
+		vertical-align: middle !important;
+		position:relative;
+	}
+	.testContentGreen {
+		position: relative;
+		margin: 0 auto;
+		top: 0;
+		padding: 0 !important;
+		width: 100% !important;
+		border-top:none;
+		border-left: 5px solid #c4d600;
+		border-right: 5px solid #c4d600;
+		border-bottom: 5px solid #c4d600;
+	}
+	/* **************************************
+		BLUE TESTING -STYLES
+	************************************** */
+	.headTab-Blue div {
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #FFFFFF !important;
+		width: 100%;
+		font-size: 32px;
+		background: #4b9cd3;
+		padding:3px 10px;
+		vertical-align: middle !important;
+		position:relative;
+	}
+	.testContentBlue {
         position: relative;
-        width: 100% !important
+		margin: 0 auto;
+		top: 0;
+		padding: 0 !important;
+		width: 100% !important;
+		border-top:none;
+		border-left: 5px solid #4b9cd3;
+		border-right: 5px solid #4b9cd3;
+		border-bottom: 5px solid #4b9cd3;
     }
-
-    .headTab-green table {
+	/* **************************************
+		PINK TESTING -STYLES
+	************************************** */
+	.headTab-pink div {
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #FFFFFF !important;
+		width: 100%;
+		font-size: 32px;
+		background: #ef426f;
+		padding:3px 10px;
+		vertical-align: middle !important;
+		position:relative;
+	}
+	.testContentPink {
         position: relative;
-        margin: 0 auto;
-        padding: 0 !important;
-        width: 100% !important;
-        z-index: -1
+		margin: 0 auto;
+		top: 0;
+		padding: 0 !important;
+		width: 100% !important;
+		border-top:none;
+		border-left: 5px solid #ef426f;
+		border-right: 5px solid #ef426f;
+		border-bottom: 5px solid #ef426f;
     }
-
-    .testContent-title {
+	/* **************************************
+		YELLOW TESTING -STYLES
+	************************************** */
+	.headTab-yellow div {
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #13294b !important;
+		width: 100%;
+		font-size: 32px;
+		background: #ffea00;
+		padding:3px 10px;
+		vertical-align: middle !important;
+		position:relative;
+	}
+	.testContentYellow {
+        position: relative;
+		margin: 0 auto;
+		top: 0;
+		padding: 0 !important;
+		width: 100% !important;
+		border-top:none;
+		border-left: 5px solid #ffea00;
+		border-right: 5px solid #ffea00;
+		border-bottom: 5px solid #ffea00;
+    }
+	/* ********************************************* */
+	.testContent-title {
         font-size: 16px;
         font-family: "OpenSans Regular";
         color: #13294b !important;
         margin-bottom: 0;
-        float: none !important
+        float: none !important;
     }
-
-    .test-content-date-time {
+	.test-content-date-time {
         position: relative;
         text-transform: uppercase;
         font-size: 25px;
@@ -6738,8 +6874,13 @@ ul.nav.nav-pills>li {
         margin: 0 auto;
         font-family: "ITC Franklin Gothic LT Demi Compressed";
         float: none !important;
-        top: -5px
+        top: -5px;
     }
+	/* ******************************************************************************************************** */
+
+    
+
+    
 
     .headTab-blueTest table {
         position: relative;
@@ -6766,59 +6907,12 @@ ul.nav.nav-pills>li {
         border-right: none
     }
 
-    .testContentBlue {
-        position: relative;
-        top: -3px
-    }
-
-    .testContentBlue table {
-        position: relative;
-        margin: 0 auto;
-        top: 0;
-        padding: 0 !important;
-        width: 100% !important;
-        border-top: none !important;
-        border-bottom: 5px solid #4b9cd3;
-        border-left: 5px solid #4b9cd3;
-        border-right: 5px solid #4b9cd3
-    }
-
-    .testContentBlue table tr td {
-        border-top: none !important;
-        vertical-align: middle
-    }
-
-    .testContentBlue table tr td:first-child {
-        position: relative;
-        width: 60%;
-        margin: 0 auto;
-        padding: 10px 10px
-    }
-
-    .testContentBlue table tr td:last-child {
-        position: relative;
-        width: 40%
-    }
-
-    .testContentBlue table tr td:last-child img {
-        position: relative;
-        width: 100%;
-        padding: 5px 0 0 0;
-        height: auto
-    }
-
-    .testContentBlue-title {
-        font-size: 16px;
-        font-family: "OpenSans Regular";
-        color: #13294b !important;
-        margin-bottom: 0
-    }
 
     #errMsg i {
         position: relative;
         font-size: 27px;
         top: 4px;
-        color: #ef426f
+        color: #FF0266
     }
 
     #errMsg {
@@ -6826,14 +6920,14 @@ ul.nav.nav-pills>li {
         font-size: 16px;
         top: 10px;
         font-family: "OpenSans Regular";
-        color: #ef426f
+        color: #FF0266
     }
 
     .msgErr i {
         position: relative;
         font-size: 27px;
         top: 4px;
-        color: #ef426f
+        color: #FF0266
     }
 
     .msgErr {
@@ -6841,14 +6935,14 @@ ul.nav.nav-pills>li {
         font-size: 16px;
         top: 3px;
         font-family: "OpenSans Regular";
-        color: #ef426f
+        color: #FF0266
     }
 
     #errMsg_1 i {
         position: relative;
         font-size: 27px;
         top: 4px;
-        color: #ef426f
+        color: #FF0266
     }
 
     #errMsg_1 {
@@ -6856,14 +6950,14 @@ ul.nav.nav-pills>li {
         font-size: 16px;
         top: 10px;
         font-family: "OpenSans Regular";
-        color: #ef426f
+        color: #FF0266
     }
 
     #emailMissing i {
         position: relative;
         font-size: 27px;
         top: 4px;
-        color: #ef426f
+        color: #FF0266
     }
 
     #emailMissing {
@@ -6871,14 +6965,14 @@ ul.nav.nav-pills>li {
         font-size: 16px;
         top: 10px;
         font-family: "OpenSans Regular";
-        color: #ef426f
+        color: #FF0266
     }
 
     #otpErrMsg i {
         position: relative;
         font-size: 27px;
         top: 4px;
-        color: #ef426f
+        color: #FF0266
     }
 
     #otpErrMsg {
@@ -6886,14 +6980,14 @@ ul.nav.nav-pills>li {
         font-size: 16px;
         top: 10px;
         font-family: "OpenSans Regular";
-        color: #ef426f
+        color: #FF0266
     }
 
     #otpErrMsg_1 i {
         position: relative;
         font-size: 27px;
         top: 4px;
-        color: #ef426f
+        color: #FF0266
     }
 
     #otpErrMsg_1 {
@@ -6901,13 +6995,13 @@ ul.nav.nav-pills>li {
         font-size: 16px;
         top: 10px;
         font-family: "OpenSans Regular";
-        color: #ef426f
+        color: #FF0266
     }
 
     .alertErr i {
         position: relative;
         font-size: 32px;
-        color: #ef426f
+        color: #FF0266
     }
 
     .hideErr {
@@ -6945,7 +7039,7 @@ ul.nav.nav-pills>li {
         margin: 0;
         padding: 0;
         border: none !important;
-        margin-top: 40px;
+        margin-top: 70px;
         background: #c4d600
     }
 
@@ -6958,7 +7052,7 @@ ul.nav.nav-pills>li {
         width: 100%
     }
 
-    #topnav .navigation-menu>li.has-submenu:before {
+    /* #topnav .navigation-menu>li.has-submenu:before {
         color: #13294b !important;
         position: absolute;
         -webkit-transition: all .5s;
@@ -6971,13 +7065,11 @@ ul.nav.nav-pills>li {
         font-family: feather;
         content: "\e8b1";
         display: block;
-        z-index: -1 !important
-    }
+        z-index: -1 !important;
+    } */
 
-    #topnav .navigation-menu>li.has-submenu.open:before {
+    /* #topnav .navigation-menu>li.has-submenu.open:before {
         font-size: 30px;
-		/* border-bottom:2px solid #EFEFEF; */
-        /* color: #13294b !important; */
         position: absolute;
         -webkit-transition: all .5s;
         transition: all .5s;
@@ -6988,7 +7080,53 @@ ul.nav.nav-pills>li {
         content: "\e897";
         display: inline-block;
         z-index: -1 !important
-    }
+    } */
+	
+	
+	#topnav .navigation-menu .collapseMenu li a {
+		position:relative;
+		padding: 5px 20px;
+		display:block;
+		margin-left:25px;
+        white-space: nowrap;
+        font-size: 30px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+	}
+	.menuIcon {
+		position:relative;
+		font-weight: normal;
+		float:right;
+		top:10px;
+	}
+	#topnav .navigation-menu .collapseMenu li.active {
+		position:relative;
+		display:block;
+        white-space: nowrap;
+        font-size: 30px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+		text-decoration: underline !important;
+	}
+	
+	#topnav .navigation-menu .collapseMenu li:hover {
+		position:relative;
+		display:block;
+        white-space: nowrap;
+        font-size: 30px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+		text-decoration: underline !important;
+	}
 
     #topnav .navigation-menu>li>a {
         display: block;
@@ -7022,13 +7160,12 @@ ul.nav.nav-pills>li {
     #topnav .navigation-menu>li>a:hover {
         color: #13294b !important
     } */
-	#topnav .has-submenu.active .submenu li.active>a {
+	/* #topnav .has-submenu.active .submenu li.active>a {
         color: #13294b !important;
 		text-decoration: underline !important;
 		background:transparent !important;
 		padding-left: 20px;
-		/* text-decoration: underline solid #13294b 2px !important; */
-    }
+    } */
 	
     #topnav .navigation-menu>li>a:focus,
 	#topnav .navigation-menu>li>a:hover {
@@ -7141,10 +7278,10 @@ ul.nav.nav-pills>li {
 	.btn-blue:focus,
 	.btn-blue:hover {
 		text-align: center !important;
-		background: #fff !important;
-		border: 3px solid #13294B;
+		background: #4B9CD3 !important;
+		border: 3px solid #4B9CD3;
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		color: #13294b !important;
+		color: #FFFFFF !important;
 		letter-spacing: 0;
 		font-size: 20px;
 		font-weight: 700;
@@ -7373,9 +7510,10 @@ ul.nav.nav-pills>li {
         height: 30vh
     }
 
-    .ui-menu .ui-menu-item:hover {
-        background: #e1e1e1 !important
-    }
+    .ui-menu .ui-menu-item:hover,
+	.ui-menu .ui-menu-item:focus {
+		background: #EDEDEA !important
+	}
 
     .ui-menu {
         list-style: none;
@@ -7512,22 +7650,24 @@ ul.nav.nav-pills>li {
 	}
 	.testing-subtitle {
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
-		font-size: 30px;
+		font-size: 20px;
+		color:#FFFFFF !important;
+		padding-left:7px;
 	}
-	.testing-subtitle span {
+	.bulletNumbers {
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
 		background: #4b9cd3;
-		border-radius:10px;
-		padding:1px 10px 1px 10px;
-		color:#FFFFFF;
-	}
-	.testContentStyle {
-		padding-left:20px;
+		color:#FFFFFF !important;
+		border-radius:7px;
+		font-size: 24px;
+		width:30px;
+		text-align:center;
+		padding-top:4px;
 	}
 	.testContentStyle_1 p {
 		font-size: 15px !important;
 		font-family: "OpenSans Regular";
-		padding:10px 10px;
+		padding:15px 15px;
 		color:#FFFFFF;
 	}
 	.testContentStyle p {
@@ -7550,6 +7690,27 @@ ul.nav.nav-pills>li {
 		display: inline-block; 
 		width: 1em;
 		margin-left: -1em;
+	}
+	.bulletPoint {
+		position:relative;
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		background: #4b9cd3;
+		color:#FFFFFF !important;
+		border-radius:7px;
+		font-size: 23px;
+		width:auto;
+		padding-top:3px;
+		padding-left:10px;
+		padding-right:10px;
+		text-align:center;
+	}
+	.testContentStyle-2 ul li {
+		position:relative;
+		margin-left:27px;
+		font-size: 15px;
+		padding-top: 7px;
+		font-family: "OpenSans Regular";
+		color:#FFFFFF;
 	}
 	.quaAdd ul {
 		list-style: none;
@@ -7578,23 +7739,31 @@ ul.nav.nav-pills>li {
 	.testing-page-content {
 		position:relative;
 		margin:0 auto;
-		padding:20px 20px;
+		padding:15px 15px;
 	}
 	.tissueImg {
 		width:100%;
 		height:auto;
+		padding-top:10px;
+		padding-bottom:10px;
 	}
 	.nasalSwabImg {
 		width:100%;
 		height:auto;
+		padding-top:10px;
+		padding-bottom:10px;
 	}
 	.swabNoseImg {
 		width:100%;
 		height:auto;
+		padding-top:10px;
+		padding-bottom:10px;
 	}
 	.swabTubeImg {
 		width:100%;
 		height:auto;
+		padding-top:10px;
+		padding-bottom:10px;
 	}
 }
 
@@ -7635,40 +7804,9 @@ ul.nav.nav-pills>li {
         border: none
     }
 
-    .headTab-Blue table {
-        position: relative;
-        margin: 0 auto;
-        padding: 0 !important;
-        width: 100% !important;
-        z-index: -1
-    }
-
-    .headTab-Blue table tr td {
-        line-height: 27px
-    }
-
-    .headTab-Blue table tr td:first-child {
-        font-family: "ITC Franklin Gothic LT Demi Compressed";
-        color: #fff !important;
-        font-size: 27px;
-        padding-top: 7px;
-        padding-bottom: 7px;
-        padding-left: 25px;
-        padding-right: 25px;
-        width: 60%;
-        background: #4b9cd3;
-        border-top: none;
-        border-left: none;
-        border-right: none
-    }
-
-    .headTab-Blue table tr td:last-child {
-        width: 40%;
-        border: none
-    }
 	
-	.selectUi:after {
-		/* content: '\e842';
+	/* .selectUi:after {
+		content: '\e842';
 		display: block;
 		font-family: Feather;
 		color: #13294b !important;
@@ -7678,8 +7816,8 @@ ul.nav.nav-pills>li {
 		top: 50px;
 		font-size: 27px;
 		z-index:1;
-		pointer-events: none; */
-	}
+		pointer-events: none;
+	} */
 
     .recent-subject-code p {
         position: relative;
@@ -8257,4 +8395,29 @@ ul.nav.nav-pills>li {
 
 
 
+.mover {
+  -webkit-animation: mover 1s infinite alternate;
+          animation: mover 1s infinite alternate;
+}
 
+@-webkit-keyframes mover {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
+
+@keyframes mover {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
