@@ -190,6 +190,7 @@ function save_mobile_email(){
     $mobile = $('#phone_number').val();
  	if (!validateEmail($email)){
         $("#emailMissing").removeClass("hideErr");
+		return false;
 	}
 	else {
         $("#emailMissing").addClass("hideErr");
@@ -418,31 +419,24 @@ function save_demographics(){
 	$g = $('#gender').val();
     $r = $('#race').val();
     $e = $('#ethnicity').val();
-	isvalid = true;
 	if ($g == null || $g == ''){ 
 		markInvalid($('#genderErr'));
-		isvalid = false;
 		return false;
 	}
 	else
 		markValid($('#genderErr'));
-	if ($r == null || $r == ''){ 
-		markInvalid($('#raceErr'));
-		isvalid = false;
-		return false;
-	}
-	else
-		markValid($('#raceErr'));
 	if ($e == null || $e == ''){ 
 		markInvalid($('#ethnicityErr'));
-		isvalid = false;
 		return false;
 	}
 	else
 		markValid($('#ethnicityErr'));
-	if (!isvalid){
+	if ($r == null || $r == ''){ 
+		markInvalid($('#raceErr'));
 		return false;
 	}
+	else
+		markValid($('#raceErr'));
     $.ajax({
 	    url: '/secure/api/update_member_demographics',
 		type: 'POST',
@@ -839,7 +833,7 @@ function formatDate0() {
 }
 
 function formatDate() {
-	var d = new Date(new Date().toLocaleString("en-US", {timeZone: "US/Eastern"}));
+	var d = new Date(); //new Date().toLocaleString("en-US", {timeZone: "US/Eastern"}));
 	var month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
         year = d.getFullYear();
@@ -876,7 +870,7 @@ function get_slots() {
     //$(".reserveContent").append(imgUrl);
     var arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 	var selectedDate = formatDate();
-    var day = new Date(new Date().toLocaleString("en-US", {timeZone: "US/Eastern"})).getDay();	
+    var day = new Date().getDay(); //new Date().toLocaleString("en-US", {timeZone: "US/Eastern"})).getDay();	
     for (var i = 0 ;i <day; i++) {		           
         arr.push(arr.shift());			
     }	
@@ -1053,7 +1047,7 @@ function load_my_testing(){
 		    console.log(data[0]);
 		    var curStatus = data[0].my_status;
             if (data[0].reservation_found == null)
-				$('.my-reservations-btn').hide();
+				$('.login-btn').hide();
 		    else{
                 //$(".get_next_test_before_title").text();
 				//if (curStatus=='COMPLIANT')
@@ -1072,22 +1066,27 @@ function load_my_testing(){
 			    	$(".get_next_test_before_content").html(data[0].test_found[2]);
 				}
  		    }
-			if(curStatus.toUpperCase() == 'NON-COMPLIANT'){
+		if (curStatus.toUpperCase() == 'COMPLIANT') {
+			$("#hallpass-hcolor").removeClass();
+			$("#hallpass-hcolor").addClass('headTab-green hidden-lg-up hidden-md-up');
+			$("#hallpass-bcolor").removeClass();
+			$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentGreen');
+		}
+			else if(curStatus.toUpperCase() == 'NON-COMPLIANT'){
 					$("#hallpass-hcolor").removeClass();
 					$("#hallpass-hcolor").addClass('headTab-pink hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
-					$("#hallpass-bcolor").addClass('testContentPink');
- 				    $("#hallpass-bcolor").addClass('testContentPink');
+ 				    $("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentPink');
 			}else if(curStatus.toUpperCase() == 'EXEMPT'){
 					$("#hallpass-hcolor").removeClass();
 					$("#hallpass-hcolor").addClass('headTab-Blue hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
-					$("#hallpass-bcolor").addClass('testContentBlue');
+					$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentBlue');
 			}else if(curStatus.toUpperCase() == 'VOLUNTARY'){
 					$("#hallpass-hcolor").removeClass();
 					$("#hallpass-hcolor").addClass('headTab-yellow hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
-					$("#hallpass-bcolor").addClass('testContentYellow');
+					$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentYellow');
 			}
 			//$(".myTestQrImg").attr("src",data.qrImage);
         }
@@ -1662,7 +1661,7 @@ function saveRecentSearch(searchData) {
     var selectedData = JSON.parse(localStorage.getItem("search_data"));
     if(selectedData == null) {
         var resArray = [];
-	resArray.push(searchData);
+		resArray.push(searchData);
         localStorage.setItem("search_data",JSON.stringify(resArray));
     }
     else {
@@ -1679,7 +1678,7 @@ function saveRecentSearch(searchData) {
 	 if (addnew){
 	     resArray.push(searchData); 
 	     for (i=0;i<selectedData.length; i++){
-                 resArray.push(selectedData[i]);
+		         resArray.push(selectedData[i]);
                  if (i==5)
                     break;
 	     }
@@ -1798,7 +1797,7 @@ function load_my_schedule(){
  	load_home();
     //As per current day schedule will be loaded
     var arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-	var day = (new Date(new Date().toLocaleString("en-US", {timeZone: "US/Eastern"}))).getDay();
+	var day = (new Date().getDay()); //(new Date().toLocaleString("en-US", {timeZone: "US/Eastern"}))).getDay();
     //var day = new Date().getDay();	
 	//alert(day);
     for (var i = 0 ;i <day; i++) {		           
