@@ -1759,12 +1759,63 @@ input[type=number] {
 }
 
 
-.skip-link {
-	display:inline-block;
-	
+/* .skip-link {
+	position:relative !important;
+	top:20px;
+	display:block;
 	font-family: "OpenSans Regular";
-    font-weight: 400 !important;
+    font-weight: bold !important;
 	color:#FFFFFF;
+	background:#4B9CD3;
+	padding:10px 10px;
+	z-index:0 !important;
+} */
+
+.skip-link {
+    position: absolute;
+    top: 10px;
+	border:none !important;
+	border-radius:10px !important;
+	margin:0 auto;
+	font-family: "OpenSans Regular";
+	font-weight: bold !important;
+	color:#FFFFFF;
+	background:#4B9CD3;
+	padding:10px 10px;
+    z-index: 999999999 !important;
+	-webkit-transition: -webkit-transform .5s ease;
+    transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
+    transition: transform .5s ease, -webkit-transform .5s ease
+}
+.skip-link:hover,
+.skip-link:focus {
+    position: absolute;
+	border:none !important;
+	border-radius:10px !important;
+    top: 10px;
+	margin:0 auto;
+	font-family: "OpenSans Regular";
+	font-weight: bold !important;
+	color:#FFFFFF;
+	background:#4B9CD3;
+	padding:10px 10px;
+    z-index: 999999999 !important;
+	-webkit-transition: -webkit-transform .5s ease;
+    transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
+    transition: transform .5s ease, -webkit-transform .5s ease
+}
+
+.skip-link:not(:focus) {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden
 }
 
 #topnav {
@@ -2340,6 +2391,19 @@ section {
         font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
 	}
 	
+	#topnav .navigation-menu .collapseMenu_2 li a {
+		position:relative;
+		padding: 5px 12px;
+		display:block;
+        white-space: nowrap;
+        font-size: 16px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+	}
+	
 	.menuIcon {
 		font-weight: 600;
 	}
@@ -2407,6 +2471,74 @@ section {
         -webkit-box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, .15);
         box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, .15);
     }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	#topnav .navigation-menu .collapseMenu_2 li.active {
+		position:relative;
+		display:block;
+        white-space: nowrap;
+        font-size: 16px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+		text-decoration: underline solid #13294b 2px !important;
+	}
+	
+	#topnav .navigation-menu .collapseMenu_2 li:hover {
+		position:relative;
+		display:block;
+        white-space: nowrap;
+        font-size: 16px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+		text-decoration: underline solid #13294b 2px !important;
+	}
+	
+	#topnav .navigation-menu .collapseMenu_2  {
+		text-transform: uppercase !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        list-style: none;
+        margin-top: 0;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        /* border-radius: 5px; */
+        background-color: #EFEFEF;
+        -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+        box-shadow: 0 0 3px rgba(0, 0, 0, .2)
+    }
+	
+	#topnav .navigation-menu .collapseMenu_2:before  {
+		content: "";
+        position: absolute;
+        top: 2px;
+        left: 45px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 7px solid #495057;
+        border-color: transparent transparent #efefef #efefef;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+        -webkit-box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, .15);
+        box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, .15);
+    }
 
     
 	/* #topnav .navigation-menu>li.has-submenu a {
@@ -2439,6 +2571,27 @@ section {
 	
 	
 	#topnav .navigation-menu>li .collapseMenu:before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 45px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 7px solid #495057;
+        border-color: transparent transparent #efefef #efefef;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+        -webkit-box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, .15);
+        box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, .15)
+    }
+	
+	
+	
+	
+	
+	#topnav .navigation-menu>li .collapseMenu_2:before {
         content: "";
         position: absolute;
         top: 2px;
@@ -5704,7 +5857,7 @@ ul.nav.nav-pills>li {
     width: 100% !important;
     height: 40vh;
     overflow-y: auto;
-    background: #fff;
+    /* background: #fff; */
     z-index: 1;
     color: #222;
     -webkit-overflow-scrolling: touch
@@ -5726,7 +5879,7 @@ ul.nav.nav-pills>li {
 
 .autocomplete .autocomplete-item {
     cursor: pointer;
-    padding: 10px 10px
+    padding: 10px 10px;
 }
 
 .autocomplete-group .autocomplete-item {
@@ -5734,10 +5887,18 @@ ul.nav.nav-pills>li {
     width: 100% !important
 }
 
-.autocomplete .autocomplete-item.active,
-.autocomplete .autocomplete-item:hover {
-    background-color: #fafafa
+/* .autocomplete .autocomplete-item:active,
+.autocomplete .autocomplete-item:hover, 
+.autocomplete .autocomplete-item:focus {
+    background: #F44436 !important;
 }
+
+  
+.autocomplete .autocomplete-item .searchItem:focus,
+.autocomplete .autocomplete-item .searchItem:hover {
+	background:#F44436 !important;
+} */
+
 
 .autocomplete .autocomplete-item-last {
     font-weight: 700;
@@ -5753,7 +5914,7 @@ ul.nav.nav-pills>li {
 #searchMenuItem {
     position: relative;
     width: 100% !important;
-    background: #fff !important
+    /* background: #fff !important */
 }
 
 .ui-autocomplete {
@@ -5761,23 +5922,19 @@ ul.nav.nav-pills>li {
     cursor: default;
     overflow: auto;
     font-size: 30px;
-    padding: 0 !important;
     font-family: "OpenSans Regular";
-    background: #fff !important;
-    -webkit-border-radius: 5px;
+    /* background: #fff !important; */
+    /* -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 5px; */
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     height: 30vh;
-    border: 1px solid #ededea
+    border: 1px solid #ededea;
 }
 
-.ui-menu .ui-menu-item:hover,
-.ui-menu .ui-menu-item:focus {
-    background: #EDEDEA !important
-}
+
 
 .ui-menu {
     list-style: none;
@@ -5787,36 +5944,93 @@ ul.nav.nav-pills>li {
 }
 
 .ui-menu .ui-menu {
-    background: #fff !important
+    /* background: #fff !important */
 }
 
 .ui-menu .ui-menu-item {
     position: relative;
-    margin: 0;
-    padding: 0;
-    zoom: 1;
+    /* margin: 0;
+    zoom: 1; */
     float: left;
     clear: left;
     cursor: pointer;
-    padding: 10px 10px;
+    padding: 10px 10px 10px 10px;
     width: 100% !important;
+	height:auto;
     border-bottom: 2px solid #e1e1e1 !important
 }
 
 .ui-menu .ui-menu-item a {
     text-decoration: none;
     display: block;
-    background: #fff !important;
+    /* background: #fff !important; */
     line-height: 1.8;
     zoom: 1
 }
 
 .ui-menu .ui-menu-item a.ui-state-active,
+.ui-menu .ui-menu-item a.ui-state-focus,
 .ui-menu .ui-menu-item a.ui-state-hover {
     font-weight: 400;
-    margin: -1px;
-    background: #e1e1e1 !important
+    /* margin: -1px; */
+    /* background: #000000 !important; */
 }
+
+
+.ui-menu .ui-menu-item .ui-menu-item-wrapper span {
+	color:#13294B !important;
+}
+
+/* Misc visuals
+----------------------------------*/
+.ui-menu .ui-menu-item-wrapper {
+	position: relative !important;
+	margin:0 auto;
+	padding: 0;
+	width: 100% !important;
+	height: auto !important;
+}
+/* Interaction states
+----------------------------------*/
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+	position:relative;
+	background: #EDEDEA;
+	padding: 0;
+	width: 100% !important;
+	height: auto !important;
+	display: inline-block;
+}
+/* .ui-menu .ui-menu-item:active, */
+/* .ui-menu .ui-menu-item:hover,
+.ui-menu .ui-menu-item:focus {
+    background: #F44436 !important;
+} */
+/* .ui-autocomplete li:link {
+	position:relative !important;
+	background: #F44436 !important;
+}
+.ui-autocomplete li:active {
+	position:relative !important;
+	background: #F44436 !important;
+}
+.ui-autocomplete li:visited {
+	position:relative !important;
+	background-color: #F44436 !important;
+}  */
+/* .ui-front li:hover {
+	position:relative !important;
+	background-color: #000000;
+}
+.ui-front:focus {
+	position:relative !important;
+	background-color: #F44436;
+} */
+
 
 .instructor-details-search {
     top: 12px;
@@ -5841,7 +6055,7 @@ ul.nav.nav-pills>li {
 	position:relative;
 	background: #13294B;
 	padding:0px 0px !important;
-	//color:#FFFFFF !important;
+	/* color:#FFFFFF !important; */
 }
 /* #parallelogram {
 	position: relative;
@@ -7096,6 +7310,23 @@ ul.nav.nav-pills>li {
         letter-spacing: 1px;
         font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
 	}
+	
+	
+	#topnav .navigation-menu .collapseMenu_2 li a {
+		position:relative;
+		padding: 5px 20px;
+		display:block;
+		margin-left:25px;
+        white-space: nowrap;
+        font-size: 30px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+	}
+	
+	
 	.menuIcon {
 		position:relative;
 		font-weight: normal;
@@ -7116,6 +7347,36 @@ ul.nav.nav-pills>li {
 	}
 	
 	#topnav .navigation-menu .collapseMenu li:hover {
+		position:relative;
+		display:block;
+        white-space: nowrap;
+        font-size: 30px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+		text-decoration: underline !important;
+	}
+	
+	
+	
+	
+	
+	#topnav .navigation-menu .collapseMenu_2 li.active {
+		position:relative;
+		display:block;
+        white-space: nowrap;
+        font-size: 30px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+		text-decoration: underline !important;
+	}
+	
+	#topnav .navigation-menu .collapseMenu_2 li:hover {
 		position:relative;
 		display:block;
         white-space: nowrap;
@@ -7482,7 +7743,7 @@ ul.nav.nav-pills>li {
         width: 100% !important;
         height: 30vh;
         overflow-y: scroll !important;
-        background: #fff !important;
+        /* background: #fff !important; */
         z-index: 1;
         color: #222;
         -webkit-overflow-scrolling: touch
@@ -7500,7 +7761,7 @@ ul.nav.nav-pills>li {
         font-size: 23px;
         padding: 0 !important;
         font-family: "OpenSans Regular";
-        background: #fff !important;
+       /*  background: #fff !important; */
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
@@ -7512,7 +7773,7 @@ ul.nav.nav-pills>li {
 
     .ui-menu .ui-menu-item:hover,
 	.ui-menu .ui-menu-item:focus {
-		background: #EDEDEA !important
+		/* background: #EDEDEA !important */
 	}
 
     .ui-menu {
@@ -7523,7 +7784,7 @@ ul.nav.nav-pills>li {
     }
 
     .ui-menu .ui-menu {
-        background: #fff !important
+        /* background: #fff !important */
     }
 
     .ui-menu .ui-menu-item {
@@ -7542,7 +7803,7 @@ ul.nav.nav-pills>li {
     .ui-menu .ui-menu-item a {
         text-decoration: none;
         display: block;
-        background: #fff !important;
+        /* background: #fff !important; */
         line-height: 1.8;
         zoom: 1
     }
@@ -7551,7 +7812,7 @@ ul.nav.nav-pills>li {
     .ui-menu .ui-menu-item a.ui-state-hover {
         font-weight: 400;
         margin: -1px;
-        background: #e1e1e1 !important
+        /* background: #e1e1e1 !important */
     }
 
     .instructor-details-search {
@@ -8344,9 +8605,12 @@ ul.nav.nav-pills>li {
 	color:#13294B !important;
 }
 
-.ui-menu .ui-menu-item .ui-menu-item-wrapper span {
-	color:#13294B !important;
-}
+
+
+
+
+
+
 .recent-instructor span {
 	color:#13294B !important;
 }

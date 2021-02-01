@@ -842,7 +842,7 @@
                 $wrapper.append($checkboxLabel);
             }
 
-            var $checkbox = $('<input class="form-check-input"/>').attr('type', inputType);
+            var $checkbox = $('<input class="form-check-input" aria-label="checkbox"/>').attr('type', inputType);
             $checkbox.val(value);
             $wrapper.prepend($checkbox);
 

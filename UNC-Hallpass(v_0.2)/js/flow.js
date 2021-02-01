@@ -786,7 +786,7 @@ function load_test_sites(){
 				dhtml2 += "<div class='mb-0 p-0 mt-2'>";
 				dhtml2 += "<h3 class='findTestSite'>Hours: "+data[i].site_hours+"</h3>";
 				dhtml2 += "</div>";
-				dhtml2 += "<div class='reserve-btn p-0 mt-3' data-location='"+data[i].site_id+'#'+data[i].site_name+"#"+data[i].site_hours+"#"+data[i].people_in_line+"#"+data[i].site_img+"'><button aria-label='RESERVE TIME AT " + data[i].site_name + "' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div><br><br>";
+				dhtml2 += "<div class='reserve-btn p-0 mt-3' data-location='"+data[i].site_id+'#'+data[i].site_name+"#"+data[i].site_hours+"#"+data[i].people_in_line+"#"+data[i].site_img+"'><button aria-label='Click here to reserve your slot at " + data[i].site_name + "' class='btn btn-block'>RESERVE TIME<i class='feather icon-chevron-right'></i></button></div><br><br>";
 				dhtml2 += "</div>";
 		        $('#siteContent').append(dhtml2);
 	        }
@@ -1618,7 +1618,7 @@ $( ".search-box" )
 		disabled: true
 		return $( "<li class='ui-state-disabled'>" ).append( "No matches found" ).appendTo( ul );
 	}else{
-		return $( "<li>" )
+		return $( "<li aria-live='assertive'>" )
 			.append("<span><span style='color:#13294B !important; float:left'>" + item.label + "</span> <span class='instructor-details-search' style='color:#13294B !important; float:right'>" + item.instructor + "</span>" 				)
 			.appendTo( ul );
 	}

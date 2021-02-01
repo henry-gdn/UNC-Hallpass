@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/UNC-style.css">
 </head>
 <body>
-    <a aria-label="skip to main content" class="skip-link sr-only sr-only-focusable" href='#mainContent'>Skip to main content</a>
+    <a aria-label="skip to main content" class="skip-link btn sr-only sr-only-focusable" role="button" href='#mainContent'>Skip to main content</a>
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
@@ -25,6 +25,7 @@
                 </div>
             </a>
         </div>
+		
         <div class="menu-extras">
             <div class="menu-item">
                 <a aria-label="Hamburger menu" href="javascript:void(0);" class="navbar-toggle">
@@ -38,8 +39,8 @@
         </div>
         <div aria-label="Main Navigation" id="navigation">
             <ul class="navigation-menu">
-				<li><a href="home">HOME</a></li>
-				<li class="has-submenu">
+				<li data-val="menu"><a href="home">HOME</a></li>
+				<li class="has-submenu" data-val="menu1">
 					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
 					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
 						<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
@@ -48,21 +49,21 @@
 						<li><a href="start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
 					</ul>
 				</li>
-                <li class="has-submenu">
+                <li class="has-submenu" data-val="menu2">
 					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
 						<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    	
 					</ul>
 				</li>
-				<li><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
+				<li data-val="menu3"><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
 				<li><a href="https://hallpass.unc.edu/results">RESULTS</a></li>
 				<li><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">LOGOUT</a></li>
 				<li><a href="index" style="display:none">LOGIN</a></li>
             </ul>
         </div>
-		<div class="headTab-blue" id="mainContent">
+		<div class="headTab-blue">
 			<table class="table table-sm">
 				<tr>
 					<td>
@@ -86,7 +87,7 @@
 					</ol>
 				</div>
 			</div>
-			<div class="head-wrapper">
+			<div class="head-wrapper" id="mainContent">
 				<div class="pt-2 reserveTime">
 					<div class="mt-2 mb-0">
 						<h2 class="head-confirm">Oh No!</h2>
