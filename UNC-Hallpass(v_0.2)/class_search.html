@@ -28,7 +28,7 @@
 		
         <div class="menu-extras">
             <div class="menu-item">
-                <a aria-label="Hamburger menu" href="javascript:void(0);" class="navbar-toggle">
+                <a tabindex="0" aria-label="Main Navigation" href="javascript:void(0);" class="navbar-toggle">
                     <div class="lines">
                         <span></span>
                         <span></span>
@@ -99,11 +99,10 @@
 						<div class="flex-fill w-100">
 							<div class="input-group searchPageInput">
 								<input type="text" aria-label='Enter class name or course number' class="form-control search-box" placeholder="Enter course number or instructor's name" />
-								<span aria-label="search icon" id="searchBtn" class="input-group-addon btnSearch"><i class="feather icon-search"></i></span>
+								<span tabindex="0" aria-label="search icon" id="searchBtn" class="input-group-addon btnSearch" role="button"><i class="feather icon-search"></i></span>
 							</div>
 						</div>
 					</div>
-					
 				</form>
 			<span id="scrollto"></span>
 			</div>			
@@ -113,7 +112,7 @@
 			</div> -->
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-0">
 				<!-- <div class="resultsTitle"></div> -->
-				<div tabindex="0" class="results"></div>
+				<div class="results"></div>
 				<div class="recent"></div>
 			</div>
 			<div class="h-80"></div>

@@ -27,6 +27,15 @@ $(document).ready(function(){
 			}
         }
     });
+	
+	
+	$('.mobile-view-home, .mobile-view-home-test').keyup(function(e) {
+		$('.navbar-toggle').removeClass('open');
+		$('#navigation').css("display", "none");
+    });
+	
+	
+	
 });
 
 ! function($) {
@@ -40,18 +49,14 @@ $(document).ready(function(){
         });
     }); 
     
-    // Menu
+    
+	// Menu
     $('.navbar-toggle').on('click', function (event) {
         $(this).toggleClass('open');
         $('#navigation').slideToggle(400);
     });
 	
-	//hamburger menu click via keyboard
-	$('.navbar-toggle').keyup(function(){
-        $(this).toggleClass('open');
-        $('#navigation').slideToggle(400);
-    });
-	
+		
 	
 	// Add minus icon for collapse element which is open by default
     $(".collapse.show").each(function(){

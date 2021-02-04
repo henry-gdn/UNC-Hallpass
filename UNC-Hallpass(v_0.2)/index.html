@@ -28,7 +28,7 @@
 		
         <div class="menu-extras">
             <div class="menu-item">
-                <a aria-label="Hamburger menu" href="javascript:void(0);" class="navbar-toggle">
+                <a tabindex="0" aria-label="Main Navigation" href="javascript:void(0);" class="navbar-toggle">
                     <div class="lines">
                         <span></span>
                         <span></span>
@@ -38,10 +38,10 @@
             </div>
         </div>
         <div aria-label="Main Navigation" id="navigation">
-            <ul class="navigation-menu">
+            <ul class="navigation-menu" role="menu">
 				<li data-val="menu"><a href="home">HOME</a></li>
 				<li class="has-submenu" data-val="menu1">
-					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
+					<a role="menuitem" class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
 					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
 						<li><a href="/secure/my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
@@ -50,7 +50,7 @@
 					</ul>
 				</li>
                 <li class="has-submenu" data-val="menu2">
-					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
+					<a role="menuitem" href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
 					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
 						<li ><a href="/secure/my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="/secure/class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>        	
@@ -97,9 +97,9 @@
 				<div class="row">
 					<div class="col-12 mt-3">
 						<div class="infoContent">
-						<h3 class="mt-1">Expanded Hours of Operation; Convenient Parking </h3>
+						<h2 class="mt-1">Expanded Hours of Operation; Convenient Parking </h2>
 						<p class="pb-3">Tomorrow all three testing centers will open. The hours will be: </p>
-						<div class="infoHead">Frank Porter Graham Student Union, gallery space, side closest to Davis Library</div>
+						<h3 class="infoHead">Frank Porter Graham Student Union, gallery space, side closest to Davis Library</h3>
 						<div class="pl-3">
 							<ul class="mt-1 mb-3">
 								<li class="pt-2">Monday through Friday, 7am-6pm</li>
@@ -107,7 +107,7 @@
 								<li class="pt-2">Parking is available in the Undergraduate Library Parking Lot </li>
 							</ul>
 						</div>
-						<div class="infoHead">CURRENT ArtSpace + Studio</div>
+						<h3 class="infoHead">CURRENT ArtSpace + Studio</h3>
 						<div class="pl-3">
 							<ul class="mt-1 mb-3">
 								<li class="pt-2">Monday through Friday, 9am-6pm</li>
@@ -115,7 +115,7 @@
 								<li class="pt-2">Parking is available in the Granville Towers West Parking Lot </li>
 							</ul>
 						</div>
-						<div class="infoHead">UNC Rams Head Recreation Center, multi-purpose room, closest to dining hall </div>
+						<h3 class="infoHead">UNC Rams Head Recreation Center, multi-purpose room, closest to dining hall </h3>
 						<div class="pl-3">
 							<ul class="mt-1 mb-3">
 								<li class="pt-2">Monday through Friday, 9am-6pm</li>

@@ -1781,6 +1781,7 @@ input[type=number] {
 	font-weight: bold !important;
 	color:#FFFFFF;
 	background:#4B9CD3;
+	text-transform:uppercase !important;
 	padding:10px 10px;
     z-index: 999999999 !important;
 	-webkit-transition: -webkit-transform .5s ease;
@@ -1798,6 +1799,7 @@ input[type=number] {
 	font-family: "OpenSans Regular";
 	font-weight: bold !important;
 	color:#FFFFFF;
+	text-transform:uppercase !important;
 	background:#4B9CD3;
 	padding:10px 10px;
     z-index: 999999999 !important;
@@ -2173,6 +2175,9 @@ section {
 	position:relative;top:-25px;width:100%;height:100%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
 }
 
+.videoAlign_1 {
+	position:relative;margin-top:-10px;width:100%;height:95%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
 
 
 .head-h3 {
@@ -2306,6 +2311,28 @@ section {
     content: '>'
 }
 
+
+.welcome-content {
+	position:relative;
+	border:2px solid #4B9CD3;
+	padding:10px 10px;
+	border-radius:10px;
+}
+
+.home-content-1 {
+	position:relative;
+	border:2px solid #4B9CD3;
+	padding:10px 10px;
+	border-radius:10px;
+	text-align:center !important;
+}
+
+.home-content-1 p {
+	font-weight:bold;
+	text-align:center !important;
+}
+
+
 .mobile-view-top {
     position: relative;
     margin-top: 74px !important
@@ -2413,7 +2440,20 @@ section {
 	
 	
 
-	#topnav .navigation-menu .collapseMenu li.active {
+	#topnav .navigation-menu li.active {
+		position:relative;
+		display:block;
+        white-space: nowrap;
+        font-size: 16px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+		text-decoration: underline solid #13294b 2px !important;
+	}
+	
+	#topnav .navigation-menu .collapse li.active { 
 		position:relative;
 		display:block;
         white-space: nowrap;
@@ -2878,6 +2918,11 @@ section {
     #navigation.open {
         display: block !important;
         overflow-y: hidden
+    }
+	
+	#navigation.close {
+        visibility: hidden !important;
+		opacity: 0;
     }
 }
 
@@ -4651,6 +4696,16 @@ button {
 /* **********************************
 	MY TESTING CONTENTS STYLES
 ********************************** */
+.exemptStatus {
+	position:relative;
+	padding:5px 10px;
+	background: #4b9cd3;
+	color:#FFFFFF;
+	width:100%;
+	display:block;
+	font-size:22px;
+	font-family: "ITC Franklin Gothic LT Demi Compressed";
+}
 .testContentGreen {
     position: relative;
     margin: 0 auto;
@@ -6184,7 +6239,7 @@ a.ui-button:active,
 .testing-subtitle-1 {
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
 	font-size: 50px;
-	color:#FFFFFF;
+	color:#FFFFFF !important;
 	padding-left:20px;
 }
 .bulletPoint {
@@ -6228,7 +6283,7 @@ a.ui-button:active,
 	padding-right:15px;
 }
 
-.infoContent h3 {
+.infoContent h2 {
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
 	font-size: 22px;
 	color:#13294B;
@@ -6368,7 +6423,7 @@ a.ui-button:active,
 		padding-left:15px;
 	}
 	
-	.infoContent h3 {
+	.infoContent h2 {
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
 		font-size: 22px;
 		color:#13294B;
@@ -7333,7 +7388,20 @@ a.ui-button:active,
 		float:right;
 		top:10px;
 	}
-	#topnav .navigation-menu .collapseMenu li.active {
+	#topnav .navigation-menu li.active {
+		position:relative;
+		display:block;
+        white-space: nowrap;
+        font-size: 30px;
+        letter-spacing: .04em;
+        font-weight: 600;
+        color: #13294b;
+        letter-spacing: 1px;
+        font-family: "ITC Franklin Gothic LT Demi Compressed" !important;
+		text-decoration: underline !important;
+	}
+	
+	#topnav .navigation-menu .collapse li.active {
 		position:relative;
 		display:block;
         white-space: nowrap;
@@ -7988,6 +8056,7 @@ a.ui-button:active,
 	.testing-subtitle-1 {
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
 		font-size: 20px;
+		color:#FFFFFF !important;
 	}
 	.testing-subtitle-1 span {
 		font-family: "ITC Franklin Gothic LT Demi Compressed";
