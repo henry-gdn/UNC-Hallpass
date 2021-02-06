@@ -15,18 +15,19 @@
     <link rel="stylesheet" href="css/unc_admin.css">
 </head>
 <body>
+    <a aria-label="skip to main content" class="skip-link btn sr-only sr-only-focusable" role="button" href='#mainContent'>Skip to main content</a>
     <!-- HEADER START -->
     <header id="topnav" class="defaultscroll sticky bg-header">
         <div>
             <a class="logo" href="https://hallpass.unc.edu/">
                 <div class="custom-logo-link">
-                    <img src="images/header_logo.png" class="logoImg" alt="CAROLINA TOGETHER" />
+                    <img src="images/header_logo.png" class="logoImg" alt="Link to Hall Pass Portal" />
                 </div>
             </a>
         </div>
         <div class="menu-extras">
             <div class="menu-item">
-                <a class="navbar-toggle">
+                <a tabindex="0" aria-label="Main Navigation" href="javascript:void(0);" class="navbar-toggle">
                     <div class="lines">
                         <span></span>
                         <span></span>
@@ -35,20 +36,17 @@
                 </a>
             </div>
         </div>
-        <div id="navigation">
-            <ul class="navigation-menu">
-				<li><a href="home">SLOT BOOKING</a></li>
-				<li class="has-submenu">
-					<a href="#" aria-haspopup="true" aria-expanded="false">REPORT</a>
-					<ul class="submenu megamenu">
-						<li>
-							<ul>
-								<li><a href="#">MEMBER VIEW<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-								<li><a href="#">LOCATION VIEW<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li> 
-							</ul>
-						</li>
+        <div aria-label="Main Navigation" id="navigation">
+            <ul class="navigation-menu" role="menu">
+				<li data-val="menu"><a href="#">MEMBER DETAILS</a></li>
+				<li class="has-submenu" data-val="menu1">
+					<a role="menuitem" class="menuTitle" href="javascript:void(0);" aria-controls="reportSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#reportSubmenu">REPORT<i class="feather icon-plus menuIcon"></i></a>
+					<ul class="collapse collapseMenu" id="reportSubmenu" aria-labelledby="reportSubmenu" data-parent="#navigation">
+						<li><a href="#">MEMBER VIEW<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="#">LOCATION VIEW <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    
 					</ul>
 				</li>
+				<li data-val="menu2"><a href="#">SLOT BOOKING</a></li>
             </ul>
         </div>
 		<div class="headTab-blue">
@@ -69,31 +67,31 @@
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index">Admin</a></li>
-						<li class="breadcrumb-item"><a href="member_view">Member View</a></li>
+						<li class="breadcrumb-item"><a href="#">Admin</a></li>
+						<li class="breadcrumb-item"><a href="#">Member View</a></li>
 						<li class="breadcrumb-item">Steven King</li>
 					</ol>
 				</div>
 			</div>
             <div class="pt-2 head-wrapper">
 				<div class="mt-2 mb-1">
-					<h1 class="head-h2">Member</h1>
+					<h1 class="head-h1">Member Details</h1>
+					<h2 class="head-h2">Steven King</h2>
                 </div>
                 <div class="mt-4 mb-0">
-					<p>Member: <span id="member_name">Steven King</span></p>
-					<p>Affiliation: <span id="affiliation">Student</span></p>
-					<p>PID: <span id="pid">730123456</span></p>
-					<p>Status: <span id="member_status">Compliant</span></p>
-					<p>Test Deadline: <span id="test_deadline">12/25/20 08:00 AM</span></p>
-					<p class="head-h3 pt-2">Reservations</p>
-					<p>Reservation Date: <span id="reservation_date">12/25/20</span></p>
-					<p>Reservation Time: <span id="reservation_time">08:00 AM</span></p>
-					<p>Reservation Location: <span id="reservation_location">Rams Head</span></p>
+					<p><strong>Affiliation :</strong> <span id="affiliation">Student</span></p>
+					<p><strong>PID :</strong> <span id="pid">730123456</span></p>
+					<p><strong>Status :</strong> <span id="member_status">Compliant</span></p>
+					<p><strong>Test Deadline :</strong> <span id="test_deadline">12/25/20 08:00 AM</span></p>
+					<h3 class="subHead pt-3">Reservations</h3>
+					<p class="pt-2"><strong>Reservation Date :</strong> <span id="reservation_date">12/25/20</span></p>
+					<p><strong>Reservation Time :</strong> <span id="reservation_time">08:00 AM</span></p>
+					<p><strong>Reservation Location :</strong> <span id="reservation_location">Rams Head</span></p>
                 </div>
 				<div class="row mt-3 mb-2">
 					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 						<div class="p-0">
-							<button type="button" aria-label="back button" aria-labelledby="back button" class="btn btn-block btn-back-1" onclick="goBack()">
+							<button type="button" aria-label="click button to go back" class="btn btn-block btn-back-1" onclick="goBack()">
 							<i class="feather icon-chevron-left"></i>
 							BACK
 							</button>

@@ -25,6 +25,7 @@
                 </div>
             </a>
         </div>
+		
         <div class="menu-extras">
             <div class="menu-item">
                 <a tabindex="0" aria-label="Main Navigation" href="javascript:void(0);" class="navbar-toggle">
@@ -67,33 +68,38 @@
 			<div class="row pt-2">
 				<div class="breadcrumb-wrapper col-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">Admin</a></li>
-						<li class="breadcrumb-item">Test Locations</li>
+						<li class="breadcrumb-item"><a href="admin_home">Home</a></li>
+						<li class="breadcrumb-item"><a href="admin">Admin</a></li>
+						<li class="breadcrumb-item">Member Details</li>
 					</ol>
 				</div>
 			</div>
             <div class="pt-2 head-wrapper">
 				<div class="mt-2 mb-1">
-					<h1 class="head-h2">Locations</h1>
+					<h1 class="head-h2">Search Member</h1>
                 </div>
-				<div class="row mt-4 mb-2">
-					<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
-						<div class="p-0">
-							<button type="button" aria-label="click button to go admin home" class="btn btn-block btn-back-1">
-							<i class="feather icon-chevron-left"></i>
-							ADMIN HOME
-							</button>
+				<div class="row member-wrapper">
+					<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+						<div class="form-group mb-0 pt-1">
+							<label id="enter-pid-label" for="enter_pid">ENTER PID</label>
+							<input aria-label="enter-pid-label" name="enter_pid" id="enter_pid" type="text" class="form-control" placeholder=""/>
+							<span aria-live="assertive" aria-label="Please enter valid pid" class="hideErr" id="pidErr"><i class="feather icon-alert-circle"></i>&nbsp;Please enter valid pid</span>
 						</div>
 					</div>
 				</div>
-                <div class="mt-4 mb-0">
-					<a class="hrefLink" href="#">Rams Head</a> <br/>
-					<a class="hrefLink" href="#">Campus Health</a> <br/>
-					<a class="hrefLink" href="#">Other Test Site</a>
-                </div>
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+						<div class="login-btn pt-3">
+							<a tabindex="0" href="#" aria-label="Click to search pid" class="btn btn-sm btn-block btn-blue text-left">
+								SEARCH
+								<i class="feather icon-chevron-right btn-arrow"></i>
+							</a>
+						</div>
+					</div>
+				</div>
             </div>
         </div>
-    </section><br>
+    </section>
 	<!-- UNC CONTENT - END -->
     <!-- javascript -->
     <script src="js/jquery-3.5.1.min.js"></script>

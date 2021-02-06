@@ -1,25 +1,34 @@
-/* Template Name: Leaping - Creative Multipurpose Template
-   Author: Uniquecrew
-   E-mail: uniquecrewdesign@gmail.com
-   Version: 1.3.0
-   Created: May 2020
-   File Description: Main JS file of the template
-*/
-
-/****************************/
-/*         INDEX            */
-/*===========================
- *     01.  Loader          *
- *     02.  Menu            *
- *     03.  Sticky Menu     *
- *     03.  Back to top     *
- ===========================*/
  
 $(document).ready(function(){
 	setTimeout(function(){ 
 		$("body").css({visibility:'visible'});
 	}, 1000);
+	$('a').css('cursor', 'pointer');
+	$('a').focus();
 	
+	
+	$('.navigation-menu li').keyup(function(e) {
+        var code = e.keyCode || e.which;
+        if (code === 9) {
+			var menu_status = $(this).attr('data-val');
+			if(menu_status == 'menu1') {
+				$('.collapseMenu').collapse('show');
+			}
+			if(menu_status == 'menu2') {
+				$('.collapseMenu').collapse('hide');
+			}
+			if(menu_status == 'menu') {
+				$('.collapseMenu').collapse('hide');
+				e.preventDefault();
+			}
+        }
+    });
+	
+	
+	$('.mobile-view-home, .mobile-view-home-test').keyup(function(e) {
+		$('.navbar-toggle').removeClass('open');
+		$('#navigation').css("display", "none");
+    });
 	
 	
 	
@@ -36,41 +45,36 @@ $(document).ready(function(){
         });
     }); 
     
-    // Menu
+    
+	// Menu
     $('.navbar-toggle').on('click', function (event) {
         $(this).toggleClass('open');
         $('#navigation').slideToggle(400);
     });
-    
-    $('.navigation-menu>li').slice(-1).addClass('last-elements');
-    
-    $('.menu-arrow,.submenu-arrow').on('click', function (e) {
-        if ($(window).width() < 992) {
-            e.preventDefault();
-            $(this).parent('li').toggleClass('open').find('.submenu:first').toggleClass('open');
-        }
+	
+		
+	
+	// Add minus icon for collapse element which is open by default
+    $(".collapse.show").each(function(){
+        $(this).prev(".has-submenu a").find("i").addClass("icon-minus").removeClass("icon-plus");
+		//event.stopPropagation();
     });
     
-    $(".navigation-menu a").each(function () {
-        if (this.href == window.location.href) {
-            $(this).parent().addClass("active"); 
-            $(this).parent().parent().parent().addClass("active"); 
-            $(this).parent().parent().parent().parent().parent().addClass("active"); 
-        }
+    // Toggle plus minus icon on show hide of collapse element
+    $(".collapse").on('show.bs.collapse', function(){
+        $(this).prev(".has-submenu a").find(".feather").removeClass("icon-plus").addClass("icon-minus");
+    }).on('hide.bs.collapse', function(){
+        $(this).prev(".has-submenu a").find(".feather").removeClass("icon-minus").addClass("icon-plus");
     });
+	
+	
+	$(document).click(function(e) {
+		if (!$(e.target).is('section')) {
+			$('.collapse').collapse('hide');	    
+		}
+	});
+	
 
-    // Clickable Menu
-    $(".has-submenu a").click(function() {
-        if(window.innerWidth < 992){
-            if($(this).parent().hasClass('open')){
-                $(this).siblings('.submenu').removeClass('open');
-                $(this).parent().removeClass('open');
-            } else {
-                $(this).siblings('.submenu').addClass('open');
-                $(this).parent().addClass('open');
-            }
-        }
-    });
 
     $('.mouse-down').on('click', function(event) {
         var $anchor = $(this);

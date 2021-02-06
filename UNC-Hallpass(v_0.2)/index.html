@@ -38,19 +38,19 @@
             </div>
         </div>
         <div aria-label="Main Navigation" id="navigation">
-            <ul class="navigation-menu" role="menu">
+            <ul class="navigation-menu">
 				<li data-val="menu"><a href="home">HOME</a></li>
 				<li class="has-submenu" data-val="menu1">
-					<a role="menuitem" class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
+					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
 					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
 						<li><a href="/secure/my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
-						<li><a href="/secure/find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
-						<li><a href="/secure/start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
+						<li><a href="/secure/find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<!-- <li><a href="/secure/start_new_test">START NEW TEST <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li> -->     
 					</ul>
 				</li>
                 <li class="has-submenu" data-val="menu2">
-					<a role="menuitem" href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
+					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
 					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
 						<li ><a href="/secure/my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="/secure/class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>        	
@@ -88,58 +88,22 @@
 				<div class="mt-2 mb-1">
 					<h1 class="head-h2">Welcome</h1>
                 </div>
+				<div class="mb-3 mt-4">
+					<p><strong>Hall Pass is a web-based application that will assist you in the Carolina Together Testing Program. Using this site, you will be able to schedule and complete your test.</strong></p>
+				</div>
 				<div class="login-btn mt-4 p-0 mb-3">
 					<a tabindex="0" href="/secure/api/login" aria-label="Login using ONYEN Credentials" class="btn btn-log" role="button">
 						LOGIN WITH ONYEN 
 						<i class="feather icon-chevron-right btn-arrow"></i>
 					</a>
 				</div>
-				<div class="row">
-					<div class="col-12 mt-3">
-						<div class="infoContent">
-						<h2 class="mt-1">Expanded Hours of Operation; Convenient Parking </h2>
-						<p class="pb-3">Tomorrow all three testing centers will open. The hours will be: </p>
-						<h3 class="infoHead">Frank Porter Graham Student Union, gallery space, side closest to Davis Library</h3>
-						<div class="pl-3">
-							<ul class="mt-1 mb-3">
-								<li class="pt-2">Monday through Friday, 7am-6pm</li>
-								<li class="pt-2">Saturday and Sunday, 11am-5pm</li>
-								<li class="pt-2">Parking is available in the Undergraduate Library Parking Lot </li>
-							</ul>
-						</div>
-						<h3 class="infoHead">CURRENT ArtSpace + Studio</h3>
-						<div class="pl-3">
-							<ul class="mt-1 mb-3">
-								<li class="pt-2">Monday through Friday, 9am-6pm</li>
-								<li class="pt-2">Saturday and Sunday, 11am-5pm</li>
-								<li class="pt-2">Parking is available in the Granville Towers West Parking Lot </li>
-							</ul>
-						</div>
-						<h3 class="infoHead">UNC Rams Head Recreation Center, multi-purpose room, closest to dining hall </h3>
-						<div class="pl-3">
-							<ul class="mt-1 mb-3">
-								<li class="pt-2">Monday through Friday, 9am-6pm</li>
-								<li class="pt-2">Saturday and Sunday, 11am-5pm</li>
-								<li class="pt-2">Parking is available in the Rams Head Parking Deck </li>
-								<ul class="pl-4 mt-1 mb-3">
-									<li class="pt-2">Pull ticket from machine upon entry</li>
-									<li class="pt-2">Validate parking at the testing site</li>
-									<li class="pt-2">Give validation ticket to parking attendant upon exit </li>
-								</ul>
-							</ul>
-						</div>
-						<p><b>You can find maps to the parking locations on the <a href="https://carolinatogether.unc.edu/carolina-together-testing-program/#chapter-2" aria-label="for more help please visit carolina-together-testing-program/#chapter-2 link" class="text-decoration text-unc">Carolina Together website</a>. There are signs for designated spots at the Undergraduate Library lot and at Granville Towers</b>.</p>
+				<div class="welcome-content">
+					<div class="mb-3 mt-1">
+						<p><strong>For students, compliance with the COVID-19 Community Standards is a condition of continued enrollment. Failure to comply places other members of the community at risk and may result in administrative or disciplinary action, including, but not limited to, restriction on access to or use of University facilities, removal from University housing, disenrollment from one or more in-person courses, transition to remote-only instruction, dismissal from the University and/or other interventions necessary to effect compliance and protect the well-being of the campus community.</strong></p>
 					</div>
+					<div class="mt-1 mb-2">
+						<p><strong>UNC Faculty and staff may voluntarily use this site and the Carolina Together Testing Program.</strong></p>
 					</div>
-				</div>
-                <div class="mb-3 mt-4">
-					<p>Hall Pass is a web-based application that will assist you in the Carolina Together Testing Program. Using this site, you will be able to schedule and complete your test.</p>
-				</div>
-				<div class="mb-3 mt-1">
-					<p>For students, compliance with the COVID-19 Community Standards is a condition of continued enrollment. Failure to comply places other members of the community at risk and may result in administrative or disciplinary action, including, but not limited to, restriction on access to or use of University facilities, removal from University housing, disenrollment from one or more in-person courses, transition to remote-only instruction, dismissal from the University and/or other interventions necessary to effect compliance and protect the well-being of the campus community.</p>
-				</div>
-				<div class="mt-1">
-					<p>UNC Faculty and staff may voluntarily use this site and the Carolina Together Testing Program.</p>
 				</div>
             </div>
         </div>

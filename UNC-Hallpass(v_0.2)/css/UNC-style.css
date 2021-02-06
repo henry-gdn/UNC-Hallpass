@@ -2066,10 +2066,7 @@ input[type=number] {
 }
 
 
-
-
-
-// Usage as a mixin
+/* Usage as a mixin */
 .skip-navigation {
 	@include sr-only;
 	@include sr-only-focusable;
@@ -2382,7 +2379,6 @@ section {
     top: -10px;
     font-size: 37px;
     color: #13294b;
-    margin: 0 auto;
     letter-spacing: 0;
     font-family: "ITC Franklin Gothic LT Demi Compressed"
 }
@@ -4697,14 +4693,99 @@ button {
 	MY TESTING CONTENTS STYLES
 ********************************** */
 .exemptStatus {
-	position:relative;
-	padding:5px 10px;
+	padding:8px 10px 5px 10px;
 	background: #4b9cd3;
-	color:#FFFFFF;
 	width:100%;
 	display:block;
+	vertical-align:middle !important;
+}
+.exemptStatus h2 {
+	color:#FFFFFF !important;
 	font-size:22px;
 	font-family: "ITC Franklin Gothic LT Demi Compressed";
+} 
+.voluntaryStatus {
+	padding:8px 10px 5px 10px;
+	background: #ffea00;
+	width:100%;
+	display:block;
+	vertical-align:middle !important;
+}
+.voluntaryStatus h2 {
+	color:#13294B !important;
+	font-size:22px;
+	font-family: "ITC Franklin Gothic LT Demi Compressed";
+} 
+.compliantStatus {
+	padding:8px 10px 5px 10px;
+	background: #C4D600;
+	width:100%;
+	display:block;
+}
+.compliantStatus h2 {
+	color:#13294B !important;
+	font-size:22px;
+	font-family: "ITC Franklin Gothic LT Demi Compressed";
+}
+.nonCompliantStatus {
+	padding:8px 10px 5px 10px;
+	background: #EF426F;
+	width:100%;
+	display:block;
+}
+.nonCompliantStatus h2 {
+	color:#FFFFFF !important;
+	font-size:22px;
+	font-family: "ITC Franklin Gothic LT Demi Compressed";
+}
+.labelLayout {
+	padding:10px 10px;
+	border:2px solid #4B9CD3;
+	border-radius:5px;
+}
+.labelLayout img {
+	margin:0 auto;
+	width:30%;
+	height:auto;
+	align-items:center;
+}
+.testNew p {
+	font-size:16px !important;
+}
+.btn-cancel {
+	position:relative;
+	border: 3px solid #13294b;
+    background: #13294b;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #FFFFFF;
+    letter-spacing: 0;
+    font-size: 15px;
+    font-weight: 700;
+    width: 35%;
+	text-align:left;
+	border-radius:5px;
+	padding:4px 5px 3px 5px;
+	vertical-align:middle !important;
+	display:block;
+}
+.btn-cancel:focus,
+.btn-cancel:hover {
+	border: 3px solid #4B9CD3;
+    background: #4B9CD3;
+    font-family: "ITC Franklin Gothic LT Demi Compressed";
+    color: #fff;
+    letter-spacing: 0;
+    font-size: 15px;
+    font-weight: 700;
+}
+.btn-cancel i {
+    position: relative;
+    top: 1px;
+	font-weight:bold;
+    float: right;
+    vertical-align: middle !important;
+    margin: 0 auto;
+    font-size: 20px;
 }
 .testContentGreen {
     position: relative;
@@ -6399,6 +6480,28 @@ a.ui-button:active,
 }
 
 @media only screen and (min-width:320px) and (max-width:768px) {
+	.btn-cancel {
+		position:relative;
+		border: 3px solid #13294b;
+		background: #13294b;
+		font-family: "ITC Franklin Gothic LT Demi Compressed";
+		color: #FFFFFF;
+		letter-spacing: 0;
+		font-size: 15px;
+		font-weight: 700;
+		width: 100%;
+		text-align:left;
+		border-radius:5px;
+		padding:4px 5px 3px 5px;
+		vertical-align:middle !important;
+		display:block;
+	}
+	.labelLayout img {
+		margin:0 auto;
+		width:100%;
+		height:auto;
+		align-items:center;
+	}
 	.qrcode img {
 		position:relative;
 		width:100%;
@@ -7016,7 +7119,6 @@ a.ui-button:active,
         top: -10px;
         font-size: 37px;
         color: #13294b;
-        margin: 0 auto;
         letter-spacing: 0;
         font-family: "ITC Franklin Gothic LT Demi Compressed"
     }
@@ -7031,6 +7133,36 @@ a.ui-button:active,
 	/* **************************************
 		MY TESTING CONTENTS -STYLES
 	************************************** */
+	/* **********************************
+		MY TESTING CONTENTS STYLES
+	********************************** */
+	.exemptStatus {
+		padding:8px 10px 5px 14px;
+		background: #4b9cd3;
+		width:100%;
+		display:block;
+		vertical-align:middle !important;
+	}
+	.voluntaryStatus {
+		padding:8px 10px 5px 14px;
+		background: #ffea00;
+		width:100%;
+		display:block;
+		vertical-align:middle !important;
+	}
+	.compliantStatus {
+		padding:8px 10px 5px 14px;
+		background: #C4D600;
+		width:100%;
+		display:block;
+	}
+	.nonCompliantStatus {
+		padding:8px 10px 5px 14px;
+		background: #EF426F;
+		width:100%;
+		display:block;
+	}
+	/* ********************************** */
 	/* **************************************
 		GREEN TESTING -STYLES
 	************************************** */
