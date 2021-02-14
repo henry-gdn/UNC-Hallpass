@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>UNC Hall Pass - Admin - Member View - Member Details </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="autdor" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="shortcut icon" type="image/png" href="images/apple-touch-icon.png" />
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/unc_volunteer.css">
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script>
+                $.ajax({
+                url: '/secure/api/check_if_staff_or_volunteer',
+                type: 'GET',
+                headers: {
+                    "Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+                },
+                success: function(data){
+                    console.log(data);
+                    if ((data.is_staff =='True') || (data.is_volunteer == 'True')){
+
+                    }
+                    else{
+                       window.location.href = "/home";
+                    }
+                },
+                error: function(data){
+                    window.location.href = "/secure/search_member";
+                }
+        });
+    </script>
+
+</head>
+<body>
+    <a aria-label="skip to main content" class="skip-link btn sr-only sr-only-focusable" role="button" href='#mainContent'>Skip to main content</a>
+    <!-- HEADER START -->
+    <header id="topnav" class="defaultscroll sticky bg-header">
+        <div>
+            <a class="logo" href="https://hallpass.unc.edu/">
+                <div class="custom-logo-link">
+                    <img src="images/header_logo.png" class="logoImg" alt="Link to Hall Pass Portal" />
+                </div>
+            </a>
+        </div>
+        <div class="menu-extras">
+            <div class="menu-item">
+                <a tabindex="0" aria-label="Main Navigation" href="javascript:void(0);" class="navbar-toggle">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--div aria-label="Main Navigation" id="navigation">
+            <ul class="navigation-menu" role="menu">
+				<li data-val="menu"><a href="#">MEMBER DETAILS</a></li>
+				<li class="has-submenu" data-val="menu1">
+					<a role="menuitem" class="menuTitle" href="javascript:void(0);" aria-controls="reportSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#reportSubmenu">REPORT<i class="feather icon-plus menuIcon"></i></a>
+					<ul class="collapse collapseMenu" id="reportSubmenu" aria-labelledby="reportSubmenu" data-parent="#navigation">
+						<li><a href="#">MEMBER VIEW<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
+						<li><a href="#">LOCATION VIEW <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    
+					</ul>
+				</li>
+				<li data-val="menu2"><a href="#">SLOT BOOKING</a></li>
+            </ul>
+        </div-->
+		<div class="headTab-blue">
+			<table class="table table-sm">
+				<tr>
+					<td>
+						TEST SUBMITTED 
+					</td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+    </header>
+    <!-- HEADER END -->
+	<!-- UNC CONTENT - START -->
+    <section class="mobile-view-home p-2 mb-5">
+        <div class="container">
+			<div class="row pt-2">
+				<div class="breadcrumb-wrapper col-12">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="search_member">Admin</a></li>
+						<li class="breadcrumb-item"><a href="member_details">Member Details</a></li>
+						<li class="breadcrumb-item">Test Submitted</li>
+					</ol>
+				</div>
+			</div>
+			<div id="dvContents" style="display:none">
+				 <span id="dob_print"></span><br/>
+				 <span id="pid_print"></span>
+			</div>
+            <div class="pt-2">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<div class="mt-2 mb-1">
+							<h1 class="head-h1">Test Submitted</h1>
+						</div>
+						<div class="mt-3 mb-0">
+							<p id="dob">03/07/1981</p>
+							<p id="pid">000000000</p>
+							<p class="fs-18 pt-2" id="barcode">CTTP-123-4567</p>
+						</div>
+						<div class="mt-3 mb-2">
+							<button type="button" aria-label="proceed to re print label" class="btn btn-sm btn-block btn-proceed align-items-center">
+							RE-PRINT LABEL
+							<i class="feather icon-chevron-right"></i>
+							</button>
+						</div>
+						<div class="row">
+							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+								<div class="login-btn pt-3">
+									<button aria-label="proceed to search new member" class="btn btn-sm btn-block btn-search btn-print">
+										SEARCH NEW MEMBER
+										<i class="feather icon-chevron-right"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </section>
+	<!-- UNC CONTENT - END -->
+    <!-- javascript -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrollspy.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/flow.js"></script>	
+	<script src="js/volunteer.js"></script>	
+</body>
+</html>

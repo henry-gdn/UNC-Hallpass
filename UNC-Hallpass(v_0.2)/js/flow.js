@@ -1010,13 +1010,20 @@ function load_reservation() {
 			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
 		},
 		success: function(data) {
-		    console.log(data);
-		    confirmSlot = data[0]['confirm-slot'].split('#');
-                    $('.locationName').text(confirmSlot[0]);
-                    $('.bookdate').text(confirmSlot[1]);
-                    $('.slot-time').text(confirmSlot[2]);
-                    $('.qrcode').html("<img alt='qr code success image appearing here' src='/secure/qrimages/" + confirmSlot[3] + ".png'/>");
-			sid = confirmSlot[4];
+			if (data[0].success == 'False'){
+				$('#noreservations').show();
+				$('#reservation-data').hide();
+			}
+			else{
+				$('#noreservations').hide();
+				$('#reservation-data').show();
+				confirmSlot = data[0]['confirm-slot'].split('#');
+				$('.locationName').text(confirmSlot[0]);
+				$('.bookdate').text(confirmSlot[1]);
+				$('.slot-time').text(confirmSlot[2]);
+                //$('.qrcode').html("<img alt='qr code success image appearing here' src='/secure/qrimages/" + confirmSlot[3] + ".png'/>");
+				sid = confirmSlot[4];
+			}
 		}
 	});
 }
@@ -1053,6 +1060,8 @@ function load_my_testing(){
 				//if (curStatus=='COMPLIANT')
 		    	   // $(".validUntil").text('Valid through: N/A');
 			}
+		//alert(data[0].barcode_img_url);
+ 			$('#barcode').attr('src',data[0].barcode_img_url);
 
 		    if (curStatus=='EXEMPT' || curStatus=='VOLUNTARY'){
 				$('.get-test-title').parent().hide();
@@ -1067,30 +1076,35 @@ function load_my_testing(){
 				}
  		    }
 		if (curStatus.toUpperCase() == 'COMPLIANT') {
-			$("#hallpass-hcolor").removeClass();
-			$("#hallpass-hcolor").addClass('headTab-green hidden-lg-up hidden-md-up');
+			//$("#hallpass-hcolor").removeClass();
+			//$("#hallpass-hcolor").addClass('headTab-green hidden-lg-up hidden-md-up');
 			$("#hallpass-bcolor").removeClass();
-			$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentGreen');
+			//$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentGreen');
+			$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start compliantStatus');
 		}
 			else if(curStatus.toUpperCase() == 'NON-COMPLIANT'){
-					$("#hallpass-hcolor").removeClass();
-					$("#hallpass-hcolor").addClass('headTab-pink hidden-lg-up hidden-md-up');
+					//$("#hallpass-hcolor").removeClass();
+					//$("#hallpass-hcolor").addClass('headTab-pink hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
- 				    $("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentPink');
+ 				    //$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentPink');
+				$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start nonCompliantStatus');
 			}else if(curStatus.toUpperCase() == 'EXEMPT'){
-					$("#hallpass-hcolor").removeClass();
-					$("#hallpass-hcolor").addClass('headTab-Blue hidden-lg-up hidden-md-up');
+					//$("#hallpass-hcolor").removeClass();
+					//$("#hallpass-hcolor").addClass('headTab-Blue hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
-					$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentBlue');
+					//$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentBlue');
+				$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start exemptStatus');
 			}else if(curStatus.toUpperCase() == 'VOLUNTARY'){
-					$("#hallpass-hcolor").removeClass();
-					$("#hallpass-hcolor").addClass('headTab-yellow hidden-lg-up hidden-md-up');
+					//$("#hallpass-hcolor").removeClass();
+					//$("#hallpass-hcolor").addClass('headTab-yellow hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
-					$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentYellow');
+					//$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentYellow');
+				$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start voluntaryStatus');
 			}
 			//$(".myTestQrImg").attr("src",data.qrImage);
         }
     );
+	load_reservation();
 }
 
 
