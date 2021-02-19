@@ -42,7 +42,7 @@
 				<li data-val="menu"><a href="home">HOME</a></li>
 				<li class="has-submenu" data-val="menu1">
 					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu" id="myTestingSubmenu" data-parent="#navigation">
 						<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -51,13 +51,14 @@
 				</li>
                 <li class="has-submenu" data-val="menu2">
 					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" data-parent="#navigation">
 						<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    	
 					</ul>
 				</li>
 				<li data-val="menu3"><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
+				<li><a href="authorization">AUTHORIZATION</a></li>
 				<li><a href="https://hallpass.unc.edu/results">RESULTS</a></li>
 				<li><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">LOGOUT</a></li>
 				<li><a href="index" style="display:none">LOGIN</a></li>
@@ -90,6 +91,7 @@
 				<div class="mt-2 mb-3">
 					<h1 class="head-h2">Mobile Number</h1>
                 </div>
+				<div tabindex="0" class="sr-only sr-only-focusable" aria-label="There is only one field in the form and it is mandatory. The field is a 5 digit code"></div>
 				<p>Please enter the 5-digit code sent to the mobile number you previously entered.</p>
 				<form>
 					<div class="mb-4 mt-4">
@@ -98,8 +100,8 @@
 								<div class="form-group">
 									<label id="enter the 5-digit code" for="5_digit_code">ENTER THE 5-DIGIT CODE</label>
 									<input aria-label="enter the 5-digit code" name="5_digit_code" id="5_digit_code" type="number" class="form-control mt-2" value="" placeholder="">
-									<span aria-live="assertive" aria-label="Incorrect code. Try again or send another text" class="hideErr" id="otpErrMsg"><i class="feather icon-alert-circle"></i>&nbsp;Incorrect code. Try again or send another text.</span>
-									<p aria-live="assertive" aria-label="New code sent successfully" class="mt-1 hideErr" id="newcodemsg"><strong><i class="feather icon-check fs-20"></i>&nbsp;New code sent successfully.</strong></p>
+									<span tabindex="0" autofocus="true" aria-live="assertive" aria-label="Incorrect code. Try again or send another text" class="hideErr" id="otpErrMsg"><i class="feather icon-alert-circle"></i>&nbsp;Incorrect code. Try again or send another text.</span>
+									<p tabindex="0" autofocus="true" aria-live="assertive" aria-label="New code sent successfully" class="mt-1 hideErr" id="newcodemsg"><strong><i class="feather icon-check fs-20"></i>&nbsp;New code sent successfully.</strong></p>
 								</div>
 							</div>
 						</div>

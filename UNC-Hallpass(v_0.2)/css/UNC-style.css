@@ -1739,6 +1739,10 @@ a {
     opacity: 1 !important
 }
 
+.ft-rt {
+	position:relative;
+	float:right;
+}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -2109,7 +2113,9 @@ section {
 	height:50vh;
 }
 
-
+/* *:focus {
+    outline: none !important;
+} */
 
 .logo {
     font-weight: 700;
@@ -2462,7 +2468,8 @@ section {
 		text-decoration: underline solid #13294b 2px !important;
 	}
 	
-	#topnav .navigation-menu .collapseMenu li:hover {
+	#topnav .navigation-menu .collapseMenu>li>a:focus,
+	#topnav .navigation-menu .collapseMenu>li>a:hover {
 		position:relative;
 		display:block;
         white-space: nowrap;
@@ -2530,7 +2537,8 @@ section {
 		text-decoration: underline solid #13294b 2px !important;
 	}
 	
-	#topnav .navigation-menu .collapseMenu_2 li:hover {
+	#topnav .navigation-menu .collapseMenu_2>li>a:focus,
+	#topnav .navigation-menu .collapseMenu_2>li>a:hover {
 		position:relative;
 		display:block;
         white-space: nowrap;
@@ -4134,11 +4142,24 @@ button {
 .accordion-content .card .faq .card-header {
     padding-right: 40px !important;
     background: 0 0 !important;
-    border: 0
+    border: 0 !important;
 }
 
 .accordion-content .card .faq .card-header.card-header-2 {
     border-bottom: 0
+}
+
+.accordion-content .card>a.faq:focus,
+.accordion-content .card>a.faq:hover {
+    border-radius: 17px !important;
+    color: #13294b;
+    background-color: #fff !important;
+    font-weight: 700;
+    border: 2px solid #c4d600 !important;
+    -webkit-transition: all 0s ease;
+    transition: all 0s ease;
+    -webkit-box-shadow: none !important;
+	outline:0 !important;
 }
 
 .accordion-content .card a.faq[data-toggle=collapse] {
@@ -4204,6 +4225,7 @@ button {
     font-weight: 700;
     padding: 5px 5px 5px 0
 }
+
 
 .class-search-btn button {
     position: relative;
@@ -7546,7 +7568,8 @@ a.ui-button:active,
 		text-decoration: underline !important;
 	}
 	
-	#topnav .navigation-menu .collapseMenu li:hover {
+	#topnav .navigation-menu .collapseMenu>li>a:focus,
+	#topnav .navigation-menu .collapseMenu>li>a:hover {
 		position:relative;
 		display:block;
         white-space: nowrap;
@@ -7576,7 +7599,8 @@ a.ui-button:active,
 		text-decoration: underline !important;
 	}
 	
-	#topnav .navigation-menu .collapseMenu_2 li:hover {
+	#topnav .navigation-menu .collapseMenu_2>li>a:focus,
+	#topnav .navigation-menu .collapseMenu_2>li>a:hover {
 		position:relative;
 		display:block;
         white-space: nowrap;

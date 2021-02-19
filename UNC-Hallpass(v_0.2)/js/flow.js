@@ -11,12 +11,12 @@ Date.prototype.addHours= function(h){
 }
 
 function markInvalid(f){
-	f.removeClass('hideErr');
+	f.removeClass('hideErr').focus();
 	f.addClass('msgErr');
 }
 
 function markValid(f){
-	f.removeClass('msgErr');
+	f.removeClass('msgErr').focus();
 	f.addClass('hideErr');
 }
 
@@ -296,7 +296,7 @@ function sendnewotp(){
 			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
 		},
 		success: function(data) {
-			$('#newcodemsg').removeClass('hideErr');
+			$('#newcodemsg').removeClass('hideErr').focus();
 			$('.sendOtp').html('Send another text');
 			//$('#newcodemsg').addClass('msgErr');
 		}
@@ -1010,13 +1010,20 @@ function load_reservation() {
 			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
 		},
 		success: function(data) {
-		    console.log(data);
-		    confirmSlot = data[0]['confirm-slot'].split('#');
-                    $('.locationName').text(confirmSlot[0]);
-                    $('.bookdate').text(confirmSlot[1]);
-                    $('.slot-time').text(confirmSlot[2]);
-                    $('.qrcode').html("<img alt='qr code success image appearing here' src='/secure/qrimages/" + confirmSlot[3] + ".png'/>");
-			sid = confirmSlot[4];
+			if (data[0].success == 'False'){
+				$('#noreservations').show();
+				$('#reservation-data').hide();
+			}
+			else{
+				$('#noreservations').hide();
+				$('#reservation-data').show();
+				confirmSlot = data[0]['confirm-slot'].split('#');
+				$('.locationName').text(confirmSlot[0]);
+				$('.bookdate').text(confirmSlot[1]);
+				$('.slot-time').text(confirmSlot[2]);
+                //$('.qrcode').html("<img alt='qr code success image appearing here' src='/secure/qrimages/" + confirmSlot[3] + ".png'/>");
+				sid = confirmSlot[4];
+			}
 		}
 	});
 }
@@ -1053,6 +1060,8 @@ function load_my_testing(){
 				//if (curStatus=='COMPLIANT')
 		    	   // $(".validUntil").text('Valid through: N/A');
 			}
+		//alert(data[0].barcode_img_url);
+ 			$('#barcode').attr('src',data[0].barcode_img_url);
 
 		    if (curStatus=='EXEMPT' || curStatus=='VOLUNTARY'){
 				$('.get-test-title').parent().hide();
@@ -1067,30 +1076,35 @@ function load_my_testing(){
 				}
  		    }
 		if (curStatus.toUpperCase() == 'COMPLIANT') {
-			$("#hallpass-hcolor").removeClass();
-			$("#hallpass-hcolor").addClass('headTab-green hidden-lg-up hidden-md-up');
+			//$("#hallpass-hcolor").removeClass();
+			//$("#hallpass-hcolor").addClass('headTab-green hidden-lg-up hidden-md-up');
 			$("#hallpass-bcolor").removeClass();
-			$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentGreen');
+			//$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentGreen');
+			$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start compliantStatus');
 		}
 			else if(curStatus.toUpperCase() == 'NON-COMPLIANT'){
-					$("#hallpass-hcolor").removeClass();
-					$("#hallpass-hcolor").addClass('headTab-pink hidden-lg-up hidden-md-up');
+					//$("#hallpass-hcolor").removeClass();
+					//$("#hallpass-hcolor").addClass('headTab-pink hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
- 				    $("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentPink');
+ 				    //$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentPink');
+				$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start nonCompliantStatus');
 			}else if(curStatus.toUpperCase() == 'EXEMPT'){
-					$("#hallpass-hcolor").removeClass();
-					$("#hallpass-hcolor").addClass('headTab-Blue hidden-lg-up hidden-md-up');
+					//$("#hallpass-hcolor").removeClass();
+					//$("#hallpass-hcolor").addClass('headTab-Blue hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
-					$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentBlue');
+					//$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentBlue');
+				$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start exemptStatus');
 			}else if(curStatus.toUpperCase() == 'VOLUNTARY'){
-					$("#hallpass-hcolor").removeClass();
-					$("#hallpass-hcolor").addClass('headTab-yellow hidden-lg-up hidden-md-up');
+					//$("#hallpass-hcolor").removeClass();
+					//$("#hallpass-hcolor").addClass('headTab-yellow hidden-lg-up hidden-md-up');
 					$("#hallpass-bcolor").removeClass();
-					$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentYellow');
+					//$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start testContentYellow');
+				$("#hallpass-bcolor").addClass('d-flex align-items-center align-self-center flex-row justify-content-start voluntaryStatus');
 			}
 			//$(".myTestQrImg").attr("src",data.qrImage);
         }
     );
+	load_reservation();
 }
 
 
@@ -1722,7 +1736,7 @@ function upload_test_barcode(barCodeValue, siteId){
 			}
 			else{
                 console.log(data[0].message);
-				$('#barCodeErrMsg').removeClass('hideErr');
+				$('#barCodeErrMsg').removeClass('hideErr').focus();
 				$('#barCodeErrMsg').addClass('msgErr');
 				
 				if (data[0].message != ""){
@@ -2130,4 +2144,26 @@ function process_barcode(){
 	else
 		markValid($('#testSiteErr'));
 	$('#file').click();
+}
+
+
+function submit_authorization(){
+	if (!$('#authChk').is(":checked")){
+		markInvalid($('#agreeChkErr'));
+		return false;
+	}
+	/* $.ajax({
+		url: '/secure/api/create_member',
+		type: 'POST',
+		contentType: 'application/json',
+		headers: {
+			"Access-Control-Allow-Origin": "https://hallpass-dev.unc.edu"
+		},
+        data: JSON.stringify({}),
+		success: function(data){
+	   	 	console.log(data);
+	    	window.location.href="home";
+		}	
+    }); */
+	window.location.href="home";
 }

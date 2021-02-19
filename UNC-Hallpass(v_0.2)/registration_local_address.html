@@ -42,7 +42,7 @@
 				<li data-val="menu"><a href="home">HOME</a></li>
 				<li class="has-submenu" data-val="menu1">
 					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu" id="myTestingSubmenu" data-parent="#navigation">
 						<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -51,13 +51,14 @@
 				</li>
                 <li class="has-submenu" data-val="menu2">
 					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" data-parent="#navigation">
 						<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    	
 					</ul>
 				</li>
 				<li data-val="menu3"><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
+				<li><a href="authorization">AUTHORIZATION</a></li>
 				<li><a href="https://hallpass.unc.edu/results">RESULTS</a></li>
 				<li><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">LOGOUT</a></li>
 				<li><a href="index" style="display:none">LOGIN</a></li>
@@ -93,6 +94,7 @@
 				<div class="mt-2 mb-0">
 					<h1 class="head-h2">Local Address</h1>
                 </div>
+				<div tabindex="0" class="sr-only sr-only-focusable" aria-label="There are totally 6 fields in the form and of which the five mandatory fields are STREET 1 CITY COUNTY ZIPCODE and STATE"></div>
 				<div class="mt-4 mb-0">
 					<h2 class="head-h3">PLEASE ENTER YOUR LOCAL ADDRESS</h2>
                 </div>
@@ -106,7 +108,7 @@
 						<div class="form-group mb-0">
 							<label id="street_1_label" for="street_1">STREET 1 * </label>
 							<input aria-label="street_1_label" name="street_1" id="street_1" type="text" class="form-control" value="" placeholder="Street 1">
-							<span aria-live="assertive" aria-label="Please enter street 1" class="hideErr sr-only-focusable" id="street1_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter street 1.</span>
+							<span tabindex="0" autofocus="true" aria-live="assertive" aria-label="Please enter street 1" class="hideErr sr-only-focusable" id="street1_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter street 1.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -119,7 +121,7 @@
 						<div class="form-group mb-0 pt-1">
 							<label id="city_label" for="city">CITY *</label>
 							<input aria-label="city_label" name="city" id="city" class="form-control" value="" placeholder="City">
-							<span aria-live="assertive" aria-label="Please enter city" class="hideErr sr-only-focusable" id="city_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter city.</span>
+							<span tabindex="0" autofocus="true" aria-live="assertive" aria-label="Please enter city" class="hideErr sr-only-focusable" id="city_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter city.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -230,7 +232,7 @@
 									<option>Yadkin</option>
 									<option>Yancey</option>
 								</select>
-								<span aria-live="assertive" aria-label="Please enter county" class="hideErr sr-only-focusable" id="county_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please select county.</span>
+								<span tabindex="0" autofocus="true" aria-live="assertive" aria-label="Please enter county" class="hideErr sr-only-focusable" id="county_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please select county.</span>
 							</div>
 						</div>
 					</div>
@@ -238,8 +240,7 @@
 						<div class="form-group mb-0 pt-1">
 							<label id="zipcode_label" for="zipcode">ZIPCODE *</label>
 							<input aria-label="zipcode_label" name="zipcode" id="zipcode" class="form-control" value="" placeholder="Zipcode">
-							<span aria-live="assertive" class="hideErr sr-only-focusable" aria-label="Please enter valid zipcode" id="zipcode_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter valid zipcode.</span>
-							<span aria-live="assertive" class="hideErr sr-only-focusable" aria-label="Please enter valid zipcode" id="zipcode_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter valid zipcode.</span>
+							<span tabindex="0" autofocus="true" aria-live="assertive" class="hideErr sr-only-focusable" aria-label="Please enter valid zipcode" id="zipcode_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter valid zipcode.</span>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -298,7 +299,7 @@
 								<option value="WI">Wisconsin</option>
 								<option value="WY">Wyoming</option>
 								</select>
-								<span aria-live="assertive" class="hideErr sr-only-focusable" aria-label="Please enter state" id="state_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please select state.</span>
+								<span tabindex="0" autofocus="true" aria-live="assertive" class="hideErr sr-only-focusable" aria-label="Please enter state" id="state_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please select state.</span>
 							</div>
 						</div>
 					</div>

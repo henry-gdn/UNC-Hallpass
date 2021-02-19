@@ -47,7 +47,7 @@
 				<li data-val="menu"><a href="home">HOME</a></li>
 				<li class="has-submenu" data-val="menu1">
 					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu" id="myTestingSubmenu" data-parent="#navigation">
 						<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -56,13 +56,14 @@
 				</li>
                 <li class="has-submenu" data-val="menu2">
 					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" data-parent="#navigation">
 						<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    	
 					</ul>
 				</li>
 				<li data-val="menu3"><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
+				<li><a href="authorization">AUTHORIZATION</a></li>
 				<li><a href="https://hallpass.unc.edu/results">RESULTS</a></li>
 				<li><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">LOGOUT</a></li>
 				<li><a href="index" style="display:none">LOGIN</a></li>
@@ -97,6 +98,7 @@
 				<div class="mt-2 mb-0">
 					<h1 class="head-h2">Demographics</h1>
                 </div>
+				<div tabindex="0" class="sr-only sr-only-focusable" aria-label="There are 3 mandatory fields in the form and they are GENDER ETHNICITY and RACE"></div>
 				<div class="mt-4 mb-0">
 					<h2 class="head-h3">PLEASE ENTER DEMOGRAPHICS DETAILS</h2>
                 </div>
@@ -111,7 +113,7 @@
 										<option>Female</option>
 										<option>Other</option>
 									</select>
-									<span aria-live="assertive" aria-label="Please select your gender" class="hideErr" id="genderErr"><i class="feather icon-alert-circle"></i>&nbsp;Please select your gender.</span>						
+									<span tabindex="0" autofocus="true" aria-live="assertive" aria-label="Please select your gender" class="hideErr" id="genderErr"><i class="feather icon-alert-circle"></i>&nbsp;Please select your gender.</span>						
 								</div>
 							</div>
 						</div>
@@ -123,7 +125,7 @@
 										<option>Hispanic or Latino</option>
 										<option>Not Hispanic or Latino</option>
 									</select>
-									<span aria-live="assertive" aria-label="Please select your ethnicity" class="hideErr" id="ethnicityErr"><i class="feather icon-alert-circle"></i>&nbsp;Please select your ethnicity.</span>
+									<span tabindex="0" autofocus="true" aria-live="assertive" aria-label="Please select your ethnicity" class="hideErr" id="ethnicityErr"><i class="feather icon-alert-circle"></i>&nbsp;Please select your ethnicity.</span>
 								</div>
 							</div>
 						</div>
@@ -139,7 +141,7 @@
 									<option value="White">White</option>
 									<option value="Other Race">Other Race</option>
 								</select>
-								<span aria-live="assertive" aria-label="Please select your race" class="hideErr" id="raceErr"><i class="feather icon-alert-circle"></i>&nbsp;Please select your race.</span>
+								<span tabindex="0" autofocus="true" aria-live="assertive" aria-label="Please select your race" class="hideErr" id="raceErr"><i class="feather icon-alert-circle"></i>&nbsp;Please select your race.</span>
 							</div>
 						</div>	
 						

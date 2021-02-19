@@ -42,7 +42,7 @@
 				<li data-val="menu"><a href="home">HOME</a></li>
 				<li class="has-submenu" data-val="menu1">
 					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu show" id="myTestingSubmenu" data-parent="#navigation">
 						<li class="active"><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -51,13 +51,14 @@
 				</li>
                 <li class="has-submenu" data-val="menu2">
 					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" data-parent="#navigation">
 						<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    	
 					</ul>
 				</li>
 				<li data-val="menu3"><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
+				<li><a href="authorization">AUTHORIZATION</a></li>
 				<li><a href="https://hallpass.unc.edu/results">RESULTS</a></li>
 				<li><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">LOGOUT</a></li>
 				<li><a href="index" style="display:none">LOGIN</a></li>
@@ -92,29 +93,31 @@
 				</div>
 			</div>	
 		</div>	
-		<div class="d-flex justify-content-start align-items-center exemptStatus">
+		<div id="hallpass-bcolor" class="d-flex justify-content-start align-items-center exemptStatus">
 			<div class="container">
-				<h2>STATUS : <span id="testing-status">EXEMPT</span></h2>
+				<h2>STATUS : <span id="member_status">EXEMPT</span></h2>
 			</div>
 		</div>
 		<div class="head-wrapper pt-2">
 			<div class="container">	
-				<h3 class="fs-18">Steven King</h3>
+				<h3 class="fs-18" id="member_name">Steven King</h3>
 				<div class="labelLayout mt-2 mb-1">
-					<img src="images/label.png" alt=""></img>
+					<img id="barcode" src="images/label.png" alt="Barcode" style='width:250px; height:100px'></img>
 				</div>
 				<p><strong>Once you are at a testing site, please show the attendant the barcode below, to generate a label for your test.</strong></p>
 				<div class="border-hr mt-3"></div>
 				<div class="mt-2 mb-1 testNew">
 					<h4 class="fs-20">My Reservations</h4>
-					<p class="pt-1">You currently have no reservations.</p>
-					<p>Reservation date: <span>1/31/20 @ 2pm</span></p>
-					<p>Location: <span>Student Union</span></p>
+					<p class="pt-1" id="noreservations">You currently have no reservations.</p>
+					<div id="reservation-data">
+					<p>Reservation date: <span class="bookdate">1/31/20 @ 2pm</span>&nbsp;<span class="slot-time"></span></p>
+					<p>Location: <span class="locationName">Student Union</span></p>
 					<div class="mt-3 mb-2">	
-						<button type="button" aria-label="proceed to cancel reservation" class="btn btn-sm btn-block btn-cancel align-items-center">
+						<button type="button" aria-label="proceed to cancel reservation" class="btn btn-sm btn-block btn-cancel align-items-center" onclick="cancel_reservation()">
 						CANCEL RESERVATION
 						<i class="feather icon-chevron-right"></i>
 						</button>
+					</div>
 					</div>
 				</div>
 				<div class="border-hr"></div>

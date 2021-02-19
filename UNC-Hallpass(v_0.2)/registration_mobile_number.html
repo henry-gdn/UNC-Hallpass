@@ -42,7 +42,7 @@
 				<li data-val="menu"><a href="home">HOME</a></li>
 				<li class="has-submenu" data-val="menu1">
 					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu" id="myTestingSubmenu" data-parent="#navigation">
 						<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -51,13 +51,14 @@
 				</li>
                 <li class="has-submenu" data-val="menu2">
 					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" data-parent="#navigation">
 						<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    	
 					</ul>
 				</li>
 				<li data-val="menu3"><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
+				<li><a href="authorization">AUTHORIZATION</a></li>
 				<li><a href="https://hallpass.unc.edu/results">RESULTS</a></li>
 				<li><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">LOGOUT</a></li>
 				<li><a href="index" style="display:none">LOGIN</a></li>
@@ -90,16 +91,18 @@
 				<div class="mt-2 mb-0">
 					<h1 class="head-h2">Mobile Number</h1>
                 </div>
+				<div tabindex="0" class="sr-only sr-only-focusable" aria-label="There are 2 mandatory fields in the form and they are Email Address and 10 Digit Phone Number "></div>
                 <div class="mb-1 mt-3">
 					<p>Please enter the email address and mobile number that you use regularly.  This information is used to update you on results and to contact you if needed.</p>
                 </div>
+				<span aria-describedby="There are 2 mandatory fields in the form and they are Email Address and 10 Digit Phone Number"></span>
 				<form>
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
 							<div class="form-group">
 								<label id="preferred_email_address_label" for="preferred_email_address">PLEASE ENTER YOUR PREFERRED EMAIL ADDRESS</label>
-								<input aria-label="preferred_email_address_label" name="preferred_email_address" id="preferred_email_address" type="text" class="form-control mt-2" value="" placeholder="">
-								<span aria-live="assertive" aria-label="Please enter valid email address" class="hideErr" id="emailMissing"><i class="feather icon-alert-circle"></i>&nbsp;Please enter valid email address</span>
+								<input aria-label="preferred_email_address_label" name="preferred_email_address" id="preferred_email_address" type="text" class="form-control mt-2" value="" placeholder=""/>
+								<span tabindex="0" autofocus="true" aria-live="assertive" aria-label="Please enter valid email address" class="hideErr" id="emailMissing"><i class="feather icon-alert-circle"></i>&nbsp;Please enter valid email address</span>
 							</div>
 						</div>
 					</div>
@@ -108,8 +111,8 @@
 							<div class="form-group">
 								<label id="phone_number_label" for="phone_number">ENTER 10-DIGIT PHONE NUMBER</label>
 								<input aria-label="phone_number_label" name="phone_number" id="phone_number" type="text" class="form-control mt-2" value="" placeholder="">
-								<span aria-live="assertive" aria-label="Please enter 10 digits without dashes" class="hideErr" id="errMsg_1"><i class="feather icon-alert-circle"></i>&nbsp;Please enter 10 digits without dashes</span>
-								<span aria-live="assertive" aria-label="Please enter 10 digits without dashes" class="hideErr" id="errMsg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter 10 digits without dashes</span>
+								<span tabindex="0" autofocus="true" aria-live="assertive" aria-label="Please enter 10 digits without dashes" class="hideErr" id="errMsg_1"><i class="feather icon-alert-circle"></i>&nbsp;Please enter 10 digits without dashes</span>
+								<span tabindex="0" autofocus="true" aria-live="assertive" aria-label="Please enter 10 digits without dashes" class="hideErr" id="errMsg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter 10 digits without dashes</span>
 							</div>
 						</div>
 					</div>
@@ -130,7 +133,7 @@
 						</div>
 						<div class="col col-lg-2 col-md-2 col-xs-6 col-sm-6">
 							<div class="p-0">
-								<button type="button" aria-label="Click to enter verification code" class="btn btn-block btn-log-1" onclick="save_mobile_email()">
+								<button type="button" aria-label="Proceed to enter verification code" class="btn btn-block btn-log-1" onclick="save_mobile_email_1()">
 								CONTINUE
 								<i class="feather icon-chevron-right"></i>
 								</button>

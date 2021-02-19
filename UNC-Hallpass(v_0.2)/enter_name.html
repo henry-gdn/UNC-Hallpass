@@ -42,7 +42,7 @@
 				<li data-val="menu"><a href="home">HOME</a></li>
 				<li class="has-submenu" data-val="menu1">
 					<a class="menuTitle" href="javascript:void(0);" aria-controls="myTestingSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myTestingSubmenu">MY TESTING <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu" id="myTestingSubmenu" aria-labelledby="myTestingSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu" id="myTestingSubmenu" data-parent="#navigation">
 						<li><a href="my_testing">MY TESTING<i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="testing_how_to">TESTING HOW TO <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="find_test_site">MAKE A RESERVATION <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>     
@@ -51,13 +51,14 @@
 				</li>
                 <li class="has-submenu" data-val="menu2">
 					<a href="javascript:void(0);" aria-controls="myScheduleSubmenu" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#myScheduleSubmenu">MY SCHEDULE <i class="feather icon-plus menuIcon"></i></a>
-					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" aria-labelledby="myScheduleSubmenu" data-parent="#navigation">
+					<ul class="collapse collapseMenu_2" id="myScheduleSubmenu" data-parent="#navigation">
 						<li><a href="my_schedule">MY CLASS SCHEDULE <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>
 						<li><a href="class_search">CLASS SEARCH <i class="hidden-lg-up feather icon-chevron-right arrow-menu"></i></a></li>    	
 					</ul>
 				</li>
 				<li data-val="menu3"><a href="https://www.unc.edu/about/accessibility/" >ACCESSIBILITY</a></li>
 				<li><a href="support">SUPPORT</a></li>
+				<li><a href="authorization">AUTHORIZATION</a></li>
 				<li><a href="https://hallpass.unc.edu/results">RESULTS</a></li>
 				<li><a href="/Shibboleth.sso/Logout?return=https://sso-dev.isis.unc.edu/idp/profile/Logout">LOGOUT</a></li>
 				<li><a href="index" style="display:none">LOGIN</a></li>
@@ -91,6 +92,7 @@
 				<div class="mt-2 mb-0">
 					<h1 class="head-h2">Enter Name</h1>
                 </div>
+				<div tabindex="0" class="sr-only sr-only-focusable" aria-label="There are four fields in the form. The two mandatory fields are First Name and Last Name"></div>
 				<div class="mt-4 mb-0">
 					<h2 class="head-h3">PLEASE ENTER YOUR DETAILS BELOW</h2>
                 </div>
@@ -100,14 +102,14 @@
 							<div class="form-group mb-0">
 								<label id="first_name_label" for="first_name">FIRST NAME *</label>
 								<input aria-label="first_name_label" name="first_name" id="first_name" type="text" class="form-control" value="" placeholder="First name">
-								<span aria-live="assertive"  aria-label="Please enter first name" class="hideErr" id="first_name_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter first name</span>
+								<span tabindex="0" autofocus="true" aria-live="assertive"  aria-label="Please enter first name" class="hideErr" id="first_name_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter first name</span>
 							</div>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 							<div class="form-group mb-0">
 								<label id="last_name_label" for="last_name">LAST NAME *</label>
 								<input aria-label="last_name_label" name="last_name" id="last_name" type="text" class="form-control" value="" placeholder="Last name">
-								<span aria-live="assertive"  aria-label="Please enter last name" class="hideErr" id="last_name_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter last name</span>
+								<span tabindex="0" autofocus="true" aria-live="assertive"  aria-label="Please enter last name" class="hideErr" id="last_name_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter last name</span>
 							</div>
 						</div>	
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -120,7 +122,7 @@
 							<div class="form-group mb-0">
 								<label id="date_of_birth_label" for="date_of_birth">DATE OF BIRTH (MM/DD/YYYY)</label>
 								<input readonly aria-label="date_of_birth_label" name="date_of_birth" id="date_of_birth" type="text" class="form-control" value="" placeholder="Date of birth(MM/DD/YYYY)">
-								<span aria-live="assertive"  aria-label="Please enter a valid date of birth" class="hideErr" id="date_of_birth_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter a valid date of birth</span>
+								<span tabindex="0" autofocus="true" aria-live="assertive"  aria-label="Please enter a valid date of birth" class="hideErr" id="date_of_birth_err_msg"><i class="feather icon-alert-circle"></i>&nbsp;Please enter a valid date of birth</span>
 							</div>
 						</div>
 					</div>
